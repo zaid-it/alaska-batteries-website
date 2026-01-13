@@ -1,2 +1,2 @@
 # alaska-batteries-website
-Alaska Batteries Webiste Project
+Alaska Batteries Website Project
