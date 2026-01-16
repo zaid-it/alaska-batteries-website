@@ -1,0 +1,59 @@
+/* css/style.css */
+:root {
+    --alaska-red: #cc001b;
+    --alaska-dark: #111827;
+    --alaska-gray: #f3f4f6;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* The "Eye-Catchy" Red Glow */
+.red-glow {
+    box-shadow: 0 10px 30px -10px rgba(204, 0, 27, 0.5);
+}
+
+/* Bubble Styling for Graphite Page */
+.bubble {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+    cursor: default;
+}
+
+.bubble:hover {
+    transform: scale(1.1);
+}
+#header-placeholder {
+    min-height: 80px; /* Adjust based on your header height */
+}
+
+/* Ensure the mega menu panel doesn't get cut off */
+.group\/nav:hover .group-hover\/nav\:visible {
+    display: block !important;
+}
+/* css/style.css */
+.hero-glow {
+    box-shadow: 0 0 50px -10px rgba(204, 0, 27, 0.3);
+}
+
+/* Smooth transition for hover effects */
+a, button {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Ensure images don't overflow */
+img {
+    max-width: 100%;
+    height: auto;
+}
+.filter-btn.active {
+    background-color: #000 !important;
+    color: #fff !important;
+    border-color: #000 !important;
+}

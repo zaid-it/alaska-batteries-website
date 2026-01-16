@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dry Charge Series | Alaska Batteries</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-white">
+
+    <div id="header-placeholder"></div>
+
+    <main class="pt-20">
+    <section class="py-20 bg-white border-b border-gray-50">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-black uppercase mb-4">Dry Charge Series</h1>
+            <p class="text-[#cc001b] font-bold uppercase tracking-widest">Pakistan's only Graphite Enhanced Lead Acid Battery</p>
+        </div>
+    </section>
+
+    <section class="py-12 bg-gray-50 min-h-screen">
+        <div class="container mx-auto px-6">
+            
+            <div class="bg-white p-6 shadow-sm mb-12 flex flex-col md:flex-row gap-6 items-center border border-gray-100">
+                <div class="relative w-full md:w-1/3">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    <input type="text" id="batterySearch" placeholder="Search Model (e.g. NS40)..." 
+                           class="w-full pl-12 pr-4 py-3 bg-gray-50 border-none focus:ring-2 focus:ring-[#cc001b] outline-none font-bold uppercase text-sm">
+                </div>
+                
+                <div class="flex flex-wrap gap-3 justify-center">
+                    <button class="filter-btn active bg-black text-white px-6 py-2 text-xs font-black uppercase tracking-widest" data-cat="All">All</button>
+                    <button class="filter-btn bg-white border border-gray-200 px-6 py-2 text-xs font-black uppercase tracking-widest hover:border-[#cc001b]" data-cat="Automotive">Automotive</button>
+                    <button class="filter-btn bg-white border border-gray-200 px-6 py-2 text-xs font-black uppercase tracking-widest hover:border-[#cc001b]" data-cat="Solar">Solar</button>
+                    <button class="filter-btn bg-white border border-gray-200 px-6 py-2 text-xs font-black uppercase tracking-widest hover:border-[#cc001b]" data-cat="Industrial">Industrial</button>
+                </div>
+            </div>
+
+            <div id="product-stage" class="flex flex-col md:flex-row items-center gap-12 bg-white p-8 md:p-16 shadow-2xl transition-all duration-500 min-h-[500px]">
+                <div class="w-full md:w-1/2 flex justify-center">
+                    <img id="stage-image" src="" alt="Select a battery" class="max-h-[400px] object-contain transition-all duration-500">
+                </div>
+
+                <div class="w-full md:w-1/2 text-left">
+                    <h2 id="stage-name" class="text-5xl md:text-7xl font-black uppercase mb-2 tracking-tighter">Model</h2>
+                    <p id="stage-tech" class="text-[#cc001b] font-bold uppercase text-sm mb-8">Technology</p>
+                    
+                    <div class="grid grid-cols-2 gap-y-6 mb-10 border-t border-gray-100 pt-8">
+                        <div>
+                            <p class="text-[10px] text-gray-400 uppercase font-black tracking-widest">Plates</p>
+                            <p id="stage-plates" class="text-2xl font-black">--</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-gray-400 uppercase font-black tracking-widest">Power (Amps)</p>
+                            <p id="stage-ah" class="text-2xl font-black">--</p>
+                        </div>
+                        <div class="col-span-2">
+                            <p class="text-[10px] text-gray-400 uppercase font-black tracking-widest">Primary Uses</p>
+                            <p id="stage-uses" class="text-lg font-medium text-gray-600">--</p>
+                        </div>
+                    </div>
+
+                    <div id="stage-tags" class="flex flex-wrap gap-2">
+                        </div>
+                </div>
+            </div>
+
+            <div id="thumb-grid" class="mt-12 grid grid-cols-4 md:grid-cols-8 gap-4">
+                </div>
+        </div>
+    </section>
+</main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('batterySearch');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const thumbGrid = document.getElementById('thumb-grid');
+    
+    // 1. The Stage Elements
+    const stage = {
+        name: document.getElementById('stage-name'),
+        tech: document.getElementById('stage-tech'),
+        plates: document.getElementById('stage-plates'),
+        ah: document.getElementById('stage-ah'),
+        uses: document.getElementById('stage-uses'),
+        image: document.getElementById('stage-image'),
+        tags: document.getElementById('stage-tags')
+    };
+
+    // 2. Function to Update the Large Display (The Stage)
+    window.updateStage = (battery) => {
+        if (!battery) return;
+        stage.name.innerText = battery.model;
+        stage.tech.innerText = battery.tech;
+        stage.plates.innerText = battery.plates;
+        stage.ah.innerText = battery.ah + " AH";
+        stage.uses.innerText = battery.uses;
+        stage.image.src = battery.image;
+        
+        // Render Tags (Categories + Custom Tags)
+        const allTags = [...battery.categories, ...battery.tags];
+        stage.tags.innerHTML = allTags.map(tag => 
+            `<span class="bg-gray-100 text-gray-800 px-3 py-1 text-[10px] font-black uppercase tracking-widest">${tag}</span>`
+        ).join('');
+    };
+
+    // 3. Function to Render the Thumbnail List
+    function renderThumbnails(items) {
+        if (items.length === 0) {
+            thumbGrid.innerHTML = `<p class="col-span-full text-gray-400 italic py-10">No batteries found matching your criteria...</p>`;
+            return;
+        }
+
+        thumbGrid.innerHTML = items.map(b => `
+            <button onclick="updateStage(${JSON.stringify(b).replace(/"/g, '&quot;')})" 
+                    class="bg-white border border-gray-100 p-2 hover:border-[#cc001b] transition-all group">
+                <img src="${b.image}" class="w-full h-auto grayscale group-hover:grayscale-0 transition-all">
+                <p class="text-[10px] font-black mt-2 text-center uppercase">${b.model}</p>
+            </button>
+        `).join('');
+        
+        // Auto-show the first battery from the new list on the stage
+        updateStage(items[0]);
+    }
+
+    // 4. Search & Filter Logic
+    function applyFilters() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const activeCat = document.querySelector('.filter-btn.active').getAttribute('data-cat');
+
+        const filtered = batteryData.filter(battery => {
+            const matchesSearch = battery.model.toLowerCase().includes(searchTerm);
+            const matchesCat = (activeCat === 'All') || battery.categories.includes(activeCat);
+            return matchesSearch && matchesCat;
+        });
+
+        renderThumbnails(filtered);
+    }
+
+    // 5. Event Listeners
+    searchInput.addEventListener('input', applyFilters);
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // UI Toggle
+            filterBtns.forEach(b => b.classList.remove('active', 'bg-black', 'text-white'));
+            btn.classList.add('active', 'bg-black', 'text-white');
+            
+            applyFilters();
+        });
+    });
+
+    // Initialize Page
+    renderThumbnails(batteryData);
+});
+    </script>
+</body>
+</html>
