@@ -27,31 +27,30 @@ const headerHTML = `
                         <div class="w-1/4 pr-12 flex flex-col items-start"> <img src="assets/tech.png" alt="Graphite Logo" class="w-full h-auto max-w-[180px] mb-2">
                         </div>
 
-                        <div class="w-3/4 flex pt-1"> <div class="flex-1 px-2 flex flex-col space-y-4 text-[14px] font-bold text-gray-800">
+                        <div class="w-3/4 flex pt-1"> <div class="flex-1 px-2 flex flex-col space-y-4 text-[14px] font-bold text-gray-800 text-left justify-center">
                                 <a href="dry-charge.html" class="hover:text-[#cc001b]">Dry Charge</a>
                                 <a href="deep-cycle.html" class="hover:text-[#cc001b]">Deep Cycle</a>
                                 <a href="maintenance-free.html" class="hover:text-[#cc001b]">Maintenance Free</a>
                                 <a href="lfp.html" class="hover:text-[#cc001b]">Lithium-ion</a>
                             </div>
-                            <div class="flex-1 px-2 flex flex-col space-y-4 text-[14px] font-bold text-gray-800">
+                            <div class="flex-1 px-2 flex flex-col space-y-4 text-[14px] font-bold text-gray-800 text-center">
                                 <a href="graphite.html" class="hover:text-[#cc001b]">Graphite Tech</a>
-                                <a href="#" class="hover:text-[#cc001b]">Coming Soon</a>
                             </div>
-                            <div class="flex-1 px-2 flex flex-col space-y-4 text-[14px] font-bold text-gray-800">
+                            <div class="flex-1 px-4 flex flex-col space-y-4 text-[14px] font-bold text-gray-800 text-left justify-start">
                                 <a href="vault.html#blogs" class="hover:text-[#cc001b]">Blog</a>
                                 <a href="vault.html#faqs" class="hover:text-[#cc001b]">FAQ</a>
                                 <a href="vault.html#gallery" class="hover:text-[#cc001b]">Gallery</a>
                             </div>
-                            <div class="flex-1 px-2 flex flex-col space-y-4 text-[14px] font-bold text-gray-800">
+                            <div class="flex-1 px-2 flex flex-col space-y-4 text-[14px] font-bold text-gray-800 text-center">
                                 <a href="dealers.html" class="hover:text-[#cc001b] whitespace-nowrap">
                                     <i class="fa-solid fa-location-dot mr-1 text-[#cc001b]"></i> Find a Dealer
                                 </a>
                                 <a href="become-dealer.html" class="text-[#cc001b] underline underline-offset-4">Apply as Dealer</a>
                             </div>
-                            <div class="flex-1 px-4">
+                            <div class="flex-1 px-4 text-center">
                                 <p class="text-[14px] italic text-gray-400 leading-tight">Get to know about the mind behind Alaska Batteries</p>
                             </div>
-                            <div class="flex-1 px-4">
+                            <div class="flex-1 px-4 text-center">
                                 <p class="text-[14px] italic text-gray-400 leading-tight">Always there when you need a charge</p>
                             </div>
                         </div>
@@ -74,22 +73,27 @@ const footerHTML = `
 <footer class="bg-white border-t border-gray-100 pt-16 pb-8">
     <div class="container mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-            
-            <div class="flex justify-center md:justify-start">
-                <div class="max-w-[280px] text-left">
-                    <p class="text-gray-500 text-sm leading-relaxed mb-2">
+                   
+            <div class="flex justify-left items-center"> <div class="w-full max-w-[280px] text-left ">
+            <div class="max-w-md mx-auto text-gray-500 text-sm leading-relaxed">
+                    <p class="text-gray-500 text-sm leading-relaxed mb-4">
                         7th Floor, B-3 Tower, Opp. F-9 Park, Sector F-9/G-9 Jinnah Avenue, New Blue Area, Islamabad, Pakistan, 44010
                     </p>
-                    <p class="text-gray-500 text-sm leading-relaxed font-bold">
-                        (051) 8740 280
+                    <p class="mb-2">
+                        <a href="tel:0518740280" class="text-gray-900 text-sm font-bold hover:text-[#cc001b] transition-colors">
+                            (051) 8740 280
+                        </a>
                     </p>
-                    <p class="text-[#cc001b] text-sm leading-relaxed">
-                        info@alaskabatteries.com
+                    <p>
+                        <a href="mailto:info@alaskabatteries.com" class="text-[#cc001b] text-sm font-medium hover:underline">
+                            info@alaskabatteries.com
+                        </a>
                     </p>
                 </div>
             </div>
+            </div>
 
-            <div class="flex justify-center md:justify-start">
+            <div class="flex justify-center md:justify-center">
                 <div class="inline-block text-left">
                     <ul class="flex flex-col space-y-4 text-sm font-bold text-gray-600">
                         <li><a href="index.html" class="hover:text-[#cc001b] transition-colors">Home</a></li>
@@ -103,14 +107,14 @@ const footerHTML = `
                 </div>
             </div>
 
-            <div class="flex justify-center md:justify-start items-center">
-                <div class="grid grid-cols-3 gap-6 w-max">
-                    <a href="#" class="text-gray-400 hover:text-[#cc001b] text-2xl transition-colors"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-[#cc001b] text-2xl transition-colors"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-[#cc001b] text-2xl transition-colors"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-[#cc001b] text-2xl transition-colors"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-[#cc001b] text-2xl transition-colors"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-[#cc001b] text-2xl transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+            <div class="flex justify-center md:justify-center items-center">
+                <div class="grid grid-cols-2 gap-6 w-max">
+                    <a href="https://www.facebook.com/alaskabatteriespk/" class="text-gray-400 hover:text-[#cc001b] text-2xl transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/alaskabatteriespk/" class="text-gray-400 hover:text-[#cc001b] text-2xl transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/alaskabatteriespk/" class="text-gray-400 hover:text-[#cc001b] text-2xl transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.youtube.com/channel/UCZXmvMmmVMxFqfzQpGHDWWA" class="text-gray-400 hover:text-[#cc001b] text-2xl transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://api.whatsapp.com/send?phone=923266660757" class="text-gray-400 hover:text-[#cc001b] text-2xl transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.tiktok.com/@alaskabatteriespk" class="text-gray-400 hover:text-[#cc001b] text-2xl transition-colors"><i class="fa-brands fa-tiktok"></i></a>
                 </div>
             </div>
         </div>
