@@ -57,3 +57,12 @@ img {
     color: #fff !important;
     border-color: #000 !important;
 }
+/* Offset for fixed header when scrolling to IDs */
+#blogs, #faqs, #gallery {
+    scroll-margin-top: 100px;
+}
+
+/* Optional: Smooth scroll for the whole HTML document */
+html {
+    scroll-behavior: smooth;
+}

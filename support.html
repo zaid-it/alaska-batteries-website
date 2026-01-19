@@ -12,12 +12,58 @@
 
     <div id="header-placeholder"></div>
 
-    <main class="min-h-screen">
-        <section class="py-20 text-center">
-            <h1 class="text-4xl font-black">CONTENT COMING SOON</h1>
-        </section>
-    </main>
+    <main class="pt-20">
+    <section class="min-h-screen flex flex-col md:flex-row border-t border-gray-100">
+        
+        <div class="w-full md:w-1/2 p-12 md:p-24 bg-white border-r border-gray-100">
+            <h2 class="text-4xl font-black uppercase mb-12">Get in <span class="text-[#cc001b]">Touch</span></h2>
+            <form class="space-y-8">
+                <input type="text" placeholder="Full Name" class="w-full border-b-2 border-gray-100 py-3 outline-none focus:border-[#cc001b] transition-colors uppercase text-xs font-black tracking-widest">
+                <input type="email" placeholder="Email Address" class="w-full border-b-2 border-gray-100 py-3 outline-none focus:border-[#cc001b] transition-colors uppercase text-xs font-black tracking-widest">
+                <input type="text" placeholder="Subject" class="w-full border-b-2 border-gray-100 py-3 outline-none focus:border-[#cc001b] transition-colors uppercase text-xs font-black tracking-widest">
+                <textarea rows="4" placeholder="Your Message" class="w-full border-b-2 border-gray-100 py-3 outline-none focus:border-[#cc001b] transition-colors uppercase text-xs font-black tracking-widest resize-none"></textarea>
+                
+                <button type="submit" class="w-full md:w-auto px-16 py-4 bg-black text-white font-black uppercase text-xs tracking-widest hover:bg-[#cc001b] transition-all">
+                    Send Message
+                </button>
+            </form>
+        </div>
 
+        <div class="w-full md:w-1/2 p-12 md:p-24 bg-gray-50 flex flex-col justify-between">
+            <div class="space-y-12">
+                <div>
+                    <h4 class="text-[#cc001b] font-black uppercase text-xs tracking-widest mb-4">Contact Details</h4>
+                    <div class="space-y-6">
+                        <div>
+                            <p class="font-black uppercase text-sm">Head Office (HO)</p>
+                            <p class="text-gray-500 text-sm">7th Floor, B-3 Tower, Opp. F-9 Park, Sector F-9/G-9 Jinnah Avenue, New Blue Area, Islamabad</p>
+                        </div>
+                        <div>
+                            <p class="font-black uppercase text-sm">Manufacturing Plant</p>
+                            <p class="text-gray-500 text-sm">Plot #24-27, Phase III, Industrial Estate, Hattar, Pakistan</p>
+                        </div>
+                        <div>
+                            <p class="font-black uppercase text-sm">Regional Offices</p>
+                            <p class="text-gray-500 text-sm">Lahore | Karachi | Multan | Faisalabad</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full h-64 bg-gray-200 relative group overflow-hidden border border-gray-300">
+                    <div class="absolute inset-0 bg-[url('https://maps.googleapis.com/maps/api/staticmap?center=33.7103,73.0551&zoom=14&size=600x300&key=YOUR_KEY')] bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fa-solid fa-location-dot text-[#cc001b] text-4xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-12 border-t border-gray-200">
+                <p class="text-2xl font-black uppercase">(051) 8740 280</p>
+                <p class="text-[#cc001b] font-bold uppercase text-xs tracking-widest">info@alaskabatteries.com</p>
+            </div>
+        </div>
+    </section>
+</main>
     <div id="footer-placeholder"></div>
 
     <script src="js/components.js"></script>
