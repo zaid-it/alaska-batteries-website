@@ -83,3 +83,109 @@ html {
         transform: translateX(5px);
         border-color: #cc001b;
     }
+    /* Custom Industrial Theme Styles */
+
+.map-iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: grayscale(1) contrast(1.1) brightness(0.7);
+    transition: all 1s ease-in-out;
+}
+
+.group:hover .map-iframe {
+    filter: grayscale(0) contrast(1) brightness(1);
+}
+
+.map-trigger {
+    width: 100%;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f3f4f6;
+    text-align: left;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.city-name {
+    font-size: 1.875rem; /* 30px */
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    transition: transform 0.5s ease;
+}
+
+.map-trigger:hover .city-name {
+    transform: translateX(1rem);
+    color: #cc001b;
+}
+
+.view-label {
+    color: #cc001b;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.map-trigger:hover .view-label {
+    opacity: 1;
+}
+
+.reset-btn {
+    font-size: 9px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: #d1d5db;
+    margin-top: 1rem;
+    transition: color 0.3s ease;
+}
+
+.reset-btn:hover {
+    color: #cc001b;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #cc001b; }
+/* Region Switcher Styling */
+.active-tab {
+    background: #cc001b;
+    border-color: #cc001b;
+    color: #fff !important;
+    box-shadow: 0 4px 12px rgba(204, 0, 27, 0.2);
+}
+
+#regionMap {
+    transition: opacity 0.4s ease-in-out;
+}
+.region-tab {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            color: #9ca3af;
+            padding: 8px 16px;
+            font-size: 11px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .region-tab:hover { border-color: #cc001b; color: #cc001b; }
+        .active-tab {
+            background: #cc001b !important;
+            border-color: #cc001b !important;
+            color: #fff !important;
+        }
+        #info-container { transition: opacity 0.4s ease-in-out; }
+        .logo-invert {
+    /* This turns black elements into white */
+    filter: brightness(0) invert(1);
+}
