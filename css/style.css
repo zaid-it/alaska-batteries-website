@@ -66,3 +66,20 @@ img {
 html {
     scroll-behavior: smooth;
 }
+.custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #cc001b;
+    }
+    
+    .dealer-card {
+        transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);
+    }
+    .dealer-card:hover {
+        transform: translateX(5px);
+        border-color: #cc001b;
+    }
