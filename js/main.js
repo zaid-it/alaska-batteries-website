@@ -50,3 +50,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+// Function to show the success message
+function showSuccess() {
+    const modal = document.getElementById('successModal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    
+    // Prevent scrolling behind modal
+    document.body.style.overflow = 'hidden';
+}
+
+// Function to close the modal
+function closeModal() {
+    const modal = document.getElementById('successModal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    
+    // Restore scrolling
+    document.body.style.overflow = 'auto';
+}
+
+// Example: Intercepting form submissions
+document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault(); // Stop actual submission for this demo
+        
+        // You would typically send your data via fetch/AJAX here
+        showSuccess();
+        
+        // Optional: Clear the form
+        form.reset();
+    });
+});
