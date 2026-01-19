@@ -165,10 +165,11 @@ function setupMobileMenu() {
     panel.className = 'fixed top-0 right-0 h-full w-[85%] max-w-[400px] bg-black text-white z-[201] translate-x-full transition-transform duration-500 ease-in-out p-8 flex flex-col shadow-2xl border-l border-zinc-800';
     
     panel.innerHTML = `
-        <div class="flex justify-between items-center mb-12">
+        <div class="flex justify-between items-center mb-12 bg-white/80 rounded-full py-2 px-4 backdrop-blur-sm">
             <div class="flex items-center gap-2">
-                <img src="assets/favicon.png" class="h-8">
-                <span class="font-black uppercase tracking-tighter text-xl">Alaska</span>
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Alaska Logo" class="h-12">
+                </a>
             </div>
             <button id="close-mobile" class="text-4xl text-white hover:text-[#cc001b]">&times;</button>
         </div>
