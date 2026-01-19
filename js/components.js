@@ -72,29 +72,30 @@ const headerHTML = `
 const footerHTML = `
 <footer class="bg-white border-t border-gray-100 pt-16 pb-8">
     <div class="container mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-                   
-            <div class="flex justify-left items-center"> <div class="w-full max-w-[280px] text-left ">
-            <div class="max-w-md mx-auto text-gray-500 text-sm leading-relaxed">
-                    <p class="text-gray-500 text-sm leading-relaxed mb-4">
-                        7th Floor, B-3 Tower, Opp. F-9 Park, Sector F-9/G-9 Jinnah Avenue, New Blue Area, Islamabad, Pakistan, 44010
-                    </p>
-                    <p class="mb-2">
-                        <a href="tel:0518740280" class="text-gray-900 text-sm font-bold hover:text-[#cc001b] transition-colors">
-                            (051) 8740 280
-                        </a>
-                    </p>
-                    <p>
-                        <a href="mailto:info@alaskabatteries.com" class="text-[#cc001b] text-sm font-medium hover:underline">
-                            info@alaskabatteries.com
-                        </a>
-                    </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 text-center md:text-left">
+            
+            <div class="flex flex-col justify-center items-center">
+                <div class="w-full max-w-[280px]">
+                    <div class="text-gray-500 text-sm leading-relaxed">
+                        <p class="mb-4">
+                            7th Floor, B-3 Tower, Opp. F-9 Park, Sector F-9/G-9 Jinnah Avenue, New Blue Area, Islamabad, Pakistan, 44010
+                        </p>
+                        <p class="mb-2">
+                            <a href="tel:0518740280" class="text-gray-900 text-sm font-bold hover:text-[#cc001b] transition-colors">
+                                (051) 8740 280
+                            </a>
+                        </p>
+                        <p>
+                            <a href="mailto:info@alaskabatteries.com" class="text-[#cc001b] text-sm font-medium hover:underline">
+                                info@alaskabatteries.com
+                            </a>
+                        </p>
+                    </div>
                 </div>
             </div>
-            </div>
 
-            <div class="flex justify-center md:justify-center">
-                <div class="inline-block text-left">
+            <div class="flex justify-center">
+                <div class="inline-block md:text-left">
                     <ul class="flex flex-col space-y-4 text-sm font-bold text-gray-600">
                         <li><a href="index.html" class="hover:text-[#cc001b] transition-colors">Home</a></li>
                         <li><a href="solutions.html" class="hover:text-[#cc001b] transition-colors">Solutions</a></li>
@@ -107,8 +108,8 @@ const footerHTML = `
                 </div>
             </div>
 
-            <div class="flex justify-center md:justify-center items-center">
-                <div class="grid grid-cols-2 gap-6 w-max">
+            <div class="flex justify-center items-center">
+                <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-6 w-max">
                     <a href="https://www.facebook.com/alaskabatteriespk/" class="text-gray-400 hover:text-[#cc001b] text-2xl transition-colors"><i class="fa-brands fa-facebook"></i></a>
                     <a href="https://www.instagram.com/alaskabatteriespk/" class="text-gray-400 hover:text-[#cc001b] text-2xl transition-colors"><i class="fa-brands fa-instagram"></i></a>
                     <a href="https://www.linkedin.com/company/alaskabatteriespk/" class="text-gray-400 hover:text-[#cc001b] text-2xl transition-colors"><i class="fa-brands fa-linkedin"></i></a>
