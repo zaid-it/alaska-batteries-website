@@ -124,6 +124,26 @@ const footerHTML = `
             <p>© 2026 Alaska Batteries. All Rights Reserved.</p>
         </div>
     </div>
+    <div id="successModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+    <div class="bg-white max-w-md w-full p-12 text-center shadow-2xl relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-2 bg-[#cc001b]"></div>
+        
+        <div class="mb-8 flex justify-center">
+            <div class="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center border border-gray-100">
+                <i class="fa-solid fa-check text-4xl text-[#cc001b]"></i>
+            </div>
+        </div>
+
+        <h2 class="text-3xl font-black uppercase tracking-tighter mb-4">Submission <br>Successful</h2>
+        <p class="text-gray-500 text-xs font-bold uppercase tracking-widest leading-relaxed mb-10">
+            Thank you for reaching out to Alaska. <br> Our team will review your details and contact you within 48 business hours.
+        </p>
+
+        <button onclick="closeModal()" class="w-full bg-black text-white font-black uppercase py-4 text-[10px] tracking-[0.3em] hover:bg-[#cc001b] transition-all">
+            Return to Site
+        </button>
+    </div>
+</div>
 </footer>
 `;
 
@@ -131,62 +151,116 @@ function setupMobileMenu() {
     const trigger = document.getElementById('mobile-menu-trigger');
     if (!trigger) return;
 
-    // Remove any existing overlay to prevent duplicates
+    // Cleanup existing
     const existingOverlay = document.getElementById('mobile-menu-overlay');
-    if (existingOverlay) existingOverlay.remove();
+    const existingPanel = document.getElementById('mobile-menu-panel');
+    if (existingOverlay) { existingOverlay.remove(); existingPanel.remove(); }
 
     const overlay = document.createElement('div');
     overlay.id = 'mobile-menu-overlay';
-    overlay.className = 'fixed inset-0 bg-black/50 z-[200] hidden opacity-0 transition-opacity duration-300';
+    overlay.className = 'fixed inset-0 bg-black/80 backdrop-blur-sm z-[200] hidden opacity-0 transition-opacity duration-500';
     
     const panel = document.createElement('div');
     panel.id = 'mobile-menu-panel';
-    panel.className = 'fixed top-0 right-0 h-full w-[80%] max-w-[400px] bg-white z-[201] translate-x-full transition-transform duration-300 p-6 flex flex-col shadow-2xl';
+    panel.className = 'fixed top-0 right-0 h-full w-[85%] max-w-[400px] bg-black text-white z-[201] translate-x-full transition-transform duration-500 ease-in-out p-8 flex flex-col shadow-2xl border-l border-zinc-800';
     
     panel.innerHTML = `
-        <div class="flex justify-between items-center mb-10">
-            <img src="assets/logo.png" class="h-8">
-            <button id="close-mobile" class="text-4xl">&times;</button>
+        <div class="flex justify-between items-center mb-12">
+            <div class="flex items-center gap-2">
+                <img src="assets/favicon.png" class="h-8">
+                <span class="font-black uppercase tracking-tighter text-xl">Alaska</span>
+            </div>
+            <button id="close-mobile" class="text-4xl text-white hover:text-[#cc001b]">&times;</button>
         </div>
-        <nav class="flex flex-col space-y-4 font-bold uppercase text-lg">
-            <a href="index.html" class="py-2 border-b">Home</a>
-            <div class="mobile-item">
-                <button class="w-full text-left flex justify-between items-center py-2 border-b">Solutions <i class="fa-solid fa-chevron-right text-sm"></i></button>
-                <div class="hidden flex-col pl-4 py-2 space-y-3 normal-case text-gray-600 bg-gray-50 mt-2">
-                    <a href="dry-charge.html">Dry Charge</a>
-                    <span class="text-gray-300 italic">Deep Cycle (Soon)</span>
+
+        <nav class="flex flex-col overflow-y-auto custom-scrollbar pr-2">
+            <a href="index.html" class="py-4 text-2xl font-black uppercase tracking-tighter border-b border-zinc-900">Home</a>
+            
+            <div class="mobile-item border-b border-zinc-900">
+                <button class="w-full py-4 text-left flex justify-between items-center text-2xl font-black uppercase tracking-tighter group">
+                    Solutions <i class="fa-solid fa-chevron-down text-sm transition-transform"></i>
+                </button>
+                <div class="hidden flex-col pl-4 pb-6 space-y-4">
+                    <a href="solutions.html" class="text-xs font-black uppercase tracking-widest text-[#cc001b]">Explore All</a>
+                    <a href="dry-charge.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Dry Charge</a>
+                    <a href="deep-cycle.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Deep Cycle</a>
+                    <a href="maintenance-free.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Maintenance Free</a>
+                    <a href="lfp.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Lithium-ion</a>
                 </div>
             </div>
-            <a href="technology.html" class="py-2 border-b">Technology</a>
-            <a href="vault.html" class="py-2 border-b">Vault</a>
-            <a href="dealers.html" class="py-2 border-b text-[#cc001b]">Dealer Locator</a>
+
+            <div class="mobile-item border-b border-zinc-900">
+                <button class="w-full py-4 text-left flex justify-between items-center text-2xl font-black uppercase tracking-tighter">
+                    Technology <i class="fa-solid fa-chevron-down text-sm transition-transform"></i>
+                </button>
+                <div class="hidden flex-col pl-4 pb-6 space-y-4">
+                    <a href="technology.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Explore Tech</a>
+                    <a href="graphite.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Graphite Tech</a>
+                </div>
+            </div>
+
+            <div class="mobile-item border-b border-zinc-900">
+                <button class="w-full py-4 text-left flex justify-between items-center text-2xl font-black uppercase tracking-tighter">
+                    Vault <i class="fa-solid fa-chevron-down text-sm transition-transform"></i>
+                </button>
+                <div class="hidden flex-col pl-4 pb-6 space-y-4">
+                    <a href="vault.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Open Vault</a>
+                    <a href="vault.html#blogs" class="text-xs font-black uppercase tracking-widest text-zinc-400">Blog</a>
+                    <a href="vault.html#faqs" class="text-xs font-black uppercase tracking-widest text-zinc-400">FAQ</a>
+                    <a href="vault.html#gallery" class="text-xs font-black uppercase tracking-widest text-zinc-400">Gallery</a>
+                </div>
+            </div>
+
+            <div class="mobile-item border-b border-zinc-900">
+                <button class="w-full py-4 text-left flex justify-between items-center text-2xl font-black uppercase tracking-tighter text-[#cc001b]">
+                    <span><i class="fa-solid fa-location-dot mr-2"></i>Dealer Locator</span>
+                    <i class="fa-solid fa-chevron-down text-sm transition-transform"></i>
+                </button>
+                <div class="hidden flex-col pl-4 pb-6 space-y-4">
+                    <a href="dealers.html" class="text-xs font-black uppercase tracking-widest text-white underline decoration-[#cc001b] underline-offset-4">Find a Dealer</a>
+                    <a href="become-dealer.html" class="text-xs font-black uppercase tracking-widest text-[#cc001b]">Apply as Dealer</a>
+                </div>
+            </div>
+
+            <a href="about.html" class="py-4 text-2xl font-black uppercase tracking-tighter border-b border-zinc-900">About Us</a>
+            <a href="support.html" class="py-4 text-2xl font-black uppercase tracking-tighter border-b border-zinc-900">Support</a>
         </nav>
     `;
 
     document.body.appendChild(overlay);
     document.body.appendChild(panel);
 
-    trigger.addEventListener('click', () => {
+    // Toggle Logic
+    const open = () => {
         overlay.classList.remove('hidden');
         setTimeout(() => overlay.classList.add('opacity-100'), 10);
         panel.classList.remove('translate-x-full');
-    });
+        document.body.style.overflow = 'hidden';
+    };
 
     const close = () => {
         overlay.classList.remove('opacity-100');
         panel.classList.add('translate-x-full');
-        setTimeout(() => overlay.classList.add('hidden'), 300);
+        setTimeout(() => { overlay.classList.add('hidden'); document.body.style.overflow = 'auto'; }, 500);
     };
 
+    trigger.addEventListener('click', open);
     overlay.addEventListener('click', close);
     document.getElementById('close-mobile').addEventListener('click', close);
 
-    // Accordion for Mobile Sub-menu
+    // Accordion Logic
     panel.querySelectorAll('.mobile-item button').forEach(btn => {
         btn.addEventListener('click', () => {
             const content = btn.nextElementSibling;
-            content.classList.toggle('hidden');
-            content.classList.toggle('flex');
+            const icon = btn.querySelector('.fa-chevron-down');
+            
+            // Toggle Content
+            const isHidden = content.classList.contains('hidden');
+            content.classList.toggle('hidden', !isHidden);
+            content.classList.toggle('flex', isHidden);
+            
+            // Rotate Icon
+            icon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
         });
     });
 }
