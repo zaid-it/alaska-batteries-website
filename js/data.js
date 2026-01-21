@@ -23,7 +23,7 @@ const batteryData = [
         tech: "Graphite Enhanced Lead-Acid Battery",
         image: "assets/batteries/automotive/a60.png",
         categories: ["Automotive"], 
-        uses: "Cars",
+        uses: "Small Hatchbacks, Generators",
     },
     {
         id: "3",
@@ -35,7 +35,7 @@ const batteryData = [
         tech: "Graphite Enhanced Lead-Acid Battery",
         image: "assets/batteries/automotive/a65.png",
         categories: ["Automotive"], 
-        uses: "Cars",
+        uses: "Small Hatchbacks, Generators",
     },
     {
         id: "4",
@@ -47,7 +47,7 @@ const batteryData = [
         tech: "Graphite Enhanced Lead-Acid Battery",
         image: "assets/batteries/automotive/a70.png",
         categories: ["Automotive"], 
-        uses: "Cars",
+        uses: "Small Hatchbacks, Generators",
     },
     {
         id: "5",
@@ -59,7 +59,7 @@ const batteryData = [
         tech: "Graphite Enhanced Lead-Acid Battery",
         image: "assets/batteries/automotive/a75.png",
         categories: ["Automotive"], 
-        uses: "Cars",
+        uses: "Small Hatchbacks, Generators",
     },
     {
         id: "6",
@@ -71,7 +71,7 @@ const batteryData = [
         tech: "Graphite Enhanced Lead-Acid Battery",
         image: "assets/batteries/automotive/a90.png",
         categories: ["Automotive"], 
-        uses: "Cars",
+        uses: "Small Hatchbacks, Generators",
     },
     {
         id: "7",
@@ -83,7 +83,7 @@ const batteryData = [
         tech: "Graphite Enhanced Lead-Acid Battery",
         image: "assets/batteries/automotive/a95.png",
         categories: ["Automotive"], 
-        uses: "Cars",
+        uses: "Small Hatchbacks, Generators",
     },
     {
         id: "8",
@@ -95,7 +95,7 @@ const batteryData = [
         tech: "Graphite Enhanced Lead-Acid Battery",
         image: "assets/batteries/automotive/a110.png",
         categories: ["Automotive"], 
-        uses: "Cars",
+        uses: "Small Hatchbacks, Generators",
     },
     {
         id: "9",
@@ -107,7 +107,7 @@ const batteryData = [
         tech: "Graphite Enhanced Lead-Acid Battery",
         image: "assets/batteries/automotive/a115.png",
         categories: ["Automotive", "Solar"], 
-        uses: "Cars",
+        uses: "Generators, Solar Inverters",
     },
     {
         id: "10",
@@ -119,7 +119,7 @@ const batteryData = [
         tech: "Graphite Enhanced Lead-Acid Battery",
         image: "assets/batteries/automotive/a120.png",
         categories: ["Automotive", "Solar"], 
-        uses: "Cars",
+        uses: "Generators, Solar Inverters",
     },
     {
         id: "11",
@@ -143,7 +143,7 @@ const batteryData = [
         tech: "Graphite Enhanced Lead-Acid Battery",
         image: "assets/batteries/solar/s100.png",
         categories: ["Solar"], 
-        uses: "Home UPS, Solar Inverters",
+        uses: "Home UPS, Solar Inverters,Off-Grid Home Systems",
     },
     {
         id: "13",
@@ -155,7 +155,7 @@ const batteryData = [
         tech: "Graphite Enhanced Lead-Acid Battery",
         image: "assets/batteries/solar/s130.png",
         categories: ["Solar"], 
-        uses: "Home UPS, Solar Inverters",
+        uses: "Home UPS, Solar Inverters,Off-Grid Home Systems",
     },
     {
         id: "14",
@@ -167,7 +167,7 @@ const batteryData = [
         tech: "Graphite Enhanced Lead-Acid Battery",
         image: "assets/batteries/solar/s140.png",
         categories: ["Solar"], 
-        uses: "Home UPS, Solar Inverters",
+        uses: "Home UPS, Solar Inverters,Off-Grid Home Systems",
     },
     {
         id: "15",
@@ -179,7 +179,7 @@ const batteryData = [
         tech: "Graphite Enhanced Lead-Acid Battery",
         image: "assets/batteries/solar/s150.png",
         categories: ["Solar", "Industrial"], 
-        uses: "Home UPS, Solar Inverters",
+        uses: "Home UPS, Solar Inverters,Agricultural Machinery",
     },
     {
         id: "16",
@@ -191,7 +191,7 @@ const batteryData = [
         tech: "Graphite Enhanced Lead-Acid Battery",
         image: "assets/batteries/solar/s160.png",
         categories: ["Solar","Industrial"], 
-        uses: "Home UPS, Solar Inverters",
+        uses: "Home UPS, Solar Inverters,Agricultural Machinery",
     },
     {
         id: "17",
@@ -203,7 +203,7 @@ const batteryData = [
         tech: "Graphite Enhanced Lead-Acid Battery",
         image: "assets/batteries/industrial/a180.png",
         categories: ["Industrial"], 
-        uses: "Home UPS, Solar Inverters",
+        uses: "Agricultural Machinery, Heavy Vehicles,Heavy Machinery Backup",
     },
     {
         id: "18",
@@ -215,7 +215,7 @@ const batteryData = [
         tech: "Graphite Enhanced Lead-Acid Battery",
         image: "assets/batteries/industrial/a200.png",
         categories: ["Industrial"], 
-        uses: "Home UPS, Solar Inverters",
+        uses: "Agricultural Machinery, Heavy Vehicles,Heavy Machinery Backup",
     },
     {
         id: "19",
@@ -227,7 +227,7 @@ const batteryData = [
         tech: "Graphite Enhanced Lead-Acid Battery",
         image: "assets/batteries/industrial/a210.png",
         categories: ["Industrial"], 
-        uses: "Home UPS, Solar Inverters",
+        uses: "Agricultural Machinery, Heavy Vehicles,Heavy Machinery Backup",
     },
     {
         id: "20",
@@ -239,7 +239,7 @@ const batteryData = [
         tech: "Graphite Enhanced Lead-Acid Battery",
         image: "assets/batteries/industrial/a230.png",
         categories: ["Industrial"], 
-        uses: "Home UPS, Solar Inverters",
+        uses: "Agricultural Machinery, Heavy Vehicles,Heavy Machinery Backup",
     },
     {
         id: "21",
@@ -251,7 +251,7 @@ const batteryData = [
         tech: "Graphite Enhanced Lead-Acid Battery",
         image: "assets/batteries/industrial/a260.png",
         categories: ["Industrial"], 
-        uses: "Home UPS, Solar Inverters",
+        uses: "Agricultural Machinery, Heavy Vehicles,Heavy Machinery Backup",
     },
     {
         id: "22",
@@ -263,7 +263,7 @@ const batteryData = [
         tech: "Graphite Enhanced Lead-Acid Battery",
         image: "assets/batteries/industrial/a270.png",
         categories: ["Industrial"], 
-        uses: "Home UPS, Solar Inverters",
+        uses: "Agricultural Machinery, Heavy Vehicles,Heavy Machinery Backup",
     },
 ];
 
