@@ -79,18 +79,17 @@
         
         <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
             
-            <div class="flex flex-col items-center md:items-end">
-                <div class="flex items-center font-black tracking-tighter text-5xl md:text-6xl lg:text-7xl leading-none">
-                    <span class="text-black pr-2">DRY</span>
-                    <div class="bg-[#cc001b] rounded-2xl text-white px-3 py-2">
-                        <span>CHARGE</span>
-                    </div>
-                </div>
-                
-                <p class="text-[10px] md:text-[16px] font-bold text-gray-400 uppercase tracking-normal md:tracking-normal text-center md:text-center w-full">
-                    Pakistan's Only Graphite Enhanced Lead Acid Battery
-                </p>
-            </div>
+            <div class="w-full flex justify-center md:justify-end overflow-hidden">
+    <div class="relative w-full max-w-[600px] lg:max-w-[800px]">
+        
+        <img src="assets/drycharge-banner.jpg" 
+             alt="Alaska Dry Charge - Pakistan's Only Graphite Enhanced Battery" 
+             class="w-full h-auto scale-[1.3] object-contain transition-transform duration-500 hover:scale-[1.4]">
+        
+        <div class="absolute inset-0 pointer-events-none opacity-5 mix-blend-overlay bg-[url('assets/graphite-texture.jpg')]"></div>
+
+    </div>
+</div>
         </div>
     </div>
 </div>
@@ -102,8 +101,8 @@
             <div class="bg-white p-4 shadow-xl flex flex-col lg:flex-row gap-6 items-center border border-gray-100">
                 <div class="relative w-full lg:w-1/2 group">
                     <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                    <input type="text" id="batterySearch" placeholder="SEARCH MODEL, PLATES, Amps, Use, Types ..." 
-                           class="w-full pl-12 pr-4 py-3 bg-gray-50 border-none focus:ring-2 focus:ring-[#cc001b] outline-none font-black uppercase text-xs tracking-widest" autocomplete="off">
+                    <input type="text" id="batterySearch" placeholder="Search Model, Plates, Amps, Use, Types ..." 
+                           class="w-full pl-10 pr-2 py-3 bg-gray-50 border-none focus:ring-2 focus:ring-[#cc001b] outline-none font-black text-[12px] font-light tracking-normal" autocomplete="off">
                     <div id="search-suggestions" class="absolute top-full left-0 w-full bg-white shadow-2xl border border-gray-100 hidden mt-1 max-h-60 overflow-y-auto"></div>
                 </div>
                 
@@ -146,26 +145,26 @@
                     </div>
 
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 border-t border-[#cc001b] pt-6">
-                        <div><p class="text-[12px] text-gray-400 uppercase font-black tracking-widest mb-1">Plates</p><p id="stage-plates" class="text-2xl font-black">--</p></div>
-                        <div><p class="text-[12px] text-gray-400 uppercase font-black tracking-widest mb-1">Voltage</p><p id="stage-power" class="text-2xl font-black">--</p></div>
-                        <div><p class="text-[12px] text-gray-400 uppercase font-black tracking-widest mb-1">Ampere</p><p id="stage-ah" class="text-2xl font-black">--</p></div>
-                        <div><p class="text-[12px] text-gray-400 uppercase font-black tracking-widest mb-1">Warranty</p><p id="stage-warranty" class="text-2xl font-black">--</p></div>
+                        <div><p class="text-[12px] font-light text-gray-400 uppercase font-black tracking-widest mb-1">Plates</p><p id="stage-plates" class="text-2xl font-black">--</p></div>
+                        <div><p class="text-[12px] font-light text-gray-400 uppercase font-black tracking-widest mb-1">Voltage</p><p id="stage-power" class="text-2xl font-black">--</p></div>
+                        <div><p class="text-[12px] font-light text-gray-400 uppercase font-black tracking-widest mb-1">Ampere</p><p id="stage-ah" class="text-2xl font-black">--</p></div>
+                        <div><p class="text-[12px] font-light text-gray-400 uppercase font-black tracking-widest mb-1">Warranty</p><p id="stage-warranty" class="text-2xl font-black">--</p></div>
                     </div>
 
                     <div class="mb-8">
-                        <p class="text-[10px] text-gray-400 uppercase font-black tracking-widest mb-2">Recommended Usage</p>
-                        <p id="stage-uses" class="text-base font-bold text-gray-600 leading-relaxed italic">--</p>
+                        <p class="text-[12px] font-light text-gray-400 uppercase font-black tracking-widest mb-2">Recommended Usage</p>
+                        <p id="stage-uses" class="text-base font-light text-gray-600 leading-relaxed italic">--</p>
                     </div>
                     <div id="stage-tags" class="flex flex-wrap gap-2"></div>
                 </div>
             </div>
 
             <div class="relative px-12 md:px-16">    
-    <button onclick="scrollCatalog(-1)" class="absolute left-[-10px] md:left-[-20px] top-1/2 -translate-y-1/2 z-30 bg-white shadow-xl w-12 h-12 rounded-full flex items-center justify-center hover:bg-[#cc001b] hover:text-white transition-all border border-gray-100">
+    <button onclick="scrollCatalog(-1)" class="absolute left-[-3px] md:left-[-3px] top-1/2 -translate-y-1/2 z-30 bg-white shadow-xl w-12 h-12 rounded-full flex items-center justify-center hover:bg-[#cc001b] hover:text-white transition-all border border-gray-100">
         <i class="fa-solid fa-chevron-left text-lg"></i>
     </button>
     
-    <button onclick="scrollCatalog(1)" class="absolute right-[-10px] md:right-[-20px] top-1/2 -translate-y-1/2 z-30 bg-white shadow-xl w-12 h-12 rounded-full flex items-center justify-center hover:bg-[#cc001b] hover:text-white transition-all border border-gray-100">
+    <button onclick="scrollCatalog(1)" class="absolute right-[-3px] md:right-[-3px] top-1/2 -translate-y-1/2 z-30 bg-white shadow-xl w-12 h-12 rounded-full flex items-center justify-center hover:bg-[#cc001b] hover:text-white transition-all border border-gray-100">
         <i class="fa-solid fa-chevron-right text-lg"></i>
     </button>
 
@@ -215,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('stage-image').src = battery.image;
 
         document.getElementById('stage-tags').innerHTML = battery.categories.map(tag => 
-            `<span class="bg-gray-100 px-3 py-1 text-[9px] font-black uppercase">${tag}</span>`
+            `<span class="bg-gray-100 px-3 py-1 text-[10px] font-medium font-black uppercase">${tag}</span>`
         ).join('');
 
         const btn = document.getElementById('stage-compare-btn');
