@@ -16,14 +16,26 @@ const headerHTML = `
                 <ul class="flex h-full items-center justify-end">
                     
                     <li class="nav-item">
-                        <a href="solutions.html" class="nav-link">Solutions</a>
-                        <div class="dropdown-panel">
-                            <a href="dry-charge.html" class="dropdown-item">Dry Charge</a>
-                            <a href="deep-cycle.html" class="dropdown-item italic">Deep Cycle</a>
-                            <a href="maintenance-free.html" class="dropdown-item">Maintenance Free</a>
-                            <a href="lfp.html" class="dropdown-item">Lithium-ion</a>
-                        </div>
-                    </li>
+    <a href="solutions.html" class="nav-link">Solutions</a>
+    <div class="dropdown-panel">
+        <a href="dry-charge.html" class="dropdown-item">Dry Charge</a>
+        
+        <a href="deep-cycle.html" class="dropdown-item italic flex justify-between items-center">
+            Deep Cycle 
+            <span class="badge-coming">Coming Soon</span>
+        </a>
+        
+        <a href="maintenance-free.html" class="dropdown-item flex justify-between items-center">
+            Maintenance Free
+            <span class="badge-coming">Coming Soon</span>
+        </a>
+        
+        <a href="lfp.html" class="dropdown-item flex justify-between items-center">
+            Lithium-ion
+            <span class="badge-coming">Coming Soon</span>
+        </a>
+    </div>
+</li>
 
                     <li class="nav-item">
                         <a href="technology.html" class="nav-link">Technology</a>
@@ -204,9 +216,9 @@ function setupMobileMenu() {
                 <div class="hidden flex-col pl-4 pb-6 space-y-4">
                     <a href="solutions.html" class="text-xs font-black uppercase tracking-widest text-[#cc001b]">Explore All</a>
                     <a href="dry-charge.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Dry Charge</a>
-                    <a href="deep-cycle.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Deep Cycle</a>
-                    <a href="maintenance-free.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Maintenance Free</a>
-                    <a href="lfp.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Lithium-ion</a>
+                    <a href="deep-cycle.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Deep Cycle <span class="badge-coming">Coming Soon</span></a>
+                    <a href="maintenance-free.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Maintenance Free <span class="badge-coming">Coming Soon</span></a>
+                    <a href="lfp.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Lithium-ion <span class="badge-coming">Coming Soon</span></a>
                 </div>
             </div>
 
