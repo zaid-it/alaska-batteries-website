@@ -354,7 +354,7 @@ transition: 0.3s;
 
 .thumb-card p {
     font-size: 14px !important;
-    font-weight: 900 !important;
+    font-weight: 600 !important;
     margin-top: 15px;
     text-transform: uppercase;
 }
@@ -369,8 +369,8 @@ transition: 0.3s;
 /* Mobile View Adjustments (Screens smaller than 768px) */
 @media (max-width: 767px) {
     #thumb-grid {
-        gap: 1rem !important; /* Smaller gap for mobile screens */
-        padding-bottom: 30px !important;
+        gap: 0.5rem !important; /* Smaller gap for mobile screens */
+        padding-bottom: 10px !important;
     }
 
     .thumb-card {
