@@ -314,6 +314,10 @@ html {
     overflow-x: auto !important;
     gap: 2rem !important;
     padding: 20px 0 40px 0 !important;
+    /* Hide scrollbar for IE, Edge and Firefox */
+    display: flex !important;
+    overflow-x: auto !important;
+    touch-action: pan-x; /* Helps mobile responsiveness */
 }
 
 /* Force the Card Width */
@@ -323,7 +327,7 @@ html {
     min-width: 220px !important;
     background: white;
     border: 1px solid #f0f0f0;
-    padding: 20px;
+    padding: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -356,7 +360,7 @@ transition: 0.3s;
 }
 
 /* The Glowing Scrollbar */
-#thumb-grid::-webkit-scrollbar { height: 2px; }
+#thumb-grid::-webkit-scrollbar { display: none; /* Hide scrollbar for Chrome, Safari and Opera */}
 #thumb-grid::-webkit-scrollbar-track { background: #f1f1f1; }
 #thumb-grid::-webkit-scrollbar-thumb { 
     background: #cc001b; 
@@ -390,6 +394,22 @@ transition: 0.3s;
     .absolute.left-4, .absolute.right-4 {
         display: none !important;
     }
+}
+
+/* Apply this to the items being generated in data.js */
+.product-thumb {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.product-thumb img {
+    pointer-events: none; /* Crucial: Mouse events pass through the image to the div */
+    user-drag: none;
+    -webkit-user-drag: none;
+}
+
+#thumb-grid.active {
+    cursor: grabbing;
 }
 
 .social-box {
