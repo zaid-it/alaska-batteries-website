@@ -53,9 +53,9 @@ img {
     height: auto;
 }
 .filter-btn.active {
-    background-color: #000 !important;
+    background-color: #cc001b !important;
     color: #fff !important;
-    border-color: #000 !important;
+    border-color: #cc001b !important;
 }
 /* Offset for fixed header when scrolling to IDs */
 #blogs, #faqs, #gallery {
@@ -188,4 +188,239 @@ html {
         .logo-invert {
     /* This turns black elements into white */
     filter: brightness(0) invert(1);
+}
+
+/* Container for each Nav Item */
+.nav-item {
+    position: relative;
+    height: 100%; /* Important for hover area */
+    display: flex;
+    align-items: center;
+    padding: 0 25px; /* Spacing between menu items */
+}
+
+/* The Menu Link */
+.nav-link {
+    font-family: inherit;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: #1a1a1a;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+    display: inline-block; /* Crucial for positioning pseudo-elements */
+}
+
+/* 1. Flash Icon (Favicon) - Top Left */
+.nav-link::before {
+    content: '';
+    position: absolute;
+    /* Move these values until you see the icon appear */
+    top: -8px; 
+    left: -10px;
+    
+    /* Ensure dimensions are forced */
+    display: block !important;
+    width: 20px !important;
+    height: 20px !important;
+    
+    /* Use a relative path or absolute path */
+    background-image: url('../assets/favicon.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    /* Animation states */
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.nav-item:hover .nav-link::before {
+    opacity: 1;
+    left: -10px;
+    transform: translateY(0);
+}
+
+/* 2. Red Underline */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #cc001b;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-item:hover .nav-link::after {
+    width: 100%;
+}
+
+/* 3. Dropdown Panel - Aligned Right Below Link */
+.dropdown-panel {
+    position: absolute;
+    top: 100%; /* Perfectly at the bottom of the header */
+    left: 20px; /* Aligns with the padding of the nav-item */
+    min-width: 220px;
+    background: white;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    border: 1px solid #f3f4f6;
+    border-top: 2px solid #cc001b; /* Adding a subtle top accent */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    padding: 10px 0;
+    z-index: 50;
+}
+
+.nav-item:hover .dropdown-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* 4. Dropdown Link Items */
+.dropdown-item {
+    display: block;
+    padding: 12px 25px;
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #4b5563;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    color: #cc001b;
+    background-color: #f9fafb;
+    padding-left: 30px;
+}
+
+
+/* Ensure the container doesn't force a grid */
+
+#thumb-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    gap: 2rem !important;
+    padding: 20px 0 40px 0 !important;
+}
+
+/* Force the Card Width */
+.thumb-card {
+    flex: 0 0 220px !important; /* Locks width at 220px */
+    width: 220px !important;
+    min-width: 220px !important;
+    background: white;
+    border: 1px solid #f0f0f0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.thumb-card:hover {
+    transform: translateY(-10px);
+    border-color: #cc001b;
+}
+
+/* Force the Image Size */
+.thumb-card img {
+    width: 100% !important;
+    height: 150px !important; /* This makes the battery look big */
+    object-fit: contain !important;
+transition: 0.3s;
+}
+
+.thumb-card:hover img {
+    filter: grayscale(0%);
+}
+
+.thumb-card p {
+    font-size: 14px !important;
+    font-weight: 900 !important;
+    margin-top: 15px;
+    text-transform: uppercase;
+}
+
+/* The Glowing Scrollbar */
+#thumb-grid::-webkit-scrollbar { height: 2px; }
+#thumb-grid::-webkit-scrollbar-track { background: #f1f1f1; }
+#thumb-grid::-webkit-scrollbar-thumb { 
+    background: #cc001b; 
+    box-shadow: 0 0 15px rgba(204, 0, 27, 0.8); 
+}
+/* Mobile View Adjustments (Screens smaller than 768px) */
+@media (max-width: 767px) {
+    #thumb-grid {
+        gap: 1rem !important; /* Smaller gap for mobile screens */
+        padding-bottom: 30px !important;
+    }
+
+    .thumb-card {
+        /* This shows roughly 2.2 batteries at once */
+        flex: 0 0 calc(45%) !important; 
+        width: calc(45%) !important;
+        min-width: 130px !important; /* Minimum width to keep images readable */
+        padding: 15px 10px !important;
+    }
+
+    .thumb-card img {
+        height: 100px !important; /* Slightly shorter images for mobile layout */
+        margin-bottom: 10px !important;
+    }
+
+    .thumb-card p {
+        font-size: 11px !important; /* Smaller text for mobile */
+    }
+    
+    /* Hide navigation arrows on mobile to save space (since users swipe) */
+    .absolute.left-4, .absolute.right-4 {
+        display: none !important;
+    }
+}
+
+.social-box {
+    /* Dimensions: Forced Square */
+    width: 48px;
+    height: 48px;
+    box-shadow: 0 10px 15px -3px rgba(201, 201, 201, 0.3);
+    
+    /* Centering the icon perfectly */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Appearance */
+    color: #9ca3af; /* Gray icon color */
+    font-size: 2rem; /* Icon size */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover State: Alaska Red Theme */
+.social-box:hover {
+    color: #cc001b;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 15px -3px rgba(204, 0, 27, 0.3);
+}
+
+/* Specific fix for wider icons like YouTube/Facebook to stay proportional */
+.social-box i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
