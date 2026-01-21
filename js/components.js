@@ -20,7 +20,7 @@ const headerHTML = `
     <div class="dropdown-panel">
         <a href="dry-charge.html" class="dropdown-item">Dry Charge</a>
         
-        <a href="deep-cycle.html" class="dropdown-item italic flex justify-between items-center">
+        <a href="deep-cycle.html" class="dropdown-item flex justify-between items-center">
             Deep Cycle 
             <span class="badge-coming">Coming Soon</span>
         </a>
