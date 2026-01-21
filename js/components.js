@@ -8,7 +8,7 @@ const headerHTML = `
         <div class="flex items-center h-20">
             <div class="w-1/4">
                 <a href="index.html">
-                    <img src="assets/logo.png" alt="Alaska Logo" class="h-12">
+                    <img src="assets/logo.png" alt="Alaska Logo" class="h-14 md:h-16 w-auto object-contain">
                 </a>
             </div>
 
@@ -188,7 +188,7 @@ function setupMobileMenu() {
         <div class="flex justify-between items-center mb-12 bg-white/80 rounded-full py-2 px-4 backdrop-blur-sm">
             <div class="flex items-center gap-2">
                 <a href="index.html">
-                    <img src="assets/logo.png" alt="Alaska Logo" class="h-8 md:h-12 w-auto object-contain">
+                    <img src="assets/logo.png" alt="Alaska Logo" class="h-12">
                 </a>
             </div>
             <button id="close-mobile" class="text-4xl text-white hover:text-[#cc001b]">&times;</button>
