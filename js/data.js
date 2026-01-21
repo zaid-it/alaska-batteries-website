@@ -2,100 +2,272 @@
 
 const batteryData = [
     {
-        id: "A-55",
-        model: "A-55",
+        id: "1",
+        model: "A 55L",
         plates: 7,
         ah: 32,
         p: 12,
-        tech: "Graphite Lead-Acid Technology",
-        image: "assets/batteries/a55.png",
+        warranty: "6 Months",
+        tech: "Graphite Enhanced Lead-Acid Battery",
+        image: "assets/batteries/automotive/a55.png",
         categories: ["Automotive"], // Fixed filters
         uses: "Small Hatchbacks, Generators",
-        tags: ["Compact", "Fast Charge"]
     },
     {
-        id: "Solar-50",
+        id: "2",
+        model: "A 60L",
+        plates: 9,
+        ah: 42,
+        p: 12,
+        warranty: "9 Months",
+        tech: "Graphite Enhanced Lead-Acid Battery",
+        image: "assets/batteries/automotive/a60.png",
+        categories: ["Automotive"], 
+        uses: "Cars",
+    },
+    {
+        id: "3",
+        model: "A 65L",
+        plates: 11,
+        ah: 50,
+        p: 12,
+        warranty: "9 Months",
+        tech: "Graphite Enhanced Lead-Acid Battery",
+        image: "assets/batteries/automotive/a65.png",
+        categories: ["Automotive"], 
+        uses: "Cars",
+    },
+    {
+        id: "4",
+        model: "A 70L",
+        plates: 11,
+        ah: 50,
+        p: 12,
+        warranty: "9 Months",
+        tech: "Graphite Enhanced Lead-Acid Battery",
+        image: "assets/batteries/automotive/a70.png",
+        categories: ["Automotive"], 
+        uses: "Cars",
+    },
+    {
+        id: "5",
+        model: "A 75L",
+        plates: 13,
+        ah: 55,
+        p: 12,
+        warranty: "9 Months",
+        tech: "Graphite Enhanced Lead-Acid Battery",
+        image: "assets/batteries/automotive/a75.png",
+        categories: ["Automotive"], 
+        uses: "Cars",
+    },
+    {
+        id: "6",
+        model: "A 90",
+        plates: 9,
+        ah: 50,
+        p: 12,
+        warranty: "9 Months",
+        tech: "Graphite Enhanced Lead-Acid Battery",
+        image: "assets/batteries/automotive/a90.png",
+        categories: ["Automotive"], 
+        uses: "Cars",
+    },
+    {
+        id: "7",
+        model: "A 95Z",
+        plates: 11,
+        ah: 60,
+        p: 12,
+        warranty: "9 Months",
+        tech: "Graphite Enhanced Lead-Acid Battery",
+        image: "assets/batteries/automotive/a95.png",
+        categories: ["Automotive"], 
+        uses: "Cars",
+    },
+    {
+        id: "8",
+        model: "A 110",
+        plates: 11,
+        ah: 70,
+        p: 12,
+        warranty: "9 Months",
+        tech: "Graphite Enhanced Lead-Acid Battery",
+        image: "assets/batteries/automotive/a110.png",
+        categories: ["Automotive"], 
+        uses: "Cars",
+    },
+    {
+        id: "9",
+        model: "A 115",
+        plates: 13,
+        ah: 80,
+        p: 12,
+        warranty: "9 Months",
+        tech: "Graphite Enhanced Lead-Acid Battery",
+        image: "assets/batteries/automotive/a115.png",
+        categories: ["Automotive", "Solar"], 
+        uses: "Cars",
+    },
+    {
+        id: "10",
+        model: "A 120Z",
+        plates: 15,
+        ah: 85,
+        p: 12,
+        warranty: "9 Months",
+        tech: "Graphite Enhanced Lead-Acid Battery",
+        image: "assets/batteries/automotive/a120.png",
+        categories: ["Automotive", "Solar"], 
+        uses: "Cars",
+    },
+    {
+        id: "11",
         model: "Solar-50",
         plates: 5,
         ah: 50,
         p: 12,
-        tech: "Graphite Lead-Acid Technology",
-        image: "assets/batteries/s50.png",
+        warranty: "6 Months",
+        tech: "Graphite Enhanced Lead-Acid Battery",
+        image: "assets/batteries/solar/s50.png",
         categories: ["Solar"], 
         uses: "Home UPS, Solar Inverters",
-        tags: ["Dual Purpose", "Deep Endurance"]
-    }
-    // Add all 23 here...
+    },
+    {
+        id: "12",
+        model: "Solar-100",
+        plates: 9,
+        ah: 60,
+        p: 12,
+        warranty: "9 Months",
+        tech: "Graphite Enhanced Lead-Acid Battery",
+        image: "assets/batteries/solar/s100.png",
+        categories: ["Solar"], 
+        uses: "Home UPS, Solar Inverters",
+    },
+    {
+        id: "13",
+        model: "A 130",
+        plates: 15,
+        ah: 100,
+        p: 12,
+        warranty: "9 Months",
+        tech: "Graphite Enhanced Lead-Acid Battery",
+        image: "assets/batteries/solar/s130.png",
+        categories: ["Solar"], 
+        uses: "Home UPS, Solar Inverters",
+    },
+    {
+        id: "14",
+        model: "A 140",
+        plates: 17,
+        ah: 105,
+        p: 12,
+        warranty: "9 Months",
+        tech: "Graphite Enhanced Lead-Acid Battery",
+        image: "assets/batteries/solar/s140.png",
+        categories: ["Solar"], 
+        uses: "Home UPS, Solar Inverters",
+    },
+    {
+        id: "15",
+        model: "A 150",
+        plates: 17,
+        ah: 110,
+        p: 12,
+        warranty: "9 Months",
+        tech: "Graphite Enhanced Lead-Acid Battery",
+        image: "assets/batteries/solar/s150.png",
+        categories: ["Solar", "Industrial"], 
+        uses: "Home UPS, Solar Inverters",
+    },
+    {
+        id: "16",
+        model: "A 160",
+        plates: 19,
+        ah: 115,
+        p: 12,
+        warranty: "9 Months",
+        tech: "Graphite Enhanced Lead-Acid Battery",
+        image: "assets/batteries/solar/s160.png",
+        categories: ["Solar","Industrial"], 
+        uses: "Home UPS, Solar Inverters",
+    },
+    {
+        id: "17",
+        model: "A 180",
+        plates: 19,
+        ah: 120,
+        p: 12,
+        warranty: "9 Months",
+        tech: "Graphite Enhanced Lead-Acid Battery",
+        image: "assets/batteries/industrial/a180.png",
+        categories: ["Industrial"], 
+        uses: "Home UPS, Solar Inverters",
+    },
+    {
+        id: "18",
+        model: "A 200",
+        plates: 21,
+        ah: 130,
+        p: 12,
+        warranty: "9 Months",
+        tech: "Graphite Enhanced Lead-Acid Battery",
+        image: "assets/batteries/industrial/a200.png",
+        categories: ["Industrial"], 
+        uses: "Home UPS, Solar Inverters",
+    },
+    {
+        id: "19",
+        model: "A 210",
+        plates: 21,
+        ah: 135,
+        p: 12,
+        warranty: "9 Months",
+        tech: "Graphite Enhanced Lead-Acid Battery",
+        image: "assets/batteries/industrial/a210.png",
+        categories: ["Industrial"], 
+        uses: "Home UPS, Solar Inverters",
+    },
+    {
+        id: "20",
+        model: "A 230",
+        plates: 23,
+        ah: 150,
+        p: 12,
+        warranty: "9 Months",
+        tech: "Graphite Enhanced Lead-Acid Battery",
+        image: "assets/batteries/industrial/a230.png",
+        categories: ["Industrial"], 
+        uses: "Home UPS, Solar Inverters",
+    },
+    {
+        id: "21",
+        model: "A 260",
+        plates: 25,
+        ah: 160,
+        p: 12,
+        warranty: "9 Months",
+        tech: "Graphite Enhanced Lead-Acid Battery",
+        image: "assets/batteries/industrial/a260.png",
+        categories: ["Industrial"], 
+        uses: "Home UPS, Solar Inverters",
+    },
+    {
+        id: "22",
+        model: "A 270",
+        plates: 27,
+        ah: 180,
+        p: 12,
+        warranty: "9 Months",
+        tech: "Graphite Enhanced Lead-Acid Battery",
+        image: "assets/batteries/industrial/a270.png",
+        categories: ["Industrial"], 
+        uses: "Home UPS, Solar Inverters",
+    },
 ];
 
 // Helper function to get products by series
 const getProductsBySeries = (seriesName) => {
     return batteryData.filter(item => item.series === seriesName);
 };
-// This would ideally live in js/data.js
-const dealers = [
-    { name: "Lahore Battery House", address: "Main Ferozepur Road, Lahore", province: "Punjab", contact: "042-35123456" },
-    { name: "Karachi Solar Hub", address: "DHA Phase 6, Karachi", province: "Sindh", contact: "021-34567890" },
-    { name: "Islamabad Energy Solutions", address: "Blue Area, Islamabad", province: "Punjab", contact: "051-8740280" },
-    { name: "Peshawar Power Point", address: "University Road, Peshawar", province: "KPK", contact: "091-1234567" },
-    { name: "Quetta Battery Center", address: "Saryab Road, Quetta", province: "Balochistan", contact: "081-9876543" }
-];
-
-document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('dealerSearch');
-    const provinceSelect = document.getElementById('provinceFilter');
-    const dealerList = document.getElementById('dealerList');
-    const dealerCount = document.getElementById('dealerCount');
-
-    function renderDealers(data) {
-        dealerList.innerHTML = '';
-        dealerCount.innerText = data.length;
-
-        if (data.length === 0) {
-            dealerList.innerHTML = `
-                <div class="p-10 text-center border-2 border-dashed border-gray-100">
-                    <p class="text-gray-400 font-black uppercase text-xs tracking-widest">No dealers found in this region</p>
-                </div>`;
-            return;
-        }
-
-        data.forEach(dealer => {
-            const card = document.createElement('div');
-            card.className = "dealer-card bg-zinc-900 p-6 rounded-lg border-l-4 border-zinc-700 hover:border-[#cc001b] transition-all group cursor-pointer";
-            card.innerHTML = `
-                <div class="flex justify-between items-start">
-                    <div>
-                        <h4 class="text-white font-black uppercase tracking-widest text-sm mb-1 group-hover:text-[#cc001b]">${dealer.name}</h4>
-                        <p class="text-zinc-500 text-[11px] font-bold uppercase mb-4">${dealer.address}</p>
-                    </div>
-                    <span class="text-[9px] bg-zinc-800 text-zinc-400 px-2 py-1 font-black uppercase">${dealer.province}</span>
-                </div>
-                <div class="flex items-center gap-4">
-                    <a href="tel:${dealer.contact}" class="text-[#cc001b] text-[10px] font-black uppercase tracking-widest hover:underline">${dealer.contact}</a>
-                    <span class="text-zinc-700">|</span>
-                    <button class="text-white text-[10px] font-black uppercase tracking-widest">Get Directions</button>
-                </div>
-            `;
-            dealerList.appendChild(card);
-        });
-    }
-
-    function filterDealers() {
-        const term = searchInput.value.toLowerCase();
-        const prov = provinceSelect.value;
-
-        const filtered = dealers.filter(d => {
-            const matchesSearch = d.name.toLowerCase().includes(term) || d.address.toLowerCase().includes(term);
-            const matchesProv = (prov === "All" || d.province === prov);
-            return matchesSearch && matchesProv;
-        });
-
-        renderDealers(filtered);
-    }
-
-    searchInput.addEventListener('input', filterDealers);
-    provinceSelect.addEventListener('change', filterDealers);
-
-    // Initial load
-    renderDealers(dealers);
-});

@@ -4,58 +4,59 @@ const brandRed = "#cc001b";
 
 const headerHTML = `
 <header class="fixed top-0 left-0 w-full z-[100] bg-white border-b border-gray-100">
-    <div class="container mx-auto px-6"> <div class="flex items-center h-20">
+    <div class="container mx-auto px-6"> 
+        <div class="flex items-center h-20">
             <div class="w-1/4">
                 <a href="index.html">
                     <img src="assets/logo.png" alt="Alaska Logo" class="h-12">
                 </a>
             </div>
 
-            <nav class="hidden lg:block w-3/4 h-full group/nav">
-                <ul class="flex h-full items-center text-center">
-                    <li class="flex-1 h-full flex items-center justify-center hover:text-[#cc001b] font-bold uppercase text-[15px] tracking-tight cursor-pointer"><a href="solutions.html">Solutions</a></li>
-                    <li class="flex-1 h-full flex items-center justify-center hover:text-[#cc001b] font-bold uppercase text-[15px] tracking-tight cursor-pointer"><a href="technology.html">Technology</a></li>
-                    <li class="flex-1 h-full flex items-center justify-center hover:text-[#cc001b] font-bold uppercase text-[15px] tracking-tight cursor-pointer"><a href="vault.html">Vault</a></li>
-                    <li class="flex-1 h-full flex items-center justify-center hover:text-[#cc001b] font-bold uppercase text-[15px] tracking-tight cursor-pointer"><a href="dealers.html">Dealer Locator</a></li>
-                    <li class="flex-1 h-full flex items-center justify-center hover:text-[#cc001b] font-bold uppercase text-[15px] tracking-tight cursor-pointer"><a href="about.html">About Us</a></li>
-                    <li class="flex-1 h-full flex items-center justify-center hover:text-[#cc001b] font-bold uppercase text-[15px] tracking-tight cursor-pointer"><a href="support.html">Support</a></li>
+            <nav class="hidden lg:block w-3/4 h-full">
+                <ul class="flex h-full items-center justify-end">
+                    
+                    <li class="nav-item">
+                        <a href="solutions.html" class="nav-link">Solutions</a>
+                        <div class="dropdown-panel">
+                            <a href="dry-charge.html" class="dropdown-item">Dry Charge</a>
+                            <a href="deep-cycle.html" class="dropdown-item">Deep Cycle</a>
+                            <a href="maintenance-free.html" class="dropdown-item">Maintenance Free</a>
+                            <a href="lfp.html" class="dropdown-item">Lithium-ion</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="technology.html" class="nav-link">Technology</a>
+                        <div class="dropdown-panel">
+                            <a href="graphite.html" class="dropdown-item">Graphite Tech</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="vault.html" class="nav-link">Vault</a>
+                        <div class="dropdown-panel">
+                            <a href="vault.html#blogs" class="dropdown-item">Blog</a>
+                            <a href="vault.html#faqs" class="dropdown-item">FAQ</a>
+                            <a href="vault.html#gallery" class="dropdown-item">Gallery</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="dealers.html" class="nav-link">Dealer</a>
+                        <div class="dropdown-panel">
+                            <a href="dealers.html" class="dropdown-item">Find a Dealer</a>
+                            <a href="become-dealer.html" class="dropdown-item">Apply as Dealer</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About Us</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="support.html" class="nav-link">Support</a>
+                    </li>
                 </ul>
-
-                <div class="invisible group-hover/nav:visible opacity-0 group-hover/nav:opacity-100 absolute left-0 top-full w-screen bg-white shadow-2xl transition-all duration-150 border-t border-gray-50 pt-2 pb-10">
-                    <div class="container mx-auto px-6 flex items-start">
-                        
-                        <div class="w-1/4 pr-12 flex flex-col items-start"> <img src="assets/tech.png" alt="Graphite Logo" class="w-full h-auto max-w-[180px] mb-2">
-                        </div>
-
-                        <div class="w-3/4 flex pt-1"> <div class="flex-1 px-2 flex flex-col space-y-4 text-[14px] font-bold text-gray-800 text-left justify-center">
-                                <a href="dry-charge.html" class="hover:text-[#cc001b]">Dry Charge</a>
-                                <a href="deep-cycle.html" class="hover:text-[#cc001b]">Deep Cycle</a>
-                                <a href="maintenance-free.html" class="hover:text-[#cc001b]">Maintenance Free</a>
-                                <a href="lfp.html" class="hover:text-[#cc001b]">Lithium-ion</a>
-                            </div>
-                            <div class="flex-1 px-2 flex flex-col space-y-4 text-[14px] font-bold text-gray-800 text-center">
-                                <a href="graphite.html" class="hover:text-[#cc001b]">Graphite Tech</a>
-                            </div>
-                            <div class="flex-1 px-4 flex flex-col space-y-4 text-[14px] font-bold text-gray-800 text-left justify-start">
-                                <a href="vault.html#blogs" class="hover:text-[#cc001b]">Blog</a>
-                                <a href="vault.html#faqs" class="hover:text-[#cc001b]">FAQ</a>
-                                <a href="vault.html#gallery" class="hover:text-[#cc001b]">Gallery</a>
-                            </div>
-                            <div class="flex-1 px-2 flex flex-col space-y-4 text-[14px] font-bold text-gray-800 text-center">
-                                <a href="dealers.html" class="hover:text-[#cc001b] whitespace-nowrap">
-                                    <i class="fa-solid fa-location-dot mr-1 text-[#cc001b]"></i> Find a Dealer
-                                </a>
-                                <a href="become-dealer.html" class="text-[#cc001b] underline underline-offset-4">Apply as Dealer</a>
-                            </div>
-                            <div class="flex-1 px-4 text-center">
-                                <p class="text-[14px] italic text-gray-400 leading-tight">Get to know about the mind behind Alaska Batteries</p>
-                            </div>
-                            <div class="flex-1 px-4 text-center">
-                                <p class="text-[14px] italic text-gray-400 leading-tight">Always there when you need a charge</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </nav>
 
             <div class="lg:hidden w-3/4 flex justify-end">
@@ -108,20 +109,39 @@ const footerHTML = `
                 </div>
             </div>
 
-            <div class="flex justify-center items-center">
-                <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-6 w-max">
-                    <a href="https://www.facebook.com/alaskabatteriespk/" class="text-gray-400 hover:text-[#cc001b] text-2xl transition-colors"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/alaskabatteriespk/" class="text-gray-400 hover:text-[#cc001b] text-2xl transition-colors"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/company/alaskabatteriespk/" class="text-gray-400 hover:text-[#cc001b] text-2xl transition-colors"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://www.youtube.com/channel/UCZXmvMmmVMxFqfzQpGHDWWA" class="text-gray-400 hover:text-[#cc001b] text-2xl transition-colors"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="https://api.whatsapp.com/send?phone=923266660757" class="text-gray-400 hover:text-[#cc001b] text-2xl transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="https://www.tiktok.com/@alaskabatteriespk" class="text-gray-400 hover:text-[#cc001b] text-2xl transition-colors"><i class="fa-brands fa-tiktok"></i></a>
-                </div>
-            </div>
+            <div class="flex justify-center items-center py-8">
+    <div class="grid grid-cols-2 md:grid-cols-2 gap-2">
+        
+        <a href="https://www.facebook.com/alaskabatteriespk/" class="social-box">
+            <i class="fa-brands fa-facebook"></i>
+        </a>
+
+        <a href="https://www.instagram.com/alaskabatteriespk/" class="social-box">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/company/alaskabatteriespk/" class="social-box">
+            <i class="fa-brands fa-linkedin"></i>
+        </a>
+
+        <a href="https://www.youtube.com/channel/UCZXmvMmmVMxFqfzQpGHDWWA" class="social-box">
+            <i class="fa-brands fa-youtube"></i>
+        </a>
+
+        <a href="https://api.whatsapp.com/send?phone=923266660757" class="social-box">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+
+        <a href="https://www.tiktok.com/@alaskabatteriespk" class="social-box">
+            <i class="fa-brands fa-tiktok"></i>
+        </a>
+
+    </div>
+</div>
         </div>
 
         <div class="border-t border-gray-50 pt-8 flex flex-col items-center text-[11px] text-gray-400 uppercase tracking-widest text-center">
-            <p>© 2026 Alaska Batteries. All Rights Reserved.</p>
+            <p>© 2026 S.M.J International Industries Pvt. Ltd. All Rights Reserved.</p>
         </div>
     </div>
     <div id="successModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
@@ -213,13 +233,13 @@ function setupMobileMenu() {
             </div>
 
             <div class="mobile-item border-b border-zinc-900">
-                <button class="w-full py-4 text-left flex justify-between items-center text-2xl font-black uppercase tracking-tighter text-[#cc001b]">
-                    <span><i class="fa-solid fa-location-dot mr-2"></i>Dealer Locator</span>
+                <button class="w-full py-4 text-left flex justify-between items-center text-2xl font-black uppercase tracking-tighter">
+                    <span>Dealer Locator</span>
                     <i class="fa-solid fa-chevron-down text-sm transition-transform"></i>
                 </button>
                 <div class="hidden flex-col pl-4 pb-6 space-y-4">
-                    <a href="dealers.html" class="text-xs font-black uppercase tracking-widest text-white underline decoration-[#cc001b] underline-offset-4">Find a Dealer</a>
-                    <a href="become-dealer.html" class="text-xs font-black uppercase tracking-widest text-[#cc001b]">Apply as Dealer</a>
+                    <a href="dealers.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Find a Dealer</a>
+                    <a href="become-dealer.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Apply to be a Dealer</a>
                 </div>
             </div>
 
