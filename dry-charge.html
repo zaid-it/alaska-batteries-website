@@ -74,7 +74,7 @@
  <main id="top" class="pt-6 bg-white">
     <section class="bg-white ">
         
-        <div class="w-full bg-white px-4">
+        <div class="w-full bg-white py-10 px-4">
     <div class="max-w-4xl mx-auto flex flex-col items-center">
         
         <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
@@ -87,7 +87,7 @@
                     </div>
                 </div>
                 
-                <p class="text-[10px] md:text-[14px] font-bold text-gray-400 uppercase tracking-normal md:tracking-normal text-center md:text-right w-full">
+                <p class="text-[10px] md:text-[16px] font-bold text-gray-400 uppercase tracking-normal md:tracking-normal text-center md:text-center w-full">
                     Pakistan's Only Graphite Enhanced Lead Acid Battery
                 </p>
             </div>
@@ -160,17 +160,17 @@
                 </div>
             </div>
 
-            <div class="relative px-4 md:px-10">    
-    <button onclick="scrollCatalog(-1)" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 bg-white shadow-2xl w-14 h-14 rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-all border border-gray-100">
+            <div class="relative px-12 md:px-16">    
+    <button onclick="scrollCatalog(-1)" class="absolute left-[-10px] md:left-[-20px] top-1/2 -translate-y-1/2 z-30 bg-white shadow-xl w-12 h-12 rounded-full flex items-center justify-center hover:bg-[#cc001b] hover:text-white transition-all border border-gray-100">
         <i class="fa-solid fa-chevron-left text-lg"></i>
     </button>
     
-    <button onclick="scrollCatalog(1)" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 bg-white shadow-2xl w-14 h-14 rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-all border border-gray-100">
+    <button onclick="scrollCatalog(1)" class="absolute right-[-10px] md:right-[-20px] top-1/2 -translate-y-1/2 z-30 bg-white shadow-xl w-12 h-12 rounded-full flex items-center justify-center hover:bg-[#cc001b] hover:text-white transition-all border border-gray-100">
         <i class="fa-solid fa-chevron-right text-lg"></i>
     </button>
 
-    <div id="thumb-grid" class="no-scrollbar">
-        </div>
+ <div id="thumb-grid" class="no-scrollbar flex gap-4 overflow-x-auto cursor-grab active:cursor-grabbing select-none scroll-smooth items-center py-10 px-20">
+    </div>
 </div>
     
     </div>
@@ -380,13 +380,100 @@ window.scrollCatalog = function(direction) {
     if (!grid) return;
     
     // Scroll by 80% of the visible container width
-    const scrollAmount = grid.clientWidth * 0.8; 
+    const scrollAmount = grid.clientWidth * 0.5; 
     
     grid.scrollBy({
         left: direction * scrollAmount,
         behavior: 'smooth'
     });
 };
+const slider = document.getElementById('thumb-grid');
+let isDown = false;
+let startX;
+let scrollLeft;
+let moveThreshold = 0; // Tracks if we actually moved
+
+// 1. Mouse Down - Start Tracking
+slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    moveThreshold = 0; 
+    slider.style.scrollBehavior = 'auto'; // Disable smooth for instant drag response
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+});
+
+// 2. Mouse Move - The Dragging Logic
+slider.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 2; 
+    moveThreshold = Math.abs(walk); // Record movement
+    
+    slider.scrollLeft = scrollLeft - walk;
+});
+
+// 3. Mouse Up - Handle Selection vs. Drag
+slider.addEventListener('mouseup', (e) => {
+    isDown = false;
+    slider.style.scrollBehavior = 'smooth'; // Re-enable smooth for chevrons
+
+    // If movement was very small (less than 10px), it's a CLICK/SELECTION
+    if (moveThreshold < 10) {
+        const item = e.target.closest('.product-thumb'); // Find the battery div even if image was clicked
+        if (item) {
+            handleBatterySelection(item);
+        }
+    }
+});
+
+// 4. Mouse Leave - Safety reset
+slider.addEventListener('mouseleave', () => {
+    isDown = false;
+});
+
+// The Selection & Center Function
+function handleBatterySelection(element) {
+    // Remove active state from all
+    document.querySelectorAll('.product-thumb').forEach(p => p.classList.remove('active-product', 'scale-105', 'border-[#cc001b]'));
+    
+    // Add active state to clicked one
+    element.classList.add('active-product', 'scale-105', 'border-[#cc001b]');
+
+    // Auto-center the battery
+    const container = document.getElementById('thumb-grid');
+    const scrollTo = element.offsetLeft - (container.clientWidth / 2) + (element.clientWidth / 2);
+    container.scrollTo({ left: scrollTo, behavior: 'smooth' });
+
+    // Trigger your existing data update function here
+    // updateMainDisplay(element.dataset.id); 
+}
+
+function selectProduct(element) {
+    // 1. Clear previous selection styles
+    const allProducts = document.querySelectorAll('.product-thumb');
+    allProducts.forEach(p => p.classList.remove('border-[#cc001b]', 'scale-105', 'active-product'));
+
+    // 2. Add active styles to clicked item
+    element.classList.add('border-[#cc001b]', 'scale-105', 'active-product');
+
+    // 3. Auto-Center Logic
+    const container = document.getElementById('thumb-grid');
+    
+    // Calculate how far the item is from the left of the container
+    const itemOffset = element.offsetLeft;
+    const itemWidth = element.clientWidth;
+    const containerWidth = container.clientWidth;
+
+    // The formula to center: Item Left position - (Half of Container) + (Half of Item)
+    const scrollTo = itemOffset - (containerWidth / 2) + (itemWidth / 2);
+
+    container.scrollTo({
+        left: scrollTo,
+        behavior: 'smooth'
+    });
+}
 
 </script>
 </body>
