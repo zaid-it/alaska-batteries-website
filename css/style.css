@@ -424,3 +424,9 @@ transition: 0.3s;
     width: 100%;
     height: 100%;
 }
+
+.map-blend {
+    mix-blend-mode: screen; /* This removes the black background if the map is white-on-black */
+    /* OR use this if the map has a white background: */
+    mix-blend-mode: multiply; 
+}
