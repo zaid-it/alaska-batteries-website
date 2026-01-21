@@ -19,7 +19,7 @@ const headerHTML = `
                         <a href="solutions.html" class="nav-link">Solutions</a>
                         <div class="dropdown-panel">
                             <a href="dry-charge.html" class="dropdown-item">Dry Charge</a>
-                            <a href="deep-cycle.html" class="dropdown-item">Deep Cycle</a>
+                            <a href="deep-cycle.html" class="dropdown-item italic">Deep Cycle</a>
                             <a href="maintenance-free.html" class="dropdown-item">Maintenance Free</a>
                             <a href="lfp.html" class="dropdown-item">Lithium-ion</a>
                         </div>
