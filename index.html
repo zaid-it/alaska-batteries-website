@@ -1,206 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alaska Batteries</title>
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body class="bg-white text-gray-900 font-sans">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="bg-white text-gray-900 font-sans">
     <div id="header-placeholder"></div>
 
     <main>
-    <section class="relative h-[85vh] flex items-center bg-gray-900 overflow-hidden">
+      <section class="relative h-[85vh] flex items-center bg-gray-900 overflow-hidden">
         <div class="absolute inset-0 z-0 opacity-40 bg-[url('assets/hero-bg.jpg')] bg-cover bg-center"></div>
         <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-3xl">
-                <h2 class="text-[#cc001b] font-black uppercase tracking-widest mb-4 italic">Innovation in Every Cell</h2>
-                <h1 class="text-white text-5xl md:text-7xl font-black uppercase leading-[0.9] mb-6">
-                    Pakistan's One and Only <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Graphite</span> <br> Lead-Acid Batteries
-                </h1>
-                <a href="solutions.html" class="inline-block bg-[#cc001b] text-white px-10 py-4 font-bold uppercase tracking-tighter hover:skew-x-[-10deg] transition-all">Explore Series</a>
-            </div>
+          <div class="max-w-3xl">
+            <h2 class="text-[#cc001b] font-black uppercase tracking-widest mb-4 italic">Innovation in Every Cell</h2>
+            <h1 class="text-white text-5xl md:text-7xl font-black uppercase leading-[0.9] mb-6">
+              Pakistan's One and Only <br />
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Graphite</span> <br />
+              Lead-Acid Batteries
+            </h1>
+            <a
+              href="solutions.html"
+              class="inline-block bg-[#cc001b] text-white px-10 py-4 font-bold uppercase tracking-tighter hover:skew-x-[-10deg] transition-all"
+              >Explore Series</a
+            >
+          </div>
         </div>
-    </section>
+      </section>
 
-<section id="products-interactive" class="relative border-b border-gray-100 overflow-hidden bg-white transition-colors duration-700">
-    
-    <div class="absolute inset-0 z-0 pointer-events-none">
-        <div id="bg-dry" class="absolute inset-0 opacity-0 transition-opacity duration-700 bg-cover bg-center" 
-     style="background-image: 
-        linear-gradient(90deg, 
-            rgba(0,0,0,0.95) 0%, 
-            rgba(0,0,0,0.7) 35%, 
-            rgba(204,0,27,0.3) 100%
-        ), 
-        url('assets/dry-charge-action.jpg');">
-</div>
-        <div id="bg-deep" class="absolute inset-0 opacity-0 transition-opacity duration-700 bg-cover bg-center" 
-             style="background-image: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 100%), url('assets/deep-cycle-action.jpg');">
+      <section
+        id="products-interactive"
+        class="relative border-b border-gray-100 overflow-hidden bg-white transition-colors duration-700">
+        <div class="absolute inset-0 z-0 pointer-events-none">
+          <div
+            id="bg-dry"
+            class="absolute inset-0 opacity-0 transition-opacity duration-700 bg-cover bg-center"
+            style="
+              background-image: linear-gradient(
+                  90deg,
+                  rgba(0, 0, 0, 0.95) 0%,
+                  rgba(0, 0, 0, 0.7) 35%,
+                  rgba(204, 0, 27, 0.3) 100%
+                ),
+                url('assets/dry-charge-action.jpg');
+            "></div>
+          <div
+            id="bg-deep"
+            class="absolute inset-0 opacity-0 transition-opacity duration-700 bg-cover bg-center"
+            style="
+              background-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.6) 100%),
+                url('assets/deep-cycle-action.jpg');
+            "></div>
+          <div
+            id="bg-mf"
+            class="absolute inset-0 opacity-0 transition-opacity duration-700 bg-cover bg-center"
+            style="
+              background-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.6) 100%),
+                url('assets/mf-action.jpg');
+            "></div>
+          <div
+            id="bg-lfp"
+            class="absolute inset-0 opacity-0 transition-opacity duration-700 bg-cover bg-center"
+            style="
+              background-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.6) 100%),
+                url('assets/lfp-action.jpg');
+            "></div>
         </div>
-        <div id="bg-mf" class="absolute inset-0 opacity-0 transition-opacity duration-700 bg-cover bg-center" 
-             style="background-image: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 100%), url('assets/mf-action.jpg');">
-        </div>
-        <div id="bg-lfp" class="absolute inset-0 opacity-0 transition-opacity duration-700 bg-cover bg-center" 
-             style="background-image: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 100%), url('assets/lfp-action.jpg');">
-        </div>
-    </div>
 
-    <div class="relative z-10 flex flex-col md:flex-row min-h-[600px] md:min-h-[750px]">
-        <div class="w-full md:w-1/4 flex items-center justify-center p-6 md:p-8 border-b md:border-b-0 md:border-r border-gray-100 transition-all duration-700" id="title-area">
-            <h2 id="scrollTitle" class="text-5xl md:text-8xl font-black uppercase tracking-tighter md:-rotate-90 whitespace-nowrap transition-colors duration-500 text-[#cc001b]">
-                Products
+        <div class="relative z-10 flex flex-col md:flex-row min-h-[600px] md:min-h-[750px]">
+          <div
+            class="w-full md:w-1/4 flex items-center justify-center p-6 md:p-8 border-b md:border-b-0 md:border-r border-gray-100 transition-all duration-700"
+            id="title-area">
+            <h2
+              id="scrollTitle"
+              class="text-5xl md:text-8xl font-black uppercase tracking-tighter md:-rotate-90 whitespace-nowrap transition-colors duration-500 text-[#cc001b]">
+              Products
             </h2>
-        </div>
+          </div>
 
-        <div class="w-full md:w-3/4 p-8 md:p-24 flex flex-col justify-center">
+          <div class="w-full md:w-3/4 p-8 md:p-24 flex flex-col justify-center">
             <div class="w-full space-y-2 md:space-y-2">
-                
-                <a href="dry-charge.html" 
-                   onmouseover="activateRow('dry')" onmouseout="deactivateRows()"
-                   class="product-row group block border-b border-gray-200 pb-6 transition-all duration-300 hover:pl-4">
-                    <div class="flex items-center justify-between">
-                        <span class="nav-label text-3xl md:text-7xl font-black uppercase text-gray-900 transition-all duration-300">Dry Charge</span>
-                        <i class="fa-solid fa-arrow-right text-[#cc001b] text-2xl md:text-4xl opacity-0 group-hover:opacity-100 transition-all transform -translate-x-4 group-hover:translate-x-0"></i>
-                    </div>
-                </a>
-
-                <div onmouseover="activateRow('deep')" onmouseout="deactivateRows()"
-                     class="product-row group border-b border-gray-100 pb-6 opacity-60 hover:opacity-100 transition-all duration-300 cursor-not-allowed">
-                    <div class="flex flex-wrap items-center gap-1 md:gap-2">
-                        <span class="nav-label text-3xl md:text-7xl font-black uppercase text-gray-900 transition-all">Deep Cycle</span>
-                        <span class="border border-red-400 px-3 py-1 text-[8px] md:text-[10px] uppercase tracking-widest whitespace-nowrap badge-coming">Coming Soon</span>
-                    </div>
+              <a
+                href="dry-charge.html"
+                onmouseover="activateRow('dry')"
+                onmouseout="deactivateRows()"
+                class="product-row group block border-b border-gray-200 pb-6 transition-all duration-300 hover:pl-4">
+                <div class="flex items-center justify-between">
+                  <span
+                    class="nav-label text-3xl md:text-7xl font-black uppercase text-gray-900 transition-all duration-300"
+                    >Dry Charge</span
+                  >
+                  <i
+                    class="fa-solid fa-arrow-right text-[#cc001b] text-2xl md:text-4xl opacity-0 group-hover:opacity-100 transition-all transform -translate-x-4 group-hover:translate-x-0"></i>
                 </div>
+              </a>
 
-                <div onmouseover="activateRow('mf')" onmouseout="deactivateRows()"
-                     class="product-row group border-b border-gray-100 pb-6 opacity-60 hover:opacity-100 transition-all duration-300 cursor-not-allowed">
-                    <div class="flex flex-wrap items-center gap-1 md:gap-2">
-                        <span class="nav-label text-3xl md:text-7xl font-black uppercase text-gray-900 transition-all">Maintenance Free</span>
-                        <span class="border border-red-400 px-3 py-1 text-[8px] md:text-[10px] uppercase tracking-widest whitespace-nowrap badge-coming">Coming Soon</span>
-                    </div>
+              <div
+                onmouseover="activateRow('deep')"
+                onmouseout="deactivateRows()"
+                class="product-row group border-b border-gray-100 pb-6 opacity-60 hover:opacity-100 transition-all duration-300 cursor-not-allowed">
+                <div class="flex flex-wrap items-center gap-1 md:gap-2">
+                  <span class="nav-label text-3xl md:text-7xl font-black uppercase text-gray-900 transition-all"
+                    >Deep Cycle</span
+                  >
+                  <span
+                    class="border border-red-400 px-3 py-1 text-[8px] md:text-[10px] uppercase tracking-widest whitespace-nowrap badge-coming"
+                    >Coming Soon</span
+                  >
                 </div>
+              </div>
 
-                <div onmouseover="activateRow('lfp')" onmouseout="deactivateRows()"
-                     class="product-row group border-b border-gray-100 pb-6 opacity-60 hover:opacity-100 transition-all duration-300 cursor-not-allowed">
-                    <div class="flex flex-wrap items-center gap-1 md:gap-2">
-                        <span class="nav-label text-3xl md:text-7xl font-black uppercase text-gray-900 transition-all">Lithium Ion</span>
-                        <span class="border border-red-400 px-3 py-1 text-[8px] md:text-[10px] uppercase tracking-widest whitespace-nowrap badge-coming">Coming Soon</span>
-                    </div>
+              <div
+                onmouseover="activateRow('mf')"
+                onmouseout="deactivateRows()"
+                class="product-row group border-b border-gray-100 pb-6 opacity-60 hover:opacity-100 transition-all duration-300 cursor-not-allowed">
+                <div class="flex flex-wrap items-center gap-1 md:gap-2">
+                  <span class="nav-label text-3xl md:text-7xl font-black uppercase text-gray-900 transition-all"
+                    >Maintenance Free</span
+                  >
+                  <span
+                    class="border border-red-400 px-3 py-1 text-[8px] md:text-[10px] uppercase tracking-widest whitespace-nowrap badge-coming"
+                    >Coming Soon</span
+                  >
                 </div>
+              </div>
 
+              <div
+                onmouseover="activateRow('lfp')"
+                onmouseout="deactivateRows()"
+                class="product-row group border-b border-gray-100 pb-6 opacity-60 hover:opacity-100 transition-all duration-300 cursor-not-allowed">
+                <div class="flex flex-wrap items-center gap-1 md:gap-2">
+                  <span class="nav-label text-3xl md:text-7xl font-black uppercase text-gray-900 transition-all"
+                    >Lithium Ion</span
+                  >
+                  <span
+                    class="border border-red-400 px-3 py-1 text-[8px] md:text-[10px] uppercase tracking-widest whitespace-nowrap badge-coming"
+                    >Coming Soon</span
+                  >
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</section>
+      </section>
 
-    <section class="py-20 bg-white">
+      <section class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center gap-16">
-                <div class="w-full md:w-1/2">
-                    <img src="assets/tech.png" alt="Graphite Technology" class="w-full max-w-md mx-auto">
-                </div>
-                <div class="w-full md:w-1/2">
-                    <h3 class="text-3xl font-black uppercase mb-6 italic">Why <span class="text-[#cc001b]">Graphite?</span></h3>
-                    <p class="text-gray-600 mb-6 text-lg">
-                        Traditional lead-acid batteries face sulfation issues. Our Graphite Enhanced plates offer superior conductivity, reducing internal resistance and increasing battery life by up to 40%.
-                    </p>
-                    <ul class="space-y-4 mb-8 font-bold uppercase text-sm">
-                        <li><i class="fa-solid fa-bolt text-[#cc001b] mr-3"></i> 30% Faster Charging</li>
-                        <li><i class="fa-solid fa-temperature-arrow-up text-[#cc001b] mr-3"></i> Extreme Heat Resistance</li>
-                    </ul>
-                    <a href="graphite.html" class="text-[#cc001b] font-black border-b-2 border-[#cc001b] pb-1 hover:text-black hover:border-black">DISCOVER THE SCIENCE →</a>
-                </div>
+          <div class="flex flex-col md:flex-row items-center gap-16">
+            <div class="w-full md:w-1/2">
+              <img src="assets/tech.png" alt="Graphite Technology" class="w-full max-w-md mx-auto" />
             </div>
+            <div class="w-full md:w-1/2">
+              <h3 class="text-3xl font-black uppercase mb-6 italic">
+                Why <span class="text-[#cc001b]">Graphite?</span>
+              </h3>
+              <p class="text-gray-600 mb-6 text-lg">
+                Traditional lead-acid batteries face sulfation issues. Our Graphite Enhanced plates offer superior
+                conductivity, reducing internal resistance and increasing battery life by up to 40%.
+              </p>
+              <ul class="space-y-4 mb-8 font-bold uppercase text-sm">
+                <li><i class="fa-solid fa-bolt text-[#cc001b] mr-3"></i> 30% Faster Charging</li>
+                <li><i class="fa-solid fa-temperature-arrow-up text-[#cc001b] mr-3"></i> Extreme Heat Resistance</li>
+              </ul>
+              <a
+                href="graphite.html"
+                class="text-[#cc001b] font-black border-b-2 border-[#cc001b] pb-1 hover:text-black hover:border-black"
+                >DISCOVER THE SCIENCE →</a
+              >
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <section class="bg-[#0f172a] px-4 py-2 md:py-2 overflow-hidden">
-    <div class="container mx-auto px-8">
-        <div class="flex flex-col lg:flex-row items-center">
-            
+      <section class="bg-[#0f172a] px-4 py-2 md:py-2 overflow-hidden">
+        <div class="container mx-auto px-8">
+          <div class="flex flex-col lg:flex-row items-center">
             <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
-                <h2 class="text-white font-black text-5xl md:text-7xl tracking-wider leading-none mb-4">
-                    FIND A<br><span class="text-[#cc001b]">DEALER</span>
-                </h2>
-                <p class="text-gray-300 text-m md:text-base max-w-md mx-auto lg:mx-1 mb-8 leading-relaxed">
-                    Connect with authorized Alaska Battery partners across Pakistan for genuine products and warranty support.
-                </p>
-                <div class="flex justify-left lg:justify-left">
-                    <a href="#" class="bg-[#cc001b] text-white font-black uppercase tracking-widest text-[18px] px-10 py-4 hover:bg-white hover:text-black transition-all shadow-lg">
-                        Open Locator
-                    </a>
-                </div>
+              <h2 class="text-white font-black text-5xl md:text-7xl tracking-wider leading-none mb-4">
+                FIND A<br /><span class="text-[#cc001b]">DEALER</span>
+              </h2>
+              <p class="text-gray-300 text-m md:text-base max-w-md mx-auto lg:mx-1 mb-8 leading-relaxed">
+                Connect with authorized Alaska Battery partners across Pakistan for genuine products and warranty
+                support.
+              </p>
+              <div class="flex justify-left lg:justify-left">
+                <a
+                  href="#"
+                  class="bg-[#cc001b] text-white font-black uppercase tracking-widest text-[18px] px-10 py-4 hover:bg-white hover:text-black transition-all shadow-lg">
+                  Open Locator
+                </a>
+              </div>
             </div>
 
             <div class="w-full lg:w-1/2 flex justify-center items-center">
-                <div class="relative w-full max-w-[500px] lg:max-w-none">
-                    <img src="assets/dealer-map.png" 
-                         alt="Alaska Dealer Map" 
-                         class="w-full h-auto object-contain  opacity-100 hover:grayscale-0 hover:opacity-100 transition-all duration-700 pointer-events-none" />
-                </div>
+              <div class="relative w-full max-w-[500px] lg:max-w-none">
+                <img
+                  src="assets/dealer-map.png"
+                  alt="Alaska Dealer Map"
+                  class="w-full h-auto object-contain opacity-100 hover:grayscale-0 hover:opacity-100 transition-all duration-700 pointer-events-none" />
+              </div>
             </div>
-
+          </div>
         </div>
-    </div>
-</section>
-</main>
+      </section>
+    </main>
 
     <div id="footer-placeholder"></div>
 
     <script src="js/components.js"></script>
     <script src="js/main.js"></script>
-<script>
-    const section = document.getElementById('products-interactive');
-    const title = document.getElementById('scrollTitle');
-    const navLabels = document.querySelectorAll('.nav-label');
-    
+    <script>
+      const section = document.getElementById("products-interactive");
+      const title = document.getElementById("scrollTitle");
+      const navLabels = document.querySelectorAll(".nav-label");
 
-    // 1. Hover/Touch Activation
-    function activateRow(id) {
-    deactivateRows();
-    const bg = document.getElementById('bg-' + id);
-    if(bg) {
-        bg.style.opacity = '1';
-        bg.style.transform = 'scale(1.05)'; // Subtle zoom in
-    }
-    navLabels.forEach(label => label.classList.add('text-white'));
-    title.style.color = '#cc001b';
-}
-
-function deactivateRows() {
-    ['dry', 'deep', 'mf', 'lfp'].forEach(id => {
-        const el = document.getElementById('bg-' + id);
-        if(el) {
-            el.style.opacity = '0';
-            el.style.transform = 'scale(1)'; // Reset zoom
+      // 1. Hover/Touch Activation
+      function activateRow(id) {
+        deactivateRows();
+        const bg = document.getElementById("bg-" + id);
+        if (bg) {
+          bg.style.opacity = "1";
+          bg.style.transform = "scale(1.05)"; // Subtle zoom in
         }
-    });
-    navLabels.forEach(label => label.classList.remove('text-white'));
-}
+        navLabels.forEach((label) => label.classList.add("text-white"));
+        title.style.color = "#cc001b";
+      }
 
-    // 2. Scroll Intersection (Detecting when the section is in view)
-    const observerOptions = { threshold: 0.5 }; // Trigger when 50% of section is visible
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Section entered view: Title turns Black as per your request
-                title.style.color = '#000000';
-            } else {
-                // Section left view: Reset Title to Red and Backgrounds to White
-                title.style.color = '#cc001b';
-                deactivateRows();
-                title.style.color = '#cc001b';
-            }
+      function deactivateRows() {
+        ["dry", "deep", "mf", "lfp"].forEach((id) => {
+          const el = document.getElementById("bg-" + id);
+          if (el) {
+            el.style.opacity = "0";
+            el.style.transform = "scale(1)"; // Reset zoom
+          }
         });
-    }, observerOptions);
+        navLabels.forEach((label) => label.classList.remove("text-white"));
+      }
 
-    observer.observe(section);
-</script>
-</body>
+      // 2. Scroll Intersection (Detecting when the section is in view)
+      const observerOptions = { threshold: 0.5 }; // Trigger when 50% of section is visible
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Section entered view: Title turns Black as per your request
+            title.style.color = "#000000";
+          } else {
+            // Section left view: Reset Title to Red and Backgrounds to White
+            title.style.color = "#cc001b";
+            deactivateRows();
+            title.style.color = "#cc001b";
+          }
+        });
+      }, observerOptions);
+
+      observer.observe(section);
+    </script>
+  </body>
 </html>
