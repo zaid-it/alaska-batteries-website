@@ -1,494 +1,635 @@
 /* css/style.css */
 :root {
-    --alaska-red: #cc001b;
-    --alaska-dark: #111827;
-    --alaska-gray: #f3f4f6;
+  --alaska-red: #cc001b;
+  --alaska-dark: #111827;
+  --alaska-gray: #f3f4f6;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    scroll-behavior: smooth;
+  font-family: Universal Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  scroll-behavior: smooth;
 }
 
 /* The "Eye-Catchy" Red Glow */
 .red-glow {
-    box-shadow: 0 10px 30px -10px rgba(204, 0, 27, 0.5);
+  box-shadow: 0 10px 30px -10px rgba(204, 0, 27, 0.5);
 }
 
 /* Bubble Styling for Graphite Page */
 .bubble {
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    transition: transform 0.3s ease;
-    cursor: default;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+  cursor: default;
 }
 
 .bubble:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 #header-placeholder {
-    min-height: 80px; /* Adjust based on your header height */
+  min-height: 80px; /* Adjust based on your header height */
 }
 
 /* Ensure the mega menu panel doesn't get cut off */
 .group\/nav:hover .group-hover\/nav\:visible {
-    display: block !important;
+  display: block !important;
 }
 /* css/style.css */
 .hero-glow {
-    box-shadow: 0 0 50px -10px rgba(204, 0, 27, 0.3);
+  box-shadow: 0 0 50px -10px rgba(204, 0, 27, 0.3);
 }
 
 /* Smooth transition for hover effects */
-a, button {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+a,
+button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Ensure images don't overflow */
 img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 .filter-btn.active {
-    background-color: #cc001b !important;
-    color: #fff !important;
-    border-color: #cc001b !important;
+  background-color: #cc001b !important;
+  color: #fff !important;
+  border-color: #cc001b !important;
 }
 /* Offset for fixed header when scrolling to IDs */
-#blogs, #faqs, #gallery {
-    scroll-margin-top: 100px;
+#blogs,
+#faqs,
+#gallery {
+  scroll-margin-top: 100px;
 }
 
 /* Optional: Smooth scroll for the whole HTML document */
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 .custom-scrollbar::-webkit-scrollbar {
-        width: 4px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-track {
-        background: #f1f1f1;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: #cc001b;
-    }
-    
-    .dealer-card {
-        transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);
-    }
-    .dealer-card:hover {
-        transform: translateX(5px);
-        border-color: #cc001b;
-    }
-    /* Custom Industrial Theme Styles */
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cc001b;
+}
+
+.dealer-card {
+  transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);
+}
+.dealer-card:hover {
+  transform: translateX(5px);
+  border-color: #cc001b;
+}
+/* Custom Industrial Theme Styles */
 
 .map-iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
-    filter: grayscale(1) contrast(1.1) brightness(0.7);
-    transition: all 1s ease-in-out;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(1) contrast(1.1) brightness(0.7);
+  transition: all 1s ease-in-out;
 }
 
 .group:hover .map-iframe {
-    filter: grayscale(0) contrast(1) brightness(1);
+  filter: grayscale(0) contrast(1) brightness(1);
 }
 
 .map-trigger {
-    width: 100%;
-    padding: 2rem 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #f3f4f6;
-    text-align: left;
-    outline: none;
-    background: transparent;
-    cursor: pointer;
+  width: 100%;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f3f4f6;
+  text-align: left;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
 }
 
 .city-name {
-    font-size: 1.875rem; /* 30px */
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: -0.05em;
-    transition: transform 0.5s ease;
+  font-size: 1.875rem; /* 30px */
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  transition: transform 0.5s ease;
 }
 
 .map-trigger:hover .city-name {
-    transform: translateX(1rem);
-    color: #cc001b;
+  transform: translateX(1rem);
+  color: #cc001b;
 }
 
 .view-label {
-    color: #cc001b;
-    font-weight: 900;
-    text-transform: uppercase;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    opacity: 0;
-    transition: all 0.3s ease;
+  color: #cc001b;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  transition: all 0.3s ease;
 }
 
 .map-trigger:hover .view-label {
-    opacity: 1;
+  opacity: 1;
 }
 
 .reset-btn {
-    font-size: 9px;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
-    color: #d1d5db;
-    margin-top: 1rem;
-    transition: color 0.3s ease;
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: #d1d5db;
+  margin-top: 1rem;
+  transition: color 0.3s ease;
 }
 
 .reset-btn:hover {
-    color: #cc001b;
+  color: #cc001b;
 }
 
 /* Scrollbar styling */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: #000; }
-::-webkit-scrollbar-thumb { background: #cc001b; }
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #cc001b;
+}
 /* Region Switcher Styling */
 .active-tab {
-    background: #cc001b;
-    border-color: #cc001b;
-    color: #fff !important;
-    box-shadow: 0 4px 12px rgba(204, 0, 27, 0.2);
+  background: #cc001b;
+  border-color: #cc001b;
+  color: #fff !important;
+  box-shadow: 0 4px 12px rgba(204, 0, 27, 0.2);
 }
 
 #regionMap {
-    transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
 }
 .region-tab {
-            background: #fff;
-            border: 1px solid #e5e7eb;
-            color: #9ca3af;
-            padding: 8px 16px;
-            font-size: 11px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .region-tab:hover { border-color: #cc001b; color: #cc001b; }
-        .active-tab {
-            background: #cc001b !important;
-            border-color: #cc001b !important;
-            color: #fff !important;
-        }
-        #info-container { transition: opacity 0.4s ease-in-out; }
-        .logo-invert {
-    /* This turns black elements into white */
-    filter: brightness(0) invert(1);
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  color: #9ca3af;
+  padding: 8px 16px;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.region-tab:hover {
+  border-color: #cc001b;
+  color: #cc001b;
+}
+.active-tab {
+  background: #cc001b !important;
+  border-color: #cc001b !important;
+  color: #fff !important;
+}
+#info-container {
+  transition: opacity 0.4s ease-in-out;
+}
+.logo-invert {
+  /* This turns black elements into white */
+  filter: brightness(0) invert(1);
 }
 
 /* Container for each Nav Item */
 .nav-item {
-    position: relative;
-    height: 100%; /* Important for hover area */
-    display: flex;
-    align-items: center;
-    padding: 0 25px; /* Spacing between menu items */
+  position: relative;
+  height: 100%; /* Important for hover area */
+  display: flex;
+  align-items: center;
+  padding: 0 25px; /* Spacing between menu items */
 }
 
 /* The Menu Link */
 .nav-link {
-    font-family: inherit;
-    font-weight: 800;
-    text-transform: uppercase;
-    font-size: 18px;
-    color: #1a1a1a;
-    position: relative;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    position: relative;
-    display: inline-block; /* Crucial for positioning pseudo-elements */
+  font-family: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 100%;
+  color: #1a1a1a;
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+  display: inline-block; /* Crucial for positioning pseudo-elements */
 }
 
 /* 1. Flash Icon (Favicon) - Top Left */
 .nav-link::before {
-    content: '';
-    position: absolute;
-    /* Move these values until you see the icon appear */
-    top: -8px; 
-    left: -10px;
-    
-    /* Ensure dimensions are forced */
-    display: block !important;
-    width: 20px !important;
-    height: 20px !important;
-    
-    /* Use a relative path or absolute path */
-    background-image: url('../assets/favicon.png'); 
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    
-    /* Animation states */
-    opacity: 0;
-    transform: translateY(8px);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    pointer-events: none;
-    z-index: 10;
+  content: "";
+  position: absolute;
+  /* Move these values until you see the icon appear */
+  top: -8px;
+  left: -10px;
+
+  /* Ensure dimensions are forced */
+  display: block !important;
+  width: 20px !important;
+  height: 20px !important;
+
+  /* Use a relative path or absolute path */
+  background-image: url("../assets/favicon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  /* Animation states */
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+  z-index: 10;
 }
 
 .nav-item:hover .nav-link::before {
-    opacity: 1;
-    left: -10px;
-    transform: translateY(0);
+  opacity: 1;
+  left: -10px;
+  transform: translateY(0);
 }
 
 /* 2. Red Underline */
 .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #cc001b;
-    transition: width 0.3s ease-in-out;
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #cc001b;
+  transition: width 0.3s ease-in-out;
 }
 
 .nav-item:hover .nav-link::after {
-    width: 100%;
+  width: 100%;
 }
 
 /* 3. Dropdown Panel - Aligned Right Below Link */
 .dropdown-panel {
-    position: absolute;
-    top: 100%; /* Perfectly at the bottom of the header */
-    left: 20px; /* Aligns with the padding of the nav-item */
-    min-width: 220px;
-    background: white;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-    border: 1px solid #f3f4f6;
-    border-top: 2px solid #cc001b; /* Adding a subtle top accent */
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.3s ease;
-    padding: 10px 0;
-    z-index: 50;
+  position: absolute;
+  top: 100%; /* Perfectly at the bottom of the header */
+  left: 20px; /* Aligns with the padding of the nav-item */
+  min-width: 220px;
+  background: white;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f3f4f6;
+  border-top: 2px solid #cc001b; /* Adding a subtle top accent */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  padding: 10px 0;
+  z-index: 50;
 }
 
 .nav-item:hover .dropdown-panel {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 /* 4. Dropdown Link Items */
 .dropdown-item {
-    display: block;
-    padding: 12px 25px;
-    font-size: 14px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #4b5563;
-    text-decoration: none;
-    transition: all 0.2s ease;
+  display: block;
+  padding: 12px 25px;
+  font-size: 90%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #4b5563;
+  text-decoration: none;
+  transition: all 0.2s ease;
 }
 
 .dropdown-item:hover {
-    color: #cc001b;
-    background-color: #f9fafb;
-    padding-left: 30px;
+  color: #cc001b;
+  background-color: #f9fafb;
+  padding-left: 30px;
 }
-
 
 /* Ensure the container doesn't force a grid */
 
 #thumb-grid {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    gap: 2rem !important;
-    padding: 20px 0 40px 0 !important;
-    /* Hide scrollbar for IE, Edge and Firefox */
-    display: flex !important;
-    overflow-x: auto !important;
-    touch-action: pan-x; /* Helps mobile responsiveness */
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  gap: 2rem !important;
+  padding: 20px 0 40px 0 !important;
+  /* Hide scrollbar for IE, Edge and Firefox */
+  display: flex !important;
+  overflow-x: auto !important;
+  touch-action: pan-x; /* Helps mobile responsiveness */
 }
 
 /* Force the Card Width */
 .thumb-card {
-    flex: 0 0 220px !important; /* Locks width at 220px */
-    width: 220px !important;
-    min-width: 220px !important;
-    background: white;
-    border: 1px solid #f0f0f0;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+  flex: 0 0 220px !important; /* Locks width at 220px */
+  width: 220px !important;
+  min-width: 220px !important;
+  background: white;
+  border: 1px solid #f0f0f0;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .thumb-card:hover {
-    transform: translateY(-10px);
-    border-color: #cc001b;
+  transform: translateY(-10px);
+  border-color: #cc001b;
 }
 
 /* Force the Image Size */
 .thumb-card img {
-    width: 100% !important;
-    height: 150px !important; /* This makes the battery look big */
-    object-fit: contain !important;
-transition: 0.3s;
+  width: 100% !important;
+  height: 150px !important; /* This makes the battery look big */
+  object-fit: contain !important;
+  transition: 0.3s;
 }
 
 .thumb-card:hover img {
-    filter: grayscale(0%);
+  filter: grayscale(0%);
 }
 
 .thumb-card p {
-    font-size: 14px !important;
-    font-weight: 600 !important;
-    margin-top: 15px;
-    text-transform: uppercase;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  margin-top: 15px;
+  text-transform: uppercase;
 }
 
 /* The Glowing Scrollbar */
-#thumb-grid::-webkit-scrollbar { display: none; /* Hide scrollbar for Chrome, Safari and Opera */}
-#thumb-grid::-webkit-scrollbar-track { background: #f1f1f1; }
-#thumb-grid::-webkit-scrollbar-thumb { 
-    background: #cc001b; 
-    box-shadow: 0 0 15px rgba(204, 0, 27, 0.8); 
+#thumb-grid::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+}
+#thumb-grid::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+#thumb-grid::-webkit-scrollbar-thumb {
+  background: #cc001b;
+  box-shadow: 0 0 15px rgba(204, 0, 27, 0.8);
 }
 /* Mobile View Adjustments (Screens smaller than 768px) */
 @media (max-width: 767px) {
-    #thumb-grid {
-        gap: 0.5rem !important; /* Smaller gap for mobile screens */
-        padding-bottom: 10px !important;
-    }
+  #thumb-grid {
+    gap: 0.5rem !important; /* Smaller gap for mobile screens */
+    padding-bottom: 10px !important;
+  }
 
-    .thumb-card {
-        /* This shows roughly 2.2 batteries at once */
-        flex: 0 0 calc(45%) !important; 
-        width: calc(45%) !important;
-        min-width: 130px !important; /* Minimum width to keep images readable */
-        padding: 15px 10px !important;
-    }
+  .thumb-card {
+    /* This shows roughly 2.2 batteries at once */
+    flex: 0 0 calc(45%) !important;
+    width: calc(45%) !important;
+    min-width: 130px !important; /* Minimum width to keep images readable */
+    padding: 15px 10px !important;
+  }
 
-    .thumb-card img {
-        height: 100px !important; /* Slightly shorter images for mobile layout */
-        margin-bottom: 10px !important;
-    }
+  .thumb-card img {
+    height: 100px !important; /* Slightly shorter images for mobile layout */
+    margin-bottom: 10px !important;
+  }
 
-    .thumb-card p {
-        font-size: 11px !important; /* Smaller text for mobile */
-    }
-    
-    /* Hide navigation arrows on mobile to save space (since users swipe) */
-    .absolute.left-4, .absolute.right-4 {
-        display: none !important;
-    }
+  .thumb-card p {
+    font-size: 11px !important; /* Smaller text for mobile */
+  }
+
+  /* Hide navigation arrows on mobile to save space (since users swipe) */
+  .absolute.left-4,
+  .absolute.right-4 {
+    display: none !important;
+  }
 }
 
 /* Apply this to the items being generated in data.js */
 .product-thumb {
-    user-select: none;
-    -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .product-thumb img {
-    pointer-events: none; /* Crucial: Mouse events pass through the image to the div */
-    user-drag: none;
-    -webkit-user-drag: none;
+  pointer-events: none; /* Crucial: Mouse events pass through the image to the div */
+  user-drag: none;
+  -webkit-user-drag: none;
 }
 
 #thumb-grid.active {
-    cursor: grabbing;
+  cursor: grabbing;
 }
 
 .social-box {
-    /* Dimensions: Forced Square */
-    width: 48px;
-    height: 48px;
-    box-shadow: 0 10px 15px -3px rgba(201, 201, 201, 0.3);
-    
-    /* Centering the icon perfectly */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    /* Appearance */
-    color: #9ca3af; /* Gray icon color */
-    font-size: 2rem; /* Icon size */
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Dimensions: Forced Square */
+  width: 48px;
+  height: 48px;
+  box-shadow: 0 10px 15px -3px rgba(201, 201, 201, 0.3);
+
+  /* Centering the icon perfectly */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Appearance */
+  color: #9ca3af; /* Gray icon color */
+  font-size: 2rem; /* Icon size */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Hover State: Alaska Red Theme */
 .social-box:hover {
-    color: #cc001b;
-    transform: translateY(-1px);
-    box-shadow: 0 10px 15px -3px rgba(204, 0, 27, 0.3);
+  color: #cc001b;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(204, 0, 27, 0.3);
 }
 
 /* Specific fix for wider icons like YouTube/Facebook to stay proportional */
 .social-box i {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .map-blend {
-    mix-blend-mode: screen; /* This removes the black background if the map is white-on-black */
-    /* OR use this if the map has a white background: */
-    mix-blend-mode: multiply; 
+  mix-blend-mode: screen; /* This removes the black background if the map is white-on-black */
+  /* OR use this if the map has a white background: */
+  mix-blend-mode: multiply;
 }
 
 /* Coming Soon Badge Styling */
 .badge-coming {
-    font-size: 8px;
-    font-family: 'Inter', sans-serif; /* Use your brand font */
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: white;
-    background-color: #cc001b;
-    padding: 2px 6px;
-    border-radius: 2px;
-    margin-left: 10px;
-    display: inline-block;
-    animation: glow-pulse 2s infinite ease-in-out;
-    white-space: nowrap;
+  font-size: 8px;
+  font-family: "Inter", sans-serif; /* Use your brand font */
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: white;
+  background-color: #cc001b;
+  padding: 2px 6px;
+  border-radius: 2px;
+  margin-left: 10px;
+  display: inline-block;
+  animation: glow-pulse 2s infinite ease-in-out;
+  white-space: nowrap;
 }
 
 /* The Glow Animation */
 @keyframes glow-pulse {
-    0% {
-        box-shadow: 0 0 0px rgba(204, 0, 27, 0.4);
-        background-color: #cc001b;
-    }
-    50% {
-        box-shadow: 0 0 10px rgba(204, 0, 27, 0.8);
-        background-color: #ff1a35; /* Slightly brighter red mid-pulse */
-    }
-    100% {
-        box-shadow: 0 0 0px rgba(204, 0, 27, 0.4);
-        background-color: #cc001b;
-    }
+  0% {
+    box-shadow: 0 0 0px rgba(204, 0, 27, 0.4);
+    background-color: #cc001b;
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(204, 0, 27, 0.8);
+    background-color: #ff1a35; /* Slightly brighter red mid-pulse */
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(204, 0, 27, 0.4);
+    background-color: #cc001b;
+  }
 }
 
 /* Mobile Adjustment */
 @media (max-width: 768px) {
-    .badge-coming {
-        font-size: 7px;
-        padding: 1px 4px;
-        margin-left: 6px;
-    }
+  .badge-coming {
+    font-size: 7px;
+    padding: 1px 4px;
+    margin-left: 6px;
+  }
+}
+html {
+  scroll-behavior: smooth;
+}
+#compare-drawer {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#compare-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  backdrop-filter: blur(12px);
+  z-index: 500;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+#compare-modal.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+#compare-modal-content {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: scale(0.9);
+  width: 95%;
+  max-width: 1000px;
+  background: white;
+}
+#compare-modal.active #compare-modal-content {
+  transform: scale(1);
+}
+.filter-btn.active {
+  background-color: #cc001b;
+  color: white;
+  border-color: #cc001b;
+  font-weight: 700;
+}
+#search-suggestions {
+  z-index: 100;
+}
+/* Styling for the Compare Drawer Items */
+#compare-items-list {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 5px;
+}
+
+/* Red X Button Styling */
+.fa-xmark {
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  #compare-drawer .container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  #compare-items-list {
+    width: 100%;
+    justify-content: center;
+  }
+}
+/* Custom Alert Styling */
+#limit-alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #cc001b;
+  color: white;
+  padding: 12px 24px;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  box-shadow: 0 10px 25px rgba(204, 0, 27, 0.4);
+  z-index: 999;
+  transform: translateX(120%);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+#limit-alert.show {
+  transform: translateX(0);
+}
+#compare-modal {
+  transition: opacity 0.15s ease-out; /* Reduced from 300ms */
+}
+
+/* Snappy Modal Entry */
+#compare-modal.active #compare-modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+#compare-modal-content {
+  transform: scale(0.95);
+  opacity: 0;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  border-radius: 5px !important;
+}
+
+/* Custom Scrollbar for the list results */
+#modal-list-results::-webkit-scrollbar {
+  width: 4px;
+}
+#modal-list-results::-webkit-scrollbar-thumb {
+  background: #cc001b;
+  border-radius: 5px;
+}
+#search-suggestions {
+  border-radius: 0 0 8px 8px; /* rounded-md bottom only looks cleaner */
+  overflow: hidden;
+  z-index: 50;
+  border: 1px solid #f3f4f6;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure the input doesn't have a bottom radius when suggestions are open */
+#batterySearch:focus:not(:placeholder-shown) {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
