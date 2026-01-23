@@ -189,129 +189,119 @@ function setupMobileMenu() {
   const trigger = document.getElementById("mobile-menu-trigger");
   if (!trigger) return;
 
-  // Cleanup existing
-  const existingOverlay = document.getElementById("mobile-menu-overlay");
-  const existingPanel = document.getElementById("mobile-menu-panel");
-  if (existingOverlay) {
-    existingOverlay.remove();
-    existingPanel.remove();
+  // Cleanup
+  const oldOverlay = document.getElementById("mobile-menu-overlay");
+  const oldPanel = document.getElementById("mobile-menu-panel");
+  if (oldOverlay) {
+    oldOverlay.remove();
+    oldPanel.remove();
   }
 
   const overlay = document.createElement("div");
   overlay.id = "mobile-menu-overlay";
-  overlay.className = "fixed inset-0 bg-black/80 backdrop-blur-sm z-[200] hidden opacity-0 transition-opacity duration-500";
+  overlay.className = "fixed inset-0 bg-black/80 backdrop-blur-sm z-[200] hidden opacity-0 transition-opacity duration-300";
 
   const panel = document.createElement("div");
   panel.id = "mobile-menu-panel";
   panel.className =
-    "fixed top-0 right-0 h-full w-[85%] max-w-[400px] bg-black text-white z-[201] translate-x-full transition-transform duration-500 ease-in-out p-8 flex flex-col shadow-2xl border-l border-zinc-800";
+    "fixed top-0 right-0 h-full w-[90%] max-w-[400px] bg-black text-white z-[201] translate-x-full transition-transform duration-300 ease-in-out flex flex-col shadow-2xl overflow-hidden";
 
-  panel.innerHTML = /* HTML */ `
-    <div class="flex justify-between items-center mb-12 bg-white/80 rounded-full py-2 px-4 backdrop-blur-sm">
-      <div class="flex items-center gap-2">
-        <a href="index.html">
-          <img src="assets/logo.png" alt="Alaska Logo" class="h-12" />
-        </a>
+  // Main Container that will hold both Main Menu and Submenus
+  panel.innerHTML = `
+    <div id="mobile-menu-container" class="relative w-full h-full flex transition-transform duration-300 ease-in-out">
+      
+      <div id="main-view" class="w-full h-full shrink-0 p-8 flex flex-col">
+        <div class="flex justify-between items-center mb-10 bg-white py-2 px-4 rounded-md">
+          <img src="assets/logo.png" alt="Alaska Logo" class="h-10" />
+          <button id="close-mobile" class="text-3xl text-black">&times;</button>
+        </div>
+        
+        <nav class="flex flex-col space-y-2">
+          <a href="index.html" class="py-4 text-[100%] font-black uppercase border-b border-zinc-900">Home</a>
+          
+          <button onclick="openSubmenu('solutions-sub')" class="w-full py-4 text-left flex justify-between items-center text-[100%] font-black uppercase border-b border-zinc-900">
+            Solutions <i class="fa-solid fa-chevron-right text-xs text-zinc-600"></i>
+          </button>
+          
+          <button onclick="openSubmenu('tech-sub')" class="w-full py-4 text-left flex justify-between items-center text-[100%] font-black uppercase border-b border-zinc-900">
+            Technology <i class="fa-solid fa-chevron-right text-xs text-zinc-600"></i>
+          </button>
+          
+          <button onclick="openSubmenu('vault-sub')" class="w-full py-4 text-left flex justify-between items-center text-[100%] font-black uppercase border-b border-zinc-900">
+            Vault <i class="fa-solid fa-chevron-right text-xs text-zinc-600"></i>
+          </button>
+          
+          <a href="about.html" class="py-4 text-[100%] font-black uppercase border-b border-zinc-900">About Us</a>
+          <a href="support.html" class="py-4 text-[100%] font-black uppercase border-b border-zinc-900">Support</a>
+        </nav>
       </div>
-      <button id="close-mobile" class="text-4xl text-white hover:text-[#cc001b]">&times;</button>
+
+      <div id="sub-view" class="w-full h-full shrink-0 p-8 bg-zinc-950 flex flex-col">
+        <button onclick="closeSubmenu()" class="flex items-center gap-2 mb-10 text-[#cc001b] font-black uppercase text-[100%]">
+          <i class="fa-solid fa-arrow-left"></i> Back
+        </button>
+        <div id="sub-content" class="flex flex-col space-y-6">
+           </div>
+      </div>
+
     </div>
-
-    <nav class="flex flex-col overflow-y-auto custom-scrollbar pr-2">
-      <a href="index.html" class="py-4 text-2xl font-black uppercase tracking-tighter border-b border-zinc-900">Home</a>
-
-      <div class="mobile-item border-b border-zinc-900">
-        <button class="w-full py-4 text-left flex justify-between items-center text-2xl font-black uppercase tracking-tighter group">
-          Solutions
-          <i class="fa-solid fa-chevron-down text-sm transition-transform"></i>
-        </button>
-        <div class="hidden flex-col pl-4 pb-6 space-y-4">
-          <a href="solutions.html" class="text-xs font-black uppercase tracking-widest text-[#cc001b]">Explore All</a>
-          <a href="dry-charge.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Dry Charge</a>
-          <a href="deep-cycle.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Deep Cycle <span class="badge-coming">Coming Soon</span></a>
-          <a href="maintenance-free.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Maintenance Free <span class="badge-coming">Coming Soon</span></a>
-          <a href="lfp.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Lithium-ion <span class="badge-coming">Coming Soon</span></a>
-        </div>
-      </div>
-
-      <div class="mobile-item border-b border-zinc-900">
-        <button class="w-full py-4 text-left flex justify-between items-center text-2xl font-black uppercase tracking-tighter">
-          Technology
-          <i class="fa-solid fa-chevron-down text-sm transition-transform"></i>
-        </button>
-        <div class="hidden flex-col pl-4 pb-6 space-y-4">
-          <a href="technology.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Explore Tech</a>
-          <a href="graphite.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Graphite Tech</a>
-        </div>
-      </div>
-
-      <div class="mobile-item border-b border-zinc-900">
-        <button class="w-full py-4 text-left flex justify-between items-center text-2xl font-black uppercase tracking-tighter">
-          Vault
-          <i class="fa-solid fa-chevron-down text-sm transition-transform"></i>
-        </button>
-        <div class="hidden flex-col pl-4 pb-6 space-y-4">
-          <a href="vault.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Open Vault</a>
-          <a href="vault.html#blogs" class="text-xs font-black uppercase tracking-widest text-zinc-400">Blog</a>
-          <a href="vault.html#faqs" class="text-xs font-black uppercase tracking-widest text-zinc-400">FAQ</a>
-          <a href="vault.html#gallery" class="text-xs font-black uppercase tracking-widest text-zinc-400">Gallery</a>
-        </div>
-      </div>
-
-      <div class="mobile-item border-b border-zinc-900">
-        <button class="w-full py-4 text-left flex justify-between items-center text-2xl font-black uppercase tracking-tighter">
-          <span>Dealer Locator</span>
-          <i class="fa-solid fa-chevron-down text-sm transition-transform"></i>
-        </button>
-        <div class="hidden flex-col pl-4 pb-6 space-y-4">
-          <a href="dealers.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Find a Dealer</a>
-          <a href="become-dealer.html" class="text-xs font-black uppercase tracking-widest text-zinc-400">Apply to be a Dealer</a>
-        </div>
-      </div>
-
-      <a href="about.html" class="py-4 text-2xl font-black uppercase tracking-tighter border-b border-zinc-900">About Us</a>
-      <a href="support.html" class="py-4 text-2xl font-black uppercase tracking-tighter border-b border-zinc-900">Support</a>
-    </nav>
   `;
 
   document.body.appendChild(overlay);
   document.body.appendChild(panel);
 
-  // Toggle Logic
-  const open = () => {
-    overlay.classList.remove("hidden");
-    setTimeout(() => overlay.classList.add("opacity-100"), 10);
-    panel.classList.remove("translate-x-full");
-    document.body.style.overflow = "hidden";
+  // Submenu Data
+  const submenus = {
+    "solutions-sub": `
+      <h3 class="text-zinc-500 text-[80%] uppercase font-black mb-4">Our Solutions</h3>
+      <a href="solutions.html" class="text-2xl font-black uppercase text-[#cc001b]">Explore All</a>
+      <a href="dry-charge.html" class="text-2xl font-black uppercase">Dry Charge</a>
+      <a href="deep-cycle.html" class="text-2xl font-black uppercase text-zinc-700">Deep Cycle <span class="text-[50%] block text-zinc-800">Coming Soon</span></a>
+      <a href="maintenance-free.html" class="text-2xl font-black uppercase text-zinc-700">Maintenance Free</a>
+    `,
+    "tech-sub": `
+      <h3 class="text-zinc-500 text-[80%] uppercase font-black mb-4">Innovation</h3>
+      <a href="technology.html" class="text-2xl font-black uppercase">Explore Tech</a>
+      <a href="graphite.html" class="text-2xl font-black uppercase">Graphite Enhanced</a>
+    `,
+    "vault-sub": `
+      <h3 class="text-zinc-500 text-[80%] uppercase font-black mb-4">The Vault</h3>
+      <a href="vault.html" class="text-2xl font-black uppercase">Open Vault</a>
+      <a href="vault.html#blogs" class="text-2xl font-black uppercase">Blog</a>
+      <a href="vault.html#faqs" class="text-2xl font-black uppercase">FAQ</a>
+    `,
   };
 
-  const close = () => {
-    overlay.classList.remove("opacity-100");
+  // Logic Functions
+  window.openSubmenu = function (id) {
+    document.getElementById("sub-content").innerHTML = submenus[id];
+    document.getElementById("mobile-menu-container").style.transform = "translateX(-100%)";
+  };
+
+  window.closeSubmenu = function () {
+    document.getElementById("mobile-menu-container").style.transform = "translateX(0)";
+  };
+
+  const openMenu = () => {
+    overlay.classList.remove("hidden");
+    setTimeout(() => {
+      overlay.classList.add("opacity-100");
+      panel.classList.remove("translate-x-full");
+    }, 10);
+  };
+
+  const closeMenu = () => {
     panel.classList.add("translate-x-full");
+    overlay.classList.remove("opacity-100");
+    closeSubmenu(); // Reset to main view for next time
     setTimeout(() => {
       overlay.classList.add("hidden");
-      document.body.style.overflow = "auto";
-    }, 500);
+    }, 300);
   };
 
-  trigger.addEventListener("click", open);
-  overlay.addEventListener("click", close);
-  document.getElementById("close-mobile").addEventListener("click", close);
-
-  // Accordion Logic
-  panel.querySelectorAll(".mobile-item button").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const content = btn.nextElementSibling;
-      const icon = btn.querySelector(".fa-chevron-down");
-
-      // Toggle Content
-      const isHidden = content.classList.contains("hidden");
-      content.classList.toggle("hidden", !isHidden);
-      content.classList.toggle("flex", isHidden);
-
-      // Rotate Icon
-      icon.style.transform = isHidden ? "rotate(180deg)" : "rotate(0deg)";
-    });
-  });
+  trigger.addEventListener("click", openMenu);
+  document.getElementById("close-mobile").addEventListener("click", closeMenu);
+  overlay.addEventListener("click", closeMenu);
 }
 
 function init() {
