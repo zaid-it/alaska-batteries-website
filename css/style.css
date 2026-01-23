@@ -633,3 +633,98 @@ html {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
+/* Background Patterns */
+.bg-dots {
+  background-image: radial-gradient(#e5e7eb 1.5px, transparent 1.5px);
+  background-size: 15px 15px;
+}
+
+.bg-hex {
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cpath fill='%23f3f4f6' fill-opacity='0.4' d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.32v12.36l11 6.35 11-6.35V17.32L14 10.97 3 17.32z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+/* Slanted Header Design */
+.slanted-header {
+  position: relative;
+  background: #cc001b;
+  color: white;
+  padding: 10px 40px 10px 20px;
+  clip-path: polygon(0 0, 95% 0, 100% 100%, 0% 100%);
+  display: inline-block;
+}
+
+/* Custom Bullet points to match image */
+.custom-list {
+  list-style: none;
+}
+.custom-list li::before {
+  content: "•";
+  color: #cc001b;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+/* Decorative dot pattern used in the background of the flyer */
+.bg-dot-pattern {
+  background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+/* The red slanted headers on the left */
+.flyer-label-red {
+  background: #cc001b;
+  color: white;
+  padding: 8px 40px 8px 20px;
+  clip-path: polygon(0 0, 92% 0, 100% 100%, 0% 100%);
+  display: inline-block;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+/* The hexagon pattern for the page background */
+.bg-hex-grid {
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='84' viewBox='0 0 48 84'%3E%3Cpath fill='%23f3f4f6' fill-opacity='0.5' d='M24 0l24 13.856v27.712L24 55.424 0 41.568V13.856L24 0zm0 2.31L2.31 14.856v25.712L24 53.114l21.69-12.546V14.856L24 2.31z'/%3E%3C/svg%3E");
+}
+.icon-container {
+  width: 110px; /* Adjust size as needed */
+  height: 120px;
+  background-color: gray; /* Your icon color */
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  /* This is the magic line that creates the hexagon */
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+
+  /* Ensures any image inside fills the hexagon */
+  transition: transform 0.3s ease;
+}
+
+.icon-container:hover {
+  transform: scale(1.1);
+  background-color: #2980b9;
+}
+/* Language Visibility */
+.lang-ur {
+  display: none;
+}
+.urdu-mode .lang-en {
+  display: none;
+}
+.urdu-mode .lang-ur {
+  display: block;
+  direction: rtl;
+  text-align: right;
+  font-family: "Noto Nastaliq Urdu", serif;
+}
+
+/* Adjusting the Red Labels for Urdu */
+.urdu-mode .flyer-label-red {
+  text-align: right;
+  padding-right: 15px;
+}
