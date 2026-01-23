@@ -101,7 +101,7 @@ const footerHTML = /* HTML */ `
 
         <div class="flex justify-center items-center">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-x-18 md:gap-x-28 gap-y-2 md:gap-y-0 text-m font-bold text-gray-600">
-            <ul class="flex flex-col space-y-3">
+            <ul class="flex flex-col space-y-1">
               <li>
                 <a href="index.html" class="hover:text-[#cc001b] transition-colors">Home</a>
               </li>
@@ -116,7 +116,7 @@ const footerHTML = /* HTML */ `
               </li>
             </ul>
 
-            <ul class="flex flex-col space-y-3">
+            <ul class="flex flex-col space-y-1">
               <li>
                 <a href="dealers.html" class="hover:text-[#cc001b] transition-colors">Dealer Locator</a>
               </li>
