@@ -9,22 +9,32 @@ window.updateStage = function (id, shouldScroll = false) {
   if (!battery) return;
 
   // UI Updates
-  document.getElementById("stage-name").innerText = battery.model;
-  document.getElementById("stage-tech").innerText = battery.tech;
-  document.getElementById("stage-plates").innerText = battery.plates;
-  document.getElementById("stage-power").innerText = battery.p + "V";
-  document.getElementById("stage-ah").innerText = battery.ah + " AH";
-  document.getElementById("stage-warranty").innerText = battery.warranty;
-  document.getElementById("stage-uses").innerText = battery.uses;
-  document.getElementById("stage-image").src = battery.image;
-
+  const stageName = document.getElementById("stage-name");
+  const stageTech = document.getElementById("stage-tech");
+  const stagePlates = document.getElementById("stage-plates");
+  const stagePower = document.getElementById("stage-power");
+  const stageAh = document.getElementById("stage-ah");
+  const stageWarranty = document.getElementById("stage-warranty");
+  const stageUses = document.getElementById("stage-uses");
+  const stageImage = document.getElementById("stage-image");
   const tagsContainer = document.getElementById("stage-tags");
+
+  if (stageName) stageName.innerText = battery.model;
+  if (stageTech) stageTech.innerText = battery.tech;
+  if (stagePlates) stagePlates.innerText = battery.plates;
+  if (stagePower) stagePower.innerText = battery.p + "V";
+  if (stageAh) stageAh.innerText = battery.ah + " AH";
+  if (stageWarranty) stageWarranty.innerText = battery.warranty;
+  if (stageUses) stageUses.innerText = battery.uses;
+  if (stageImage) stageImage.src = battery.image;
+
   if (tagsContainer) {
     tagsContainer.innerHTML = battery.categories.map((tag) => `<span class="bg-gray-100 px-3 py-1 text-[100%] font-black uppercase rounded-md">${tag}</span>`).join("");
   }
 
   if (shouldScroll) {
-    document.getElementById("top").scrollIntoView({ behavior: "smooth" });
+    const topElement = document.getElementById("top");
+    if (topElement) topElement.scrollIntoView({ behavior: "smooth" });
   }
 };
 
@@ -33,6 +43,38 @@ document.addEventListener("DOMContentLoaded", () => {
   const clearBtn = document.getElementById("clearSearch");
   const suggestionsBox = document.getElementById("search-suggestions");
   const thumbGrid = document.getElementById("thumb-grid");
+
+  // --- 2. DRAG TO SCROLL LOGIC (Fixed) ---
+  if (thumbGrid) {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    thumbGrid.addEventListener("mousedown", (e) => {
+      isDown = true;
+      thumbGrid.classList.add("active");
+      startX = e.pageX - thumbGrid.offsetLeft;
+      scrollLeft = thumbGrid.scrollLeft;
+    });
+
+    thumbGrid.addEventListener("mouseleave", () => {
+      isDown = false;
+      thumbGrid.classList.remove("active");
+    });
+
+    thumbGrid.addEventListener("mouseup", () => {
+      isDown = false;
+      thumbGrid.classList.remove("active");
+    });
+
+    thumbGrid.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - thumbGrid.offsetLeft;
+      const walk = (x - startX) * 2; // Scroll-fast speed
+      thumbGrid.scrollLeft = scrollLeft - walk;
+    });
+  }
 
   // --- SEARCH & CLEAR LOGIC ---
   if (searchInput) {
@@ -64,8 +106,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // --- FIX: UPDATED APPLY FILTERS ---
   function applyFilters() {
-    const term = searchInput.value.toLowerCase().trim();
+    const term = searchInput ? searchInput.value.toLowerCase().trim() : "";
     const activeCat = document.querySelector(".filter-btn.active")?.getAttribute("data-cat") || "All";
 
     const filtered = batteryData.filter((b) => {
@@ -76,21 +119,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     renderThumbnails(filtered);
+
+    // FIX: Update the main stage if filtered results exist
+    if (filtered.length > 0) {
+      window.updateStage(filtered[0].id, false);
+    }
   }
 
   function renderThumbnails(data) {
     if (!thumbGrid) return;
+
+    if (data.length === 0) {
+      thumbGrid.innerHTML = `<div class="text-gray-400 font-bold p-4 w-full text-center">No batteries found.</div>`;
+      return;
+    }
+
     thumbGrid.innerHTML = data
       .map(
         (b) => `
-            <div onclick="window.updateStage('${b.id}', true)" class="thumb-card product-thumb cursor-pointer shrink-0 border-2 border-transparent p-2 rounded-md hover:border-gray-200 transition-colors">
+            <div onclick="window.updateStage('${b.id}', true)" 
+                 class="thumb-card product-thumb cursor-pointer shrink-0 border-2 border-transparent p-2 rounded-md hover:border-gray-200 transition-colors select-none">
                 <img src="${b.image}" alt="${b.model}" class="h-20 w-auto object-contain pointer-events-none">
                 <p class="text-[100%] font-black uppercase mt-2 text-center">${b.model}</p>
-            </div>`
+            </div>`,
       )
       .join("");
-
-    if (data.length > 0 && !currentBatteryId) window.updateStage(data[0].id);
   }
 
   // --- SUGGESTIONS LOGIC ---
@@ -113,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <span class="text-[80%] text-gray-400 font-bold uppercase">${m.plates} Plates</span>
                     </div>
                     <span class="text-[100%] text-[#cc001b] font-black">${m.ah} AH</span>
-                </div>`
+                </div>`,
         )
         .join("");
       suggestionsBox.classList.remove("hidden");
@@ -127,22 +180,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const suggestionsBox = document.getElementById("search-suggestions");
     const clearBtn = document.getElementById("clearSearch");
 
-    // 1. Update the input text
-    searchInput.value = name;
-
-    // 2. Hide suggestions
+    if (searchInput) searchInput.value = name;
     if (suggestionsBox) suggestionsBox.classList.add("hidden");
     if (clearBtn) clearBtn.classList.remove("hidden");
 
-    // 3. Find the battery object that matches this name
     const selectedBattery = batteryData.find((b) => b.model === name);
 
-    // 4. Update the Stage and Filter the grid
     if (selectedBattery) {
-      window.updateStage(selectedBattery.id, true); // Update the big display
+      window.updateStage(selectedBattery.id, true);
     }
-
-    // 5. Run the filter so the grid matches the selection
     applyFilters();
   };
 
@@ -154,7 +200,11 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
+  // Initial Render
   renderThumbnails(batteryData);
+  if (batteryData.length > 0 && !currentBatteryId) {
+    window.updateStage(batteryData[0].id);
+  }
 });
 
 // --- MODAL & COMPARISON LOGIC ---
@@ -164,30 +214,33 @@ window.openCompareSelection = function (firstId) {
   const firstBattery = batteryData.find((b) => b.id === firstId);
   const modal = document.getElementById("compare-modal");
 
-  modal.classList.add("active");
-  document.body.style.overflow = "hidden";
+  if (modal) {
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
 
-  document.getElementById("compare-render-area").innerHTML = `
-        <div class="max-w-xl mx-auto">
-            <h3 class="text-lg font-bold uppercase mb-6 tracking-tighter text-black">Compare With...</h3>
-            <div class="flex items-center gap-2 mb-6 bg-gray-50 p-2 rounded-md">
-                <div class="bg-[#cc001b] text-white px-3 py-1 rounded-md text-[100%] font-black uppercase">${firstBattery.model}</div>
-                <div class="text-gray-400 text-xs font-bold italic px-1">VS</div>
-                <div class="text-gray-400 text-[100%] font-black animate-pulse">Select Second Battery</div>
+    document.getElementById("compare-render-area").innerHTML = `
+            <div class="max-w-xl mx-auto">
+                <h3 class="text-lg font-bold uppercase mb-6 tracking-tighter text-black">Compare With...</h3>
+                <div class="flex items-center gap-2 mb-6 bg-gray-50 p-2 rounded-md">
+                    <div class="bg-[#cc001b] text-white px-3 py-1 rounded-md text-[100%] font-black uppercase">${firstBattery.model}</div>
+                    <div class="text-gray-400 text-xs font-bold italic px-1">VS</div>
+                    <div class="text-gray-400 text-[100%] font-black animate-pulse">Select Second Battery</div>
+                </div>
+                <div class="relative mb-4">
+                    <input type="text" id="modalSearch" oninput="filterModalList()" placeholder="Search Plates, AH or Model..." autofocus
+                           class="w-full bg-gray-100 border-none rounded-md py-4 pl-5 pr-12 outline-none font-bold text-sm uppercase focus:bg-white focus:ring-2 focus:ring-[#cc001b]">
+                </div>
+                <div id="modal-list-results" class="space-y-2 max-h-[40vh] overflow-y-auto pr-1"></div>
             </div>
-            <div class="relative mb-4">
-                <input type="text" id="modalSearch" oninput="filterModalList()" placeholder="Search Plates, AH or Model..." autofocus
-                       class="w-full bg-gray-100 border-none rounded-md py-4 pl-5 pr-12 outline-none font-bold text-sm uppercase focus:bg-white focus:ring-2 focus:ring-[#cc001b]">
-            </div>
-            <div id="modal-list-results" class="space-y-2 max-h-[40vh] overflow-y-auto pr-1"></div>
-        </div>
-    `;
-  filterModalList();
+        `;
+    filterModalList();
+  }
 };
 
 window.filterModalList = function () {
   const term = document.getElementById("modalSearch")?.value.toLowerCase().trim() || "";
   const listArea = document.getElementById("modal-list-results");
+  if (!listArea) return;
 
   const matches = batteryData.filter((b) => b.id !== compareFirstId && (b.model.toLowerCase().includes(term) || b.ah.toString().includes(term) || b.plates.toString().includes(term)));
 
@@ -204,7 +257,7 @@ window.filterModalList = function () {
             </div>
             <span class="text-[100%] font-black text-gray-400 group-hover:text-[#cc001b]">${b.ah} AH</span>
         </div>
-    `
+    `,
     )
     .join("");
 };
@@ -226,11 +279,11 @@ window.executeComparison = function (secondId) {
             </button>
             <div class="grid grid-cols-2 gap-4 mb-8">
                 <div class="text-center p-4 bg-white rounded-md border border-gray-100">
-                    <img src="${b1.image}" class="h-24 mx-auto mb-2 object-contain">
+                    <img src="${b1.image}" class="h-30 mx-auto mb-2 object-contain">
                     <h4 class="text-[100%] font-bold uppercase">${b1.model}</h4>
                 </div>
                 <div class="text-center p-4 bg-white border-2 border-[#cc001b] rounded-md shadow-lg">
-                    <img src="${b2.image}" class="h-24 mx-auto mb-2 object-contain">
+                    <img src="${b2.image}" class="h-30 mx-auto mb-2 object-contain">
                     <h4 class="text-[100%] font-bold uppercase">${b2.model}</h4>
                 </div>
             </div>
@@ -238,11 +291,11 @@ window.executeComparison = function (secondId) {
                 ${specs
                   .map(
                     (s) => `
-                    <div class="grid grid-cols-3 items-center py-4 border-b border-gray-50">
+                    <div class="grid grid-cols-3 items-center py-2 border-b border-gray-50">
                         <span class="font-bold text-2xl text-center">${b1[s.k]}${s.s || ""}</span>
                         <span class="text-[100%] font-bold uppercase text-gray-600 text-center tracking-tighter">${s.l}</span>
                         <span class="font-bold text-2xl text-center text-[#cc001b]">${b2[s.k]}${s.s || ""}</span>
-                    </div>`
+                    </div>`,
                   )
                   .join("")}
             </div>
@@ -251,16 +304,15 @@ window.executeComparison = function (secondId) {
 };
 
 window.closeCompareModal = () => {
-  document.getElementById("compare-modal").classList.remove("active");
+  const modal = document.getElementById("compare-modal");
+  if (modal) modal.classList.remove("active");
   document.body.style.overflow = "auto";
 };
 
-// --- FIX: CLICK OUTSIDE MODAL TO CLOSE ---
+// FIX: CLICK OUTSIDE MODAL TO CLOSE
 window.addEventListener("click", (e) => {
   const modal = document.getElementById("compare-modal");
-  const modalContent = document.getElementById("compare-modal-content");
-  // If the modal is active and the user clicks the black overlay (not the white box)
-  if (modal.classList.contains("active") && e.target === modal.firstElementChild) {
+  if (modal && modal.classList.contains("active") && e.target === modal.firstElementChild) {
     window.closeCompareModal();
   }
 });
