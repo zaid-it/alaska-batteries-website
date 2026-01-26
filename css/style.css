@@ -6,7 +6,15 @@
 }
 
 body {
-  font-family: Universal Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family:
+    Universal Sans,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -520,7 +528,9 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
+  transition:
+    opacity 0.4s ease,
+    visibility 0.4s ease;
   backdrop-filter: blur(12px);
   z-index: 500;
   opacity: 0;
@@ -633,16 +643,6 @@ html {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-/* Background Patterns */
-.bg-dots {
-  background-image: radial-gradient(#e5e7eb 1.5px, transparent 1.5px);
-  background-size: 15px 15px;
-}
-
-.bg-hex {
-  background-color: #ffffff;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cpath fill='%23f3f4f6' fill-opacity='0.4' d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.32v12.36l11 6.35 11-6.35V17.32L14 10.97 3 17.32z'%3E%3C/path%3E%3C/svg%3E");
-}
 
 /* Slanted Header Design */
 .slanted-header {
@@ -666,12 +666,6 @@ html {
   width: 1em;
   margin-left: -1em;
 }
-/* Decorative dot pattern used in the background of the flyer */
-.bg-dot-pattern {
-  background-image: radial-gradient(#d1d5db 1px, transparent 1px);
-  background-size: 14px 14px;
-}
-
 /* The red slanted headers on the left */
 .flyer-label-red {
   background: #cc001b;
@@ -683,11 +677,6 @@ html {
   text-transform: uppercase;
 }
 
-/* The hexagon pattern for the page background */
-.bg-hex-grid {
-  background-color: #ffffff;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='84' viewBox='0 0 48 84'%3E%3Cpath fill='%23f3f4f6' fill-opacity='0.5' d='M24 0l24 13.856v27.712L24 55.424 0 41.568V13.856L24 0zm0 2.31L2.31 14.856v25.712L24 53.114l21.69-12.546V14.856L24 2.31z'/%3E%3C/svg%3E");
-}
 .icon-container {
   width: 110px; /* Adjust size as needed */
   height: 120px;
@@ -727,4 +716,67 @@ html {
 .urdu-mode .flyer-label-red {
   text-align: right;
   padding-right: 15px;
+}
+@import url("https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap");
+
+/* --- Perspective & Flip Animation --- */
+.card-container {
+  perspective: 1200px;
+  min-height: 400px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+body.urdu-mode .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 0.75rem;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  /* Only apply Urdu font to the back side */
+  font-family: "Noto Nastaliq Urdu", serif;
+}
+
+/* --- Header Visibility Toggle --- */
+.header-en {
+  display: block;
+}
+.header-ur {
+  display: none;
+}
+body.urdu-mode .header-en {
+  display: none;
+}
+body.urdu-mode .header-ur {
+  display: block;
+  font-family: "Noto Nastaliq Urdu", serif;
+  line-height: 1.9;
+}
+
+/* --- Typography Fixes --- */
+.urdu-text {
+  line-height: 2.2;
+}
+.benefit-tag {
+  display: inline-block !important;
+  width: auto !important;
 }
