@@ -29,7 +29,7 @@ const headerHTML = /* HTML */ `
               <a href="dealers.html" class="nav-link">Dealer</a>
               <div class="dropdown-panel">
                 <a href="dealers.html" class="dropdown-item">Find a Dealer</a>
-                <a href="become-dealer.html" class="dropdown-item">Apply as Dealer</a>
+                <a href="become-dealer.html" class="dropdown-item">Apply to be a Dealer</a>
               </div>
             </li>
 
