@@ -18,28 +18,18 @@ const headerHTML = /* HTML */ `
               <a href="solutions.html" class="nav-link">Solutions</a>
               <div class="dropdown-panel">
                 <a href="dry-charge.html" class="dropdown-item">Dry Charge</a>
-
-                <a href="deep-cycle.html" class="dropdown-item flex justify-between items-center">
-                  Deep Cycle
-                  <span class="badge-coming">Coming Soon</span>
-                </a>
-
-                <a href="maintenance-free.html" class="dropdown-item flex justify-between items-center">
-                  Maintenance Free
-                  <span class="badge-coming">Coming Soon</span>
-                </a>
-
-                <a href="lfp.html" class="dropdown-item flex justify-between items-center">
-                  Lithium-ion
-                  <span class="badge-coming">Coming Soon</span>
-                </a>
-              </div>
-            </li>
-
             <li class="nav-item">
               <a href="technology.html" class="nav-link">Technology</a>
               <div class="dropdown-panel">
                 <a href="graphite.html" class="dropdown-item">Graphite Tech</a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a href="dealers.html" class="nav-link">Dealer</a>
+              <div class="dropdown-panel">
+                <a href="dealers.html" class="dropdown-item">Find a Dealer</a>
+                <a href="become-dealer.html" class="dropdown-item">Apply as Dealer</a>
               </div>
             </li>
 
@@ -52,13 +42,7 @@ const headerHTML = /* HTML */ `
               </div>
             </li>
 
-            <li class="nav-item">
-              <a href="dealers.html" class="nav-link">Dealer</a>
-              <div class="dropdown-panel">
-                <a href="dealers.html" class="dropdown-item">Find a Dealer</a>
-                <a href="become-dealer.html" class="dropdown-item">Apply as Dealer</a>
-              </div>
-            </li>
+            
 
             <li class="nav-item">
               <a href="about.html" class="nav-link">About Us</a>
@@ -189,93 +173,95 @@ function setupMobileMenu() {
   const trigger = document.getElementById("mobile-menu-trigger");
   if (!trigger) return;
 
-  // Cleanup
   const oldOverlay = document.getElementById("mobile-menu-overlay");
-  const oldPanel = document.getElementById("mobile-menu-panel");
-  if (oldOverlay) {
-    oldOverlay.remove();
-    oldPanel.remove();
-  }
+  if (oldOverlay) oldOverlay.remove();
 
-  const overlay = document.createElement("div");
-  overlay.id = "mobile-menu-overlay";
-  overlay.className = "fixed inset-0 bg-black/80 backdrop-blur-sm z-[200] hidden opacity-0 transition-opacity duration-300";
+  const menu = document.createElement("div");
+  menu.id = "mobile-menu-overlay";
+  // Background is a soft dark grey with heavy blur
+  menu.className = "fixed inset-0 bg-white/70 backdrop-blur-xl z-[500] hidden opacity-0 transition-all duration-500 flex flex-col";
 
-  const panel = document.createElement("div");
-  panel.id = "mobile-menu-panel";
-  panel.className =
-    "fixed top-0 right-0 h-full w-[90%] max-w-[400px] bg-black text-white z-[201] translate-x-full transition-transform duration-300 ease-in-out flex flex-col shadow-2xl overflow-hidden";
+  menu.innerHTML = /* HTML */ `
+    <div class="flex justify-between items-center p-5 border-b border-black/5">
+      <a href="index.html">
+        <img src="assets/logo.png" alt="Logo" class="h-10 px-[4px]" />
+      </a>
+      <button id="close-mobile" class="relative w-10 h-10 flex items-center justify-center">
+        <span class="absolute w-8 h-0.5 bg-[#cc001b] transition-all duration-300 rotate-45"></span>
+        <span class="absolute w-8 h-0.5 bg-[#cc001b] transition-all duration-300 -rotate-45"></span>
+      </button>
+    </div>
 
-  // Main Container that will hold both Main Menu and Submenus
-  panel.innerHTML = `
-    <div id="mobile-menu-container" class="relative w-full h-full flex transition-transform duration-300 ease-in-out">
-      
-      <div id="main-view" class="w-full h-full shrink-0 p-8 flex flex-col">
-        <div class="flex justify-between items-center mb-10 bg-white py-2 px-4 rounded-md">
-          <img src="assets/logo.png" alt="Alaska Logo" class="h-10" />
-          <button id="close-mobile" class="text-3xl text-black">&times;</button>
+    <div class="flex-grow overflow-hidden relative">
+      <div id="mobile-menu-container" class="flex w-[200%] h-full transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]">
+        <div id="main-view" class="w-1/2 h-full p-8 flex flex-col justify-center">
+          <nav class="space-y-1">
+            <a href="index.html" class="block text-4xl font-bold uppercase tracking-normal text-zinc-900 hover:text-[#cc001b] transition-colors">Home</a>
+
+            <button
+              onclick="openSubmenu('solutions-sub')"
+              class="w-full text-left flex justify-between items-end text-4xl font-bold uppercase tracking-normal text-zinc-900 hover:text-[#cc001b] transition-colors">
+              Solutions <i class="fa-solid fa-chevron-right text-[#cc001b]"></i>
+            </button>
+
+            <button
+              onclick="openSubmenu('tech-sub')"
+              class="w-full text-left flex justify-between items-end text-4xl font-bold uppercase tracking-normal text-zinc-900 hover:text-[#cc001b] transition-colors">
+              Technology <i class="fa-solid fa-chevron-right text-[#cc001b]"></i>
+            </button>
+
+            <button
+              onclick="openSubmenu('dealers-sub')"
+              class="w-full text-left flex justify-between items-end text-4xl font-bold uppercase tracking-normal text-zinc-900 hover:text-[#cc001b] transition-colors">
+              Dealers <i class="fa-solid fa-chevron-right text-[#cc001b]"></i>
+            </button>
+
+            <button
+              onclick="openSubmenu('vault-sub')"
+              class="w-full text-left flex justify-between items-end text-4xl font-bold uppercase tracking-normal text-zinc-900 hover:text-[#cc001b] transition-colors">
+              Vault <i class="fa-solid fa-chevron-right text-[#cc001b]"></i>
+            </button>
+
+            <a href="about.html" class="block text-4xl font-bold uppercase tracking-normal text-zinc-900 hover:text-[#cc001b] transition-colors">About</a>
+            <a href="support.html" class="block text-4xl font-bold uppercase tracking-normal text-zinc-900 hover:text-[#cc001b] transition-colors">Support</a>
+          </nav>
         </div>
-        
-        <nav class="flex flex-col space-y-2">
-          <a href="index.html" class="py-4 text-[100%] font-black uppercase border-b border-zinc-900">Home</a>
-          
-          <button onclick="openSubmenu('solutions-sub')" class="w-full py-4 text-left flex justify-between items-center text-[100%] font-black uppercase border-b border-zinc-900">
-            Solutions <i class="fa-solid fa-chevron-right text-xs text-zinc-600"></i>
-          </button>
-          
-          <button onclick="openSubmenu('tech-sub')" class="w-full py-4 text-left flex justify-between items-center text-[100%] font-black uppercase border-b border-zinc-900">
-            Technology <i class="fa-solid fa-chevron-right text-xs text-zinc-600"></i>
-          </button>
-          
-          <button onclick="openSubmenu('vault-sub')" class="w-full py-4 text-left flex justify-between items-center text-[100%] font-black uppercase border-b border-zinc-900">
-            Vault <i class="fa-solid fa-chevron-right text-xs text-zinc-600"></i>
-          </button>
-          
-          <a href="about.html" class="py-4 text-[100%] font-black uppercase border-b border-zinc-900">About Us</a>
-          <a href="support.html" class="py-4 text-[100%] font-black uppercase border-b border-zinc-900">Support</a>
-        </nav>
-      </div>
 
-      <div id="sub-view" class="w-full h-full shrink-0 p-8 bg-zinc-950 flex flex-col">
-        <button onclick="closeSubmenu()" class="flex items-center gap-2 mb-10 text-[#cc001b] font-black uppercase text-[100%]">
-          <i class="fa-solid fa-arrow-left"></i> Back
-        </button>
-        <div id="sub-content" class="flex flex-col space-y-6">
-           </div>
+        <div id="sub-view" class="w-1/2 h-full p-8 flex flex-col justify-center bg-black/5">
+          <button onclick="closeSubmenu()" class="flex items-center gap-2 text-[#cc001b] font-bold uppercase text-xl mb-10"><i class="fa-solid fa-arrow-left"></i> Back to Main</button>
+          <div id="sub-content" class="flex flex-col space-y-6"></div>
+        </div>
       </div>
-
     </div>
   `;
 
-  document.body.appendChild(overlay);
-  document.body.appendChild(panel);
+  document.body.appendChild(menu);
 
-  // Submenu Data
+  // Submenu Data (Keeping your items as requested)
   const submenus = {
     "solutions-sub": `
-      <h3 class="text-zinc-500 text-[80%] uppercase font-black mb-4">Our Solutions</h3>
-      <a href="solutions.html" class="text-2xl font-black uppercase text-[#cc001b]">Explore All</a>
-      <a href="dry-charge.html" class="text-2xl font-black uppercase">Dry Charge</a>
-      <a href="deep-cycle.html" class="text-2xl font-black uppercase text-zinc-700">Deep Cycle <span class="text-[50%] block text-zinc-800">Coming Soon</span></a>
-      <a href="maintenance-free.html" class="text-2xl font-black uppercase text-zinc-700">Maintenance Free</a>
+      <a href="solutions.html" class="text-3xl font-black uppercase text-zinc-900 slide-up">Our Products</a>
+      <a href="dry-charge.html" class="text-3xl font-black uppercase text-zinc-900 slide-up">Dry Charge</a>
     `,
     "tech-sub": `
-      <h3 class="text-zinc-500 text-[80%] uppercase font-black mb-4">Innovation</h3>
-      <a href="technology.html" class="text-2xl font-black uppercase">Explore Tech</a>
-      <a href="graphite.html" class="text-2xl font-black uppercase">Graphite Enhanced</a>
+      <a href="technology.html" class="text-3xl font-black uppercase text-zinc-900 slide-up">Technology</a>
+      <a href="graphite.html" class="text-3xl font-black uppercase text-zinc-900 slide-up">Graphite</a>
+    `,
+    "dealers-sub": `
+      <a href="dealers.html" class="text-3xl font-black uppercase text-zinc-900 slide-up">Find a Dealer</a>
+      <a href="become-dealer.html" class="text-3xl font-black uppercase text-zinc-900 slide-up">Apply to be a Dealer</a>
     `,
     "vault-sub": `
-      <h3 class="text-zinc-500 text-[80%] uppercase font-black mb-4">The Vault</h3>
-      <a href="vault.html" class="text-2xl font-black uppercase">Open Vault</a>
-      <a href="vault.html#blogs" class="text-2xl font-black uppercase">Blog</a>
-      <a href="vault.html#faqs" class="text-2xl font-black uppercase">FAQ</a>
+      <a href="vault.html" class="text-3xl font-black uppercase text-zinc-900 slide-up">The Vault</a>
+      <a href="vault.html#blogs" class="text-3xl font-black uppercase text-zinc-900 slide-up">Blog</a>
+      <a href="vault.html#faq" class="text-3xl font-black uppercase text-zinc-900 slide-up">FAQs</a>
+      <a href="vault.html#gallery" class="text-3xl font-black uppercase text-zinc-900 slide-up">Gallery</a>
     `,
   };
 
-  // Logic Functions
   window.openSubmenu = function (id) {
     document.getElementById("sub-content").innerHTML = submenus[id];
-    document.getElementById("mobile-menu-container").style.transform = "translateX(-100%)";
+    document.getElementById("mobile-menu-container").style.transform = "translateX(-50%)";
   };
 
   window.closeSubmenu = function () {
@@ -283,25 +269,29 @@ function setupMobileMenu() {
   };
 
   const openMenu = () => {
-    overlay.classList.remove("hidden");
-    setTimeout(() => {
-      overlay.classList.add("opacity-100");
-      panel.classList.remove("translate-x-full");
-    }, 10);
+    menu.classList.remove("hidden");
+    setTimeout(() => menu.classList.add("opacity-100"), 10);
+    document.body.style.overflow = "hidden"; // Prevent background scroll
   };
 
   const closeMenu = () => {
-    panel.classList.add("translate-x-full");
-    overlay.classList.remove("opacity-100");
-    closeSubmenu(); // Reset to main view for next time
+    menu.classList.remove("opacity-100");
     setTimeout(() => {
-      overlay.classList.add("hidden");
-    }, 300);
+      menu.classList.add("hidden");
+      closeSubmenu();
+      document.body.style.overflow = "";
+    }, 500);
   };
+  // Close menu if clicking the background area of the container
+  document.getElementById("mobile-menu-container").addEventListener("click", (e) => {
+    // If the user clicked the container itself, and NOT a link/button inside it
+    if (e.target.id === "mobile-menu-container" || e.target.id === "main-view" || e.target.id === "sub-view") {
+      closeMenu();
+    }
+  });
 
   trigger.addEventListener("click", openMenu);
   document.getElementById("close-mobile").addEventListener("click", closeMenu);
-  overlay.addEventListener("click", closeMenu);
 }
 
 function init() {
