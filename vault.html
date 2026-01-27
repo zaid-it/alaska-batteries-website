@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -21,92 +21,187 @@
               <div class="relative w-full max-w-sm">
                 <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
                 <input
+                  id="blog-search"
+                  onkeyup="filterBlogs()"
                   type="text"
                   placeholder="Search articles..."
                   class="w-full pl-12 pr-4 py-2 bg-gray-50 border border-gray-100 rounded-full text-sm outline-none focus:border-[#cc001b]" />
               </div>
             </div>
             <div class="flex gap-4">
-              <button
-                class="h-12 w-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white transition-all">
+              <button onclick="scrollBlogs(-400)" class="h-12 w-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white transition-all">
                 <i class="fa-solid fa-arrow-left"></i>
               </button>
-              <button
-                class="h-12 w-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white transition-all">
+              <button onclick="scrollBlogs(400)" class="h-12 w-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white transition-all">
                 <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
           </div>
 
-          <div class="flex gap-8 overflow-hidden">
+          <div id="blog-scroll-container" class="flex gap-6 overflow-x-auto pb-8 snap-x no-scrollbar scroll-smooth">
             <div
-              class="min-w-[350px] md:w-1/3 aspect-[3/4] bg-gray-50 border border-gray-100 p-8 flex flex-col justify-end group cursor-pointer">
-              <p class="text-[#cc001b] font-bold text-xs mb-2">JAN 2026</p>
-              <h4 class="text-2xl font-black uppercase group-hover:underline">Maintaining Graphite Lead-Acid</h4>
+              onclick="openBlogModal('choosing-guide')"
+              class="min-w-[320px] md:min-w-[400px] snap-start aspect-[3/4] bg-zinc-900 text-white p-8 flex flex-col justify-end group cursor-pointer relative overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
+              <div class="relative z-20">
+                <p class="text-[#cc001b] font-bold text-xs mb-2 uppercase">Guide</p>
+                <h4 class="text-2xl font-black uppercase leading-tight group-hover:underline">Best Battery for Vehicle or Solar</h4>
+              </div>
             </div>
+
             <div
-              class="min-w-[350px] md:w-1/3 aspect-[3/4] bg-gray-50 border border-gray-100 p-8 flex flex-col justify-end group cursor-pointer">
-              <p class="text-[#cc001b] font-bold text-xs mb-2">DEC 2025</p>
-              <h4 class="text-2xl font-black uppercase group-hover:underline">The Future of Energy in Pakistan</h4>
+              onclick="openBlogModal('eid-checklist')"
+              class="min-w-[320px] md:min-w-[400px] snap-start aspect-[3/4] bg-zinc-100 p-8 flex flex-col justify-end group cursor-pointer border border-zinc-200">
+              <p class="text-[#cc001b] font-bold text-xs mb-2 uppercase">Travel</p>
+              <h4 class="text-2xl font-black uppercase group-hover:underline text-zinc-900">Eid Travel Readiness Checklist</h4>
+            </div>
+
+            <div
+              onclick="openBlogModal('power-saving')"
+              class="min-w-[320px] md:min-w-[400px] snap-start aspect-[3/4] bg-zinc-900 text-white p-8 flex flex-col justify-end group cursor-pointer relative overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
+              <div class="relative z-20">
+                <p class="text-[#cc001b] font-bold text-xs mb-2 uppercase">Maintenance</p>
+                <h4 class="text-2xl font-black uppercase leading-tight group-hover:underline">5 Power-Saving Secrets</h4>
+              </div>
+            </div>
+
+            <div
+              onclick="openBlogModal('storage-tips')"
+              class="min-w-[320px] md:min-w-[400px] snap-start aspect-[3/4] bg-zinc-100 p-8 flex flex-col justify-end group cursor-pointer border border-zinc-200">
+              <p class="text-[#cc001b] font-bold text-xs mb-2 uppercase">Technical</p>
+              <h4 class="text-2xl font-black uppercase group-hover:underline text-zinc-900">Storing for Max Lifespan</h4>
+            </div>
+
+            <div
+              onclick="openBlogModal('recycling-guide')"
+              class="min-w-[320px] md:min-w-[400px] snap-start aspect-[3/4] bg-zinc-900 text-white p-8 flex flex-col justify-end group cursor-pointer relative overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
+              <div class="relative z-20">
+                <p class="text-[#cc001b] font-bold text-xs mb-2 uppercase">Eco-Friendly</p>
+                <h4 class="text-2xl font-black uppercase leading-tight group-hover:underline">Battery Recycling Guide</h4>
+              </div>
+            </div>
+
+            <div
+              onclick="openBlogModal('summer-survival')"
+              class="min-w-[320px] md:min-w-[400px] snap-start aspect-[3/4] bg-zinc-100 p-8 flex flex-col justify-end group cursor-pointer border border-zinc-200">
+              <p class="text-[#cc001b] font-bold text-xs mb-2 uppercase">Survival</p>
+              <h4 class="text-2xl font-black uppercase group-hover:underline text-zinc-900">Summer Survival Guide</h4>
             </div>
           </div>
         </div>
       </section>
 
+      <div id="blog-modal" class="fixed inset-0 z-[1000] hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 md:p-10">
+        <div id="modal-overlay" class="absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+
+        <div class="relative bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl animate-modal-up">
+          <button
+            onclick="closeBlogModal()"
+            class="sticky top-4 float-right mr-4 z-50 bg-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg text-2xl font-light hover:text-[#cc001b]">
+            &times;
+          </button>
+
+          <div id="modal-body" class="p-8 md:p-16"></div>
+        </div>
+      </div>
       <section id="faqs" class="py-20 bg-gray-50/30">
         <div class="container mx-auto px-6">
-          <h2 class="text-5xl font-black uppercase tracking-tighter mb-8 text-left">FAQs</h2>
+          <div class="mb-12">
+            <h2 class="text-5xl font-black uppercase tracking-tighter mb-4 text-left">Find Quick Answers to Common Questions</h2>
+            <p class="text-gray-500 max-w-2xl">We have compiled answers to the most frequently asked questions about Alaska Batteries, warranty policies, maintenance, and troubleshooting.</p>
+          </div>
 
           <div class="space-y-4 max-w-4xl">
             <div class="faq-item bg-white border border-gray-100 overflow-hidden">
               <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
-                <h4 class="font-black uppercase text-sm tracking-widest text-left">
-                  How often should I check the water levels?
-                </h4>
+                <h4 class="font-black uppercase text-sm tracking-widest text-left">1. How long does an Alaska Battery last?</h4>
                 <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
               </button>
               <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
                 <p class="pb-6 text-gray-500 text-sm leading-relaxed">
-                  For our Graphite Dry Charge series, we recommend checking water levels every 3-4 months depending on
-                  usage and ambient temperature. Always use distilled water for topping.
+                  Alaska Batteries are built to last between 2 to 4 years, depending on usage, vehicle type, and environmental conditions. With proper care and regular maintenance, you can maximize
+                  performance and extend the battery's lifespan.
                 </p>
               </div>
             </div>
 
             <div class="faq-item bg-white border border-gray-100 overflow-hidden">
               <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
-                <h4 class="font-black uppercase text-sm tracking-widest text-left">
-                  Does Graphite tech require a special charger?
-                </h4>
+                <h4 class="font-black uppercase text-sm tracking-widest text-left">2. How can I extend my battery’s lifespan?</h4>
                 <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
               </button>
               <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
                 <p class="pb-6 text-gray-500 text-sm leading-relaxed">
-                  No, Alaska Graphite batteries are compatible with all standard automotive alternators and home
-                  UPS/Solar inverters.
+                  Keep terminals clean, avoid frequent short trips, and check voltage regularly. Store batteries in cool, dry places and disconnect them during long-term vehicle storage. Follow our
+                  Tips & Techniques section for detailed maintenance advice.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item bg-white border border-gray-100 overflow-hidden">
+              <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
+                <h4 class="font-black uppercase text-sm tracking-widest text-left">3. What is covered under the warranty?</h4>
+                <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
+              </button>
+              <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+                <p class="pb-6 text-gray-500 text-sm leading-relaxed">
+                  Our warranty covers manufacturing defects, premature failure, and performance issues under normal usage. Physical damage, overcharging, or improper installation are not covered.
+                  Always retain your purchase receipt and warranty card.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item bg-white border border-gray-100 overflow-hidden">
+              <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
+                <h4 class="font-black uppercase text-sm tracking-widest text-left">4. How do I recycle or dispose of an old battery?</h4>
+                <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
+              </button>
+              <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+                <p class="pb-6 text-gray-500 text-sm leading-relaxed">
+                  You can return your old battery to any authorized Alaska Batteries dealer or partner recycling center. We ensure safe, eco-friendly disposal and even offer discounts on new purchases
+                  when you recycle with us.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item bg-white border border-gray-100 overflow-hidden">
+              <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
+                <h4 class="font-black uppercase text-sm tracking-widest text-left">5. Where can I find an authorized Alaska Batteries dealer?</h4>
+                <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
+              </button>
+              <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+                <p class="pb-6 text-gray-500 text-sm leading-relaxed">
+                  Visit our Find Dealer page or contact our Customer Support to find the nearest authorized Alaska Batteries dealer in your city. Our nationwide network ensures availability and
+                  support across Pakistan.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item bg-white border border-gray-100 overflow-hidden">
+              <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
+                <h4 class="font-black uppercase text-sm tracking-widest text-left">6. What is the Warranty Coverage & Claim Process?</h4>
+                <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
+              </button>
+              <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+                <p class="pb-6 text-gray-500 text-sm leading-relaxed">
+                  Our batteries come with an extended warranty, depending on the product type. To file a claim, present your original receipt and stamped warranty card at any authorized dealer. After
+                  inspection, eligible claims are processed swiftly with repair or replacement.
                 </p>
               </div>
             </div>
           </div>
         </div>
       </section>
-
       <section id="gallery" class="py-20 border-t border-gray-100">
         <div class="container mx-auto px-6 text-center">
-          <h2 class="text-5xl font-black uppercase tracking-tighter mb-8 inline-block border-b-4 border-[#cc001b]">
-            Gallery
-          </h2>
+          <h2 class="text-5xl font-black uppercase tracking-tighter mb-8 inline-block border-b-4 border-[#cc001b]">Gallery</h2>
 
           <div class="flex justify-center gap-12 mb-12">
-            <button class="font-black uppercase text-xs tracking-widest border-b-2 border-[#cc001b] pb-2">
-              Corporate
-            </button>
-            <button class="font-black uppercase text-xs tracking-widest text-gray-400 hover:text-black pb-2">
-              Dealer
-            </button>
-            <button class="font-black uppercase text-xs tracking-widest text-gray-400 hover:text-black pb-2">
-              National
-            </button>
+            <button class="font-black uppercase text-xs tracking-widest border-b-2 border-[#cc001b] pb-2">Corporate</button>
+            <button class="font-black uppercase text-xs tracking-widest text-gray-400 hover:text-black pb-2">Dealer</button>
+            <button class="font-black uppercase text-xs tracking-widest text-gray-400 hover:text-black pb-2">National</button>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
@@ -114,25 +209,33 @@
               <img
                 src="assets/gallery/corp-1.jpg"
                 class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all cursor-zoom-in"
-                onerror="this.src='https://placehold.co/600x600?text=Gallery+1'" />
+                onerror="this.src = 'https://placehold.co/600x600?text=Gallery+1'" />
             </div>
-            <div
-              class="aspect-square w-full max-w-[350px] bg-gray-100 overflow-hidden border-4 border-[#cc001b] shadow-2xl">
-              <img
-                src="assets/gallery/corp-2.jpg"
-                class="w-full h-full object-cover"
-                onerror="this.src='https://placehold.co/600x600?text=Featured+Moment'" />
+            <div class="aspect-square w-full max-w-[350px] bg-gray-100 overflow-hidden border-4 border-[#cc001b] shadow-2xl">
+              <img src="assets/gallery/corp-2.jpg" class="w-full h-full object-cover" onerror="this.src = 'https://placehold.co/600x600?text=Featured+Moment'" />
             </div>
             <div class="aspect-square w-full max-w-[350px] bg-gray-100 overflow-hidden">
               <img
                 src="assets/gallery/corp-3.jpg"
                 class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all cursor-zoom-in"
-                onerror="this.src='https://placehold.co/600x600?text=Gallery+3'" />
+                onerror="this.src = 'https://placehold.co/600x600?text=Gallery+3'" />
             </div>
           </div>
         </div>
       </section>
     </main>
+
+    <div id="blog-modal" class="fixed inset-0 z-[1000] hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 md:p-10">
+      <div id="modal-overlay" class="absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+      <div class="relative bg-white w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-3xl shadow-2xl animate-modal-up">
+        <button
+          onclick="closeBlogModal()"
+          class="sticky top-4 float-right mr-4 z-50 bg-zinc-100 w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold hover:bg-[#cc001b] hover:text-white transition-colors">
+          &times;
+        </button>
+        <div id="modal-body" class="p-8 md:p-12"></div>
+      </div>
+    </div>
 
     <div id="footer-placeholder"></div>
 

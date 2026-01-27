@@ -698,27 +698,7 @@ html {
   background-color: #ffffff;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='84' viewBox='0 0 48 84'%3E%3Cpath fill='%23f3f4f6' fill-opacity='0.5' d='M24 0l24 13.856v27.712L24 55.424 0 41.568V13.856L24 0zm0 2.31L2.31 14.856v25.712L24 53.114l21.69-12.546V14.856L24 2.31z'/%3E%3C/svg%3E");
 }
-.icon-container {
-  width: 110px; /* Adjust size as needed */
-  height: 120px;
-  background-color: gray; /* Your icon color */
-  opacity: 0.9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
 
-  /* This is the magic line that creates the hexagon */
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-
-  /* Ensures any image inside fills the hexagon */
-  transition: transform 0.3s ease;
-}
-
-.icon-container:hover {
-  transform: scale(1.1);
-  background-color: #2980b9;
-}
 /* Language Visibility */
 .lang-ur {
   display: none;
@@ -741,9 +721,22 @@ html {
 @import url("https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap");
 
 /* --- Perspective & Flip Animation --- */
+/* --- Perspective & Flip Animation --- */
 .card-container {
   perspective: 1200px;
-  min-height: 400px;
+  /* Remove fixed min-height, let it be defined by content on mobile */
+  min-height: 420px;
+}
+
+/* On small screens, we need more height for the text to breathe */
+@media (max-width: 640px) {
+  .card-container {
+    min-height: 550px; /* Increased for mobile text room */
+  }
+  .card-front,
+  .card-back {
+    padding: 1.5rem !important; /* Slightly reduce padding to give text more width */
+  }
 }
 
 .card-inner {
@@ -761,6 +754,8 @@ body.urdu-mode .card-inner {
 .card-front,
 .card-back {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
@@ -769,6 +764,7 @@ body.urdu-mode .card-inner {
   background: white;
   display: flex;
   flex-direction: column;
+  overflow: hidden; /* Prevents text from spilling out visually */
 }
 
 .card-back {
@@ -795,9 +791,111 @@ body.urdu-mode .header-ur {
 
 /* --- Typography Fixes --- */
 .urdu-text {
-  line-height: 2.2;
+  line-height: 1.8; /* Reduced slightly from 2.2 to save space on mobile */
+  direction: rtl;
 }
 .benefit-tag {
   display: inline-block !important;
   width: auto !important;
+}
+/* Ensure icons don't shrink too much */
+.card-front i,
+.card-back i {
+  flex-shrink: 0;
+}
+/* Glassmorphism & Blur */
+/* Add this to darken the blur background slightly if the page under it is purely white */
+#mobile-menu-overlay {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.485), rgba(244, 244, 245, 0.359));
+}
+
+/* Smooth scaling for menu views */
+#main-view,
+#sub-view {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Sophisticated border for menu items */
+.menu-item-border {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Red accent on hover/active */
+.menu-link:active {
+  color: #cc001b;
+  padding-left: 8px;
+}
+.menu-link {
+  transition: all 0.3s ease;
+}
+/* Submenu entry animation */
+.slide-up {
+  animation: slideUp 0.5s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Delay each link slightly for a staggered effect */
+.slide-up:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.slide-up:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.slide-up:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+/* Horizontal container for the side-by-side view */
+#mobile-menu-container {
+  will-change: transform;
+}
+#close-mobile:hover span:first-child {
+  transform: rotate(135deg);
+}
+#close-mobile:hover span:last-child {
+  transform: rotate(45deg);
+}
+
+/* Optional: Add a slight pulse to the lines */
+#close-mobile span {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* CSS for Blogs Page */
+/* Hide scrollbar but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Modal Animation */
+.animate-modal-up {
+  animation: modalUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#blog-modal.active {
+  display: flex;
+  opacity: 1;
 }
