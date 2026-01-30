@@ -409,30 +409,14 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentIndex = 0;
 
   function triggerAnimations() {
-    textBox.classList.remove("hero-box-active");
-    subTitle.classList.remove("hero-text-active");
-
-    // Use requestAnimationFrame for smoother DOM updates
-    requestAnimationFrame(() => {
-      setTimeout(() => {
-        textBox.classList.add("hero-box-active");
-        setTimeout(() => subTitle.classList.add("hero-text-active"), 400);
-      }, 100);
-    });
+    // Animation removed - keeping simple and clean
   }
 
   function updateHero(cat) {
     const data = contentMap[cat];
-    // Fade effect
-    heroImg.style.filter = "brightness(0.5)";
-
-    setTimeout(() => {
-      heroImg.src = data.img;
-      document.getElementById("hero-title").innerHTML = data.title;
-      subTitle.innerText = data.sub;
-      heroImg.style.filter = "brightness(1)";
-      triggerAnimations();
-    }, 300);
+    heroImg.src = data.img;
+    document.getElementById("hero-title").innerHTML = data.title;
+    subTitle.innerText = data.sub;
   }
 
   function startAutoScroll() {
