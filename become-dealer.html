@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,7 +12,14 @@
   <body class="bg-white">
     <div id="header-placeholder"></div>
 
-    <main class="pt-20 bg-white">
+    <main class="bg-white">
+      <section class="bg-white space-y-2 overflow-hidden group">
+        <div class="relative h-[100px] flex flex-col md:h-[400px]">
+          <div class="w-full h-auto md:h-full md:absolute md:inset-0 overflow-hidden">
+            <img id="hero-banner-img" src="assets/become-dealer.png" alt="About-US" class="w-full h-full md:w-[100%] md:h-full transition-transform duration-1000 group-hover:scale-105" />
+          </div>
+        </div>
+      </section>
       <section class="py-20 border-b border-gray-100">
         <div class="container mx-auto px-6">
           <div class="flex flex-col md:flex-row gap-16 items-center">
@@ -23,8 +30,7 @@
                 <span class="text-gray-300">Alaska</span>
               </h1>
               <p class="text-gray-500 text-lg leading-relaxed mb-8">
-                Join Pakistan's fastest-growing battery network. We provide our dealers with Graphite-enhanced
-                technology, national marketing support, and a transparent warranty claim system.
+                Join Pakistan's fastest-growing battery network. We provide our dealers with Graphite-enhanced technology, national marketing support, and a transparent warranty claim system.
               </p>
 
               <div class="space-y-4">
@@ -44,28 +50,16 @@
             </div>
 
             <div class="w-full md:w-1/2 bg-gray-50 p-8 md:p-12 shadow-2xl border border-gray-100">
-              <h3 class="text-2xl font-black uppercase mb-8 border-b-4 border-[#cc001b] inline-block">
-                Dealer Application
-              </h3>
+              <h3 class="text-2xl font-black uppercase mb-8 border-b-4 border-[#cc001b] inline-block">Dealer Application</h3>
               <form action="#" class="space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <input
-                    type="text"
-                    placeholder="FULL NAME"
-                    class="w-full bg-white border border-gray-200 p-4 outline-none focus:border-[#cc001b] font-bold text-xs" />
-                  <input
-                    type="text"
-                    placeholder="COMPANY NAME"
-                    class="w-full bg-white border border-gray-200 p-4 outline-none focus:border-[#cc001b] font-bold text-xs" />
+                  <input type="text" placeholder="FULL NAME" class="w-full bg-white border border-gray-200 p-4 outline-none focus:border-[#cc001b] font-bold text-xs" />
+                  <input type="text" placeholder="COMPANY NAME" class="w-full bg-white border border-gray-200 p-4 outline-none focus:border-[#cc001b] font-bold text-xs" />
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <input
-                    type="tel"
-                    placeholder="CONTACT NUMBER"
-                    class="w-full bg-white border border-gray-200 p-4 outline-none focus:border-[#cc001b] font-bold text-xs" />
-                  <select
-                    class="w-full bg-white border border-gray-200 p-4 outline-none focus:border-[#cc001b] font-bold text-xs text-gray-400">
+                  <input type="tel" placeholder="CONTACT NUMBER" class="w-full bg-white border border-gray-200 p-4 outline-none focus:border-[#cc001b] font-bold text-xs" />
+                  <select class="w-full bg-white border border-gray-200 p-4 outline-none focus:border-[#cc001b] font-bold text-xs text-gray-400">
                     <option>SELECT CITY</option>
                     <option>ISLAMABAD</option>
                     <option>LAHORE</option>
@@ -74,10 +68,7 @@
                   </select>
                 </div>
 
-                <input
-                  type="text"
-                  placeholder="CURRENT BUSINESS ADDRESS"
-                  class="w-full bg-white border border-gray-200 p-4 outline-none focus:border-[#cc001b] font-bold text-xs" />
+                <input type="text" placeholder="CURRENT BUSINESS ADDRESS" class="w-full bg-white border border-gray-200 p-4 outline-none focus:border-[#cc001b] font-bold text-xs" />
 
                 <div class="py-4">
                   <p class="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-4">Primary Interest</p>
@@ -93,11 +84,7 @@
                   </div>
                 </div>
 
-                <button
-                  type="submit"
-                  class="w-full bg-black text-white font-black uppercase py-5 text-xs tracking-[0.3em] hover:bg-[#cc001b] transition-all">
-                  Submit Application
-                </button>
+                <button type="submit" class="w-full bg-black text-white font-black uppercase py-5 text-xs tracking-[0.3em] hover:bg-[#cc001b] transition-all">Submit Application</button>
               </form>
             </div>
           </div>

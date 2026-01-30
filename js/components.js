@@ -15,11 +15,11 @@ const headerHTML = /* HTML */ `
         <nav class="hidden lg:block w-3/4 h-full">
           <ul class="flex h-full items-center justify-end">
             <li class="nav-item">
-              <a href="solutions.html" class="nav-link">Solutions</a>
+              <a href="dry-charge.html" class="nav-link">Solutions</a>
               <div class="dropdown-panel">
                 <a href="dry-charge.html" class="dropdown-item">Dry Charge</a>
             <li class="nav-item">
-              <a href="technology.html" class="nav-link">Technology</a>
+              <a href="graphite.html" class="nav-link">Technology</a>
               <div class="dropdown-panel">
                 <a href="graphite.html" class="dropdown-item">Graphite Tech</a>
               </div>
@@ -178,84 +178,95 @@ function setupMobileMenu() {
 
   const menu = document.createElement("div");
   menu.id = "mobile-menu-overlay";
-  // Background is a soft dark grey with heavy blur
-  menu.className = "fixed inset-0 bg-white/70 backdrop-blur-xl z-[500] hidden opacity-0 transition-all duration-500 flex flex-col";
+  // Corporate Style: Dark semi-transparent backdrop with a slide-out white panel
+  menu.className = "fixed inset-0 z-[500] hidden";
 
   menu.innerHTML = /* HTML */ `
-    <div class="flex justify-between items-center p-5 border-b border-black/5">
-      <a href="index.html">
-        <img src="assets/logo.png" alt="Logo" class="h-10 px-[4px]" />
-      </a>
-      <button id="close-mobile" class="relative w-10 h-10 flex items-center justify-center">
-        <span class="absolute w-8 h-0.5 bg-[#cc001b] transition-all duration-300 rotate-45"></span>
-        <span class="absolute w-8 h-0.5 bg-[#cc001b] transition-all duration-300 -rotate-45"></span>
-      </button>
-    </div>
+    <div id="mobile-backdrop" class="absolute inset-0 bg-zinc-900/40 backdrop-blur-sm opacity-0 transition-opacity duration-500"></div>
 
-    <div class="flex-grow overflow-hidden relative">
-      <div id="mobile-menu-container" class="flex w-[200%] h-full transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]">
-        <div id="main-view" class="w-1/2 h-full p-8 flex flex-col justify-center">
-          <nav class="space-y-1">
-            <a href="index.html" class="block text-4xl font-bold uppercase tracking-normal text-zinc-900 hover:text-[#cc001b] transition-colors">Home</a>
+    <div
+      id="mobile-panel"
+      class="absolute top-0 right-0 h-full w-full max-w-[320px] bg-white shadow-2xl translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col">
+      <div class="flex justify-between items-center p-6 border-b border-gray-100">
+        <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400">Navigation</span>
+        <button id="close-mobile" class="text-zinc-500 hover:text-black transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
 
-            <button
-              onclick="openSubmenu('solutions-sub')"
-              class="w-full text-left flex justify-between items-end text-4xl font-bold uppercase tracking-normal text-zinc-900 hover:text-[#cc001b] transition-colors">
-              Solutions <i class="fa-solid fa-chevron-right text-[#cc001b]"></i>
+      <div class="flex-grow overflow-hidden relative bg-white">
+        <div id="mobile-menu-container" class="flex w-[200%] h-full transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]">
+          <div id="main-view" class="w-1/2 h-full flex flex-col">
+            <nav class="p-4">
+              <a href="index.html" class="flex items-center px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:bg-zinc-50 rounded-lg transition-all">Home</a>
+
+              <button
+                onclick="openSubmenu('solutions-sub')"
+                class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:bg-zinc-50 rounded-lg transition-all group">
+                Solutions <i class="fa-solid fa-chevron-right text-[10px] text-zinc-400 group-hover:text-[#cc001b]"></i>
+              </button>
+
+              <button
+                onclick="openSubmenu('tech-sub')"
+                class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:bg-zinc-50 rounded-lg transition-all group">
+                Technology <i class="fa-solid fa-chevron-right text-[10px] text-zinc-400 group-hover:text-[#cc001b]"></i>
+              </button>
+
+              <button
+                onclick="openSubmenu('dealers-sub')"
+                class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:bg-zinc-50 rounded-lg transition-all group">
+                Dealers <i class="fa-solid fa-chevron-right text-[10px] text-zinc-400 group-hover:text-[#cc001b]"></i>
+              </button>
+
+              <button
+                onclick="openSubmenu('vault-sub')"
+                class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:bg-zinc-50 rounded-lg transition-all group">
+                Vault <i class="fa-solid fa-chevron-right text-[10px] text-zinc-400 group-hover:text-[#cc001b]"></i>
+              </button>
+
+              <a href="about.html" class="flex items-center px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:bg-zinc-50 rounded-lg transition-all">About Us</a>
+              <a href="support.html" class="flex items-center px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:bg-zinc-50 rounded-lg transition-all">Support</a>
+            </nav>
+          </div>
+
+          <div id="sub-view" class="w-1/2 h-full flex flex-col bg-zinc-50">
+            <button onclick="closeSubmenu()" class="flex items-center gap-3 px-8 py-6 text-[#cc001b] font-bold text-xs uppercase tracking-widest border-b border-zinc-200/50">
+              <i class="fa-solid fa-arrow-left"></i> Back to Main
             </button>
-
-            <button
-              onclick="openSubmenu('tech-sub')"
-              class="w-full text-left flex justify-between items-end text-4xl font-bold uppercase tracking-normal text-zinc-900 hover:text-[#cc001b] transition-colors">
-              Technology <i class="fa-solid fa-chevron-right text-[#cc001b]"></i>
-            </button>
-
-            <button
-              onclick="openSubmenu('dealers-sub')"
-              class="w-full text-left flex justify-between items-end text-4xl font-bold uppercase tracking-normal text-zinc-900 hover:text-[#cc001b] transition-colors">
-              Dealers <i class="fa-solid fa-chevron-right text-[#cc001b]"></i>
-            </button>
-
-            <button
-              onclick="openSubmenu('vault-sub')"
-              class="w-full text-left flex justify-between items-end text-4xl font-bold uppercase tracking-normal text-zinc-900 hover:text-[#cc001b] transition-colors">
-              Vault <i class="fa-solid fa-chevron-right text-[#cc001b]"></i>
-            </button>
-
-            <a href="about.html" class="block text-4xl font-bold uppercase tracking-normal text-zinc-900 hover:text-[#cc001b] transition-colors">About</a>
-            <a href="support.html" class="block text-4xl font-bold uppercase tracking-normal text-zinc-900 hover:text-[#cc001b] transition-colors">Support</a>
-          </nav>
+            <div id="sub-content" class="p-4 flex flex-col"></div>
+          </div>
         </div>
+      </div>
 
-        <div id="sub-view" class="w-1/2 h-full p-8 flex flex-col justify-center bg-black/5">
-          <button onclick="closeSubmenu()" class="flex items-center gap-2 text-[#cc001b] font-bold uppercase text-xl mb-10"><i class="fa-solid fa-arrow-left"></i> Back to Main</button>
-          <div id="sub-content" class="flex flex-col space-y-6"></div>
-        </div>
+      <div class="p-8 border-t border-gray-100 bg-zinc-50">
+        <p class="text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-4">Contact Office</p>
+        <a href="tel:042111000000" class="block text-sm font-medium text-zinc-800 mb-1">042 111 000 000</a>
+        <a href="mailto:info@yourbrand.com" class="block text-sm text-zinc-500">info@yourbrand.com</a>
       </div>
     </div>
   `;
 
   document.body.appendChild(menu);
 
-  // Submenu Data (Keeping your items as requested)
+  // Corporate Style Submenus
   const submenus = {
     "solutions-sub": `
-      <a href="solutions.html" class="text-3xl font-black uppercase text-zinc-900 slide-up">Our Products</a>
-      <a href="dry-charge.html" class="text-3xl font-black uppercase text-zinc-900 slide-up">Dry Charge</a>
+      <a href="dry-charge.html" class="px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:text-[#cc001b] transition-colors">Dry Charge Batteries</a>
     `,
     "tech-sub": `
-      <a href="technology.html" class="text-3xl font-black uppercase text-zinc-900 slide-up">Technology</a>
-      <a href="graphite.html" class="text-3xl font-black uppercase text-zinc-900 slide-up">Graphite</a>
+      <a href="graphite.html" class="px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:text-[#cc001b] transition-colors">Graphite Technology</a>
     `,
     "dealers-sub": `
-      <a href="dealers.html" class="text-3xl font-black uppercase text-zinc-900 slide-up">Find a Dealer</a>
-      <a href="become-dealer.html" class="text-3xl font-black uppercase text-zinc-900 slide-up">Apply to be a Dealer</a>
+      <a href="dealers.html" class="px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:text-[#cc001b] transition-colors">Find a Dealer</a>
+      <a href="become-dealer.html" class="px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:text-[#cc001b] transition-colors">Become a Dealer</a>
     `,
     "vault-sub": `
-      <a href="vault.html" class="text-3xl font-black uppercase text-zinc-900 slide-up">The Vault</a>
-      <a href="vault.html#blogs" class="text-3xl font-black uppercase text-zinc-900 slide-up">Blog</a>
-      <a href="vault.html#faq" class="text-3xl font-black uppercase text-zinc-900 slide-up">FAQs</a>
-      <a href="vault.html#gallery" class="text-3xl font-black uppercase text-zinc-900 slide-up">Gallery</a>
+      <a href="vault.html" class="px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:text-[#cc001b] transition-colors">Open Vault</a>
+      <a href="vault.html#blogs" class="px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:text-[#cc001b] transition-colors">Blogs</a>
+      <a href="vault.html#faq" class="px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:text-[#cc001b] transition-colors">FAQs</a>
+      <a href="vault.html#gallery" class="px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:text-[#cc001b] transition-colors">Gallery</a>
     `,
   };
 
@@ -269,29 +280,35 @@ function setupMobileMenu() {
   };
 
   const openMenu = () => {
+    const backdrop = document.getElementById("mobile-backdrop");
+    const panel = document.getElementById("mobile-panel");
     menu.classList.remove("hidden");
-    setTimeout(() => menu.classList.add("opacity-100"), 10);
-    document.body.style.overflow = "hidden"; // Prevent background scroll
+
+    // Smooth timing for slide and fade
+    requestAnimationFrame(() => {
+      backdrop.classList.replace("opacity-0", "opacity-100");
+      panel.classList.replace("translate-x-full", "translate-x-0");
+    });
+    document.body.style.overflow = "hidden";
   };
 
   const closeMenu = () => {
-    menu.classList.remove("opacity-100");
+    const backdrop = document.getElementById("mobile-backdrop");
+    const panel = document.getElementById("mobile-panel");
+
+    backdrop.classList.replace("opacity-100", "opacity-0");
+    panel.classList.replace("translate-x-0", "translate-x-full");
+
     setTimeout(() => {
       menu.classList.add("hidden");
       closeSubmenu();
       document.body.style.overflow = "";
     }, 500);
   };
-  // Close menu if clicking the background area of the container
-  document.getElementById("mobile-menu-container").addEventListener("click", (e) => {
-    // If the user clicked the container itself, and NOT a link/button inside it
-    if (e.target.id === "mobile-menu-container" || e.target.id === "main-view" || e.target.id === "sub-view") {
-      closeMenu();
-    }
-  });
 
   trigger.addEventListener("click", openMenu);
   document.getElementById("close-mobile").addEventListener("click", closeMenu);
+  document.getElementById("mobile-backdrop").addEventListener("click", closeMenu);
 }
 
 function init() {

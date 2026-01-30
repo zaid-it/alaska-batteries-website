@@ -899,3 +899,349 @@ body.urdu-mode .header-ur {
   display: flex;
   opacity: 1;
 }
+/*---*/
+
+#blog-scroll-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.blog-item {
+  position: relative;
+  flex: 0 0 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  scroll-snap-align: start;
+  background: #000;
+}
+
+@media (min-width: 1024px) {
+  .blog-item {
+    flex: 0 0 calc((100% - 40px) / 3);
+  }
+}
+
+.blog-item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wash-layer {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  transition: opacity 0.6s ease;
+}
+
+.text-protection {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0) 100%);
+  z-index: 15;
+  pointer-events: none;
+}
+
+.blog-content {
+  position: relative;
+  z-index: 20;
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.blog-title {
+  color: #ffffff !important; /* Forces white text */
+  font-size: 1.875rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.95;
+  margin: 0;
+}
+
+.category-tag {
+  color: #cc001b !important;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+@media (min-width: 1024px) {
+  .blog-item:hover img {
+    transform: scale(1.1);
+  }
+  .blog-item:hover .wash-layer {
+    opacity: 0;
+  }
+}
+/* Container Spacing */
+#gallery-rail {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 20px 5% !important; /* Balanced padding for mobile */
+}
+
+/* The Gallery Cards */
+.gallery-card {
+  position: relative;
+  flex: 0 0 80vw; /* Precise mobile width */
+  height: 450px;
+  overflow: hidden;
+  scroll-snap-align: center;
+  cursor: zoom-in;
+  background: #111;
+  border-radius: 4px;
+  /* Prevent Jitter */
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+@media (min-width: 1024px) {
+  .gallery-card {
+    flex: 0 0 350px;
+    height: 500px;
+    scroll-snap-align: start;
+  }
+  #gallery-rail {
+    padding: 20px 2rem !important;
+    justify-content: flex-start;
+  }
+  /* Smooth Hover - No Jitter */
+  .gallery-card:hover img {
+    transform: scale(1.1);
+  }
+}
+
+/* Image Setup */
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* UI Elements */
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.gallery-info {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Morphing Effect for Lightbox Opening */
+#gallery-lightbox {
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lightbox-slide {
+  flex: 0 0 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  scroll-snap-align: center;
+}
+
+.lightbox-slide img {
+  max-width: 90%;
+  max-height: 80vh;
+  object-fit: contain;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  /* Morphing scale effect */
+  animation: morphIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes morphIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-slide-up {
+  animation: slideUp 0.6s ease forwards;
+}
+#lightbox-slider {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  cursor: grab; /* Shows the hand icon */
+}
+
+#lightbox-slider:active {
+  cursor: grabbing;
+  scroll-snap-type: none; /* Disable snap during active drag */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Apply to the main gallery rail */
+#gallery-rail {
+  cursor: grab;
+  user-select: none; /* Prevents text/image selection while dragging */
+  -webkit-user-drag: none;
+}
+
+#gallery-rail:active {
+  cursor: grabbing;
+}
+
+/* Prevent images from being "dragged" like files */
+.gallery-card img {
+  pointer-events: none;
+}
+
+.techmodal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 9999;
+}
+
+.techmodal-box {
+  background: #000;
+  width: 85%;
+  max-width: 900px;
+  margin: 6% auto;
+  padding: 16px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.techmodal-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.tech-play-btn {
+  padding: 12px 22px;
+  background: #0ea5e9;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.tech-play-btn:hover {
+  background: #0284c7;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  /* Fix the height so it doesn't expand infinitely */
+  .relative.w-full.flex.flex-col {
+    min-height: 300px !important;
+    height: auto !important;
+  }
+
+  /* Constraint the image height and fix the crop */
+  #hero-banner-img {
+    height: auto !important; /* Fixed height for mobile */
+    /*object-fit: cover !important;
+    /* Shift this percentage (X Y) to show the 'real part' of your image */
+    /*object-position: 90% center !important; */
+    transition: filter 0.3s ease;
+  }
+
+  /* Adjust the Text Box for Mobile Stack */
+  #hero-text-box {
+    /*position: absolute !important;
+    width: 250px !important;
+    height: 100px !important;
+    /*margin-top: 2px !important; /* Pulls box slightly over the image 
+    padding: 0 2px !important;
+    border-radius: 0 24px 24px 0 !important; /* Rounded only at top 
+    transform: translateY(10%); /* Start point for animation 
+    left: 0 !important; 
+    top: 0 !important; */
+    display: none;
+  }
+
+  /* Mobile Active Animation Override */
+  .hero-box-active {
+    opacity: 1 !important;
+    transform: translateY(0) !important; /* Slide up on mobile */
+  }
+}
+
+/* Animation for desktop: slide in from left */
+@media (min-width: 769px) {
+  .hero-box-active {
+    opacity: 1 !important;
+    transform: translateX(-50%, 0) !important; /* Maintains the vertical centering */
+  }
+}
+
+.hero-text-active {
+  opacity: 1 !important;
+  transform: translateY(-20%) !important;
+}
+
+#hero-text-box {
+  will-change: transform, opacity;
+}

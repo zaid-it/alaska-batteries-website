@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,87 +12,102 @@
   <body class="bg-white">
     <div id="header-placeholder"></div>
 
-    <main class="pt-20 bg-white">
-      <section class="relative py-24 bg-black overflow-hidden">
-        <div class="container mx-auto px-6 relative z-10">
-          <h4 class="text-[#cc001b] font-black uppercase tracking-[0.4em] mb-4">Our Legacy</h4>
-          <h1 class="text-6xl md:text-8xl font-black uppercase text-white tracking-tighter mb-8">
-            Powering <br />
-            <span class="text-transparent" style="-webkit-text-stroke: 1px white">Pakistan</span>
-          </h1>
-          <p class="max-w-2xl text-gray-400 font-bold uppercase tracking-widest text-xs leading-loose">
-            From local roots to national energy solutions, Alaska Batteries has remained at the forefront of lead-acid
-            innovation for decades.
-          </p>
-        </div>
-        <div class="absolute right-0 bottom-0 opacity-10 pointer-events-none">
-          <img src="assets/favicon.png" class="w-[400px] grayscale invert" alt="" />
+    <main>
+      <section class="bg-white space-y-2 overflow-hidden group">
+        <div class="relative h-[100px] flex flex-col md:h-[400px]">
+          <div class="w-full h-auto md:h-full md:absolute md:inset-0 overflow-hidden">
+            <img id="hero-banner-img" src="assets/about-2.png" alt="About-US" class="w-full h-full md:w-[100%] md:h-full transition-transform duration-1000 group-hover:scale-105" />
+          </div>
         </div>
       </section>
 
-      <section class="py-24 border-b border-gray-50">
+      <section class="py-10 border-b border-gray-50">
         <div class="container mx-auto px-6">
-          <div class="flex flex-col md:flex-row items-center gap-16">
-            <div class="w-full md:w-1/2">
+          <div class="flex flex-col md:flex-row gap-6">
+            <div class="w-full md:w-1/2 justify-center items-center flex">
               <div class="relative">
-                <img
-                  src="assets/management.jpg"
-                  alt="Management"
-                  class="w-full h-auto grayscale shadow-2xl"
-                  onerror="this.src='https://placehold.co/600x800?text=Management+Portrait'" />
-                <div class="absolute -bottom-6 -right-6 bg-[#cc001b] p-8 text-white hidden md:block">
+                <img src="assets/mgmt.png" alt="Management" class="w-[500px] h-[400px] md:h-[600px] shadow-2xl" />
+                <div class="absolute bottom-1 -right-8 bg-[#cc001b] p-8 text-white hidden md:block">
                   <i class="fa-solid fa-quote-left text-4xl opacity-50"></i>
                 </div>
               </div>
             </div>
-            <div class="w-full md:w-1/2">
-              <h2 class="text-4xl font-black uppercase tracking-tighter mb-6">
-                Message from <span class="text-[#cc001b]">Management</span>
-              </h2>
-              <div class="space-y-6 text-gray-600 leading-relaxed font-medium italic">
+            <div class="w-full justify-start items-start md:w-1/2">
+              <h2 class="text-4xl font-black uppercase tracking-tighter mb-6">Message from <span class="text-[#cc001b]">Management</span></h2>
+              <div class="space-y-4 text-gray-600 leading-relaxed font-medium italic">
                 <p>
-                  "At Alaska, we don't just manufacture batteries; we engineer reliability. In a country where energy is
-                  the backbone of every household and industry, our mission has always been to provide a product that
-                  thrives in the toughest conditions."
+                  "At Alaska, we don't just manufacture batteries; we engineer reliability. In a country where energy is the backbone of every household and industry, our mission has always been to
+                  provide a product that thrives in the toughest conditions."
                 </p>
-                <p>
-                  "Our Graphite-Enhanced series is a testament to our commitment to local innovation, ensuring that
-                  every Pakistani home stays powered, no matter the temperature."
-                </p>
+                <p>"Our Graphite-Enhanced series is a testament to our commitment to local innovation, ensuring that every Pakistani home & business stays powered."</p>
               </div>
               <div class="mt-10">
-                <p class="font-black uppercase tracking-widest text-sm text-black">Chairman</p>
+                <p class="font-black uppercase tracking-widest text-sm text-black">Management</p>
                 <p class="text-[#cc001b] font-bold text-xs uppercase tracking-widest">Alaska Batteries Pakistan</p>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      <section class="py-24 bg-gray-50">
-        <div class="container mx-auto px-6">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-200 border border-gray-200">
+      <section class="py-10 bg-gray-50 hidden md:hidden">
+        <div class="container mx-auto px-40 py-10">
+          <div class="grid grid-cols-1 gap-px bg-gray-200 border border-gray-200">
             <div class="bg-white p-12 md:p-20">
-              <h3 class="text-xs font-black text-[#cc001b] uppercase tracking-[0.5em] mb-6">The Vision</h3>
-              <h2 class="text-4xl font-black uppercase tracking-tighter mb-6">
-                Leading the Energy <br />
-                Transition
-              </h2>
-              <p class="text-gray-500 leading-loose text-sm uppercase font-bold tracking-tight">
-                To be the most trusted name in energy storage within the region, recognized for quality, sustainability,
-                and technological advancement.
+              <h3 class="text-xl font-black text-[#cc001b] uppercase tracking-wider mb-6">Our Vision</h3>
+              <h2 class="text-2xl font-bold tracking-tighter mb-6">To be the Industrial Leader</h2>
+              <p class="text-gray-500 leading-loose text-base font-bold tracking-tight">
+                In revolutionizing the sustainable energy sector, through innovation, quality, and eco-conscious practices that empower a brighter future.
               </p>
             </div>
-            <div class="bg-white p-12 md:p-20">
-              <h3 class="text-xs font-black text-[#cc001b] uppercase tracking-[0.5em] mb-6">The Mission</h3>
-              <h2 class="text-4xl font-black uppercase tracking-tighter mb-6">
-                Excellence in <br />
-                Engineering
-              </h2>
-              <p class="text-gray-500 leading-loose text-sm uppercase font-bold tracking-tight">
-                To empower Pakistani lives by providing high-performance battery solutions through continuous R&D,
-                ethical manufacturing, and a robust national dealer network.
-              </p>
+            <div class="container mx-auto px-40 py-10">
+              <div class="bg-white">
+                <div class="bg-white p-12 md:p-20">
+                  <h3 class="text-xl font-black text-[#cc001b] uppercase tracking-wider mb-6">Our Mission</h3>
+                  <h2 class="text-2xl font-bold tracking-tighter mb-6">
+                    To manufacture and deliver <span class="text-[#cc001b]">high-performance automotive and solar solutions</span> that exceed customer expectations.
+                  </h2>
+                  <p class="text-gray-500 leading-loose text-base font-bold tracking-tight">
+                    To foster <span class="text-[#cc001b]">long-term partnerships with trade networks and end-users</span> by best quality products, long-term warranties, economical solutions, and
+                    superior customer support.<br />To lead the <span class="text-[#cc001b]">charge in sustainability</span> by integrating eco-friendly processes into all aspects of our operations.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container mx-auto px-6 py-2">
+          <div class="bg-white border border-gray-200 border-b-0">
+            <div class="bg-white p-12 md:pr-2 text-center">
+              <h3 class="text-xl font-black text-[#cc001b] uppercase tracking-wider mb-6">Our Core Values</h3>
+              <h2 class="text-2xl font-bold tracking-tighter mb-6">What Drives Us Forward</h2>
+              <p class="text-gray-500 leading-loose text-base font-bold tracking-tight">At Alaska Batteries, our values define who we are and shape every battery we manufacture.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-[2px] bg-gray-200 border-r border-gray-200 text-center">
+              <div class="bg-white p-2 md:pr-2">
+                <h3 class="text-xl font-black text-[#cc001b] uppercase tracking-wider mb-2">Integrity</h3>
+                <h2 class="text-2xl font-medium tracking-tighter mb-6">Upholding the highest standards of honesty and accountability in every interaction.</h2>
+                <p class="text-gray-500 leading-loose text-base font-bold tracking-tight"></p>
+              </div>
+              <div class="bg-white p-2 md:pr-2">
+                <h3 class="text-xl font-black text-[#cc001b] uppercase tracking-wider mb-2">Innovation</h3>
+                <h2 class="text-2xl font-medium tracking-tighter mb-6">Continuously advancing battery technology to meet the evolving needs of our customers.</h2>
+                <p class="text-gray-500 leading-loose text-base font-bold tracking-tight"></p>
+              </div>
+              <div class="bg-white p-2 md:pr-2">
+                <h3 class="text-xl font-black text-[#cc001b] uppercase tracking-wider mb-2">Sustainability</h3>
+                <h2 class="text-2xl font-medium tracking-tighter mb-6">Committed to eco-friendly manufacturing and reducing environmental impact.</h2>
+                <p class="text-gray-500 leading-loose text-base font-bold tracking-tight"></p>
+              </div>
+              <div class="bg-white p-2 md:pr-2">
+                <h3 class="text-xl font-black text-[#cc001b] uppercase tracking-wider mb-2">Customer-Centric Approach</h3>
+                <h2 class="text-2xl font-medium tracking-tighter mb-6">Ensuring exceptional service and tailored solutions for all stakeholders.</h2>
+                <p class="text-gray-500 leading-loose text-base font-bold tracking-tight"></p>
+              </div>
+              <div class="bg-white p-2 md:pr-2">
+                <h3 class="text-xl font-black text-[#cc001b] uppercase tracking-wider mb-2">Excellence</h3>
+                <h2 class="text-2xl font-medium tracking-tighter mb-6">Striving for perfection in product quality, performance, and reliability.</h2>
+                <p class="text-gray-500 leading-loose text-base font-bold tracking-tight"></p>
+              </div>
             </div>
           </div>
         </div>

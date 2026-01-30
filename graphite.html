@@ -21,22 +21,26 @@
         </button>
       </div>
       <div id="header-placeholder"></div>
-      <section class="py-20 min-h-screen">
+      <section class="bg-white border-b border-gray-50 flex items-center justify-center text-center">
+        <div class="w-full flex items-center justify-center border-t-8 border-gray-100">
+          <img src="assets/technology/tech-hero.png" alt="Dry Charge" class="max-h-[700px] md:max-h-[800px] transform group-hover:scale-105 transition-transform duration-700" />
+        </div>
+      </section>
+      <section class="py-8 min-h-screen">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-6xl font-black italic uppercase mb-4 transition-all">
+            <div class="header-en">
+              <span class="text-[#cc001b]">What Sets</span> <br />
+              Graphite Lead Acid Batteries Apart?
+            </div>
+            <div class="header-ur">
+              <span class="text-[#cc001b]">گریفائٹ لیڈ ایسڈ بیٹریاں</span> <br />
+              کیوں منفرد ہیں؟
+            </div>
+          </h2>
+          <div class="w-24 h-1 bg-[#cc001b] mx-auto rounded-full"></div>
+        </div>
         <div class="max-w-7xl mx-auto px-6">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-6xl font-black italic uppercase mb-4 transition-all">
-              <div class="header-en">
-                <span class="text-[#cc001b]">What Sets</span> <br />
-                Graphite Lead Acid Batteries Apart?
-              </div>
-              <div class="header-ur">
-                <span class="text-[#cc001b]">گریفائٹ لیڈ ایسڈ بیٹریاں</span> <br />
-                کیوں منفرد ہیں؟
-              </div>
-            </h2>
-            <div class="w-24 h-1 bg-[#cc001b] mx-auto rounded-full"></div>
-          </div>
-
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
             <div class="card-container">
               <div class="card-inner">
@@ -243,6 +247,18 @@
             </div>
           </div>
         </div>
+
+        <!-- Trigger Button -->
+        <button id="openTechModal" class="tech-play-btn">▶ Watch Tech Video</button>
+
+        <!-- Tech Modal -->
+        <div id="techmodal" class="techmodal-overlay">
+          <div class="techmodal-box">
+            <span class="techmodal-close">&times;</span>
+
+            <iframe id="techmodal-iframe" width="100%" height="420" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
+          </div>
+        </div>
       </section>
     </main>
     <div id="footer-placeholder"></div>
@@ -253,6 +269,30 @@
         document.body.classList.toggle("urdu-mode");
       }
       // Load header and footer
+    </script>
+    <script>
+      const techmodal = document.getElementById("techmodal");
+      const openTechModal = document.getElementById("openTechModal");
+      const closeTechModal = document.querySelector(".techmodal-close");
+      const techIframe = document.getElementById("techmodal-iframe");
+
+      const techVideoURL = "https://www.youtube.com/embed/nu4N6ER5VB4?si=j6WBiQBTYwHYpotO?autoplay=1&rel=0";
+
+      openTechModal.addEventListener("click", () => {
+        techIframe.src = techVideoURL;
+        techmodal.style.display = "block";
+      });
+
+      closeTechModal.addEventListener("click", closeModal);
+
+      window.addEventListener("click", (e) => {
+        if (e.target === techmodal) closeModal();
+      });
+
+      function closeModal() {
+        techmodal.style.display = "none";
+        techIframe.src = ""; // stop video
+      }
     </script>
   </body>
 </html>

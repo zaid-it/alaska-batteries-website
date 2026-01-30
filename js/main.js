@@ -300,26 +300,124 @@ function scrollBlogs(distance) {
 }
 // Logic for Blog Search
 
+// 1. SEARCH LOGIC
 function filterBlogs() {
-  // 1. Get the search input value and convert to lowercase
   const input = document.getElementById("blog-search");
   const filter = input.value.toLowerCase();
-
-  // 2. Select the container and all individual blog cards
   const container = document.getElementById("blog-scroll-container");
-  const cards = container.getElementsByClassName("snap-start"); // This targets each blog card
+  const cards = container.getElementsByClassName("blog-item");
 
-  // 3. Loop through all cards
+  // Disable loop snapping while searching so results don't "jump"
+  container.style.scrollSnapType = filter ? "none" : "x mandatory";
+
   for (let i = 0; i < cards.length; i++) {
-    // Get the title (h4) and category (p) text
     const title = cards[i].querySelector("h4").innerText.toLowerCase();
     const category = cards[i].querySelector("p").innerText.toLowerCase();
 
-    // 4. If the title or category matches the search, show it; otherwise, hide it
     if (title.includes(filter) || category.includes(filter)) {
-      cards[i].style.display = ""; // Reset to default display
+      cards[i].style.display = "block";
     } else {
-      cards[i].style.display = "none"; // Hide the card
+      cards[i].style.display = "none";
     }
   }
 }
+
+let isJumping = false;
+const container = document.getElementById("blog-scroll-container");
+
+function initBlogEngine() {
+  if (!container) return;
+  const originals = [...container.querySelectorAll(".original")];
+
+  // 1. Create Clones for Infinite Loop
+  originals.forEach((item) => {
+    let clone = item.cloneNode(true);
+    clone.classList.remove("original");
+    clone.classList.add("clone");
+    container.appendChild(clone);
+  });
+  [...originals].reverse().forEach((item) => {
+    let clone = item.cloneNode(true);
+    clone.classList.remove("original");
+    clone.classList.add("clone");
+    container.insertBefore(clone, container.firstChild);
+  });
+
+  // 2. Initial Positioning
+  const itemWidth = originals[0].offsetWidth + 20;
+  container.scrollLeft = itemWidth * originals.length;
+
+  // 3. Loop Logic
+  container.addEventListener("scroll", () => {
+    if (isJumping || document.getElementById("blog-search").value !== "") return;
+    const setWidth = itemWidth * originals.length;
+
+    if (container.scrollLeft >= setWidth * 2) {
+      isJumping = true;
+      container.style.scrollBehavior = "auto";
+      container.scrollLeft = setWidth;
+      container.style.scrollBehavior = "smooth";
+      setTimeout(() => (isJumping = false), 50);
+    } else if (container.scrollLeft <= 0) {
+      isJumping = true;
+      container.style.scrollBehavior = "auto";
+      container.scrollLeft = setWidth;
+      container.style.scrollBehavior = "smooth";
+      setTimeout(() => (isJumping = false), 50);
+    }
+  });
+
+  // 4. Mobile Observer
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (window.innerWidth >= 1024) return;
+      entries.forEach((entry) => {
+        const wash = entry.target.querySelector(".wash-layer");
+        const img = entry.target.querySelector("img");
+        if (entry.isIntersecting) {
+          if (wash) wash.style.opacity = "0";
+          if (img) img.style.transform = "scale(1.05)";
+        } else {
+          if (wash) wash.style.opacity = "0.7";
+          if (img) img.style.transform = "scale(1)";
+        }
+      });
+    },
+    { root: container, threshold: 0.8 },
+  );
+
+  document.querySelectorAll(".blog-item").forEach((item) => observer.observe(item));
+}
+
+// 5. Clean Search Logic (Hides clones to avoid duplicates)
+function filterBlogs() {
+  const filter = document.getElementById("blog-search").value.toLowerCase();
+  const allItems = container.querySelectorAll(".blog-item");
+  const clones = container.querySelectorAll(".clone");
+
+  if (filter !== "") {
+    // Hide all clones during search
+    clones.forEach((c) => (c.style.display = "none"));
+    container.style.scrollSnapType = "none";
+
+    // Filter only originals
+    container.querySelectorAll(".original").forEach((card) => {
+      const title = card.querySelector(".blog-title").innerText.toLowerCase();
+      card.style.display = title.includes(filter) ? "block" : "none";
+    });
+  } else {
+    // Restore everything when search is cleared
+    allItems.forEach((c) => (c.style.display = "block"));
+    container.style.scrollSnapType = "x mandatory";
+    const itemWidth = allItems[0].offsetWidth + 20;
+    container.scrollLeft = itemWidth * (allItems.length / 3);
+  }
+}
+
+function scrollBlogs(dir) {
+  const itemWidth = container.querySelector(".blog-item").offsetWidth + 20;
+  const move = window.innerWidth > 1024 ? itemWidth * 3 : itemWidth;
+  container.scrollBy({ left: move * dir, behavior: "smooth" });
+}
+
+window.addEventListener("load", initBlogEngine);
