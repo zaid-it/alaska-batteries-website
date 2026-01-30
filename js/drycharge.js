@@ -324,3 +324,140 @@ window.scrollCatalog = function (direction) {
     grid.scrollBy({ left: direction * scrollAmount, behavior: "smooth" });
   }
 };
+// Function to render the catalog grid
+function renderGrid(products) {
+  const grid = document.getElementById("catalog-grid");
+  if (!grid) return;
+
+  grid.innerHTML = "";
+  products.forEach((product) => {
+    const card = document.createElement("div");
+    card.className = "group bg-white border border-gray-100 p-6 hover:shadow-2xl hover:border-[#cc001b] transition-all duration-500 cursor-pointer flex flex-col items-center text-center";
+
+    card.onclick = () => {
+      updateStage(product);
+      document.getElementById("details-anchor").scrollIntoView({ behavior: "smooth" });
+    };
+
+    card.innerHTML = `
+            <div class="h-40 w-full mb-6 overflow-hidden">
+                <img src="${product.image}" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500">
+            </div>
+            <h4 class="text-xl font-black uppercase tracking-tighter">${product.model}</h4>
+            <p class="text-[10px] font-bold text-gray-400 uppercase mt-2">${product.plates} Plates | ${product.ah} Ah</p>
+        `;
+    grid.appendChild(card);
+  });
+}
+
+// THE INITIALIZER
+function initDryCharge() {
+  // 1. Use 'batteryData' (matching your data.js)
+  if (typeof batteryData !== "undefined") {
+    // 2. Since your data doesn't have a "series" field yet,
+    // let's show all batteries for now to get the grid working.
+    const dryChargeModels = batteryData;
+
+    renderGrid(dryChargeModels);
+
+    // 3. Update the Stage with the first battery
+    if (dryChargeModels.length > 0) {
+      updateStage(dryChargeModels[0]);
+    }
+
+    console.log("Grid initialized with", dryChargeModels.length, "models.");
+  } else {
+    console.error("batteryData is missing from data.js");
+  }
+}
+// Run after a short delay to allow component injection
+window.addEventListener("load", () => {
+  setTimeout(initDryCharge, 300);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const heroImg = document.getElementById("hero-banner-img");
+  const textBox = document.getElementById("hero-text-box");
+  const subTitle = document.getElementById("hero-subtitle");
+  const filterButtons = document.querySelectorAll(".filter-btn");
+
+  const contentMap = {
+    All: {
+      img: "assets/solutions/solutions-hero.png",
+      title: 'Dry <span class="text-[#cc001b]">Charge</span>',
+      sub: "Pakistan's only Graphite Enhanced Lead-Acid Battery.",
+    },
+    Automotive: {
+      img: "assets/solutions/automotive.png",
+      title: "Automotive",
+      sub: "Reliable Power for Every Journey.",
+    },
+    Solar: {
+      img: "assets/solutions/solar.png",
+      title: "Solar",
+      sub: "Sustainable Energy You can rely on.",
+    },
+    Industrial: {
+      img: "assets/solutions/industrial.png",
+      title: "Industrial",
+      sub: "Built for Heavy Duty Performance.",
+    },
+  };
+
+  let autoScrollInterval;
+  let categories = Object.keys(contentMap);
+  let currentIndex = 0;
+
+  function triggerAnimations() {
+    textBox.classList.remove("hero-box-active");
+    subTitle.classList.remove("hero-text-active");
+
+    // Use requestAnimationFrame for smoother DOM updates
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        textBox.classList.add("hero-box-active");
+        setTimeout(() => subTitle.classList.add("hero-text-active"), 400);
+      }, 100);
+    });
+  }
+
+  function updateHero(cat) {
+    const data = contentMap[cat];
+    // Fade effect
+    heroImg.style.filter = "brightness(0.5)";
+
+    setTimeout(() => {
+      heroImg.src = data.img;
+      document.getElementById("hero-title").innerHTML = data.title;
+      subTitle.innerText = data.sub;
+      heroImg.style.filter = "brightness(1)";
+      triggerAnimations();
+    }, 300);
+  }
+
+  function startAutoScroll() {
+    if (autoScrollInterval) clearInterval(autoScrollInterval);
+    autoScrollInterval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % categories.length;
+      updateHero(categories[currentIndex]);
+    }, 3500);
+  }
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const category = this.getAttribute("data-cat");
+      updateHero(category);
+
+      // Auto-scroll logic: only for "All"
+      if (category === "All") {
+        startAutoScroll();
+      } else {
+        clearInterval(autoScrollInterval);
+      }
+    });
+  });
+
+  // Start UI
+  triggerAnimations();
+  startAutoScroll();
+});
