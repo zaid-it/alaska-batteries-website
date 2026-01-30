@@ -1210,16 +1210,15 @@ body.urdu-mode .header-ur {
 
   /* Adjust the Text Box for Mobile Stack */
   #hero-text-box {
-    /*position: absolute !important;
+    position: absolute !important;
     width: 250px !important;
     height: 100px !important;
-    /*margin-top: 2px !important; /* Pulls box slightly over the image 
+    margin-top: 2px !important; /* Pulls box slightly over the image*/
     padding: 0 2px !important;
-    border-radius: 0 24px 24px 0 !important; /* Rounded only at top 
-    transform: translateY(10%); /* Start point for animation 
-    left: 0 !important; 
-    top: 0 !important; */
-    display: none;
+    border-radius: 0 24px 24px 0 !important; /* Rounded only at top */
+    transform: translateY(10%); /* Start point for animation */
+    left: 0 !important;
+    top: 0 !important;
   }
 
   /* Mobile Active Animation Override */

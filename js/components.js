@@ -188,7 +188,7 @@ function setupMobileMenu() {
       id="mobile-panel"
       class="absolute top-0 right-0 h-full w-full max-w-[320px] bg-white shadow-2xl translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col">
       <div class="flex justify-between items-center p-6 border-b border-gray-100">
-        <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400">Navigation</span>
+        <img src="assets/logo.png" alt="Alaska Logo" class="h-10 w-auto object-contain" />
         <button id="close-mobile" class="text-zinc-500 hover:text-black transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -240,10 +240,8 @@ function setupMobileMenu() {
         </div>
       </div>
 
-      <div class="p-8 border-t border-gray-100 bg-zinc-50">
-        <p class="text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-4">Contact Office</p>
-        <a href="tel:042111000000" class="block text-sm font-medium text-zinc-800 mb-1">042 111 000 000</a>
-        <a href="mailto:info@yourbrand.com" class="block text-sm text-zinc-500">info@yourbrand.com</a>
+      <div class="p-8 border-t border-gray-100 bg-zinc-50 text-center">
+        <p class="text-[12px] text-gray-400 uppercase tracking-normal">©2026 S.M.J International Industries Pvt. Ltd. All Rights Reserved.</p>
       </div>
     </div>
   `;
