@@ -13,12 +13,20 @@
     <div id="header-placeholder"></div>
 
     <main>
-      <section class="hero-section relative h-[60vh] md:h-[90vh] flex items-center bg-white overflow-hidden">
+      <section class="hero-section relative h-[30vh] md:h-[90vh] flex items-center bg-white overflow-hidden">
         <!-- Video Background -->
-        <video id="heroVideo" class="absolute inset-0 w-full h-full z-0" autoplay playsinline webkit-playsinline poster="assets/hero-bg.jpg">
+        <video id="heroVideo" class="relative inset-0 w-screen h-full z-0" autoplay muted playsinline webkit-playsinline poster="assets/hero-bg.jpg">
           <source src="assets/videos/home.mp4" type="video/mp4" />
           Your browser does not support HTML5 video.
         </video>
+
+        <!-- Unmute Button -->
+        <button
+          id="unmuteBtn"
+          class="absolute unmute-btn absolute z-30 bg-[#cc001b] text-white rounded-full flex items-center justify-center shadow-sm hover:shadow-2xl transition-all"
+          title="Click to unmute video">
+          <i class="fa-solid fa-volume-mute text-2xl"></i>
+        </button>
       </section>
 
       <!-- Products Showcase Section -->
@@ -33,19 +41,8 @@
             <div class="w-24 h-1 bg-[#cc001b] mx-auto rounded-full mt-6"></div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Dry Charge -->
-            <a href="dry-charge.html" class="group relative bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105">
-              <div class="aspect-video bg-gradient-to-br from-red-600 to-red-900 flex items-center justify-center overflow-hidden relative">
-                <i class="fa-solid fa-battery-full text-white text-6xl group-hover:scale-125 transition-transform duration-300"></i>
-                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
-              </div>
-              <div class="p-6">
-                <h3 class="text-xl font-black uppercase mb-2 text-gray-900">Dry Charge</h3>
-                <p class="text-gray-600 text-sm mb-4">Reliable power for immediate use.</p>
-                <div class="flex items-center text-[#cc001b] font-bold group-hover:translate-x-2 transition-transform">Explore <i class="fa-solid fa-arrow-right ml-2"></i></div>
-              </div>
-            </a>
 
             <!-- Automotive (Application) -->
             <a href="dry-charge.html#Automotive" class="group relative bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105">
@@ -201,21 +198,56 @@
     <!-- Hero Video Volume & Playback Control -->
     <script>
       const heroVideo = document.getElementById("heroVideo");
+      const unmuteBtn = document.getElementById("unmuteBtn");
       let playbackCount = 0;
+      let isUnmuted = false;
 
-      // Set initial volume to 10%
+      // Set initial volume to 10% (while muted)
       heroVideo.volume = 0.1;
 
-      // On touch devices show controls so user can play/unmute (autoplay with sound is blocked on many mobiles)
-      if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
-        try {
-          heroVideo.controls = true;
-          heroVideo.setAttribute("playsinline", "");
-          heroVideo.setAttribute("webkit-playsinline", "");
-        } catch (e) {
-          /* ignore */
+      // Unmute button click handler
+      unmuteBtn.addEventListener("click", () => {
+        if (!isUnmuted) {
+          heroVideo.muted = false;
+          isUnmuted = true;
+          unmuteBtn.classList.add("unmuted");
+          unmuteBtn.innerHTML = '<i class="fa-solid fa-volume-high text-2xl"></i>';
+          unmuteBtn.title = "Mute video";
+
+          // Ensure video plays after unmute
+          heroVideo.play().catch(() => {
+            /* play may be blocked by browser */
+          });
+        } else {
+          heroVideo.muted = true;
+          isUnmuted = false;
+          unmuteBtn.classList.remove("unmuted");
+          unmuteBtn.innerHTML = '<i class="fa-solid fa-volume-mute text-2xl"></i>';
+          unmuteBtn.title = "Click to unmute video";
         }
-      }
+      });
+
+      // Pause video when user scrolls away from hero section
+      const heroObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              // Hero section is out of view
+              heroVideo.pause();
+            } else {
+              // Hero section is in view (resume auto-replay if within 3 playbacks)
+              if (playbackCount < 3 && heroVideo.paused) {
+                heroVideo.play().catch(() => {
+                  /* play may be blocked */
+                });
+              }
+            }
+          });
+        },
+        { threshold: 0 },
+      );
+
+      heroObserver.observe(heroVideo.parentElement);
 
       // Track playback count and replay up to 3 times, then stop
       heroVideo.addEventListener("ended", () => {
