@@ -8,26 +8,78 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <style>
+      /* Support page: ensure banner images fill container on mobile and overlays stay on top */
+      @media (max-width: 767px) {
+        .banner-wrapper img {
+          height: 100% !important;
+          width: 100% !important;
+          object-fit: cover !important;
+        }
+        .banner-wrapper {
+          min-height: 160px;
+        }
+        .banner-overlay {
+          bottom: 0 !important;
+          max-height: 120px !important;
+          overflow: hidden !important;
+        }
+      }
+      /* Hero-specific constraints */
+      @media (max-width: 767px) {
+        /* Ensure banner images fill their banner container height on mobile so overlay sits on top */
+        #hero-banner-img,
+        .banner-wrapper img {
+          height: 100% !important; /* fill the parent h-[180px] */
+          width: 100% !important;
+          object-fit: cover !important;
+        }
+
+        /* constrain overall visual size if parent grows unexpectedly */
+        .banner-wrapper {
+          min-height: 160px;
+        }
+
+        /* ensure overlay stays on top and is visible */
+        #hero-text-box.banner-overlay {
+          top: 80px !important;
+          bottom: 0 !important;
+          padding-left: 0.5rem !important;
+          max-height: 120px !important;
+          width: 250px !important;
+          overflow: hidden !important;
+          padding-top: 1.6rem !important;
+          padding-bottom: 0.6rem !important;
+        }
+      }
+    </style>
   </head>
   <body class="bg-white">
     <div id="header-placeholder"></div>
 
     <main class="bg-white">
-      <section class="bg-white space-y-2 overflow-hidden group">
-        <div class="relative h-[100px] flex flex-col md:h-[400px]">
-          <div class="w-full h-auto md:h-full md:absolute md:inset-0 overflow-hidden">
-            <img id="hero-banner-img" src="assets/become-dealer.png" alt="About-US" class="w-full h-full md:w-[100%] md:h-full transition-transform duration-1000 group-hover:scale-105" />
+      <section class="border-b border-gray-10 flex items-center justify-start text-center bg-white overflow-hidden group">
+        <div class="relative h-full md:h-full w-full flex flex-col banner-wrapper">
+          <img
+            src="assets/become-dealer.png"
+            data-mobile="assets/mobile/become-dealer-mobile.png"
+            alt="Become a Dealer"
+            class="w-full h-full transition-transform duration-1000 group-hover:scale-105" />
+          <div
+            id="hero-text-box"
+            class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:w-[500px] bg-black/75 px-2 py-2 md:px-4 md:py-6 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
+            <h1 class="text-xl md:text-5xl font-black uppercase text-left tracking-normal leading-tight text-white">Become a <br />Trusted Partner</h1>
           </div>
         </div>
       </section>
-      <section class="py-20 border-b border-gray-100">
+      <section class="py-4 border-b border-gray-100">
         <div class="container mx-auto px-6">
           <div class="flex flex-col md:flex-row gap-16 items-center">
             <div class="w-full md:w-1/2">
               <h4 class="text-[#cc001b] font-black uppercase tracking-[0.3em] mb-4">Strategic Partnership</h4>
               <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-8">
                 Grow with <br />
-                <span class="text-gray-300">Alaska</span>
+                <span class="text-[#cc001b]">Alaska Batteries.</span>
               </h1>
               <p class="text-gray-500 text-lg leading-relaxed mb-8">
                 Join Pakistan's fastest-growing battery network. We provide our dealers with Graphite-enhanced technology, national marketing support, and a transparent warranty claim system.
@@ -41,10 +93,6 @@
                 <div class="flex items-center gap-4 border-b border-gray-50 pb-4">
                   <span class="bg-gray-100 text-black font-black p-2 text-xs">02</span>
                   <p class="uppercase font-black text-xs tracking-widest">Digital Dealer Locator Listing</p>
-                </div>
-                <div class="flex items-center gap-4 border-b border-gray-50 pb-4">
-                  <span class="bg-gray-100 text-black font-black p-2 text-xs">03</span>
-                  <p class="uppercase font-black text-xs tracking-widest">Technical Staff Training</p>
                 </div>
               </div>
             </div>
@@ -71,20 +119,24 @@
                 <input type="text" placeholder="CURRENT BUSINESS ADDRESS" class="w-full bg-white border border-gray-200 p-4 outline-none focus:border-[#cc001b] font-bold text-xs" />
 
                 <div class="py-4">
-                  <p class="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-4">Primary Interest</p>
-                  <div class="flex gap-6">
-                    <label class="flex items-center gap-2 cursor-pointer">
+                  <p class="text-base font-bold uppercase tracking-widest text-gray-400 mb-4">Primary Interest</p>
+                  <div class="flex gap-3">
+                    <label class="flex items-center gap-1 cursor-pointer">
                       <input type="checkbox" class="accent-[#cc001b]" />
-                      <span class="text-[10px] font-bold uppercase">Automotive</span>
+                      <span class="text-xs font-normal uppercase">Automotive</span>
                     </label>
-                    <label class="flex items-center gap-2 cursor-pointer">
+                    <label class="flex items-center gap-1 cursor-pointer">
                       <input type="checkbox" class="accent-[#cc001b]" />
-                      <span class="text-[10px] font-bold uppercase">Solar/UPS</span>
+                      <span class="text-xs font-normal uppercase">Solar/UPS</span>
+                    </label>
+                    <label class="flex items-center gap-1 cursor-pointer">
+                      <input type="checkbox" class="accent-[#cc001b]" />
+                      <span class="text-xs font-normal uppercase">Industrial</span>
                     </label>
                   </div>
                 </div>
 
-                <button type="submit" class="w-full bg-black text-white font-black uppercase py-5 text-xs tracking-[0.3em] hover:bg-[#cc001b] transition-all">Submit Application</button>
+                <button type="submit" class="w-full bg-black text-white font-black uppercase py-5 text-lg tracking-wider hover:bg-[#cc001b] transition-all">Submit Application</button>
               </form>
             </div>
           </div>

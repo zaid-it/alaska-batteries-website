@@ -8,6 +8,46 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <style>
+      /* Page-scoped overrides to keep hero images under control on mobile */
+      .object-center {
+        object-position: center !important;
+      }
+      .object-cover {
+        object-fit: cover !important;
+      }
+      .w-full {
+        width: 100% !important;
+      }
+
+      /* Hero-specific constraints */
+      @media (max-width: 767px) {
+        /* Ensure banner images fill their banner container height on mobile so overlay sits on top */
+        #hero-banner-img,
+        .banner-wrapper img {
+          height: 100% !important; /* fill the parent h-[180px] */
+          width: 100% !important;
+          object-fit: cover !important;
+        }
+
+        /* constrain overall visual size if parent grows unexpectedly */
+        .banner-wrapper {
+          min-height: 160px;
+        }
+
+        /* ensure overlay stays on top and is visible */
+        #hero-text-box.banner-overlay {
+          top: 70px !important;
+          bottom: 0 !important;
+          padding-left: 0.5rem !important;
+          max-height: 120px !important;
+          width: 300px !important;
+          overflow: hidden !important;
+          padding-top: 1.6rem !important;
+          padding-bottom: 0.6rem !important;
+        }
+      }
+    </style>
   </head>
   <body class="bg-white text-zinc-800 antialiased selection:bg-[#cc001b] selection:text-white">
     <main>
@@ -19,16 +59,22 @@
             data-mobile="assets/mobile/tech-mobile.png"
             alt="Dry Charge"
             class="max-h-[700px] md:max-h-[800px] transform group-hover:scale-105 transition-transform duration-700" />
+          <div
+            id="hero-text-box"
+            class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[500px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
+            <h1 id="hero-title" class="text-xl md:text-4xl font-black uppercase text-left tracking-tighter leading-tight text-white">Graphite Technology</h1>
+            <p id="hero-subtitle" class="text-xs md:text-2xl font-normal text-left text-white leading-normal mt-1 md:mt-4">Innovating Power Solutions Globally</p>
+          </div>
         </div>
       </section>
-      <section class="py-8 min-h-screen">
-        <div class="fixed top-24 right-6 z-50">
+      <section class="py-4 min-h-screen">
+        <div class="fixed top-30 right-2 z-10">
           <button
             onclick="toggleLang()"
             class="flex items-center gap-2 bg-zinc-900 text-white px-6 py-2.5 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-[#cc001b] transition-all shadow-xl active:scale-95 cursor-pointer">
             <i class="fa-solid fa-language text-lg"></i>
             <span class="header-en">اردو</span>
-            <span class="header-ur">English</span>
+            <span class="header-ur">EN</span>
           </button>
         </div>
         <div class="text-center mb-16">
@@ -214,7 +260,7 @@
             <div class="card-container">
               <div class="card-inner">
                 <div class="card-front shadow-lg border-2 border-gray-100 p-8">
-                  <div class="border-2 border-[#cc001b] rounded-md py-3 px-4 mb-6 text-center flex items-center justify-center gap-3">
+                  <div class="border-2 border-[#cc001b] rounded-md py-4 px-4 mb-6 text-center flex items-center justify-center gap-3">
                     <i class="fa-solid fa-rocket text-[#cc001b] text-[30px]"></i>
                     <h3 class="text-lg font-black uppercase">IDEAL FOR MODERN APPLICATIONS</h3>
                   </div>
@@ -225,7 +271,7 @@
                     <div class="text-[100%] font-bold"><i class="fa-solid fa-bolt text-[#cc001b] block mb-1 text-[30px]"></i>Hybrid System</div>
                     <div class="text-[100%] font-bold"><i class="fa-solid fa-industry text-[#cc001b] block mb-1 text-[30px]"></i>Industrial Use</div>
                   </div>
-                  <div class="mt-auto pt-5 border-t border-gray-100">
+                  <div class="mt-auto pt-7 border-t border-gray-100">
                     <span class="benefit-tag bg-[#cc001b] text-white px-3 py-1 rounded font-black text-[100%] uppercase mb-2">BENEFIT</span>
                     <p class="font-bold text-base italic">Versatility for the future of storage.</p>
                   </div>
