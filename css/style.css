@@ -69,10 +69,56 @@ img {
   height: 100%;
 }
 
+/* Unmute Button Styling */
+.unmute-btn {
+  animation: pulse-glow-smooth 3s ease-in-out infinite;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.unmute-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(204, 0, 27, 0.8) !important;
+}
+
+.unmute-btn.unmuted {
+  animation: none;
+  opacity: 0.4;
+}
+
+.unmute-btn.unmuted:hover {
+  opacity: 1;
+}
+
+@keyframes pulse-glow-smooth {
+  0% {
+    box-shadow: 0 0 8px rgba(204, 0, 27, 0.4);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(204, 0, 27, 0.7);
+    transform: scale(1.02);
+  }
+  100% {
+    box-shadow: 0 0 8px rgba(204, 0, 27, 0.4);
+    transform: scale(1);
+  }
+}
+
+/* Responsive unmute button - same for mobile and desktop */
+.unmute-btn {
+  width: 3.5rem;
+  height: 3.5rem;
+  right: 1rem;
+  bottom: 1rem;
+}
+
 /* Make sure hero section keeps a reasonable minimum height on very small screens */
 @media (max-width: 480px) {
   .hero-section {
-    min-height: 40vh;
+    min-height: 10vh;
+    width: 100%;
   }
 }
 /* Banner wrapper and overlay helpers to ensure overlays stay inside images */
