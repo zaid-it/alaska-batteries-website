@@ -265,21 +265,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const contentMap = {
     All: {
       img: "assets/solutions/solutions-hero.png",
+      mobile_img: "assets/solutions/mobile/solutions-hero-mobile.png",
       title: 'Dry <span class="text-[#cc001b]">Charge</span>',
       sub: "Pakistan's only Graphite Enhanced Lead-Acid Battery.",
     },
     Automotive: {
       img: "assets/solutions/automotive.png",
+      mobile_img: "assets/solutions/mobile/automotive-mobile.png",
       title: "Automotive",
       sub: "Reliable Power for Every Journey.",
     },
     Solar: {
       img: "assets/solutions/solar.png",
+      mobile_img: "assets/solutions/mobile/solar-mobile.png",
       title: "Solar",
       sub: "Sustainable Energy You can rely on.",
     },
     Industrial: {
       img: "assets/solutions/industrial.png",
+      mobile_img: "assets/solutions/mobile/industrial-mobile.png",
       title: "Industrial",
       sub: "Built for Heavy Duty Performance.",
     },
@@ -295,7 +299,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateHero(cat) {
     const data = contentMap[cat];
-    heroImg.src = data.img;
+    // Choose image based on viewport width (640px breakpoint matches animations.js)
+    const isMobile = window.innerWidth <= 640;
+    const imageSrc = isMobile && data.mobile_img ? data.mobile_img : data.img;
+    heroImg.src = imageSrc;
     document.getElementById("hero-title").innerHTML = data.title;
     subTitle.innerText = data.sub;
   }
@@ -325,17 +332,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Start UI
   triggerAnimations();
   startAutoScroll();
-});
-
-// Close gallery modal when clicking outside the content (useful on mobile)
-window.addEventListener("click", (e) => {
-  const modal = document.getElementById("gallery-modal");
-  if (modal && modal.classList.contains("active")) {
-    // modal.firstElementChild is the inner absolute container; clicking that (outside content) should close
-    if (e.target === modal.firstElementChild) {
-      window.closeGalleryModal();
-    }
-  }
 });
 
 // --- MODAL & COMPARISON LOGIC ---
