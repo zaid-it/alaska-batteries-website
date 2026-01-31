@@ -4,31 +4,27 @@
 
 const galleryData = {
   corporate: [
-    { src: "assets/gallery/corp/corp-1.jpg", title: "Brand Award of the Year" },
-    { src: "assets/gallery/corp/corp-2.jpg", title: "Brand Award of the Year" },
-    { src: "assets/gallery/corp/corp-3.jpg", title: "Industry Meets Academia" },
-    { src: "assets/gallery/corp/corp-5.jpg", title: "Mastering Emotional Intelligence" },
-    { src: "assets/gallery/corp/corp-6.jpg", title: "Mastering Emotional Intelligence" },
-    { src: "assets/gallery/corp/corp-8.jpg", title: "Prioritizing Employees Wellness" },
-    { src: "assets/gallery/corp/corp-9.jpg", title: "Prioritizing Employees Wellness" },
-    { src: "assets/gallery/corp/corp-10.jpg", title: "Strengthening partnerships" },
+    { src: "assets/gallery/corp/corp-1.jpg" },
+    { src: "assets/gallery/corp/corp-2.jpg" },
+    { src: "assets/gallery/corp/corp-3.jpg" },
+    { src: "assets/gallery/corp/corp-5.jpg" },
+    { src: "assets/gallery/corp/corp-6.jpg" },
+    { src: "assets/gallery/corp/corp-8.jpg" },
+    { src: "assets/gallery/corp/corp-9.jpg" },
+    { src: "assets/gallery/corp/corp-10.jpg" },
   ],
   dealer: [
-    { src: "assets/gallery/dealer/d-1.jpg", title: "Premium Showroom" },
-    { src: "assets/gallery/dealer/d-2.jpg", title: "Certified Service Center" },
-    { src: "assets/gallery/dealer/d-3.jpg", title: "Certified Service Center" },
-    { src: "assets/gallery/dealer/d-4.jpg", title: "Certified Service Center" },
-    { src: "assets/gallery/dealer/d-5.jpg", title: "Certified Service Center" },
-    { src: "assets/gallery/dealer/d-6.jpg", title: "Certified Service Center" },
-    { src: "assets/gallery/dealer/d-7.jpg", title: "Certified Service Center" },
-    { src: "assets/gallery/dealer/d-8.jpg", title: "Certified Service Center" },
-    { src: "assets/gallery/dealer/d-9.jpg", title: "Certified Service Center" },
-    { src: "assets/gallery/dealer/d-10.jpg", title: "Certified Service Center" },
-    { src: "assets/gallery/dealer/d-11.jpg", title: "Certified Service Center" },
-  ],
-  national: [
-    { src: "assets/gallery/nat-1.jpg", title: "National Auto Expo" },
-    { src: "assets/gallery/nat-2.jpg", title: "Industry Conference" },
+    { src: "assets/gallery/dealer/d-1.jpg" },
+    { src: "assets/gallery/dealer/d-2.jpg" },
+    { src: "assets/gallery/dealer/d-3.jpg" },
+    { src: "assets/gallery/dealer/d-4.jpg" },
+    { src: "assets/gallery/dealer/d-5.jpg" },
+    { src: "assets/gallery/dealer/d-6.jpg" },
+    { src: "assets/gallery/dealer/d-7.jpg" },
+    { src: "assets/gallery/dealer/d-8.jpg" },
+    { src: "assets/gallery/dealer/d-9.jpg" },
+    { src: "assets/gallery/dealer/d-10.jpg" },
+    { src: "assets/gallery/dealer/d-11.jpg" },
   ],
 };
 
@@ -45,14 +41,12 @@ function updateGallery(category) {
   galleryData[category].forEach((item) => {
     const card = document.createElement("div");
     card.className = "gallery-card flex-none";
-    card.onclick = () => openLightbox(item.src, item.title);
+    card.onclick = () => openLightbox(item.src);
 
     card.innerHTML = `
             <img src="${item.src}" alt="${item.title}" onerror="this.src='https://placehold.co/600x800/111/fff?text=Image'">
             <div class="gallery-overlay"></div>
-            <div class="gallery-info">
-                <h3 class="text-white text-lg md:text-xl font-bold uppercase tracking-tight">${item.title}</h3>
-            </div>
+            
         `;
 
     card.onmousedown = (e) => {
@@ -114,9 +108,7 @@ function updateGallery(category) {
     card.innerHTML = `
             <img src="${item.src}" alt="${item.title}">
             <div class="gallery-overlay"></div>
-            <div class="gallery-info">
-                <h3 class="text-white text-lg font-black uppercase tracking-tight">${item.title}</h3>
-            </div>
+            
         `;
     rail.appendChild(card);
   });

@@ -90,10 +90,10 @@ const footerHTML = /* HTML */ `
                 <a href="index.html" class="hover:text-[#cc001b] transition-colors">Home</a>
               </li>
               <li>
-                <a href="solutions.html" class="hover:text-[#cc001b] transition-colors">Solutions</a>
+                <a href="dry-charge.html" class="hover:text-[#cc001b] transition-colors">Solutions</a>
               </li>
               <li>
-                <a href="technology.html" class="hover:text-[#cc001b] transition-colors">Technology</a>
+                <a href="graphite.html" class="hover:text-[#cc001b] transition-colors">Technology</a>
               </li>
               <li>
                 <a href="vault.html" class="hover:text-[#cc001b] transition-colors">Vault</a>

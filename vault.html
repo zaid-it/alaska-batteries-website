@@ -24,6 +24,16 @@
           max-height: 120px !important;
           overflow: hidden !important;
         }
+        /* ensure overlay stays on top and is visible */
+        #hero-text-box.banner-overlay {
+          top: 70px !important;
+          bottom: 0 !important;
+          padding-left: 0.5rem !important;
+          max-height: 120px !important;
+          width: 250px !important;
+          overflow: hidden !important;
+          padding-top: 0.5rem !important;
+        }
       }
     </style>
   </head>
@@ -31,7 +41,7 @@
     <div id="header-placeholder"></div>
 
     <main class="bg-white">
-      <section id="blogs" class="border-b border-gray-10 flex items-center justify-start text-center bg-white overflow-hidden group">
+      <section id="blogs" class="border-b border-gray-10 flex items-center justify-center text-center bg-white overflow-hidden group">
         <div class="relative h-[180px] md:h-[400px] w-full flex flex-col banner-wrapper">
           <img
             src="assets/vault/BLOGS.png"
@@ -39,9 +49,10 @@
             alt="Blogs"
             class="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105" />
           <div
-            class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-3 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 banner-overlay">
-            <h1 class="text-xl md:text-7xl font-black uppercase tracking-tighter leading-tight text-white">Blogs</h1>
-            <p class="text-xs md:text-2xl font-normal text-white leading-normal mt-1 md:mt-4">Expert Insights on Power & Performance.</p>
+            id="hero-text-box"
+            class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 banner-overlay">
+            <h1 class="text-2xl md:text-7xl font-black uppercase text-left tracking-tighter leading-tight text-white">Blogs</h1>
+            <p class="text-base md:text-2xl font-normal text-white text-left leading-normal mt-1 md:mt-4">Expert Insights on Power & Performance.</p>
           </div>
         </div>
       </section>
@@ -139,9 +150,10 @@
             alt="FAQs"
             class="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105" />
           <div
+            id="hero-text-box"
             class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
-            <h1 class="text-xl md:text-7xl font-black uppercase tracking-tighter leading-tight text-white">FAQs</h1>
-            <p class="text-xs md:text-2xl font-normal text-white leading-normal mt-1 md:mt-4">Answers to your frequently asked questions.</p>
+            <h1 class="text-2xl md:text-7xl font-black uppercase text-left tracking-tighter leading-tight text-white">FAQs</h1>
+            <p class="text-base md:text-2xl font-normal text-left text-white leading-normal mt-1 md:mt-4">Answers to your frequently asked questions.</p>
           </div>
         </div>
       </section>
@@ -229,7 +241,7 @@
           </div>
         </div>
       </section>
-      <section id="gallery" class="flex items-center justify-start text-center bg-white overflow-hidden group border-t border-gray-100">
+      <section id="gallery" class="flex items-center justify-center text-center bg-white overflow-hidden group border-t border-gray-100">
         <div class="relative h-[180px] md:h-[400px] w-full flex flex-col banner-wrapper">
           <img
             src="assets/vault/Gallery.png"
@@ -237,8 +249,9 @@
             alt="Gallery"
             class="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105" />
           <div
+            id="hero-text-box"
             class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
-            <h1 class="text-xl md:text-7xl font-black uppercase tracking-tighter leading-tight text-white">Gallery</h1>
+            <h1 class="text-4xl md:text-7xl font-black uppercase text-left pt-6 md:pt-0 tracking-tighter leading-tight text-white">Gallery</h1>
           </div>
         </div>
       </section>
@@ -273,7 +286,6 @@
         <div id="lightbox-slider" class="w-full h-full flex items-center overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth"></div>
 
         <div class="absolute bottom-8 text-center pointer-events-none">
-          <h3 id="lightbox-title" class="text-white text-xl font-black uppercase tracking-widest animate-slide-up"></h3>
           <p class="text-zinc-500 text-[10px] uppercase tracking-[0.4em] mt-2">Swipe or Use Arrows to Explore</p>
         </div>
       </div>
