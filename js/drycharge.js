@@ -1,6 +1,7 @@
 // 1. GLOBAL SCOPE
 let currentBatteryId = null;
 let compareFirstId = null;
+let lastFiltered = [];
 
 // Define updateStage globally so it's ready before DOMContentLoaded triggers
 window.updateStage = function (id, shouldScroll = false) {
@@ -118,6 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return matchesSearch && matchesCat;
     });
 
+    lastFiltered = filtered;
     renderThumbnails(filtered);
 
     // FIX: Update the main stage if filtered results exist
@@ -134,7 +136,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    thumbGrid.innerHTML = data
+    // Show a compact preview row (first 8 items) in the thumb area
+    const preview = data.slice(0, 8);
+    thumbGrid.innerHTML = preview
       .map(
         (b) => `
             <div onclick="window.updateStage('${b.id}', true)" 
@@ -144,6 +148,52 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>`,
       )
       .join("");
+  }
+
+  // Gallery modal functions
+  window.openGalleryModal = function (data) {
+    const modal = document.getElementById("gallery-modal");
+    const grid = document.getElementById("gallery-grid");
+    if (!modal || !grid) return;
+    const list = Array.isArray(data) ? data : lastFiltered.length ? lastFiltered : batteryData;
+    renderGalleryGrid(list);
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  };
+
+  window.closeGalleryModal = function () {
+    const modal = document.getElementById("gallery-modal");
+    if (!modal) return;
+    modal.classList.remove("active");
+    document.body.style.overflow = "auto";
+  };
+
+  function renderGalleryGrid(list) {
+    const grid = document.getElementById("gallery-grid");
+    if (!grid) return;
+    if (!list || list.length === 0) {
+      grid.innerHTML = `<div class="text-gray-400 p-4">No results.</div>`;
+      return;
+    }
+
+    grid.innerHTML = list
+      .map(
+        (b) => `
+          <div onclick="(function(){window.updateStage('${b.id}', true); window.closeGalleryModal();})()" class="bg-white border border-gray-100 p-4 rounded-md cursor-pointer hover:shadow-lg transition-all">
+            <div class="h-40 flex items-center justify-center mb-3">
+              <img src="${b.image}" class="h-full w-auto object-contain pointer-events-none" />
+            </div>
+            <h4 class="font-black uppercase text-[90%] text-center">${b.model}</h4>
+            <p class="text-[80%] text-gray-400 text-center mt-1">${b.plates} Plates | ${b.ah} AH</p>
+          </div>`,
+      )
+      .join("");
+  }
+
+  // Wire the View All button if present
+  const viewAllBtn = document.getElementById("view-all-btn");
+  if (viewAllBtn) {
+    viewAllBtn.addEventListener("click", () => openGalleryModal(lastFiltered.length ? lastFiltered : batteryData));
   }
 
   // --- SUGGESTIONS LOGIC ---
@@ -204,6 +254,87 @@ document.addEventListener("DOMContentLoaded", () => {
   renderThumbnails(batteryData);
   if (batteryData.length > 0 && !currentBatteryId) {
     window.updateStage(batteryData[0].id);
+  }
+
+  // --- BANNER CAROUSEL ---
+  const heroImg = document.getElementById("hero-banner-img");
+  const textBox = document.getElementById("hero-text-box");
+  const subTitle = document.getElementById("hero-subtitle");
+  const filterButtons = document.querySelectorAll(".filter-btn");
+
+  const contentMap = {
+    All: {
+      img: "assets/solutions/solutions-hero.png",
+      title: 'Dry <span class="text-[#cc001b]">Charge</span>',
+      sub: "Pakistan's only Graphite Enhanced Lead-Acid Battery.",
+    },
+    Automotive: {
+      img: "assets/solutions/automotive.png",
+      title: "Automotive",
+      sub: "Reliable Power for Every Journey.",
+    },
+    Solar: {
+      img: "assets/solutions/solar.png",
+      title: "Solar",
+      sub: "Sustainable Energy You can rely on.",
+    },
+    Industrial: {
+      img: "assets/solutions/industrial.png",
+      title: "Industrial",
+      sub: "Built for Heavy Duty Performance.",
+    },
+  };
+
+  let autoScrollInterval;
+  let categories = Object.keys(contentMap);
+  let currentIndex = 0;
+
+  function triggerAnimations() {
+    // Animation removed - keeping simple and clean
+  }
+
+  function updateHero(cat) {
+    const data = contentMap[cat];
+    heroImg.src = data.img;
+    document.getElementById("hero-title").innerHTML = data.title;
+    subTitle.innerText = data.sub;
+  }
+
+  function startAutoScroll() {
+    if (autoScrollInterval) clearInterval(autoScrollInterval);
+    autoScrollInterval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % categories.length;
+      updateHero(categories[currentIndex]);
+    }, 3500);
+  }
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const category = this.getAttribute("data-cat");
+      updateHero(category);
+
+      // Auto-scroll logic: only for "All"
+      if (category === "All") {
+        startAutoScroll();
+      } else {
+        clearInterval(autoScrollInterval);
+      }
+    });
+  });
+
+  // Start UI
+  triggerAnimations();
+  startAutoScroll();
+});
+
+// Close gallery modal when clicking outside the content (useful on mobile)
+window.addEventListener("click", (e) => {
+  const modal = document.getElementById("gallery-modal");
+  if (modal && modal.classList.contains("active")) {
+    // modal.firstElementChild is the inner absolute container; clicking that (outside content) should close
+    if (e.target === modal.firstElementChild) {
+      window.closeGalleryModal();
+    }
   }
 });
 
@@ -372,76 +503,8 @@ function initDryCharge() {
 }
 // Run after a short delay to allow component injection
 window.addEventListener("load", () => {
-  setTimeout(initDryCharge, 300);
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  const heroImg = document.getElementById("hero-banner-img");
-  const textBox = document.getElementById("hero-text-box");
-  const subTitle = document.getElementById("hero-subtitle");
-  const filterButtons = document.querySelectorAll(".filter-btn");
-
-  const contentMap = {
-    All: {
-      img: "assets/solutions/solutions-hero.png",
-      title: 'Dry <span class="text-[#cc001b]">Charge</span>',
-      sub: "Pakistan's only Graphite Enhanced Lead-Acid Battery.",
-    },
-    Automotive: {
-      img: "assets/solutions/automotive.png",
-      title: "Automotive",
-      sub: "Reliable Power for Every Journey.",
-    },
-    Solar: {
-      img: "assets/solutions/solar.png",
-      title: "Solar",
-      sub: "Sustainable Energy You can rely on.",
-    },
-    Industrial: {
-      img: "assets/solutions/industrial.png",
-      title: "Industrial",
-      sub: "Built for Heavy Duty Performance.",
-    },
-  };
-
-  let autoScrollInterval;
-  let categories = Object.keys(contentMap);
-  let currentIndex = 0;
-
-  function triggerAnimations() {
-    // Animation removed - keeping simple and clean
-  }
-
-  function updateHero(cat) {
-    const data = contentMap[cat];
-    heroImg.src = data.img;
-    document.getElementById("hero-title").innerHTML = data.title;
-    subTitle.innerText = data.sub;
-  }
-
-  function startAutoScroll() {
-    if (autoScrollInterval) clearInterval(autoScrollInterval);
-    autoScrollInterval = setInterval(() => {
-      currentIndex = (currentIndex + 1) % categories.length;
-      updateHero(categories[currentIndex]);
-    }, 3500);
-  }
-
-  filterButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      const category = this.getAttribute("data-cat");
-      updateHero(category);
-
-      // Auto-scroll logic: only for "All"
-      if (category === "All") {
-        startAutoScroll();
-      } else {
-        clearInterval(autoScrollInterval);
-      }
-    });
+  // Run after a short delay to allow component injection
+  window.addEventListener("load", () => {
+    setTimeout(initDryCharge, 300);
   });
-
-  // Start UI
-  triggerAnimations();
-  startAutoScroll();
 });

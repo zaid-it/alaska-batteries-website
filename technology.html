@@ -12,8 +12,18 @@
   <body class="bg-white">
     <div id="header-placeholder"></div>
 
-    <main class="pt-20">
-      <section class="py-24 bg-white">
+    <main class="bg-white">
+      <section class="bg-white space-y-2 overflow-hidden group">
+        <div class="relative h-[180px] md:h-[400px] w-full flex flex-col">
+          <img src="assets/technology/tech.png" alt="Technology" class="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105" />
+          <div class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-3 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80">
+            <h1 class="text-xl md:text-7xl font-black uppercase tracking-tighter leading-tight text-white">Technology</h1>
+            <p class="text-xs md:text-2xl font-normal text-white leading-normal mt-1 md:mt-4">The Science Behind Our Innovation</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-6 flex flex-col md:flex-row gap-16">
           <div class="w-full flex items-center justify-center">
             <img src="assets/technology/tech.png" alt="Graphite Tech" class="max-h-[500px]" />
@@ -49,5 +59,6 @@
     <div id="footer-placeholder"></div>
 
     <script src="js/components.js"></script>
+    <script src="js/animations.js"></script>
   </body>
 </html>

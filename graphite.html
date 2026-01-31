@@ -248,15 +248,30 @@
           </div>
         </div>
 
-        <!-- Trigger Button -->
-        <button id="openTechModal" class="tech-play-btn">▶ Watch Tech Video</button>
+        <!-- YouTube Thumbnail Button -->
+        <div class="flex justify-center py-16">
+          <div class="relative w-full max-w-2xl cursor-pointer group" onclick="openTechVideoModal()">
+            <img
+              src="https://img.youtube.com/vi/nu4N6ER5VB4/maxresdefault.jpg"
+              alt="Watch Technology Video"
+              class="w-full rounded-lg shadow-2xl group-hover:shadow-[0_0_30px_rgba(204,0,27,0.4)] transition-all duration-300" />
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="bg-[#cc001b] w-24 h-24 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-white transition-all duration-300">
+                <i class="fa-solid fa-play text-white text-5xl ml-2 group-hover:text-[#cc001b] transition-all"></i>
+              </div>
+            </div>
+            <div class="absolute bottom-6 left-6 flex items-center gap-2 bg-black/70 px-4 py-2 rounded-lg">
+              <i class="fa-brands fa-youtube text-red-600 text-xl"></i>
+              <span class="text-white font-bold">Watch Video</span>
+            </div>
+          </div>
+        </div>
 
         <!-- Tech Modal -->
         <div id="techmodal" class="techmodal-overlay">
           <div class="techmodal-box">
             <span class="techmodal-close">&times;</span>
-
-            <iframe id="techmodal-iframe" width="100%" height="420" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>
+            <iframe id="techmodal-iframe" width="100%" height="420" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
         </div>
       </section>
@@ -264,6 +279,7 @@
     <div id="footer-placeholder"></div>
     <script src="js/components.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
     <script>
       function toggleLang() {
         document.body.classList.toggle("urdu-mode");
@@ -272,16 +288,15 @@
     </script>
     <script>
       const techmodal = document.getElementById("techmodal");
-      const openTechModal = document.getElementById("openTechModal");
       const closeTechModal = document.querySelector(".techmodal-close");
       const techIframe = document.getElementById("techmodal-iframe");
 
-      const techVideoURL = "https://www.youtube.com/embed/nu4N6ER5VB4?si=j6WBiQBTYwHYpotO?autoplay=1&rel=0";
+      const techVideoURL = "https://www.youtube.com/embed/nu4N6ER5VB4?si=j6WBiQBTYwHYpotO&autoplay=1&rel=0";
 
-      openTechModal.addEventListener("click", () => {
+      function openTechVideoModal() {
         techIframe.src = techVideoURL;
         techmodal.style.display = "block";
-      });
+      }
 
       closeTechModal.addEventListener("click", closeModal);
 

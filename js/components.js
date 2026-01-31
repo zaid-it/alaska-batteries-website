@@ -196,38 +196,38 @@ function setupMobileMenu() {
         </button>
       </div>
 
-      <div class="flex-grow overflow-hidden relative bg-white">
+      <div class="flex-grow overflow-hidden relative bg-[#cc001b]">
         <div id="mobile-menu-container" class="flex w-[200%] h-full transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]">
           <div id="main-view" class="w-1/2 h-full flex flex-col">
             <nav class="p-4">
-              <a href="index.html" class="flex items-center px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:bg-zinc-50 rounded-lg transition-all">Home</a>
+              <a href="index.html" class="flex items-center px-4 py-4 text-[15px] font-semibold text-white hover:bg-zinc-50 rounded-lg transition-all">Home</a>
 
               <button
                 onclick="openSubmenu('solutions-sub')"
-                class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:bg-zinc-50 rounded-lg transition-all group">
-                Solutions <i class="fa-solid fa-chevron-right text-[10px] text-zinc-400 group-hover:text-[#cc001b]"></i>
+                class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-white hover:bg-zinc-50 rounded-lg transition-all group">
+                Solutions <i class="fa-solid fa-chevron-right text-[10px] text-white group-hover:text-[#cc001b]"></i>
               </button>
 
               <button
                 onclick="openSubmenu('tech-sub')"
-                class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:bg-zinc-50 rounded-lg transition-all group">
-                Technology <i class="fa-solid fa-chevron-right text-[10px] text-zinc-400 group-hover:text-[#cc001b]"></i>
+                class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-white hover:bg-zinc-50 rounded-lg transition-all group">
+                Technology <i class="fa-solid fa-chevron-right text-[10px] text-white group-hover:text-[#cc001b]"></i>
               </button>
 
               <button
                 onclick="openSubmenu('dealers-sub')"
-                class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:bg-zinc-50 rounded-lg transition-all group">
-                Dealers <i class="fa-solid fa-chevron-right text-[10px] text-zinc-400 group-hover:text-[#cc001b]"></i>
+                class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-white hover:bg-zinc-50 rounded-lg transition-all group">
+                Dealers <i class="fa-solid fa-chevron-right text-[10px] text-white group-hover:text-[#cc001b]"></i>
               </button>
 
               <button
                 onclick="openSubmenu('vault-sub')"
-                class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:bg-zinc-50 rounded-lg transition-all group">
-                Vault <i class="fa-solid fa-chevron-right text-[10px] text-zinc-400 group-hover:text-[#cc001b]"></i>
+                class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-white hover:bg-zinc-50 rounded-lg transition-all group">
+                Vault <i class="fa-solid fa-chevron-right text-[10px] text-white group-hover:text-[#cc001b]"></i>
               </button>
 
-              <a href="about.html" class="flex items-center px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:bg-zinc-50 rounded-lg transition-all">About Us</a>
-              <a href="support.html" class="flex items-center px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:bg-zinc-50 rounded-lg transition-all">Support</a>
+              <a href="about.html" class="flex items-center px-4 py-4 text-[15px] font-semibold text-white hover:bg-zinc-50 rounded-lg transition-all">About Us</a>
+              <a href="support.html" class="flex items-center px-4 py-4 text-[15px] font-semibold text-white hover:bg-zinc-50 rounded-lg transition-all">Support</a>
             </nav>
           </div>
 
@@ -263,7 +263,7 @@ function setupMobileMenu() {
     "vault-sub": `
       <a href="vault.html" class="px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:text-[#cc001b] transition-colors">Open Vault</a>
       <a href="vault.html#blogs" class="px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:text-[#cc001b] transition-colors">Blogs</a>
-      <a href="vault.html#faq" class="px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:text-[#cc001b] transition-colors">FAQs</a>
+      <a href="vault.html#faqs" class="px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:text-[#cc001b] transition-colors">FAQs</a>
       <a href="vault.html#gallery" class="px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:text-[#cc001b] transition-colors">Gallery</a>
     `,
   };
@@ -307,6 +307,14 @@ function setupMobileMenu() {
   trigger.addEventListener("click", openMenu);
   document.getElementById("close-mobile").addEventListener("click", closeMenu);
   document.getElementById("mobile-backdrop").addEventListener("click", closeMenu);
+  // Close the menu when a link inside it is clicked (so anchors navigate cleanly)
+  menu.addEventListener("click", (e) => {
+    const a = e.target.closest && e.target.closest("a");
+    if (a) {
+      // allow native navigation, but close the UI immediately
+      closeMenu();
+    }
+  });
 }
 
 function init() {
