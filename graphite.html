@@ -11,22 +11,26 @@
   </head>
   <body class="bg-white text-zinc-800 antialiased selection:bg-[#cc001b] selection:text-white">
     <main>
-      <div class="fixed top-24 right-6 z-50">
-        <button
-          onclick="toggleLang()"
-          class="flex items-center gap-2 bg-zinc-900 text-white px-6 py-2.5 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-[#cc001b] transition-all shadow-xl active:scale-95 cursor-pointer">
-          <i class="fa-solid fa-language text-lg"></i>
-          <span class="header-en">اردو</span>
-          <span class="header-ur">English</span>
-        </button>
-      </div>
       <div id="header-placeholder"></div>
       <section class="bg-white border-b border-gray-50 flex items-center justify-center text-center">
-        <div class="w-full flex items-center justify-center border-t-8 border-gray-100">
-          <img src="assets/technology/tech-hero.png" alt="Dry Charge" class="max-h-[700px] md:max-h-[800px] transform group-hover:scale-105 transition-transform duration-700" />
+        <div class="w-full flex items-center justify-center border-t-8 border-gray-100 banner-wrapper">
+          <img
+            src="assets/technology/tech-hero.png"
+            data-mobile="assets/mobile/tech-mobile.png"
+            alt="Dry Charge"
+            class="max-h-[700px] md:max-h-[800px] transform group-hover:scale-105 transition-transform duration-700" />
         </div>
       </section>
       <section class="py-8 min-h-screen">
+        <div class="fixed top-24 right-6 z-50">
+          <button
+            onclick="toggleLang()"
+            class="flex items-center gap-2 bg-zinc-900 text-white px-6 py-2.5 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-[#cc001b] transition-all shadow-xl active:scale-95 cursor-pointer">
+            <i class="fa-solid fa-language text-lg"></i>
+            <span class="header-en">اردو</span>
+            <span class="header-ur">English</span>
+          </button>
+        </div>
         <div class="text-center mb-16">
           <h2 class="text-4xl md:text-6xl font-black italic uppercase mb-4 transition-all">
             <div class="header-en">
