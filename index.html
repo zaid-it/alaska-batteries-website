@@ -13,51 +13,92 @@
     <div id="header-placeholder"></div>
 
     <main>
-      <section class="relative h-[85vh] flex items-center bg-gray-900 overflow-hidden">
-        <div class="absolute inset-0 z-0 opacity-40 bg-[url('assets/hero-bg.jpg')] bg-cover bg-center"></div>
-        <div class="container mx-auto px-6 relative z-10">
-          <div class="max-w-3xl">
-            <h2 class="text-[#cc001b] font-black uppercase tracking-widest mb-4 italic">Innovation in Every Cell</h2>
-            <h1 class="text-white text-5xl md:text-7xl font-black uppercase leading-[0.9] mb-6">
-              Pakistan's One and Only <br />
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Graphite</span> <br />
-              Lead-Acid Batteries
-            </h1>
-            <a href="solutions.html" class="inline-block bg-[#cc001b] text-white px-10 py-4 font-bold uppercase tracking-tighter hover:skew-x-[-10deg] transition-all">Explore Series</a>
+      <section class="hero-section relative h-[60vh] md:h-[90vh] flex items-center bg-white overflow-hidden">
+        <!-- Video Background -->
+        <video id="heroVideo" class="absolute inset-0 w-full h-full z-0" autoplay playsinline webkit-playsinline poster="assets/hero-bg.jpg">
+          <source src="assets/videos/home.mp4" type="video/mp4" />
+          Your browser does not support HTML5 video.
+        </video>
+      </section>
+
+      <!-- Products Showcase Section -->
+      <section class="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div class="container mx-auto px-6">
+          <div class="text-center mb-16">
+            <h2 class="text-5xl md:text-6xl font-black uppercase mb-4 italic">Our <span class="text-[#cc001b]">Product</span> & Applications</h2>
+            <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+              Our product is the Dry‑charge battery — a Graphite Enhanced Lead‑Acid battery. Its common applications include <strong>Automotive</strong>, <strong>Solar</strong>, and
+              <strong>Industrial</strong> use-cases.
+            </p>
+            <div class="w-24 h-1 bg-[#cc001b] mx-auto rounded-full mt-6"></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Dry Charge -->
+            <a href="dry-charge.html" class="group relative bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105">
+              <div class="aspect-video bg-gradient-to-br from-red-600 to-red-900 flex items-center justify-center overflow-hidden relative">
+                <i class="fa-solid fa-battery-full text-white text-6xl group-hover:scale-125 transition-transform duration-300"></i>
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-black uppercase mb-2 text-gray-900">Dry Charge</h3>
+                <p class="text-gray-600 text-sm mb-4">Reliable power for immediate use.</p>
+                <div class="flex items-center text-[#cc001b] font-bold group-hover:translate-x-2 transition-transform">Explore <i class="fa-solid fa-arrow-right ml-2"></i></div>
+              </div>
+            </a>
+
+            <!-- Automotive (Application) -->
+            <a href="dry-charge.html#Automotive" class="group relative bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105">
+              <div class="aspect-video bg-gradient-to-br from-blue-600 to-blue-900 flex items-center justify-center overflow-hidden relative">
+                <i class="fa-solid fa-car text-white text-6xl group-hover:scale-125 transition-transform duration-300"></i>
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-black uppercase mb-2 text-gray-900">Automotive</h3>
+                <p class="text-gray-600 text-sm mb-4">Optimal for all types of vehicles.</p>
+                <div class="flex items-center text-[#cc001b] font-bold group-hover:translate-x-2 transition-transform">Learn more <i class="fa-solid fa-arrow-right ml-2"></i></div>
+              </div>
+            </a>
+
+            <!-- Solar (Application) -->
+            <a href="dry-charge.html#Solar" class="group relative bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105">
+              <div class="aspect-video bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center overflow-hidden relative">
+                <i class="fa-solid fa-sun text-white text-6xl group-hover:scale-125 transition-transform duration-300"></i>
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-black uppercase mb-2 text-gray-900">Solar & Inverter</h3>
+                <p class="text-gray-600 text-sm mb-4">Built for Solar systems and Inverter Backups with long service life.</p>
+                <div class="flex items-center text-[#cc001b] font-bold group-hover:translate-x-2 transition-transform">Learn more <i class="fa-solid fa-arrow-right ml-2"></i></div>
+              </div>
+            </a>
+
+            <!-- Industrial (Application) -->
+            <a href="dry-charge.html#Industrial" class="group relative bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105">
+              <div class="aspect-video bg-gradient-to-br from-gray-600 to-gray-900 flex items-center justify-center overflow-hidden relative">
+                <i class="fa-solid fa-industry text-white text-6xl group-hover:scale-125 transition-transform duration-300"></i>
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-black uppercase mb-2 text-gray-900">Commercial & Industrial Use</h3>
+                <p class="text-gray-600 text-sm mb-4">Durable energy solutions for heavy duty vehicles.</p>
+                <div class="flex items-center text-[#cc001b] font-bold group-hover:translate-x-2 transition-transform">Learn more <i class="fa-solid fa-arrow-right ml-2"></i></div>
+              </div>
+            </a>
+          </div>
+
+          <!-- CTA Button -->
+          <div class="flex justify-center mt-12">
+            <button
+              onclick="openBatteryFinder()"
+              class="bg-[#cc001b] text-white px-12 py-4 font-black uppercase tracking-widest text-lg hover:bg-black shadow-2xl transition-all hover:scale-105 rounded-lg">
+              <i class="fa-solid fa-bolt mr-3"></i> Find Your Perfect Battery
+            </button>
           </div>
         </div>
       </section>
 
-      <section id="products-interactive" class="relative border-b border-gray-100 overflow-hidden bg-white transition-colors duration-700">
-        <div class="absolute inset-0 z-0 pointer-events-none">
-          <div
-            id="bg-dry"
-            class="absolute inset-0 opacity-0 transition-opacity duration-700 bg-cover bg-center"
-            style="background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 35%, rgba(204, 0, 27, 0.3) 100%), url(&quot;assets/solutions/drycharge-banner.jpg&quot;)"></div>
-        </div>
-
-        <div class="relative z-10 flex flex-col md:flex-row min-h-[250px] md:min-h-[300px] border-b border-gray-300">
-          <div class="w-full md:w-1/4 flex items-center justify-center p-6 md:p-8 border-b md:border-b-0 md:border-r border-gray-100 transition-all duration-700" id="title-area">
-            <h2 id="scrollTitle" class="text-5xl md:text-5xl font-black uppercase tracking-tighter md:-rotate-90 whitespace-nowrap transition-colors duration-500 text-[#cc001b]">Products</h2>
-          </div>
-
-          <div class="w-full md:w-3/4 p-8 md:p-24 flex flex-col justify-center">
-            <div class="w-full space-y-2 md:space-y-2">
-              <a
-                href="dry-charge.html"
-                onmouseover="activateRow('dry')"
-                onmouseout="deactivateRows()"
-                class="product-row group block pb-6 transition-all duration-300 border-b border-gray-200 hover:pl-4">
-                <div class="flex items-center justify-center items-center">
-                  <span class="nav-label text-3xl md:text-5xl font-bold uppercase text-gray-900 transition-all duration-300">Dry Charge</span>
-                  <i class="fa-solid fa-arrow-right text-[#cc001b] text-2xl md:text-4xl opacity-0 group-hover:opacity-100 transition-all transform -translate-x-4 group-hover:translate-x-0"></i>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <!-- Why Graphite Section -->
       <section class="py-10 bg-white">
         <div class="container mx-auto px-6">
           <div class="flex flex-col md:flex-row items-center gap-16">
@@ -156,5 +197,40 @@
 
       observer.observe(section);
     </script>
+
+    <!-- Hero Video Volume & Playback Control -->
+    <script>
+      const heroVideo = document.getElementById("heroVideo");
+      let playbackCount = 0;
+
+      // Set initial volume to 10%
+      heroVideo.volume = 0.1;
+
+      // On touch devices show controls so user can play/unmute (autoplay with sound is blocked on many mobiles)
+      if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
+        try {
+          heroVideo.controls = true;
+          heroVideo.setAttribute("playsinline", "");
+          heroVideo.setAttribute("webkit-playsinline", "");
+        } catch (e) {
+          /* ignore */
+        }
+      }
+
+      // Track playback count and replay up to 3 times, then stop
+      heroVideo.addEventListener("ended", () => {
+        playbackCount++;
+        if (playbackCount < 3) {
+          heroVideo.play().catch(() => {
+            /* play blocked (autoplay policy) */
+          });
+        } else {
+          heroVideo.pause();
+          heroVideo.currentTime = 0;
+        }
+      });
+    </script>
+
+    <script src="js/animations.js"></script>
   </body>
 </html>
