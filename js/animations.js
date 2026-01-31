@@ -134,3 +134,42 @@ function closeBatteryFinder() {
     document.body.style.overflow = "auto";
   }
 }
+
+// ===== Responsive Banner Images (desktop/mobile) =====
+(function () {
+  const MOBILE_BREAKPOINT = 640; // px — change if you prefer a different cutoff
+
+  function debounce(fn, wait) {
+    let t;
+    return function () {
+      clearTimeout(t);
+      t = setTimeout(fn, wait);
+    };
+  }
+
+  function updateBanners() {
+    document.querySelectorAll(".banner-wrapper img[data-mobile]").forEach((img) => {
+      // store original as data-desktop if not present
+      if (!img.dataset.desktop) img.dataset.desktop = img.getAttribute("src") || "";
+
+      const mobileSrc = img.dataset.mobile;
+      const desktopSrc = img.dataset.desktop;
+      const useMobile = window.innerWidth <= MOBILE_BREAKPOINT;
+
+      const desired = useMobile ? mobileSrc : desktopSrc;
+      if (desired && img.src.indexOf(desired) === -1) {
+        img.src = desired;
+      }
+    });
+  }
+
+  const debouncedUpdate = debounce(updateBanners, 120);
+  window.addEventListener("resize", debouncedUpdate);
+  window.addEventListener("orientationchange", debouncedUpdate);
+  // Run once after DOM ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", updateBanners);
+  } else {
+    updateBanners();
+  }
+})();

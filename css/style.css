@@ -527,7 +527,7 @@ html {
 
 .product-thumb img {
   pointer-events: none; /* Crucial: Mouse events pass through the image to the div */
-  user-drag: none;
+
   -webkit-user-drag: none;
 }
 
