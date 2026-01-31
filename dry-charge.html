@@ -37,10 +37,13 @@
 
         /* ensure overlay stays on top and is visible */
         #hero-text-box.banner-overlay {
+          top: 70px !important;
           bottom: 0 !important;
+          padding-left: 0.5rem !important;
           max-height: 120px !important;
+          width: 300px !important;
           overflow: hidden !important;
-          padding-top: 0.6rem !important;
+          padding-top: 1.6rem !important;
           padding-bottom: 0.6rem !important;
         }
       }
@@ -53,16 +56,16 @@
 
     <main id="top" class="bg-white">
       <section class="bg-white space-y-2 overflow-hidden group">
-        <div class="relative h-[180px] md:h-[400px] flex flex-col">
+        <div class="relative h-full md:h-full flex flex-col banner-wrapper">
           <img
             id="hero-banner-img"
             src="assets/solutions/solutions-hero.png"
             data-mobile="assets/solutions/mobile/solutions-hero-mobile.png"
             alt="Alaska Dry Charge"
-            class="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105" />
+            class="w-full h-full transition-transform duration-1000 group-hover:scale-105" />
           <div
             id="hero-text-box"
-            class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
+            class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[500px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
             <h1 id="hero-title" class="text-xl md:text-7xl font-black uppercase tracking-tighter leading-tight text-white">Dry <span class="text-[#cc001b]">Charge</span></h1>
             <p id="hero-subtitle" class="text-xs md:text-2xl font-normal text-white leading-normal mt-1 md:mt-4">Pakistan's only Graphite Enhanced Lead-Acid Battery.</p>
           </div>
@@ -157,14 +160,12 @@
             </div>
           </div>
 
-          <div class="relative px-12 md:px-16 mt-8">
-            <div class="bg-white rounded-lg shadow-sm p-4 md:p-6">
-              <div class="flex items-center justify-between mb-4">
-                <div class="text-sm text-gray-600 font-black uppercase tracking-wider"></div>
-                <button id="view-all-btn" class="px-4 py-2 bg-[#cc001b] text-white rounded-md text-[90%] font-black">View All</button>
-              </div>
+          <div class="relative px-12 md:px-16 mt-2">
+            <div class="flex items-center justify-center mb-4">
+              <div class="text-sm text-gray-600 font-black uppercase tracking-wider"></div>
+              <button id="view-all-btn" class="px-24 py-6 bg-[#cc001b] text-white rounded-md text-xl md:text-2xl font-bold">View All</button>
 
-              <div id="thumb-preview" class="overflow-hidden">
+              <div id="thumb-preview" class="hidden md:hidden overflow-hidden">
                 <div id="thumb-grid" class="flex gap-4 overflow-x-auto no-scrollbar items-center py-6 px-4"></div>
               </div>
             </div>
