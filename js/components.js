@@ -200,34 +200,26 @@ function setupMobileMenu() {
         <div id="mobile-menu-container" class="flex w-[200%] h-full transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]">
           <div id="main-view" class="w-1/2 h-full flex flex-col">
             <nav class="p-4">
-              <a href="index.html" class="flex items-center px-4 py-4 text-[15px] font-semibold text-white hover:bg-zinc-50 rounded-lg transition-all">Home</a>
+              <a href="index.html" class="flex items-center px-4 py-4 text-[15px] font-semibold text-white  rounded-lg transition-all">Home</a>
 
-              <button
-                onclick="openSubmenu('solutions-sub')"
-                class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-white hover:bg-zinc-50 rounded-lg transition-all group">
+              <button onclick="openSubmenu('solutions-sub')" class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-white  rounded-lg transition-all group">
                 Solutions <i class="fa-solid fa-chevron-right text-[10px] text-white group-hover:text-[#cc001b]"></i>
               </button>
 
-              <button
-                onclick="openSubmenu('tech-sub')"
-                class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-white hover:bg-zinc-50 rounded-lg transition-all group">
+              <button onclick="openSubmenu('tech-sub')" class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-white  rounded-lg transition-all group">
                 Technology <i class="fa-solid fa-chevron-right text-[10px] text-white group-hover:text-[#cc001b]"></i>
               </button>
 
-              <button
-                onclick="openSubmenu('dealers-sub')"
-                class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-white hover:bg-zinc-50 rounded-lg transition-all group">
+              <button onclick="openSubmenu('dealers-sub')" class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-white  rounded-lg transition-all group">
                 Dealers <i class="fa-solid fa-chevron-right text-[10px] text-white group-hover:text-[#cc001b]"></i>
               </button>
 
-              <button
-                onclick="openSubmenu('vault-sub')"
-                class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-white hover:bg-zinc-50 rounded-lg transition-all group">
+              <button onclick="openSubmenu('vault-sub')" class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-white  rounded-lg transition-all group">
                 Vault <i class="fa-solid fa-chevron-right text-[10px] text-white group-hover:text-[#cc001b]"></i>
               </button>
 
-              <a href="about.html" class="flex items-center px-4 py-4 text-[15px] font-semibold text-white hover:bg-zinc-50 rounded-lg transition-all">About Us</a>
-              <a href="support.html" class="flex items-center px-4 py-4 text-[15px] font-semibold text-white hover:bg-zinc-50 rounded-lg transition-all">Support</a>
+              <a href="about.html" class="flex items-center px-4 py-4 text-[15px] font-semibold text-white  rounded-lg transition-all">About Us</a>
+              <a href="support.html" class="flex items-center px-4 py-4 text-[15px] font-semibold text-white  rounded-lg transition-all">Support</a>
             </nav>
           </div>
 
@@ -251,19 +243,19 @@ function setupMobileMenu() {
   // Corporate Style Submenus
   const submenus = {
     "solutions-sub": `
-      <a href="dry-charge.html" class="px-4 py-4 text-[15px] font-semibold text-white hover:text-[#cc001b] transition-colors">Dry Charge Batteries</a>
+      <a href="dry-charge.html" class="px-4 py-4 text-[15px] font-semibold text-white  transition-colors">Dry Charge Batteries</a>
     `,
     "tech-sub": `
-      <a href="graphite.html" class="px-4 py-4 text-[15px] font-semibold text-white hover:text-[#cc001b] transition-colors">Graphite Technology</a>
+      <a href="graphite.html" class="px-4 py-4 text-[15px] font-semibold text-white  transition-colors">Graphite Technology</a>
     `,
     "dealers-sub": `
-      <a href="dealers.html" class="px-4 py-4 text-[15px] font-semibold text-white hover:text-[#cc001b] transition-colors">Find a Dealer</a>
-      <a href="become-dealer.html" class="px-4 py-4 text-[15px] font-semibold text-white hover:text-[#cc001b] transition-colors">Become a Dealer</a>
+      <a href="dealers.html" class="px-4 py-4 text-[15px] font-semibold text-white  transition-colors">Find a Dealer</a>
+      <a href="become-dealer.html" class="px-4 py-4 text-[15px] font-semibold text-white  transition-colors">Become a Dealer</a>
     `,
     "vault-sub": `
-      <a href="vault.html#blogs" class="px-4 py-4 text-[15px] font-semibold text-white hover:text-[#cc001b] transition-colors">Blogs</a>
-      <a href="vault.html#faqs" class="px-4 py-4 text-[15px] font-semibold text-white hover:text-[#cc001b] transition-colors">FAQs</a>
-      <a href="vault.html#gallery" class="px-4 py-4 text-[15px] font-semibold text-white hover:text-[#cc001b] transition-colors">Gallery</a>
+      <a href="vault.html#blogs" class="px-4 py-4 text-[15px] font-semibold text-white  transition-colors">Blogs</a>
+      <a href="vault.html#faqs" class="px-4 py-4 text-[15px] font-semibold text-white  transition-colors">FAQs</a>
+      <a href="vault.html#gallery" class="px-4 py-4 text-[15px] font-semibold text-white  transition-colors">Gallery</a>
     `,
   };
 
