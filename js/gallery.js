@@ -33,8 +33,12 @@ function updateGallery(category) {
   const btns = document.querySelectorAll(".gallery-filter-btn");
   if (!rail) return;
 
-  // Update Tabs
-  btns.forEach((btn) => btn.classList.toggle("active-tab", btn.getAttribute("data-category") === category));
+  // Update Tabs (both gallery-specific and generic filter-btn active state)
+  btns.forEach((btn) => {
+    const isActive = btn.getAttribute("data-category") === category;
+    btn.classList.toggle("active-tab", isActive);
+    if (btn.classList.contains("filter-btn")) btn.classList.toggle("active", isActive);
+  });
 
   // Clear and Fill
   rail.innerHTML = "";
@@ -96,8 +100,12 @@ function updateGallery(category) {
   // Update Global Cache for the slider
   currentCategoryImages = galleryData[category];
 
-  // Update Tab UI
-  btns.forEach((btn) => btn.classList.toggle("active-tab", btn.getAttribute("data-category") === category));
+  // Update Tab UI (also mirror to .filter-btn.active for consistent styling)
+  btns.forEach((btn) => {
+    const isActive = btn.getAttribute("data-category") === category;
+    btn.classList.toggle("active-tab", isActive);
+    if (btn.classList.contains("filter-btn")) btn.classList.toggle("active", isActive);
+  });
 
   rail.innerHTML = "";
   currentCategoryImages.forEach((item, index) => {

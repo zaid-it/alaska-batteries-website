@@ -270,6 +270,7 @@ html {
   border-color: #cc001b;
   color: #fff !important;
   box-shadow: 0 4px 12px rgba(204, 0, 27, 0.2);
+  border-radius: 10px;
 }
 
 #regionMap {
@@ -286,6 +287,7 @@ html {
   letter-spacing: 0.1em;
   transition: all 0.3s ease;
   cursor: pointer;
+  border-radius: 10px;
 }
 .region-tab:hover {
   border-color: #cc001b;
@@ -873,11 +875,11 @@ section .banner-overlay {
 /* On small screens, we need more height for the text to breathe */
 @media (max-width: 640px) {
   .card-container {
-    min-height: 550px; /* Increased for mobile text room */
+    min-height: 410px; /* Increased for mobile text room */
   }
   .card-front,
   .card-back {
-    padding: 1.5rem !important; /* Slightly reduce padding to give text more width */
+    padding: 0.75rem !important; /* Slightly reduce padding to give text more width */
   }
 }
 

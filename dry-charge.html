@@ -41,9 +41,9 @@
           bottom: 0 !important;
           padding-left: 0.5rem !important;
           max-height: 120px !important;
-          width: 280px !important;
+          width: 200px !important;
           overflow: hidden !important;
-          padding-top: 1rem !important;
+          padding-top: 0.5rem !important;
         }
       }
     </style>
@@ -66,9 +66,12 @@
             id="hero-text-box"
             class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[500px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
             <h1 id="hero-title" class="text-2xl md:text-4xl font-black uppercase tracking-normal leading-tight text-white">Dry <span class="text-[#cc001b]">Charge</span></h1>
-            <p id="hero-subtitle" class="text-base md:text-lg font-normal text-white leading-normal mt-1 md:mt-4">Pakistan's only Graphite Enhanced Lead-Acid Battery.</p>
+            <p id="hero-subtitle" class="text-base md:text-lg font-normal text-white tracking-tighter leading-normal mt-1 md:mt-4">Pakistan's only Graphite Enhanced Lead-Acid Battery.</p>
           </div>
         </div>
+      </section>
+      <section class="bg-white space-y-2 overflow-hidden group">
+        <h1 class="text-2xl md:text-5xl font-bold text-center uppercase tracking-tight leading-tight text-black">Dry <span class="text-[#cc001b]">Charge</span> Batteries</h1>
       </section>
 
       <section id="search-section" class="top-0 z-10 backdrop-blur-xs py-1">
@@ -162,7 +165,9 @@
           <div class="relative px-12 md:px-16 mt-2">
             <div class="flex items-center justify-center mb-4">
               <div class="text-sm text-gray-600 font-black uppercase tracking-wider"></div>
-              <button id="view-all-btn" class="px-24 py-6 bg-[#cc001b] text-white rounded-md text-xl md:text-2xl font-bold">View All</button>
+              <button id="view-all-btn" class="border-2 border-[#cc001b] px-6 py-2 text-[100%] rounded-md font-black uppercase hover:bg-[#cc001b] hover:text-white transition-all whitespace-nowrap">
+                View All
+              </button>
 
               <div id="thumb-preview" class="hidden md:hidden overflow-hidden">
                 <div id="thumb-grid" class="flex gap-4 overflow-x-auto no-scrollbar items-center py-6 px-4"></div>
@@ -187,8 +192,10 @@
     <div id="gallery-modal" class="fixed inset-0 bg-black/80 z-[210] opacity-0 pointer-events-none transition-opacity duration-300 [&.active]:opacity-100 [&.active]:pointer-events-auto">
       <div class="absolute inset-0 flex items-start justify-center p-4 pt-12">
         <div id="gallery-modal-content" class="bg-white w-full max-w-5xl max-h-[85vh] overflow-y-auto relative p-6 rounded-md shadow-2xl">
-          <button onclick="closeGalleryModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors">
-            <i class="fa-solid fa-xmark text-2xl"></i>
+          <button
+            onclick="closeGalleryModal()"
+            class="absolute top-6 right-6 bg-[#cc001b] hover:bg-red-800 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all z-50 shadow-lg">
+            <i class="fa-solid fa-xmark text-xl font-bold"></i>
           </button>
           <h3 class="text-xl font-black uppercase mb-4">All Models</h3>
           <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>

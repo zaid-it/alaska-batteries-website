@@ -45,6 +45,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const suggestionsBox = document.getElementById("search-suggestions");
   const thumbGrid = document.getElementById("thumb-grid");
 
+  // --- AUTO-SELECT CATEGORY FROM URL HASH ---
+  const hash = window.location.hash.substring(1);
+  if (hash && ["Automotive", "Solar", "Industrial"].includes(hash)) {
+    const targetBtn = document.querySelector(`.filter-btn[data-cat="${hash}"]`);
+    if (targetBtn) {
+      document.querySelector(".filter-btn.active")?.classList.remove("active");
+      targetBtn.classList.add("active");
+    }
+  }
+
   // --- 2. DRAG TO SCROLL LOGIC (Fixed) ---
   if (thumbGrid) {
     let isDown = false;
@@ -107,6 +117,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Apply filters on page load (in case hash was set)
+  applyFilters();
+
   // --- FIX: UPDATED APPLY FILTERS ---
   function applyFilters() {
     const term = searchInput ? searchInput.value.toLowerCase().trim() : "";
@@ -167,6 +180,21 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.classList.remove("active");
     document.body.style.overflow = "auto";
   };
+
+  // Close modal when clicking outside (on the backdrop)
+  document.addEventListener("DOMContentLoaded", function () {
+    const backdrop = document.getElementById("gallery-modal-backdrop");
+    const modal = document.getElementById("gallery-modal");
+    const modalContent = document.getElementById("gallery-modal-content");
+
+    if (backdrop && modal && modalContent) {
+      backdrop.addEventListener("click", function (e) {
+        if (e.target === backdrop) {
+          window.closeGalleryModal();
+        }
+      });
+    }
+  });
 
   function renderGalleryGrid(list) {
     const grid = document.getElementById("gallery-grid");
@@ -503,4 +531,28 @@ window.addEventListener("load", () => {
   window.addEventListener("load", () => {
     setTimeout(initDryCharge, 300);
   });
+});
+
+// After everything is loaded, ensure hero reflects any incoming hash (e.g., from index links)
+window.addEventListener("load", function () {
+  const hash = window.location.hash ? window.location.hash.substring(1) : "";
+  if (hash && contentMap[hash]) {
+    // Activate corresponding filter button UI if present
+    document.querySelector(".filter-btn.active")?.classList.remove("active");
+    const targetBtn = document.querySelector(`.filter-btn[data-cat="${hash}"]`);
+    if (targetBtn) targetBtn.classList.add("active");
+
+    // Update hero banner and apply filters
+    try {
+      updateHero(hash);
+    } catch (e) {}
+    try {
+      applyFilters();
+    } catch (e) {}
+  } else {
+    // start default auto-scroll
+    try {
+      startAutoScroll();
+    } catch (e) {}
+  }
 });
