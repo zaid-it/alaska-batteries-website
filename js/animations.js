@@ -70,26 +70,34 @@ function openBatteryFinder() {
       <div class="space-y-6">
         <div>
           <label class="block text-sm font-black uppercase mb-3 text-gray-700">What's Your Primary Use?</label>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <button onclick="selectUse('automotive')" class="p-4 border-2 border-gray-200 rounded-lg hover:border-[#cc001b] hover:bg-red-50 transition-all text-left group">
-              <i class="fa-solid fa-car text-[#cc001b] text-xl mb-2"></i>
-              <p class="font-bold uppercase text-sm">Automotive</p>
-              <p class="text-xs text-gray-500">Cars, Bikes, Trucks</p>
+          <div class="space-y-3">
+            <button onclick="selectUse('automotive')" class="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-[#cc001b] hover:bg-red-50 transition-all text-left flex items-start gap-4">
+              <i class="fa-solid fa-car text-[#cc001b] text-2xl flex-shrink-0 mt-1"></i>
+              <div>
+                <p class="font-bold uppercase text-sm">Automotive</p>
+                <p class="text-xs text-gray-500">Cars, Bikes, Trucks</p>
+              </div>
             </button>
-            <button onclick="selectUse('solar')" class="p-4 border-2 border-gray-200 rounded-lg hover:border-[#cc001b] hover:bg-red-50 transition-all text-left">
-              <i class="fa-solid fa-sun text-[#cc001b] text-xl mb-2"></i>
-              <p class="font-bold uppercase text-sm">Solar</p>
-              <p class="text-xs text-gray-500">Renewable Energy</p>
+            <button onclick="selectUse('solar')" class="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-[#cc001b] hover:bg-red-50 transition-all text-left flex items-start gap-4">
+              <i class="fa-solid fa-sun text-[#cc001b] text-2xl flex-shrink-0 mt-1"></i>
+              <div>
+                <p class="font-bold uppercase text-sm">Solar</p>
+                <p class="text-xs text-gray-500">Renewable Energy</p>
+              </div>
             </button>
-            <button onclick="selectUse('industrial')" class="p-4 border-2 border-gray-200 rounded-lg hover:border-[#cc001b] hover:bg-red-50 transition-all text-left">
-              <i class="fa-solid fa-industry text-[#cc001b] text-xl mb-2"></i>
-              <p class="font-bold uppercase text-sm">Industrial</p>
-              <p class="text-xs text-gray-500">UPS, Backup Systems</p>
+            <button onclick="selectUse('industrial')" class="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-[#cc001b] hover:bg-red-50 transition-all text-left flex items-start gap-4">
+              <i class="fa-solid fa-industry text-[#cc001b] text-2xl flex-shrink-0 mt-1"></i>
+              <div>
+                <p class="font-bold uppercase text-sm">Industrial</p>
+                <p class="text-xs text-gray-500">UPS, Backup Systems</p>
+              </div>
             </button>
-            <button onclick="selectUse('other')" class="p-4 border-2 border-gray-200 rounded-lg hover:border-[#cc001b] hover:bg-red-50 transition-all text-left">
-              <i class="fa-solid fa-circle-question text-[#cc001b] text-xl mb-2"></i>
-              <p class="font-bold uppercase text-sm">Not Sure</p>
-              <p class="text-xs text-gray-500">Need Guidance</p>
+            <button onclick="selectUse('other')" class="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-[#cc001b] hover:bg-red-50 transition-all text-left flex items-start gap-4">
+              <i class="fa-solid fa-circle-question text-[#cc001b] text-2xl flex-shrink-0 mt-1"></i>
+              <div>
+                <p class="font-bold uppercase text-sm">Not Sure</p>
+                <p class="text-xs text-gray-500">Need Guidance</p>
+              </div>
             </button>
           </div>
         </div>

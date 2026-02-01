@@ -879,7 +879,7 @@ section .banner-overlay {
   }
   .card-front,
   .card-back {
-    padding: 0.75rem !important; /* Slightly reduce padding to give text more width */
+    padding: 0.5rem !important; /* Slightly reduce padding to give text more width */
   }
 }
 
@@ -1560,5 +1560,30 @@ a {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@media (max-width: 767px) {
+  .banner-wrapper img {
+    height: 100% !important; /* fill the parent h-[180px] */
+    width: 100% !important;
+    object-fit: cover !important;
+  }
+  .banner-wrapper {
+    min-height: 160px;
+  }
+  .banner-overlay {
+    bottom: 0 !important;
+    max-height: 120px !important;
+    overflow: hidden !important;
+  }
+  /* ensure overlay stays on top and is visible */
+  #hero-text-box.banner-overlay {
+    top: 70px !important;
+    bottom: 0 !important;
+    padding-left: 0.5rem !important;
+    max-height: 120px !important;
+    width: 250px !important;
+    overflow: hidden !important;
+    padding-top: 1rem !important;
   }
 }

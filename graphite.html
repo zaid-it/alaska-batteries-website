@@ -19,34 +19,6 @@
       .w-full {
         width: 100% !important;
       }
-
-      /* Hero-specific constraints */
-      @media (max-width: 767px) {
-        /* Ensure banner images fill their banner container height on mobile so overlay sits on top */
-        #hero-banner-img,
-        .banner-wrapper img {
-          height: 100% !important; /* fill the parent h-[180px] */
-          width: 100% !important;
-          object-fit: cover !important;
-        }
-
-        /* constrain overall visual size if parent grows unexpectedly */
-        .banner-wrapper {
-          min-height: 160px;
-        }
-
-        /* ensure overlay stays on top and is visible */
-        #hero-text-box.banner-overlay {
-          top: 70px !important;
-          bottom: 0 !important;
-          padding-left: 0.5rem !important;
-          max-height: 120px !important;
-          width: 300px !important;
-          overflow: hidden !important;
-          padding-top: 1.6rem !important;
-          padding-bottom: 0.6rem !important;
-        }
-      }
     </style>
   </head>
   <body class="bg-white text-zinc-800 antialiased selection:bg-[#cc001b] selection:text-white">
@@ -62,8 +34,8 @@
           <div
             id="hero-text-box"
             class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[500px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
-            <h1 id="hero-title" class="text-xl md:text-4xl font-black uppercase text-left tracking-tighter leading-tight text-white">Graphite Technology</h1>
-            <p id="hero-subtitle" class="text-xs md:text-2xl font-normal text-left text-white leading-normal mt-1 md:mt-4">Innovating Power Solutions Globally</p>
+            <h1 id="hero-title" class="text-xl md:text-4xl font-bold uppercase text-left tracking-tight leading-normal text-white">Graphite Technology</h1>
+            <p id="hero-subtitle" class="text-xs md:text-2xl font-normal text-left text-white tracking-normal leading-loose mt-1 md:mt-4">Innovating Power Solutions Globally</p>
           </div>
         </div>
       </section>
@@ -266,13 +238,13 @@
                   </div>
                   <p class="text-zinc-600 text-sm mb-4">Traditional Lead-Acid batteries are best for <b>low-drain uses</b> like motorcycles. Graphite batteries excel in:</p>
                   <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-4 text-center">
-                    <div class="text-[100%] font-bold"><i class="fa-solid fa-car text-[#cc001b] block mb-1 text-[30px]"></i>Stop-Start Vehicles</div>
-                    <div class="text-[100%] font-bold"><i class="fa-solid fa-sun text-[#cc001b] block mb-1 text-[30px]"></i>Solar Energy Storage</div>
-                    <div class="text-[100%] font-bold"><i class="fa-solid fa-bolt text-[#cc001b] block mb-1 text-[30px]"></i>Hybrid System</div>
-                    <div class="text-[100%] font-bold"><i class="fa-solid fa-industry text-[#cc001b] block mb-1 text-[30px]"></i>Industrial Use</div>
+                    <div class="text-[100%] font-bold"><i class="fa-solid fa-car text-[#cc001b] block mb-1 text-[30px]"> </i>Stop-Start Vehicles</div>
+                    <div class="text-[100%] font-bold"><i class="fa-solid fa-sun text-[#cc001b] block mb-1 text-[30px]"> </i>Solar Energy Storage</div>
+                    <div class="text-[100%] font-bold"><i class="fa-solid fa-bolt text-[#cc001b] block mb-1 text-[30px]"> </i>Hybrid System</div>
+                    <div class="text-[100%] font-bold"><i class="fa-solid fa-industry text-[#cc001b] block mb-1 text-[30px]"> </i>Industrial Use</div>
                   </div>
-                  <div class="mt-auto pt-7 border-t border-gray-100">
-                    <span class="benefit-tag bg-[#cc001b] text-white px-3 py-1 rounded font-black text-[100%] uppercase mb-2">BENEFIT</span>
+                  <div class="mt-auto pt-2 border-t border-gray-100">
+                    <span class="benefit-tag bg-[#cc001b] text-white px-3 py-0 rounded font-black text-[100%] uppercase mb-2">BENEFIT</span>
                     <p class="font-bold text-base italic">Versatility for the future of storage.</p>
                   </div>
                 </div>

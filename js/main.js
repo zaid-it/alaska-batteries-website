@@ -322,52 +322,12 @@ function filterBlogs() {
   }
 }
 
-let isJumping = false;
 const container = document.getElementById("blog-scroll-container");
 
 function initBlogEngine() {
   if (!container) return;
-  const originals = [...container.querySelectorAll(".original")];
 
-  // 1. Create Clones for Infinite Loop
-  originals.forEach((item) => {
-    let clone = item.cloneNode(true);
-    clone.classList.remove("original");
-    clone.classList.add("clone");
-    container.appendChild(clone);
-  });
-  [...originals].reverse().forEach((item) => {
-    let clone = item.cloneNode(true);
-    clone.classList.remove("original");
-    clone.classList.add("clone");
-    container.insertBefore(clone, container.firstChild);
-  });
-
-  // 2. Initial Positioning
-  const itemWidth = originals[0].offsetWidth + 20;
-  container.scrollLeft = itemWidth * originals.length;
-
-  // 3. Loop Logic
-  container.addEventListener("scroll", () => {
-    if (isJumping || document.getElementById("blog-search").value !== "") return;
-    const setWidth = itemWidth * originals.length;
-
-    if (container.scrollLeft >= setWidth * 2) {
-      isJumping = true;
-      container.style.scrollBehavior = "auto";
-      container.scrollLeft = setWidth;
-      container.style.scrollBehavior = "smooth";
-      setTimeout(() => (isJumping = false), 50);
-    } else if (container.scrollLeft <= 0) {
-      isJumping = true;
-      container.style.scrollBehavior = "auto";
-      container.scrollLeft = setWidth;
-      container.style.scrollBehavior = "smooth";
-      setTimeout(() => (isJumping = false), 50);
-    }
-  });
-
-  // 4. Mobile Observer
+  // Mobile Observer for image scale/fade
   const observer = new IntersectionObserver(
     (entries) => {
       if (window.innerWidth >= 1024) return;
@@ -387,31 +347,6 @@ function initBlogEngine() {
   );
 
   document.querySelectorAll(".blog-item").forEach((item) => observer.observe(item));
-}
-
-// 5. Clean Search Logic (Hides clones to avoid duplicates)
-function filterBlogs() {
-  const filter = document.getElementById("blog-search").value.toLowerCase();
-  const allItems = container.querySelectorAll(".blog-item");
-  const clones = container.querySelectorAll(".clone");
-
-  if (filter !== "") {
-    // Hide all clones during search
-    clones.forEach((c) => (c.style.display = "none"));
-    container.style.scrollSnapType = "none";
-
-    // Filter only originals
-    container.querySelectorAll(".original").forEach((card) => {
-      const title = card.querySelector(".blog-title").innerText.toLowerCase();
-      card.style.display = title.includes(filter) ? "block" : "none";
-    });
-  } else {
-    // Restore everything when search is cleared
-    allItems.forEach((c) => (c.style.display = "block"));
-    container.style.scrollSnapType = "x mandatory";
-    const itemWidth = allItems[0].offsetWidth + 20;
-    container.scrollLeft = itemWidth * (allItems.length / 3);
-  }
 }
 
 function scrollBlogs(dir) {

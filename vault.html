@@ -8,34 +8,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <style>
-      /* Vault page: ensure banner images fill container on mobile and overlays stay on top */
-      @media (max-width: 767px) {
-        .banner-wrapper img {
-          height: 100% !important; /* fill the parent h-[180px] */
-          width: 100% !important;
-          object-fit: cover !important;
-        }
-        .banner-wrapper {
-          min-height: 160px;
-        }
-        .banner-overlay {
-          bottom: 0 !important;
-          max-height: 120px !important;
-          overflow: hidden !important;
-        }
-        /* ensure overlay stays on top and is visible */
-        #hero-text-box.banner-overlay {
-          top: 70px !important;
-          bottom: 0 !important;
-          padding-left: 0.5rem !important;
-          max-height: 120px !important;
-          width: 250px !important;
-          overflow: hidden !important;
-          padding-top: 0.5rem !important;
-        }
-      }
-    </style>
   </head>
   <body class="bg-white">
     <div id="header-placeholder"></div>
@@ -51,15 +23,15 @@
           <div
             id="hero-text-box"
             class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 banner-overlay">
-            <h1 class="text-2xl md:text-7xl font-black uppercase text-left tracking-tighter leading-tight text-white">Blogs</h1>
-            <p class="text-base md:text-2xl font-normal text-white text-left leading-normal mt-1 md:mt-4">Expert Insights on Power & Performance.</p>
+            <h1 class="text-3xl md:text-7xl font-black uppercase text-left tracking-normal leading-tight text-white">Blogs</h1>
+            <p class="text-xs md:text-2xl font-normal text-white text-left leading-loose mt-1 md:mt-4">Expert Insights on Power & Performance.</p>
           </div>
         </div>
       </section>
 
       <section class="py-4 border-b border-gray-100 bg-white overflow-hidden">
         <div class="container mx-auto px-6">
-          <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-4 gap-6">
             <div class="text-left w-full">
               <div class="relative w-full lg:w-[calc((100%-40px)/3)] h-12">
                 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none z-30">
@@ -133,7 +105,7 @@
             </div>
           </div>
           <!-- Mobile: Show scroll buttons under the blog image/list -->
-          <div class="mt-6 md:hidden flex justify-center gap-4">
+          <div class="mt-4 md:hidden flex justify-center gap-4">
             <button onclick="scrollBlogs(-1)" class="h-12 w-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white transition-all">
               <i class="fa-solid fa-arrow-left"></i>
             </button>
@@ -163,8 +135,8 @@
           <div
             id="hero-text-box"
             class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
-            <h1 class="text-2xl md:text-7xl font-black uppercase text-left tracking-tighter leading-tight text-white">FAQs</h1>
-            <p class="text-base md:text-2xl font-normal text-left text-white leading-normal mt-1 md:mt-4">Answers to your frequently asked questions.</p>
+            <h1 class="text-3xl md:text-7xl font-black uppercase text-left tracking-normal leading-tight text-white">FAQs</h1>
+            <p class="text-xs md:text-2xl font-normal text-left text-white leading-normal mt-1 md:mt-4">Answers to your frequently asked questions.</p>
           </div>
         </div>
       </section>
@@ -172,9 +144,9 @@
       <section class="py-10 bg-gray-100">
         <div class="container mx-auto px-6 width:100%">
           <div class="space-y-4 max-w-full">
-            <div class="faq-item bg-gray border border-b-4 overflow-hidden">
+            <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden">
               <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
-                <h4 class="font-bold uppercase text-base tracking-normal text-left">How long does an Alaska Battery last?</h4>
+                <h4 class="font-bold text-base tracking-normal text-left">How long does an Alaska Battery last?</h4>
                 <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
               </button>
               <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
@@ -185,9 +157,9 @@
               </div>
             </div>
 
-            <div class="faq-item bg-gray border border-b-4 overflow-hidden">
+            <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden">
               <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
-                <h4 class="font-bold uppercase text-base tracking-normal text-left">How can I extend my battery’s lifespan?</h4>
+                <h4 class="font-bold text-base tracking-normal text-left">How can I extend my battery’s lifespan?</h4>
                 <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
               </button>
               <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
@@ -198,9 +170,9 @@
               </div>
             </div>
 
-            <div class="faq-item bg-gray border border-b-4 overflow-hidden">
+            <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden">
               <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
-                <h4 class="font-bold uppercase text-base tracking-normal text-left">What is covered under the warranty?</h4>
+                <h4 class="font-bold text-base tracking-normal text-left">What is covered under the warranty?</h4>
                 <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
               </button>
               <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
@@ -211,9 +183,9 @@
               </div>
             </div>
 
-            <div class="faq-item bg-gray border border-b-4 overflow-hidden">
+            <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden">
               <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
-                <h4 class="font-bold uppercase text-base tracking-normal text-left">How do I recycle or dispose of an old battery?</h4>
+                <h4 class="font-bold text-base tracking-normal text-left">How do I recycle or dispose of an old battery?</h4>
                 <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
               </button>
               <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
@@ -224,9 +196,9 @@
               </div>
             </div>
 
-            <div class="faq-item bg-gray border border-b-4 overflow-hidden">
+            <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden">
               <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
-                <h4 class="font-bold uppercase text-base tracking-normal text-left">Where can I find an authorized Alaska Batteries dealer?</h4>
+                <h4 class="font-bold text-base tracking-normal text-left">Where can I find an authorized Alaska Batteries dealer?</h4>
                 <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
               </button>
               <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
@@ -237,9 +209,9 @@
               </div>
             </div>
 
-            <div class="faq-item bg-gray border border-b-4 overflow-hidden">
+            <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden">
               <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
-                <h4 class="font-bold uppercase text-base tracking-normal text-left">What is the Warranty Coverage & Claim Process?</h4>
+                <h4 class="font-bold text-base tracking-normal text-left">What is the Warranty Coverage & Claim Process?</h4>
                 <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
               </button>
               <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
@@ -261,8 +233,8 @@
             class="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105" />
           <div
             id="hero-text-box"
-            class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
-            <h1 class="text-4xl md:text-7xl font-black uppercase text-left pt-6 md:pt-0 tracking-tighter leading-tight text-white">Gallery</h1>
+            class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 rounded-lg md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
+            <h1 class="text-3xl md:text-7xl font-black uppercase text-left pt-4 md:pt-0 tracking-normal leading-tight text-white">Gallery</h1>
           </div>
         </div>
       </section>
