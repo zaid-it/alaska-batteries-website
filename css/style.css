@@ -1153,7 +1153,7 @@ body.urdu-mode .header-ur {
 /* The Gallery Cards */
 .gallery-card {
   position: relative;
-  flex: 0 0 80vw; /* Precise mobile width */
+  flex: 0 0 350px; /* Precise mobile width */
   height: 450px;
   overflow: hidden;
   scroll-snap-align: center;
