@@ -391,19 +391,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     data.forEach((dealer) => {
       const card = document.createElement("div");
-      card.className = "dealer-card bg-zinc-900 p-6 rounded-lg border-l-4 border-zinc-700 hover:border-[#cc001b] transition-all group cursor-pointer";
+      card.className = "dealer-card bg-zinc-800 p-6 rounded-lg border-l-4 border-zinc-700 hover:border-[#cc001b] transition-all group cursor-pointer";
       card.innerHTML = `
                 <div class="flex justify-between items-start">
                     <div>
-                        <h4 class="text-white font-black uppercase tracking-widest text-sm mb-1 group-hover:text-[#cc001b]">${dealer.name}</h4>
-                        <p class="text-zinc-500 text-[11px] font-bold uppercase mb-4">${dealer.address}</p>
+                        <h4 class="text-white font-bold uppercase tracking-widest text-base mb-1 group-hover:text-[#cc001b]">${dealer.name}</h4>
+                        <p class="text-white text-sm font-semibold uppercase mb-4">${dealer.address}</p>
                     </div>
-                    <span class="text-[9px] bg-zinc-800 text-zinc-400 px-2 py-1 font-black uppercase">${dealer.province}</span>
+                    <span class="text-sm bg-zinc-800 text-[#cc001b] px-2 py-1 font-semibold uppercase">${dealer.province}</span>
                 </div>
                 <div class="flex items-center gap-4">
-                    <a href="tel:${dealer.contact}" class="text-[#cc001b] text-[10px] font-black uppercase tracking-widest hover:underline">${dealer.contact}</a>
+                    <a href="tel:${dealer.contact}" class="text-white text-base font-bold uppercase tracking-widest hover:underline">${dealer.contact}</a>
                     <span class="text-zinc-700">|</span>
-                    <button class="text-white text-[10px] font-black uppercase tracking-widest">Get Directions</button>
+                    <button class="text-[#cc001b] text-base font-semibold uppercase tracking-widest">Get Directions</button>
                 </div>
             `;
       dealerList.appendChild(card);
@@ -417,8 +417,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const filtered = dealers.filter((d) => {
       const matchesSearch = d.name.toLowerCase().includes(term) || d.address.toLowerCase().includes(term) || d.city.toLowerCase().includes(term);
-      const matchesCity = !city || city === "All" || d.city === city;
-      const matchesProv = !prov || prov === "All" || d.province === prov;
+      const matchesCity = city === "All" || d.city === city;
+      const matchesProv = prov === "All" || d.province === prov;
       return matchesSearch && matchesCity && matchesProv;
     });
 
@@ -513,63 +513,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Initial load
-  // Populate city/province filters from dealers data
-  function populateLocationFilters() {
-    const cities = Array.from(new Set(dealers.map((d) => (d.city || "").trim()).filter(Boolean))).sort((a, b) => a.localeCompare(b));
-    const provinces = Array.from(new Set(dealers.map((d) => (d.province || "").trim()).filter(Boolean))).sort((a, b) => a.localeCompare(b));
-
-    // City
-    if (citySelect && citySelect.tagName === "SELECT") {
-      citySelect.innerHTML = "";
-      const allOpt = document.createElement("option");
-      allOpt.value = "All";
-      allOpt.text = "All Cities";
-      citySelect.appendChild(allOpt);
-      cities.forEach((c) => {
-        const opt = document.createElement("option");
-        opt.value = c;
-        opt.text = c;
-        citySelect.appendChild(opt);
-      });
-    } else if (citySelect) {
-      // create datalist for input
-      const dlId = "cityList-dynamic";
-      let dl = document.getElementById(dlId);
-      if (!dl) {
-        dl = document.createElement("datalist");
-        dl.id = dlId;
-        citySelect.parentNode.insertBefore(dl, citySelect.nextSibling);
-      }
-      dl.innerHTML = cities.map((c) => `<option value="${c}"></option>`).join("");
-      citySelect.setAttribute("list", dlId);
-    }
-
-    // Province
-    if (provinceSelect && provinceSelect.tagName === "SELECT") {
-      provinceSelect.innerHTML = "";
-      const allOpt = document.createElement("option");
-      allOpt.value = "All";
-      allOpt.text = "All Provinces";
-      provinceSelect.appendChild(allOpt);
-      provinces.forEach((p) => {
-        const opt = document.createElement("option");
-        opt.value = p;
-        opt.text = p;
-        provinceSelect.appendChild(opt);
-      });
-    } else if (provinceSelect) {
-      const dlId = "provinceList-dynamic";
-      let dl = document.getElementById(dlId);
-      if (!dl) {
-        dl = document.createElement("datalist");
-        dl.id = dlId;
-        provinceSelect.parentNode.insertBefore(dl, provinceSelect.nextSibling);
-      }
-      dl.innerHTML = provinces.map((p) => `<option value="${p}"></option>`).join("");
-      provinceSelect.setAttribute("list", dlId);
-    }
-  }
-
-  populateLocationFilters();
   renderDealers(dealers);
 });

@@ -9,48 +9,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <style>
-      /* Support page: ensure banner images fill container on mobile and overlays stay on top */
-      @media (max-width: 767px) {
-        .banner-wrapper img {
-          height: 100% !important;
-          width: 100% !important;
-          object-fit: cover !important;
-        }
-        .banner-wrapper {
-          min-height: 160px;
-        }
-        .banner-overlay {
-          bottom: 0 !important;
-          max-height: 120px !important;
-          overflow: hidden !important;
-        }
-        /* ensure overlay stays on top and is visible */
-        #hero-text-box.banner-overlay {
-          top: 80px !important;
-          bottom: 0 !important;
-          padding-left: 0.5rem !important;
-          max-height: 120px !important;
-
-          overflow: hidden !important;
-          padding-top: 0.5rem !important;
-          padding-bottom: 0 !important;
-        }
+      #hero-text-box.banner-overlay {
+        top: 150px !important;
       }
     </style>
   </head>
   <body class="bg-white">
     <div id="header-placeholder"></div>
-
     <main>
       <section class="bg-white space-y-2 overflow-hidden group">
-        <div class="relative h-[180px] md:h-[400px] w-full flex flex-col banner-wrapper">
-          <img src="assets/about-2.png" data-mobile="assets/mobile/about-mobile.png" alt="About Us" class="w-full h-full transition-transform duration-1000 group-hover:scale-105" />
+        <div class="relative h-[220px] md:h-[420px] w-full flex flex-col banner-wrapper overflow-hidden">
+          <img
+            src="assets/about-2.png"
+            data-mobile="assets/mobile/about-mobile.png"
+            alt="About Us"
+            class="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105" />
         </div>
         <div
           id="hero-text-box"
-          class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
-          <h1 class="text-2xl md:text-7xl text-left font-black uppercase tracking-tighter leading-tight text-white">Our Plant</h1>
-          <p class="text-base md:text-2xl text-left font-normal text-white leading-normal mt-1 md:mt-4">Where Innovation meets Manufacturing</p>
+          class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 banner-overlay">
+          <h1 class="text-2xl md:text-7xl text-left font-bold uppercase tracking-tighter leading-tight text-white">The Plant</h1>
+          <p class="text-base md:text-2xl text-left font-normal text-white leading-tight mt-1 md:mt-4">Where Innovation meets Manufacturing</p>
         </div>
       </section>
 
@@ -59,7 +38,7 @@
           <div class="flex flex-col md:flex-row gap-6">
             <div class="w-full md:w-1/2 justify-center items-center flex">
               <div class="relative">
-                <img src="assets/mgmt.png" alt="Management" class="w-[500px] h-[400px] md:h-[600px] shadow-2xl" />
+                <img src="assets/mgmt.png" alt="Management" class="w-full max-w-[560px] h-auto md:h-[560px] object-cover rounded-lg shadow-2xl" />
                 <div class="absolute bottom-1 -right-8 bg-[#cc001b] p-8 text-white hidden md:block">
                   <i class="fa-solid fa-quote-left text-4xl opacity-50"></i>
                 </div>
@@ -82,64 +61,82 @@
           </div>
         </div>
       </section>
-      <section class="py-10 bg-gray-50 hidden md:hidden">
-        <div class="container mx-auto px-40 py-10">
-          <div class="grid grid-cols-1 gap-px bg-gray-200 border border-gray-200">
-            <div class="bg-white p-12 md:p-20">
-              <h3 class="text-xl font-black text-[#cc001b] uppercase tracking-wider mb-6">Our Vision</h3>
-              <h2 class="text-2xl font-bold tracking-tighter mb-6">To be the Industrial Leader</h2>
-              <p class="text-gray-500 leading-loose text-base font-bold tracking-tight">
-                In revolutionizing the sustainable energy sector, through innovation, quality, and eco-conscious practices that empower a brighter future.
-              </p>
-            </div>
-            <div class="container mx-auto px-40 py-10">
-              <div class="bg-white">
-                <div class="bg-white p-12 md:p-20">
-                  <h3 class="text-xl font-black text-[#cc001b] uppercase tracking-wider mb-6">Our Mission</h3>
-                  <h2 class="text-2xl font-bold tracking-tighter mb-6">
-                    To manufacture and deliver <span class="text-[#cc001b]">high-performance automotive and solar solutions</span> that exceed customer expectations.
-                  </h2>
-                  <p class="text-gray-500 leading-loose text-base font-bold tracking-tight">
-                    To foster <span class="text-[#cc001b]">long-term partnerships with trade networks and end-users</span> by best quality products, long-term warranties, economical solutions, and
-                    superior customer support.<br />To lead the <span class="text-[#cc001b]">charge in sustainability</span> by integrating eco-friendly processes into all aspects of our operations.
-                  </p>
+      <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-6 max-w-6xl">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+            <!-- Left: Vision & Mission -->
+            <div class="space-y-6">
+              <div class="bg-white rounded-xl shadow-md p-6 md:p-10 border border-gray-100">
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0 w-14 h-14 rounded-full bg-[#cc001b]/10 flex items-center justify-center">
+                    <i class="fa-solid fa-eye text-[#cc001b] text-2xl"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-sm font-bold text-[#cc001b] uppercase tracking-wider">Our Vision</h3>
+                    <h2 class="text-2xl md:text-3xl font-bold mt-2">To be the Industrial Leader</h2>
+                    <p class="text-gray-600 mt-3">
+                      We aim to revolutionize the sustainable energy sector through innovation, superior quality, and eco-conscious practices that empower a brighter future for communities and
+                      industry.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl shadow-md p-6 md:p-10 border border-gray-100">
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0 w-14 h-14 rounded-full bg-[#ffdaea] flex items-center justify-center">
+                    <i class="fa-solid fa-gear text-[#cc001b] text-2xl"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-sm font-bold text-[#cc001b] uppercase tracking-wider">Our Mission</h3>
+                    <h2 class="text-2xl md:text-3xl font-bold mt-2">Deliver High-Performance Solutions</h2>
+                    <p class="text-gray-600 mt-3">
+                      To manufacture and deliver high-performance automotive and solar solutions while fostering long-term partnerships, offering strong warranties, and leading in sustainable
+                      manufacturing.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="container mx-auto px-6 py-2">
-          <div class="bg-white border border-gray-200 border-b-0">
-            <div class="bg-white p-12 md:pr-2 text-center">
-              <h3 class="text-xl font-black text-[#cc001b] uppercase tracking-wider mb-6">Our Core Values</h3>
-              <h2 class="text-2xl font-bold tracking-tighter mb-6">What Drives Us Forward</h2>
-              <p class="text-gray-500 leading-loose text-base font-bold tracking-tight">At Alaska Batteries, our values define who we are and shape every battery we manufacture.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-[2px] bg-gray-200 border-r border-gray-200 text-center">
-              <div class="bg-white p-2 md:pr-2">
-                <h3 class="text-xl font-black text-[#cc001b] uppercase tracking-wider mb-2">Integrity</h3>
-                <h2 class="text-2xl font-medium tracking-tighter mb-6">Upholding the highest standards of honesty and accountability in every interaction.</h2>
-                <p class="text-gray-500 leading-loose text-base font-bold tracking-tight"></p>
-              </div>
-              <div class="bg-white p-2 md:pr-2">
-                <h3 class="text-xl font-black text-[#cc001b] uppercase tracking-wider mb-2">Innovation</h3>
-                <h2 class="text-2xl font-medium tracking-tighter mb-6">Continuously advancing battery technology to meet the evolving needs of our customers.</h2>
-                <p class="text-gray-500 leading-loose text-base font-bold tracking-tight"></p>
-              </div>
-              <div class="bg-white p-2 md:pr-2">
-                <h3 class="text-xl font-black text-[#cc001b] uppercase tracking-wider mb-2">Sustainability</h3>
-                <h2 class="text-2xl font-medium tracking-tighter mb-6">Committed to eco-friendly manufacturing and reducing environmental impact.</h2>
-                <p class="text-gray-500 leading-loose text-base font-bold tracking-tight"></p>
-              </div>
-              <div class="bg-white p-2 md:pr-2">
-                <h3 class="text-xl font-black text-[#cc001b] uppercase tracking-wider mb-2">Customer-Centric Approach</h3>
-                <h2 class="text-2xl font-medium tracking-tighter mb-6">Ensuring exceptional service and tailored solutions for all stakeholders.</h2>
-                <p class="text-gray-500 leading-loose text-base font-bold tracking-tight"></p>
-              </div>
-              <div class="bg-white p-2 md:pr-2">
-                <h3 class="text-xl font-black text-[#cc001b] uppercase tracking-wider mb-2">Excellence</h3>
-                <h2 class="text-2xl font-medium tracking-tighter mb-6">Striving for perfection in product quality, performance, and reliability.</h2>
-                <p class="text-gray-500 leading-loose text-base font-bold tracking-tight"></p>
+
+            <!-- Right: Illustration / Values preview -->
+            <div class="flex flex-col gap-6 w-full h-full">
+              <div class="bg-white rounded-xl shadow-md p-2 border border-gray-100 h-full flex flex-col">
+                <h3 class="text-sm font-bold text-[#cc001b] uppercase tracking-wider">Our Core Values</h3>
+                <p class="text-gray-600 mt-3">At Alaska Batteries, values drive everything we build from product design to after-sales support.</p>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 mt-4">
+                  <div class="text-center p-3">
+                    <div class="mx-auto w-10 h-10 rounded-full bg-[#cc001b]/10 flex items-center justify-center mb-2">
+                      <i class="fa-solid fa-shield-halved text-[#cc001b]"></i>
+                    </div>
+                    <h4 class="text-base font-bold uppercase">Integrity</h4>
+                  </div>
+                  <div class="text-center p-3">
+                    <div class="mx-auto w-10 h-10 rounded-full bg-[#cc001b]/10 flex items-center justify-center mb-2">
+                      <i class="fa-solid fa-lightbulb text-[#cc001b]"></i>
+                    </div>
+                    <h4 class="text-base font-bold uppercase">Innovation</h4>
+                  </div>
+                  <div class="text-center p-3">
+                    <div class="mx-auto w-10 h-10 rounded-full bg-[#cc001b]/10 flex items-center justify-center mb-2">
+                      <i class="fa-solid fa-leaf text-[#cc001b]"></i>
+                    </div>
+                    <h4 class="text-base font-bold uppercase">Sustainability</h4>
+                  </div>
+                  <div class="text-center p-3">
+                    <div class="mx-auto w-10 h-10 rounded-full bg-[#cc001b]/10 flex items-center justify-center mb-2">
+                      <i class="fa-solid fa-hands-helping text-[#cc001b]"></i>
+                    </div>
+                    <h4 class="text-base font-bold uppercase">Customer First</h4>
+                  </div>
+                  <div class="text-center p-3">
+                    <div class="mx-auto w-10 h-10 rounded-full bg-[#cc001b]/10 flex items-center justify-center mb-2">
+                      <i class="fa-solid fa-trophy text-[#cc001b]"></i>
+                    </div>
+                    <h4 class="text-base font-bold uppercase">Excellence</h4>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

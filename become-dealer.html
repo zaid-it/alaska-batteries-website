@@ -8,51 +8,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <style>
-      /* Support page: ensure banner images fill container on mobile and overlays stay on top */
-      @media (max-width: 767px) {
-        .banner-wrapper img {
-          height: 100% !important;
-          width: 100% !important;
-          object-fit: cover !important;
-        }
-        .banner-wrapper {
-          min-height: 160px;
-        }
-        .banner-overlay {
-          bottom: 0 !important;
-          max-height: 120px !important;
-          overflow: hidden !important;
-        }
-      }
-      /* Hero-specific constraints */
-      @media (max-width: 767px) {
-        /* Ensure banner images fill their banner container height on mobile so overlay sits on top */
-        #hero-banner-img,
-        .banner-wrapper img {
-          height: 100% !important; /* fill the parent h-[180px] */
-          width: 100% !important;
-          object-fit: cover !important;
-        }
-
-        /* constrain overall visual size if parent grows unexpectedly */
-        .banner-wrapper {
-          min-height: 160px;
-        }
-
-        /* ensure overlay stays on top and is visible */
-        #hero-text-box.banner-overlay {
-          top: 80px !important;
-          bottom: 0 !important;
-          padding-left: 0.5rem !important;
-          max-height: 120px !important;
-          width: 250px !important;
-          overflow: hidden !important;
-          padding-top: 1.6rem !important;
-          padding-bottom: 0.6rem !important;
-        }
-      }
-    </style>
   </head>
   <body class="bg-white">
     <div id="header-placeholder"></div>
@@ -101,13 +56,13 @@
               <h3 class="text-2xl font-black uppercase mb-8 border-b-4 border-[#cc001b] inline-block">Dealer Application</h3>
               <form action="#" class="space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <input type="text" placeholder="FULL NAME" class="w-full bg-white border border-gray-200 p-4 outline-none focus:border-[#cc001b] font-bold text-xs" />
-                  <input type="text" placeholder="COMPANY NAME" class="w-full bg-white border border-gray-200 p-4 outline-none focus:border-[#cc001b] font-bold text-xs" />
+                  <input type="text" placeholder="FULL NAME" class="w-full bg-white border rounded-md border-gray-200 p-4 outline-none focus:border-[#cc001b] font-bold text-xs" />
+                  <input type="text" placeholder="COMPANY NAME" class="w-full bg-white border rounded-md border-gray-200 p-4 outline-none focus:border-[#cc001b] font-bold text-xs" />
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <input type="tel" placeholder="CONTACT NUMBER" class="w-full bg-white border border-gray-200 p-4 outline-none focus:border-[#cc001b] font-bold text-xs" />
-                  <select class="w-full bg-white border border-gray-200 p-4 outline-none focus:border-[#cc001b] font-bold text-xs text-gray-400">
+                  <input type="tel" placeholder="CONTACT NUMBER" class="w-full bg-white border rounded-md border-gray-200 p-4 outline-none focus:border-[#cc001b] font-bold text-xs" />
+                  <select class="w-full bg-white border rounded-md border-gray-200 p-4 outline-none focus:border-[#cc001b] font-bold text-xs text-gray-400">
                     <option>SELECT CITY</option>
                     <option>ISLAMABAD</option>
                     <option>LAHORE</option>
@@ -116,8 +71,7 @@
                   </select>
                 </div>
 
-                <input type="text" placeholder="CURRENT BUSINESS ADDRESS" class="w-full bg-white border border-gray-200 p-4 outline-none focus:border-[#cc001b] font-bold text-xs" />
-
+                <input type="text" placeholder="CURRENT BUSINESS ADDRESS" class="w-full bg-white border rounded-md border-gray-200 p-4 outline-none focus:border-[#cc001b] font-bold text-xs" />
                 <div class="py-4">
                   <p class="text-base font-bold uppercase tracking-widest text-gray-400 mb-4">Primary Interest</p>
                   <div class="flex gap-3">
@@ -136,7 +90,7 @@
                   </div>
                 </div>
 
-                <button type="submit" class="w-full bg-black text-white font-black uppercase py-5 text-lg tracking-wider hover:bg-[#cc001b] transition-all">Submit Application</button>
+                <button type="submit" class="w-full bg-black text-white font-black uppercase py-5 text-lg tracking-wider rounded-md hover:bg-[#cc001b] transition-all">Submit Application</button>
               </form>
             </div>
           </div>

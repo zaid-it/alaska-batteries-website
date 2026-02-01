@@ -8,51 +8,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <style>
-      /* Support page: ensure banner images fill container on mobile and overlays stay on top */
-      @media (max-width: 767px) {
-        .banner-wrapper img {
-          height: 100% !important;
-          width: 100% !important;
-          object-fit: cover !important;
-        }
-        .banner-wrapper {
-          min-height: 160px;
-        }
-        .banner-overlay {
-          bottom: 0 !important;
-          max-height: 120px !important;
-          overflow: hidden !important;
-        }
-      }
-      /* Hero-specific constraints */
-      @media (max-width: 767px) {
-        /* Ensure banner images fill their banner container height on mobile so overlay sits on top */
-        #hero-banner-img,
-        .banner-wrapper img {
-          height: 100% !important; /* fill the parent h-[180px] */
-          width: 100% !important;
-          object-fit: cover !important;
-        }
-
-        /* constrain overall visual size if parent grows unexpectedly */
-        .banner-wrapper {
-          min-height: 160px;
-        }
-
-        /* ensure overlay stays on top and is visible */
-        #hero-text-box.banner-overlay {
-          top: 70px !important;
-          bottom: 0 !important;
-          padding-left: 0.5rem !important;
-          height: 200px !important;
-          width: 220px !important;
-          overflow: hidden !important;
-          padding-top: 1rem !important;
-          padding-bottom: 0 !important;
-        }
-      }
-    </style>
   </head>
   <body class="bg-white">
     <div id="header-placeholder"></div>
@@ -64,13 +19,13 @@
           <div
             id="hero-text-box"
             class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:w-[500px] bg-black/75 px-2 py-2 md:px-4 md:py-6 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
-            <h1 class="text-2xl md:text-5xl font-black uppercase text-left tracking-tighter leading-tight text-white">Dealer Locator</h1>
-            <p class="text-base md:text-2xl font-normal text-white text-left leading-normal mt-1 md:mt-4">Your nearest Alaska Dealer, Just a click away</p>
+            <h1 class="text-2xl md:text-5xl font-bold uppercase text-left tracking-normal leading-tight text-white">Dealer Locator</h1>
+            <p class="text-base md:text-2xl font-normal text-white text-left tracking-normal leading-tight mt-1 md:mt-4">Your nearest Alaska Dealer, Just a click away</p>
           </div>
         </div>
       </section>
 
-      <div class="bg-zinc-900 p-6 md:p-8 rounded-xl shadow-2xl mb-10">
+      <div class="bg-zinc-900 opacity-90 p-6 md:p-8 rounded-xl shadow-2xl mb-10">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div class="relative">
             <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500"></i>
