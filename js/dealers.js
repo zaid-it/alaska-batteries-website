@@ -373,6 +373,7 @@ const dealers = [
 document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("dealerSearch");
   const provinceSelect = document.getElementById("provinceFilter");
+  const citySelect = document.getElementById("cityFilter");
   const dealerList = document.getElementById("dealerList");
   const dealerCount = document.getElementById("dealerCount");
 
@@ -411,20 +412,164 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function filterDealers() {
     const term = searchInput.value.toLowerCase();
+    const city = citySelect.value;
     const prov = provinceSelect.value;
 
     const filtered = dealers.filter((d) => {
-      const matchesSearch = d.name.toLowerCase().includes(term) || d.address.toLowerCase().includes(term);
-      const matchesProv = prov === "All" || d.province === prov;
-      return matchesSearch && matchesProv;
+      const matchesSearch = d.name.toLowerCase().includes(term) || d.address.toLowerCase().includes(term) || d.city.toLowerCase().includes(term);
+      const matchesCity = !city || city === "All" || d.city === city;
+      const matchesProv = !prov || prov === "All" || d.province === prov;
+      return matchesSearch && matchesCity && matchesProv;
     });
 
     renderDealers(filtered);
   }
 
   searchInput.addEventListener("input", filterDealers);
+  citySelect.addEventListener("change", filterDealers);
   provinceSelect.addEventListener("change", filterDealers);
 
+  // Clear button and suggestions
+  const dealerClear = document.getElementById("dealerClear");
+  const suggestionsBox = document.getElementById("dealer-suggestions");
+
+  function updateSuggestions(term) {
+    term = (term || "").toLowerCase().trim();
+    if (!term) {
+      suggestionsBox.classList.add("hidden");
+      return;
+    }
+
+    const matches = dealers
+      .filter((d) => {
+        return d.name.toLowerCase().includes(term) || d.address.toLowerCase().includes(term) || d.city.toLowerCase().includes(term);
+      })
+      .slice(0, 8);
+
+    if (matches.length === 0) {
+      suggestionsBox.innerHTML = `<div class="p-3 text-gray-500 text-sm">No suggestions</div>`;
+      suggestionsBox.classList.remove("hidden");
+      return;
+    }
+
+    suggestionsBox.innerHTML = matches
+      .map(
+        (m) =>
+          `<button type="button" class="w-full text-left px-4 py-2 hover:bg-gray-100 suggestion-item" data-value="${escapeHtml(
+            m.name,
+          )}"><div class="text-sm font-bold">${escapeHtml(m.name)}</div><div class="text-xs text-gray-500">${escapeHtml(m.city)} • ${escapeHtml(m.province)}</div></button>`,
+      )
+      .join("");
+
+    suggestionsBox.classList.remove("hidden");
+  }
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&"'<>]/g, (s) => ({ "&": "&amp;", '"': "&quot;", "'": "&#39;", "<": "&lt;", ">": "&gt;" })[s]);
+  }
+
+  // Show/hide clear button
+  function toggleClear() {
+    if ((searchInput.value || "").trim()) {
+      dealerClear.classList.remove("hidden");
+    } else {
+      dealerClear.classList.add("hidden");
+    }
+  }
+
+  // Wire input to suggestions + clear button
+  searchInput.addEventListener("input", function (e) {
+    toggleClear();
+    updateSuggestions(this.value);
+  });
+
+  dealerClear.addEventListener("click", function (e) {
+    e.preventDefault();
+    searchInput.value = "";
+    toggleClear();
+    suggestionsBox.classList.add("hidden");
+    filterDealers();
+    searchInput.focus();
+  });
+
+  // Delegate suggestion clicks
+  suggestionsBox.addEventListener("click", function (e) {
+    const btn = e.target.closest(".suggestion-item");
+    if (!btn) return;
+    const val = btn.getAttribute("data-value");
+    if (val) {
+      searchInput.value = val;
+      toggleClear();
+      suggestionsBox.classList.add("hidden");
+      filterDealers();
+    }
+  });
+
+  // Hide suggestions when clicking outside
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest("#dealer-suggestions") && !e.target.closest("#dealerSearch")) {
+      suggestionsBox.classList.add("hidden");
+    }
+  });
+
   // Initial load
+  // Populate city/province filters from dealers data
+  function populateLocationFilters() {
+    const cities = Array.from(new Set(dealers.map((d) => (d.city || "").trim()).filter(Boolean))).sort((a, b) => a.localeCompare(b));
+    const provinces = Array.from(new Set(dealers.map((d) => (d.province || "").trim()).filter(Boolean))).sort((a, b) => a.localeCompare(b));
+
+    // City
+    if (citySelect && citySelect.tagName === "SELECT") {
+      citySelect.innerHTML = "";
+      const allOpt = document.createElement("option");
+      allOpt.value = "All";
+      allOpt.text = "All Cities";
+      citySelect.appendChild(allOpt);
+      cities.forEach((c) => {
+        const opt = document.createElement("option");
+        opt.value = c;
+        opt.text = c;
+        citySelect.appendChild(opt);
+      });
+    } else if (citySelect) {
+      // create datalist for input
+      const dlId = "cityList-dynamic";
+      let dl = document.getElementById(dlId);
+      if (!dl) {
+        dl = document.createElement("datalist");
+        dl.id = dlId;
+        citySelect.parentNode.insertBefore(dl, citySelect.nextSibling);
+      }
+      dl.innerHTML = cities.map((c) => `<option value="${c}"></option>`).join("");
+      citySelect.setAttribute("list", dlId);
+    }
+
+    // Province
+    if (provinceSelect && provinceSelect.tagName === "SELECT") {
+      provinceSelect.innerHTML = "";
+      const allOpt = document.createElement("option");
+      allOpt.value = "All";
+      allOpt.text = "All Provinces";
+      provinceSelect.appendChild(allOpt);
+      provinces.forEach((p) => {
+        const opt = document.createElement("option");
+        opt.value = p;
+        opt.text = p;
+        provinceSelect.appendChild(opt);
+      });
+    } else if (provinceSelect) {
+      const dlId = "provinceList-dynamic";
+      let dl = document.getElementById(dlId);
+      if (!dl) {
+        dl = document.createElement("datalist");
+        dl.id = dlId;
+        provinceSelect.parentNode.insertBefore(dl, provinceSelect.nextSibling);
+      }
+      dl.innerHTML = provinces.map((p) => `<option value="${p}"></option>`).join("");
+      provinceSelect.setAttribute("list", dlId);
+    }
+  }
+
+  populateLocationFilters();
   renderDealers(dealers);
 });

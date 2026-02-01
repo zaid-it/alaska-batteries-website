@@ -74,7 +74,7 @@ const footerHTML = /* HTML */ `
             <div class="text-gray-500 text-m leading-relaxed">
               <p class="mb-2">7th Floor, B-3 Tower, Opp. F-9 Park, Sector F-9/G-9, Jinnah Avenue, New Blue Area, Islamabad, Pakistan, 44010</p>
               <p class="mb-2">
-                <a href="tel:0518740280" class="text-gray-900 text-sm font-bold hover:text-[#cc001b] transition-colors"> (051) 8740 280 </a>
+                <a href="tel:0518740280" class="text-gray-900 text-sm font-bold hover:text-[#cc001b] transition-colors"> +92 51 874 0280 </a>
               </p>
               <p>
                 <a href="mailto:info@alaskabatteries.com" class="text-[#cc001b] text-sm font-medium hover:underline"> info@alaskabatteries.com </a>
@@ -231,8 +231,8 @@ function setupMobileMenu() {
             </nav>
           </div>
 
-          <div id="sub-view" class="w-1/2 h-full flex flex-col bg-zinc-50">
-            <button onclick="closeSubmenu()" class="flex items-center gap-3 px-8 py-6 text-[#cc001b] font-bold text-xs uppercase tracking-widest border-b border-zinc-200/50">
+          <div id="sub-view" class="w-1/2 h-full flex flex-col bg-[#cc001b]">
+            <button onclick="closeSubmenu()" class="flex items-center gap-3 px-8 py-6 text-white font-bold text-xs uppercase tracking-widest border-b border-zinc-200/50">
               <i class="fa-solid fa-arrow-left"></i> Back to Main
             </button>
             <div id="sub-content" class="p-4 flex flex-col"></div>
@@ -251,20 +251,19 @@ function setupMobileMenu() {
   // Corporate Style Submenus
   const submenus = {
     "solutions-sub": `
-      <a href="dry-charge.html" class="px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:text-[#cc001b] transition-colors">Dry Charge Batteries</a>
+      <a href="dry-charge.html" class="px-4 py-4 text-[15px] font-semibold text-white hover:text-[#cc001b] transition-colors">Dry Charge Batteries</a>
     `,
     "tech-sub": `
-      <a href="graphite.html" class="px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:text-[#cc001b] transition-colors">Graphite Technology</a>
+      <a href="graphite.html" class="px-4 py-4 text-[15px] font-semibold text-white hover:text-[#cc001b] transition-colors">Graphite Technology</a>
     `,
     "dealers-sub": `
-      <a href="dealers.html" class="px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:text-[#cc001b] transition-colors">Find a Dealer</a>
-      <a href="become-dealer.html" class="px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:text-[#cc001b] transition-colors">Become a Dealer</a>
+      <a href="dealers.html" class="px-4 py-4 text-[15px] font-semibold text-white hover:text-[#cc001b] transition-colors">Find a Dealer</a>
+      <a href="become-dealer.html" class="px-4 py-4 text-[15px] font-semibold text-white hover:text-[#cc001b] transition-colors">Become a Dealer</a>
     `,
     "vault-sub": `
-      <a href="vault.html" class="px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:text-[#cc001b] transition-colors">Open Vault</a>
-      <a href="vault.html#blogs" class="px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:text-[#cc001b] transition-colors">Blogs</a>
-      <a href="vault.html#faqs" class="px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:text-[#cc001b] transition-colors">FAQs</a>
-      <a href="vault.html#gallery" class="px-4 py-4 text-[15px] font-semibold text-zinc-800 hover:text-[#cc001b] transition-colors">Gallery</a>
+      <a href="vault.html#blogs" class="px-4 py-4 text-[15px] font-semibold text-white hover:text-[#cc001b] transition-colors">Blogs</a>
+      <a href="vault.html#faqs" class="px-4 py-4 text-[15px] font-semibold text-white hover:text-[#cc001b] transition-colors">FAQs</a>
+      <a href="vault.html#gallery" class="px-4 py-4 text-[15px] font-semibold text-white hover:text-[#cc001b] transition-colors">Gallery</a>
     `,
   };
 
