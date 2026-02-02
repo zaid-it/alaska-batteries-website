@@ -295,7 +295,7 @@ document.addEventListener("DOMContentLoaded", () => {
       img: "assets/solutions/solutions-hero.png",
       mobile_img: "assets/solutions/mobile/solutions-hero-mobile.png",
       title: 'Dry <span class="text-[#cc001b]">Charge</span>',
-      sub: "Pakistan's only Graphite Enhanced Lead-Acid Battery.",
+      sub: "Pakistan's one & only Graphite Enhanced Lead-Acid Battery.",
     },
     Automotive: {
       img: "assets/solutions/automotive.png",
