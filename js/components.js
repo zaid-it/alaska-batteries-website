@@ -69,15 +69,18 @@ const footerHTML = /* HTML */ `
   <footer class="bg-gray-50 border-t-8 border-black-50 pt-8 pb-2">
     <div class="container mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 text-center md:text-left">
-        <div class="flex flex-col justify-center items-center">
+        <div class="flex flex-col justify-center items-center md:items-start">
           <div class="w-full max-w-[500px]">
+            <div class="mb-4">
+              <img src="assets/technology/tech.png" alt="Graphite Technology" class="w-48 h-auto mx-auto md:mx-0" />
+            </div>
             <div class="text-gray-500 text-m leading-relaxed">
-              <p class="mb-2">7th Floor, B-3 Tower, Opp. F-9 Park, Sector F-9/G-9, Jinnah Avenue, New Blue Area, Islamabad, Pakistan, 44010</p>
+              <p class="mb-2">7th Floor, B-3 Tower, Opp. F-9 Park,<br />Sector F-9/G-9, Jinnah Avenue, New Blue Area,<br />Islamabad, Pakistan, 44010</p>
               <p class="mb-2">
-                <a href="tel:0518740280" class="text-gray-900 text-sm font-bold hover:text-[#cc001b] transition-colors"> +92 51 874 0280 </a>
+                <a href="tel:0518740280" class="text-gray-500 font-bold hover:text-[#cc001b] transition-colors"> +92 51 874 0280 </a>
               </p>
               <p>
-                <a href="mailto:info@alaskabatteries.com" class="text-[#cc001b] text-sm font-medium hover:underline"> info@alaskabatteries.com </a>
+                <a href="mailto:info@alaskabatteries.com" class="text-[#cc001b] hover:underline transition-colors"> info@alaskabatteries.com </a>
               </p>
             </div>
           </div>
@@ -188,7 +191,9 @@ function setupMobileMenu() {
       id="mobile-panel"
       class="absolute top-0 right-0 h-full w-full max-w-[320px] bg-white shadow-2xl translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col">
       <div class="flex justify-between items-center p-6 border-b border-gray-100">
-        <img src="assets/logo.png" alt="Alaska Logo" class="h-10 w-auto object-contain" />
+        <a href="index.html">
+          <img src="assets/logo.png" alt="Alaska Logo" class="h-10 w-auto object-contain" />
+        </a>
         <button id="close-mobile" class="text-zinc-500 hover:text-black transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -232,8 +237,10 @@ function setupMobileMenu() {
         </div>
       </div>
 
-      <div class="p-8 border-t border-gray-100 bg-zinc-50 text-center">
-        <p class="text-[12px] text-gray-400 uppercase tracking-normal">©2026 S.M.J International Industries Pvt. Ltd. All Rights Reserved.</p>
+      <div class="flex justify-between items-center p-6 border-b border-gray-100">
+        <a href="index.html">
+          <img src="assets/technology/tech.png" alt="Tech Logo" class="h-10 w-auto object-contain" />
+        </a>
       </div>
     </div>
   `;

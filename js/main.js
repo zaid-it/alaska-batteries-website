@@ -336,10 +336,10 @@ function initBlogEngine() {
         const img = entry.target.querySelector("img");
         if (entry.isIntersecting) {
           if (wash) wash.style.opacity = "0";
-          if (img) img.style.transform = "scale(1.05)";
+          if (img) img.style.transform = "";
         } else {
           if (wash) wash.style.opacity = "0.7";
-          if (img) img.style.transform = "scale(1)";
+          if (img) img.style.transform = "";
         }
       });
     },

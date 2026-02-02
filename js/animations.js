@@ -1,34 +1,5 @@
-// ===== BACK TO TOP BUTTON =====
+// ===== SCROLL ANIMATIONS =====
 document.addEventListener("DOMContentLoaded", function () {
-  // Create back to top button if it doesn't exist
-  if (!document.getElementById("backToTop")) {
-    const backToTopBtn = document.createElement("button");
-    backToTopBtn.id = "backToTop";
-    backToTopBtn.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
-    backToTopBtn.setAttribute("aria-label", "Back to top");
-    document.body.appendChild(backToTopBtn);
-  }
-
-  const backToTopBtn = document.getElementById("backToTop");
-
-  // Show button on scroll
-  window.addEventListener("scroll", () => {
-    if (window.pageYOffset > 300) {
-      backToTopBtn.classList.add("show");
-    } else {
-      backToTopBtn.classList.remove("show");
-    }
-  });
-
-  // Scroll to top smoothly
-  backToTopBtn.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  });
-
-  // ===== SCROLL ANIMATIONS =====
   const observerOptions = {
     threshold: 0.1,
     rootMargin: "0px 0px -50px 0px",
@@ -74,39 +45,30 @@ function openBatteryFinder() {
             <button onclick="selectUse('automotive')" class="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-[#cc001b] hover:bg-red-50 transition-all text-left flex items-start gap-4">
               <i class="fa-solid fa-car text-[#cc001b] text-2xl flex-shrink-0 mt-1"></i>
               <div>
-                <p class="font-bold uppercase text-sm">Automotive</p>
-                <p class="text-xs text-gray-500">Cars, Bikes, Trucks</p>
+                <p class="font-bold uppercase text-lg">Automotive</p>
+                <p class="text-base text-gray-500">Cars, Bikes, Trucks</p>
               </div>
             </button>
             <button onclick="selectUse('solar')" class="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-[#cc001b] hover:bg-red-50 transition-all text-left flex items-start gap-4">
               <i class="fa-solid fa-sun text-[#cc001b] text-2xl flex-shrink-0 mt-1"></i>
               <div>
-                <p class="font-bold uppercase text-sm">Solar</p>
-                <p class="text-xs text-gray-500">Renewable Energy</p>
+                <p class="font-bold uppercase text-lg">Solar</p>
+                <p class="text-base text-gray-500">Renewable Energy</p>
               </div>
             </button>
             <button onclick="selectUse('industrial')" class="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-[#cc001b] hover:bg-red-50 transition-all text-left flex items-start gap-4">
               <i class="fa-solid fa-industry text-[#cc001b] text-2xl flex-shrink-0 mt-1"></i>
               <div>
-                <p class="font-bold uppercase text-sm">Industrial</p>
-                <p class="text-xs text-gray-500">UPS, Backup Systems</p>
+                <p class="font-bold uppercase text-lg">Industrial</p>
+                <p class="text-base text-gray-500">UPS, Backup Systems</p>
               </div>
             </button>
-            <button onclick="selectUse('other')" class="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-[#cc001b] hover:bg-red-50 transition-all text-left flex items-start gap-4">
-              <i class="fa-solid fa-circle-question text-[#cc001b] text-2xl flex-shrink-0 mt-1"></i>
-              <div>
-                <p class="font-bold uppercase text-sm">Not Sure</p>
-                <p class="text-xs text-gray-500">Need Guidance</p>
-              </div>
-            </button>
+            
           </div>
         </div>
 
         <div class="pt-6 border-t border-gray-200">
-          <p class="text-sm text-gray-600 mb-4">
-            <i class="fa-solid fa-lightbulb text-[#cc001b] mr-2"></i>
-            Based on your selection, our experts will recommend the perfect battery for your needs.
-          </p>
+          
           <div class="flex gap-4">
             <button onclick="closeBatteryFinder()" class="flex-1 px-6 py-3 border-2 border-gray-200 font-bold uppercase text-sm rounded-lg hover:border-[#cc001b] transition-all">Cancel</button>
             <a href="dry-charge.html" class="flex-1 px-6 py-3 bg-[#cc001b] text-white font-bold uppercase text-sm rounded-lg hover:bg-black transition-all text-center">View All Batteries</a>
