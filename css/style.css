@@ -67,6 +67,10 @@ img {
   display: block;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scaleY(1.2);
+  transform-origin: center;
 }
 
 /* Unmute Button Styling */
@@ -114,13 +118,6 @@ img {
   bottom: 1rem;
 }
 
-/* Make sure hero section keeps a reasonable minimum height on very small screens */
-@media (max-width: 480px) {
-  .hero-section {
-    min-height: 10vh;
-    width: 100%;
-  }
-}
 /* Banner wrapper and overlay helpers to ensure overlays stay inside images */
 .banner-wrapper {
   position: relative;
@@ -280,11 +277,14 @@ html {
   background: #fff;
   border: 1px solid #e5e7eb;
   color: #9ca3af;
-  padding: 8px 16px;
-  font-size: 11px;
+  padding: 10px 16px;
+  font-size: 12px;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
+  text-align: center;
+  white-space: normal;
+  line-height: 1.2;
   transition: all 0.3s ease;
   cursor: pointer;
   border-radius: 10px;
@@ -843,6 +843,32 @@ section .banner-overlay {
   }
 }
 
+/* Disable hover-to-zoom (site-wide) --------------------------------------------------
+   This block neutralizes scale transforms applied via CSS hover rules, Tailwind
+   utility classes (e.g. "hover:scale-..." / "group-hover:scale-..."), and
+   inline styles that use "scale(...)". It preserves other hover effects
+   (colors, shadows) while preventing zoom-in behavior.
+*/
+
+[class*="hover:scale"],
+[class*="group-hover:scale"],
+.bubble:hover,
+.unmute-btn:hover,
+.thumb-card:hover,
+.dealer-card:hover,
+.thumb-card:hover img,
+a:hover img,
+img:hover,
+.product-thumb img,
+.banner-wrapper img {
+  transform: none !important;
+}
+
+/* Prevent inline-style scaling (e.g. elem.style.transform = 'scale(1.05)') */
+*[style*="scale("] {
+  transform: none !important;
+}
+
 /* Language Visibility */
 .lang-ur {
   display: none;
@@ -1388,49 +1414,6 @@ body.urdu-mode .header-ur {
 #hero-text-box {
   will-change: transform, opacity;
 }
-/* ===== BACK TO TOP BUTTON ===== */
-#backToTop {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 50px;
-  height: 50px;
-  background-color: #cc001b;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  font-size: 24px;
-  cursor: pointer;
-  display: none;
-  z-index: 99;
-  box-shadow: 0 4px 12px rgba(204, 0, 27, 0.4);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: slideUp 0.5s ease-out;
-}
-
-#backToTop:hover {
-  background-color: black;
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-#backToTop.show {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* ===== SCROLL ANIMATIONS ===== */
 .fade-in {
   opacity: 0;
