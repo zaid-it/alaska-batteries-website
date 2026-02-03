@@ -66,29 +66,33 @@ const headerHTML = /* HTML */ `
 `;
 
 const footerHTML = /* HTML */ `
-  <footer class="bg-gray-50 border-t-8 border-black-50 pt-8 pb-2">
+  <footer class="bg-gray-50 border-t-8 border-black-50 py-10">
     <div class="container mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 text-center md:text-left">
-        <div class="flex flex-col justify-center items-center md:items-start">
-          <div class="w-full max-w-[500px]">
-            <div class="mb-4">
-              <img src="assets/technology/tech.png" alt="Graphite Technology" class="w-48 h-auto mx-auto md:mx-0" />
-            </div>
-            <div class="text-gray-500 text-m leading-relaxed">
-              <p class="mb-2">7th Floor, B-3 Tower, Opp. F-9 Park,<br />Sector F-9/G-9, Jinnah Avenue, New Blue Area,<br />Islamabad, Pakistan, 44010</p>
-              <p class="mb-2">
-                <a href="tel:0518740280" class="text-gray-500 font-bold hover:text-[#cc001b] transition-colors"> +92 51 874 0280 </a>
-              </p>
-              <p>
-                <a href="mailto:info@alaskabatteries.com" class="text-[#cc001b] hover:underline transition-colors"> info@alaskabatteries.com </a>
-              </p>
-            </div>
+      <div class="flex flex-col md:flex-row md:justify-around gap-8 items-center md:items-start mb-8">
+        <!-- Logo Column -->
+        <div class="flex justify-center md:justify-start">
+          <img src="assets/technology/tech.png" alt="Graphite Technology" class="w-[250px] h-auto" />
+        </div>
+
+        <!-- Address Column -->
+        <div class="flex flex-col items-center md:items-start text-center md:text-left">
+          <div class="text-gray-600 text-baseline font-normal leading-relaxed space-y-1">
+            <p>7th Floor, B-3 Tower, Opp. F-9 Park,</p>
+            <p>Sector F-9/G-9, Jinnah Avenue, New Blue Area,</p>
+            <p>Islamabad, Pakistan, 44010</p>
+            <p class="pt-2">
+              <a href="tel:0518740280" class="text-gray-600 font-bold hover:text-[#cc001b] transition-colors">+92 51 874 0280</a>
+            </p>
+            <p>
+              <a href="mailto:info@alaskabatteries.com" class="text-[#cc001b] hover:underline transition-colors">info@alaskabatteries.com</a>
+            </p>
           </div>
         </div>
 
-        <div class="flex justify-center items-center">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-18 md:gap-x-28 gap-y-2 md:gap-y-0 text-m font-bold text-gray-600">
-            <ul class="flex flex-col space-y-1">
+        <!-- Navigation Column -->
+        <div class="flex justify-center md:justify-center">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-y-2 md:gap-y-0 gap-x-10 text-baseline font-medium text-gray-700 text-center md:text-left">
+            <ul class="flex flex-col space-y-2 items-center md:items-start">
               <li>
                 <a href="index.html" class="hover:text-[#cc001b] transition-colors">Home</a>
               </li>
@@ -103,7 +107,7 @@ const footerHTML = /* HTML */ `
               </li>
             </ul>
 
-            <ul class="flex flex-col space-y-1">
+            <ul class="flex flex-col space-y-2 items-center md:items-start">
               <li>
                 <a href="dealers.html" class="hover:text-[#cc001b] transition-colors">Dealer Locator</a>
               </li>
@@ -117,8 +121,9 @@ const footerHTML = /* HTML */ `
           </div>
         </div>
 
-        <div class="flex justify-center items-end">
-          <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
+        <!-- Social Media Column -->
+        <div class="flex justify-center md:justify-end">
+          <div class="grid grid-cols-2 gap-3">
             <a href="https://www.facebook.com/alaskabatteriespk/" class="social-box">
               <i class="fa-brands fa-facebook"></i>
             </a>
@@ -126,19 +131,15 @@ const footerHTML = /* HTML */ `
             <a href="https://www.instagram.com/alaskabatteriespk/" class="social-box">
               <i class="fa-brands fa-instagram"></i>
             </a>
-
             <a href="https://www.linkedin.com/company/alaskabatteriespk/" class="social-box">
               <i class="fa-brands fa-linkedin"></i>
             </a>
-
             <a href="https://www.youtube.com/channel/UCZXmvMmmVMxFqfzQpGHDWWA" class="social-box">
               <i class="fa-brands fa-youtube"></i>
             </a>
-
             <a href="https://api.whatsapp.com/send?phone=923266660757" class="social-box">
               <i class="fa-brands fa-whatsapp"></i>
             </a>
-
             <a href="https://www.tiktok.com/@alaskabatteriespk" class="social-box">
               <i class="fa-brands fa-tiktok"></i>
             </a>
@@ -146,7 +147,7 @@ const footerHTML = /* HTML */ `
         </div>
       </div>
 
-      <div class="border-t border-gray-50 pt-2 pb-4 flex flex-col items-center text-[12px] text-gray-400 uppercase tracking-normal text-center">
+      <div class="pt-4 pb-1 flex flex-col items-center text-xs text-gray-400 uppercase tracking-normal text-center">
         <p>©2026 S.M.J International Industries Pvt. Ltd. All Rights Reserved.</p>
       </div>
     </div>
