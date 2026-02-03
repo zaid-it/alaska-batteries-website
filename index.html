@@ -1,311 +1,336 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Updated: 2026-02-03 -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alaska Batteries</title>
-    <link rel="icon" type="image/png" href="assets/favicon.png" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body class="bg-white text-gray-900 font-sans">
-    <div id="header-placeholder"></div>
 
-    <main>
-      <section class="hero-section relative w-full aspect-video bg-zinc-100/50 overflow-hidden">
-        <!-- Video Background -->
-        <video id="heroVideo" class="absolute inset-0 w-full h-full object-cover z-0" autoplay muted playsinline webkit-playsinline>
-          <source src="assets/videos/home.mp4" type="video/mp4" />
-          Your browser does not support HTML5 video.
-        </video>
-      </section>
+<head>
+  <!-- Updated: 2026-02-03 -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alaska Batteries</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
 
-      <!-- Products Showcase Section -->
-      <section class="py-4 bg-gradient-to-b from-white to-gray-50">
-        <div class="container mx-auto px-6">
-          <div class="text-center mb-4">
-            <h2 class="text-4xl md:text-6xl font-bold leading-tight">Our <span class="text-[#cc001b]">Solutions</span></h2>
+<body class="bg-white text-gray-900 font-sans">
+  <div id="header-placeholder"></div>
+
+  <main>
+    <section class="hero-section relative w-full aspect-video bg-zinc-100/50 overflow-hidden">
+      <!-- Video Background -->
+      <video id="heroVideo" class="absolute inset-0 w-full h-full object-cover z-0" autoplay muted playsinline
+        webkit-playsinline>
+        <source src="assets/videos/home.mp4" type="video/mp4" />
+        Your browser does not support HTML5 video.
+      </video>
+    </section>
+
+    <!-- Products Showcase Section -->
+    <section class="py-4 bg-gradient-to-b from-white to-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-4">
+          <h2 class="text-4xl md:text-6xl font-bold leading-tight">Our <span class="text-[#cc001b]">Solutions</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+          <!-- Dry Charge -->
+
+          <!-- Automotive (Application) -->
+          <a href="dry-charge.html#Automotive" class="group relative bg-white rounded-lg overflow-hidden shadow-lg">
+            <div
+              class="aspect-video bg-gradient-to-br from-blue-600 to-blue-900 flex items-center justify-center overflow-hidden relative">
+              <img src="assets/automotive-home.png" />
+              <div class="absolute inset-0"></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold uppercase mb-2 text-gray-900">Automotive</h3>
+
+              <div class="flex items-center text-[#cc001b] font-bold">Learn more <i
+                  class="fa-solid fa-arrow-right ml-2"></i></div>
+            </div>
+          </a>
+
+          <!-- Solar (Application) -->
+          <a href="dry-charge.html#Solar" class="group relative bg-white rounded-lg overflow-hidden shadow-lg">
+            <div
+              class="aspect-video bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center overflow-hidden relative">
+              <img src="assets/solar-home.png" />
+              <div class="absolute inset-0"></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold uppercase mb-2 text-gray-900">Solar</h3>
+              <div class="flex items-center text-[#cc001b] font-bold">Learn more <i
+                  class="fa-solid fa-arrow-right ml-2"></i></div>
+            </div>
+          </a>
+
+          <!-- Industrial (Application) -->
+          <a href="dry-charge.html#Industrial" class="group relative bg-white rounded-lg overflow-hidden shadow-lg">
+            <div
+              class="aspect-video bg-gradient-to-br from-gray-600 to-gray-900 flex items-center justify-center overflow-hidden relative">
+              <img src="assets/industrial-home.png" />
+              <div class="absolute inset-0"></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold uppercase mb-2 text-gray-900">Industrial</h3>
+              <div class="flex items-center text-[#cc001b] font-bold">Learn more <i
+                  class="fa-solid fa-arrow-right ml-2"></i></div>
+            </div>
+          </a>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="flex justify-center mt-4">
+          <button onclick="openBatteryFinder()"
+            class="bg-[#cc001b] text-white px-4 py-4 font-black uppercase tracking-widest text-lg hover:bg-black shadow-2xl transition-all hover:scale-105 rounded-lg">
+            <i class="fa-solid fa-bolt mr-2"></i> Find Your Perfect Battery
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Graphite Section -->
+    <section class="py-16 md:py-20 bg-gray-50 border-t-4 border-gray-100">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+          <p class="text-[#cc001b] font-bold uppercase tracking-widest text-lg mb-3">Advanced Technology</p>
+          <h2 class="text-4xl md:text-6xl font-bold leading-tight">The Power of <span
+              class="text-[#cc001b]">Graphite</span></h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+          <!-- Feature Card 1 -->
+          <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm text-center">
+            <div class="w-16 h-16 rounded-full bg-[#cc001b] flex items-center justify-center mb-6 mx-auto">
+              <i class="fa-solid fa-bolt text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">30% Faster Charging</h3>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-            <!-- Dry Charge -->
-
-            <!-- Automotive (Application) -->
-            <a href="dry-charge.html#Automotive" class="group relative bg-white rounded-lg overflow-hidden shadow-lg">
-              <div class="aspect-video bg-gradient-to-br from-blue-600 to-blue-900 flex items-center justify-center overflow-hidden relative">
-                <img src="assets/automotive-home.png" />
-                <div class="absolute inset-0"></div>
-              </div>
-              <div class="p-6">
-                <h3 class="text-xl font-bold uppercase mb-2 text-gray-900">Automotive</h3>
-
-                <div class="flex items-center text-[#cc001b] font-bold">Learn more <i class="fa-solid fa-arrow-right ml-2"></i></div>
-              </div>
-            </a>
-
-            <!-- Solar (Application) -->
-            <a href="dry-charge.html#Solar" class="group relative bg-white rounded-lg overflow-hidden shadow-lg">
-              <div class="aspect-video bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center overflow-hidden relative">
-                <img src="assets/solar-home.png" />
-                <div class="absolute inset-0"></div>
-              </div>
-              <div class="p-6">
-                <h3 class="text-xl font-bold uppercase mb-2 text-gray-900">Solar</h3>
-                <div class="flex items-center text-[#cc001b] font-bold">Learn more <i class="fa-solid fa-arrow-right ml-2"></i></div>
-              </div>
-            </a>
-
-            <!-- Industrial (Application) -->
-            <a href="dry-charge.html#Industrial" class="group relative bg-white rounded-lg overflow-hidden shadow-lg">
-              <div class="aspect-video bg-gradient-to-br from-gray-600 to-gray-900 flex items-center justify-center overflow-hidden relative">
-                <img src="assets/industrial-home.png" />
-                <div class="absolute inset-0"></div>
-              </div>
-              <div class="p-6">
-                <h3 class="text-xl font-bold uppercase mb-2 text-gray-900">Industrial</h3>
-                <div class="flex items-center text-[#cc001b] font-bold">Learn more <i class="fa-solid fa-arrow-right ml-2"></i></div>
-              </div>
-            </a>
+          <!-- Feature Card 2 -->
+          <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm text-center">
+            <div class="w-16 h-16 rounded-full bg-[#cc001b] flex items-center justify-center mb-6 mx-auto">
+              <i class="fa-solid fa-temperature-arrow-up text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Extreme Heat Resistance</h3>
           </div>
 
-          <!-- CTA Button -->
-          <div class="flex justify-center mt-4">
-            <button
-              onclick="openBatteryFinder()"
-              class="bg-[#cc001b] text-white px-4 py-4 font-black uppercase tracking-widest text-lg hover:bg-black shadow-2xl transition-all hover:scale-105 rounded-lg">
-              <i class="fa-solid fa-bolt mr-2"></i> Find Your Perfect Battery
-            </button>
+          <!-- Feature Card 3 -->
+          <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm text-center">
+            <div class="w-16 h-16 rounded-full bg-[#cc001b] flex items-center justify-center mb-6 mx-auto">
+              <i class="fa-solid fa-shield text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">40% Longer Life</h3>
           </div>
         </div>
-      </section>
 
-      <!-- Why Graphite Section -->
-      <section class="py-16 md:py-20 bg-gray-50 border-t-4 border-gray-100">
-        <div class="container mx-auto px-6">
-          <div class="text-center mb-12">
-            <p class="text-[#cc001b] font-bold uppercase tracking-widest text-lg mb-3">Advanced Technology</p>
-            <h2 class="text-4xl md:text-6xl font-bold leading-tight">The Power of <span class="text-[#cc001b]">Graphite</span></h2>
-          </div>
-
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-            <!-- Feature Card 1 -->
-            <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm text-center">
-              <div class="w-16 h-16 rounded-full bg-[#cc001b] flex items-center justify-center mb-6 mx-auto">
-                <i class="fa-solid fa-bolt text-white text-2xl"></i>
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-2">30% Faster Charging</h3>
+        <!-- CTA Section -->
+        <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-8 md:p-12">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <img src="assets/technology/tech.png" alt="Graphite Enhanced Technology"
+                class="w-full max-w-md mx-auto lg:mx-0" />
             </div>
-
-            <!-- Feature Card 2 -->
-            <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm text-center">
-              <div class="w-16 h-16 rounded-full bg-[#cc001b] flex items-center justify-center mb-6 mx-auto">
-                <i class="fa-solid fa-temperature-arrow-up text-white text-2xl"></i>
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-2">Extreme Heat Resistant</h3>
-            </div>
-
-            <!-- Feature Card 3 -->
-            <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm text-center">
-              <div class="w-16 h-16 rounded-full bg-[#cc001b] flex items-center justify-center mb-6 mx-auto">
-                <i class="fa-solid fa-shield text-white text-2xl"></i>
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-2">40% Longer Life</h3>
-            </div>
-          </div>
-
-          <!-- CTA Section -->
-          <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-8 md:p-12">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <img src="assets/technology/tech.png" alt="Graphite Enhanced Technology" class="w-full max-w-md mx-auto lg:mx-0" />
-              </div>
-              <div class="text-center lg:text-left">
-                <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Discover the Science</h3>
-                <a href="graphite.html" class="inline-flex items-center gap-3 bg-[#cc001b] text-white font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-lg">
-                  Learn More <i class="fa-solid fa-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="relative overflow-hidden bg-gradient-to-br from-[#0b1120] via-[#0f172a] to-[#111827]">
-        <div class="absolute inset-0 opacity-30"></div>
-
-        <div class="container mx-auto px-6 py-16 md:py-20 relative">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div class="text-center lg:text-left">
-              <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white text-xs font-bold uppercase tracking-widest mb-6">
-                <i class="fa-solid fa-location-dot text-[#cc001b]"></i>
-                Nationwide Coverage
-              </div>
-              <h2 class="text-white font-bold text-4xl md:text-6xl tracking-tight leading-tight mb-6 md:mb-16">Find an <span class="text-[#cc001b]">Authorized Dealer</span></h2>
+              <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Discover the Science</h3>
+              <a href="graphite.html"
+                class="inline-flex items-center gap-3 bg-[#cc001b] text-white font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-lg">
+                Learn More <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                <div class="flex items-start gap-2 bg-white/5 rounded-xl p-4 md:p-5 border border-white/10 text-left">
-                  <i class="fa-solid fa-certificate text-[#cc001b] text-lg md:text-xl flex-shrink-0"></i>
-                  <div class="min-w-0 flex-1 text-left">
-                    <p class="text-white font-bold text-xs md:text-sm uppercase tracking-wide leading-tight">Authorized Partners</p>
-                    <p class="text-gray-400 text-xs mt-1 leading-tight">Trusted dealers with genuine stock</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-2 bg-white/5 rounded-xl p-4 md:p-5 border border-white/10 text-left">
-                  <i class="fa-solid fa-headset text-[#cc001b] text-lg md:text-xl flex-shrink-0"></i>
-                  <div class="min-w-0 flex-1 text-left">
-                    <p class="text-white font-bold text-xs md:text-sm uppercase tracking-wide leading-tight">Warranty Support</p>
-                    <p class="text-gray-400 text-xs mt-1 leading-tight">Reliable service & claim guidance</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-2 bg-white/5 rounded-xl p-4 md:p-5 border border-white/10 text-left">
-                  <i class="fa-solid fa-location-crosshairs text-[#cc001b] text-lg md:text-xl flex-shrink-0"></i>
-                  <div class="min-w-0 flex-1 text-left">
-                    <p class="text-white font-bold text-xs md:text-sm uppercase tracking-wide leading-tight">Nearest Location</p>
-                    <p class="text-gray-400 text-xs mt-1 leading-tight">Find dealers close to you</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-2 bg-white/5 rounded-xl p-4 md:p-5 border border-white/10 text-left">
-                  <i class="fa-solid fa-box text-[#cc001b] text-lg md:text-xl flex-shrink-0"></i>
-                  <div class="min-w-0 flex-1 text-left">
-                    <p class="text-white font-bold text-xs md:text-sm uppercase tracking-wide leading-tight">Availability</p>
-                    <p class="text-gray-400 text-xs mt-1 leading-tight">Updated inventory across regions</p>
-                  </div>
+    <section class="relative overflow-hidden bg-gradient-to-br from-[#0b1120] via-[#0f172a] to-[#111827]">
+      <div class="absolute inset-0 opacity-30"></div>
+
+      <div class="container mx-auto px-6 py-16 md:py-20 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="text-center lg:text-left">
+            <div
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white text-xs font-bold uppercase tracking-widest mb-6">
+              <i class="fa-solid fa-location-dot text-[#cc001b]"></i>
+              Nationwide Coverage
+            </div>
+            <h2 class="text-white font-bold text-4xl md:text-6xl tracking-tight leading-tight mb-6 md:mb-16">Find an
+              <span class="text-[#cc001b]">Authorized Dealer</span>
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              <div class="flex items-start gap-2 bg-white/5 rounded-xl p-4 md:p-5 border border-white/10 text-left">
+                <i class="fa-solid fa-certificate text-[#cc001b] text-lg md:text-xl flex-shrink-0"></i>
+                <div class="min-w-0 flex-1 text-left">
+                  <p class="text-white font-bold text-xs md:text-sm uppercase tracking-wide leading-tight">Authorized
+                    Partners</p>
+                  <p class="text-gray-400 text-xs mt-1 leading-tight">Trusted dealers with genuine stock</p>
                 </div>
               </div>
-
-              <div class="flex flex-col sm:flex-row items-center gap-4 py-8 justify-center lg:justify-start">
-                <a href="dealers.html" class="bg-[#cc001b] text-white rounded-lg font-bold uppercase tracking-widest text-sm px-8 py-4 shadow-lg"> Open Locator </a>
-                <a href="support.html" class="text-white font-bold uppercase tracking-widest text-sm border-b border-white/40 hover:border-white"> Contact Support </a>
+              <div class="flex items-start gap-2 bg-white/5 rounded-xl p-4 md:p-5 border border-white/10 text-left">
+                <i class="fa-solid fa-headset text-[#cc001b] text-lg md:text-xl flex-shrink-0"></i>
+                <div class="min-w-0 flex-1 text-left">
+                  <p class="text-white font-bold text-xs md:text-sm uppercase tracking-wide leading-tight">Warranty
+                    Support</p>
+                  <p class="text-gray-400 text-xs mt-1 leading-tight">Reliable service & claim guidance</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-2 bg-white/5 rounded-xl p-4 md:p-5 border border-white/10 text-left">
+                <i class="fa-solid fa-location-crosshairs text-[#cc001b] text-lg md:text-xl flex-shrink-0"></i>
+                <div class="min-w-0 flex-1 text-left">
+                  <p class="text-white font-bold text-xs md:text-sm uppercase tracking-wide leading-tight">Nearest
+                    Location</p>
+                  <p class="text-gray-400 text-xs mt-1 leading-tight">Find dealers close to you</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-2 bg-white/5 rounded-xl p-4 md:p-5 border border-white/10 text-left">
+                <i class="fa-solid fa-box text-[#cc001b] text-lg md:text-xl flex-shrink-0"></i>
+                <div class="min-w-0 flex-1 text-left">
+                  <p class="text-white font-bold text-xs md:text-sm uppercase tracking-wide leading-tight">Availability
+                  </p>
+                  <p class="text-gray-400 text-xs mt-1 leading-tight">Updated inventory across regions</p>
+                </div>
               </div>
             </div>
 
-            <div class="flex justify-center items-center">
-              <div class="relative w-full max-w-[560px]">
-                <div class="absolute -inset-4 bg-white/5 rounded-2xl blur-2xl"></div>
-                <div class="relative bg-white/5 border border-white/10 rounded-2xl p-6">
-                  <img src="assets/dealer-map.png" alt="Alaska Dealer Map" class="w-full h-full object-contain opacity-100" />
-                  <div class="mt-5 grid grid-cols-3 gap-2 md:gap-3 text-center">
-                    <div class="bg-white/10 rounded-lg p-2 md:p-3">
-                      <p class="text-[10px] md:text-xs uppercase tracking-wider text-gray-300">Cities</p>
-                      <p class="text-sm md:text-lg font-bold text-white">Nationwide</p>
-                    </div>
-                    <div class="bg-white/10 rounded-lg p-2 md:p-3">
-                      <p class="text-[10px] md:text-xs uppercase tracking-wider text-gray-300">Support</p>
-                      <p class="text-sm md:text-lg font-bold text-white">Verified</p>
-                    </div>
-                    <div class="bg-white/10 rounded-lg p-2 md:p-3">
-                      <p class="text-[10px] md:text-xs uppercase tracking-wider text-gray-300">Service</p>
-                      <p class="text-sm md:text-lg font-bold text-white">Reliable</p>
-                    </div>
+            <div class="flex flex-col sm:flex-row items-center gap-4 py-8 justify-center lg:justify-start">
+              <a href="dealers.html"
+                class="bg-[#cc001b] text-white rounded-lg font-bold uppercase tracking-widest text-sm px-8 py-4 shadow-lg">
+                Open Locator </a>
+              <a href="support.html"
+                class="text-white font-bold uppercase tracking-widest text-sm border-b border-white/40 hover:border-white">
+                Contact Support </a>
+            </div>
+          </div>
+
+          <div class="flex justify-center items-center">
+            <div class="relative w-full max-w-[560px]">
+              <div class="absolute -inset-4 bg-white/5 rounded-2xl blur-2xl"></div>
+              <div class="relative bg-white/5 border border-white/10 rounded-2xl p-6">
+                <img src="assets/dealer-map.png" alt="Alaska Dealer Map"
+                  class="w-full h-full object-contain opacity-100" />
+                <div class="mt-5 grid grid-cols-3 gap-2 md:gap-3 text-center">
+                  <div class="bg-white/10 rounded-lg p-2 md:p-3">
+                    <p class="text-[10px] md:text-xs uppercase tracking-wider text-gray-300">Reach</p>
+                    <p class="text-sm md:text-lg font-bold text-white">Nationwide</p>
+                  </div>
+                  <div class="bg-white/10 rounded-lg p-2 md:p-3">
+                    <p class="text-[10px] md:text-xs uppercase tracking-wider text-gray-300">Support</p>
+                    <p class="text-sm md:text-lg font-bold text-white">Verified</p>
+                  </div>
+                  <div class="bg-white/10 rounded-lg p-2 md:p-3">
+                    <p class="text-[10px] md:text-xs uppercase tracking-wider text-gray-300">Service</p>
+                    <p class="text-sm md:text-lg font-bold text-white">Reliable</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
+  </main>
 
-    <div id="footer-placeholder"></div>
+  <div id="footer-placeholder"></div>
 
-    <script src="js/components.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-      const section = document.getElementById("products-interactive");
-      const title = document.getElementById("scrollTitle");
-      const navLabels = document.querySelectorAll(".nav-label");
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    const section = document.getElementById("products-interactive");
+    const title = document.getElementById("scrollTitle");
+    const navLabels = document.querySelectorAll(".nav-label");
 
-      // 1. Hover/Touch Activation
-      function activateRow(id) {
-        deactivateRows();
-        const bg = document.getElementById("bg-" + id);
-        if (bg) {
-          bg.style.opacity = "1";
-          bg.style.transform = ""; // removed hover zoom
+    // 1. Hover/Touch Activation
+    function activateRow(id) {
+      deactivateRows();
+      const bg = document.getElementById("bg-" + id);
+      if (bg) {
+        bg.style.opacity = "1";
+        bg.style.transform = ""; // removed hover zoom
+      }
+      navLabels.forEach((label) => label.classList.add("text-white"));
+      title.style.color = "#cc001b";
+    }
+
+    function deactivateRows() {
+      ["dry", "deep", "mf", "lfp"].forEach((id) => {
+        const el = document.getElementById("bg-" + id);
+        if (el) {
+          el.style.opacity = "0";
+          el.style.transform = ""; // removed hover zoom
         }
-        navLabels.forEach((label) => label.classList.add("text-white"));
-        title.style.color = "#cc001b";
-      }
+      });
+      navLabels.forEach((label) => label.classList.remove("text-white"));
+    }
 
-      function deactivateRows() {
-        ["dry", "deep", "mf", "lfp"].forEach((id) => {
-          const el = document.getElementById("bg-" + id);
-          if (el) {
-            el.style.opacity = "0";
-            el.style.transform = ""; // removed hover zoom
-          }
-        });
-        navLabels.forEach((label) => label.classList.remove("text-white"));
-      }
+    // 2. Scroll Intersection (Detecting when the section is in view)
+    const observerOptions = { threshold: 0.5 }; // Trigger when 50% of section is visible
 
-      // 2. Scroll Intersection (Detecting when the section is in view)
-      const observerOptions = { threshold: 0.5 }; // Trigger when 50% of section is visible
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Section entered view: Title turns Black as per your request
+          title.style.color = "#000000";
+        } else {
+          // Section left view: Reset Title to Red and Backgrounds to White
+          title.style.color = "#cc001b";
+          deactivateRows();
+          title.style.color = "#cc001b";
+        }
+      });
+    }, observerOptions);
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Section entered view: Title turns Black as per your request
-            title.style.color = "#000000";
-          } else {
-            // Section left view: Reset Title to Red and Backgrounds to White
-            title.style.color = "#cc001b";
-            deactivateRows();
-            title.style.color = "#cc001b";
-          }
-        });
-      }, observerOptions);
+    observer.observe(section);
+  </script>
 
-      observer.observe(section);
-    </script>
+  <!-- Hero Video Playback Control (Muted Always) -->
+  <script>
+    const heroVideo = document.getElementById("heroVideo");
+    let playbackCount = 0;
 
-    <!-- Hero Video Playback Control (Muted Always) -->
-    <script>
-      const heroVideo = document.getElementById("heroVideo");
-      let playbackCount = 0;
+    if (heroVideo) {
+      heroVideo.muted = true;
+      heroVideo.volume = 0;
 
-      if (heroVideo) {
-        heroVideo.muted = true;
-        heroVideo.volume = 0;
-
-        // Pause video when user scrolls away from hero section
-        const heroObserver = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (!entry.isIntersecting) {
-                // Hero section is out of view
-                heroVideo.pause();
-              } else {
-                // Hero section is in view (resume auto-replay if within 3 playbacks)
-                if (playbackCount < 3 && heroVideo.paused) {
-                  heroVideo.play().catch(() => {
-                    /* play may be blocked */
-                  });
-                }
+      // Pause video when user scrolls away from hero section
+      const heroObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              // Hero section is out of view
+              heroVideo.pause();
+            } else {
+              // Hero section is in view (resume auto-replay if within 3 playbacks)
+              if (playbackCount < 3 && heroVideo.paused) {
+                heroVideo.play().catch(() => {
+                  /* play may be blocked */
+                });
               }
-            });
-          },
-          { threshold: 0 },
-        );
+            }
+          });
+        },
+        { threshold: 0 },
+      );
 
-        heroObserver.observe(heroVideo.parentElement);
+      heroObserver.observe(heroVideo.parentElement);
 
-        // Track playback count and replay up to 3 times, then stop
-        heroVideo.addEventListener("ended", () => {
-          playbackCount++;
-          if (playbackCount < 3) {
-            heroVideo.play().catch(() => {
-              /* play blocked (autoplay policy) */
-            });
-          } else {
-            heroVideo.pause();
-            heroVideo.currentTime = 0;
-          }
-        });
-      }
-    </script>
+      // Track playback count and replay up to 3 times, then stop
+      heroVideo.addEventListener("ended", () => {
+        playbackCount++;
+        if (playbackCount < 3) {
+          heroVideo.play().catch(() => {
+            /* play blocked (autoplay policy) */
+          });
+        } else {
+          heroVideo.pause();
+          heroVideo.currentTime = 0;
+        }
+      });
+    }
+  </script>
 
-    <script src="js/animations.js"></script>
-  </body>
+  <script src="js/animations.js"></script>
+</body>
+
 </html>
