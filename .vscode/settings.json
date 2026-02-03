@@ -1,0 +1,26 @@
+{
+  // PHP Configuration
+  "php.validate.enable": true,
+  "php.validate.executablePath": "C:\\xampp\\php\\php.exe",
+
+  // If you don't have XAMPP, download PHP from https://windows.php.net/download/
+  // Then update the path above to where you installed PHP
+  // Common paths:
+  // - "C:\\xampp\\php\\php.exe" (XAMPP)
+  // - "C:\\php\\php.exe" (Manual installation)
+  // - "C:\\wamp64\\bin\\php\\php8.x.x\\php.exe" (WAMP)
+
+  // PHP Intelephense extension settings (if installed)
+  "intelephense.environment.phpVersion": "8.1.0",
+
+  // File associations
+  "files.associations": {
+    "*.php": "php"
+  },
+
+  // Exclude patterns
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true
+  }
+}
