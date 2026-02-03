@@ -183,6 +183,51 @@ html {
   transform: translateX(5px);
   border-color: #cc001b;
 }
+/* Core Values (About page) */
+.core-value-card {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.core-value-icon {
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1rem auto;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 2px solid var(--alaska-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 12px 30px -14px rgba(15, 23, 42, 0.45),
+    0 0 0 6px rgba(204, 0, 27, 0.08);
+}
+
+.core-value-icon::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+  opacity: 1;
+}
+
+.core-value-icon i {
+  position: relative;
+  color: var(--alaska-red);
+  font-size: 1.6rem;
+}
+
+.core-value-card h4 {
+  letter-spacing: 0.18em;
+}
+
+.core-value-card p {
+  line-height: 1.5;
+}
 /* Custom Industrial Theme Styles */
 
 .map-iframe {
