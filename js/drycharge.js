@@ -142,22 +142,30 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function renderThumbnails(data) {
-    if (!thumbGrid) return;
+    const batteryGrid = document.getElementById("battery-grid");
+    if (!batteryGrid) return;
 
     if (data.length === 0) {
-      thumbGrid.innerHTML = `<div class="text-gray-400 font-bold p-4 w-full text-center">No batteries found.</div>`;
+      batteryGrid.innerHTML = `<div class="col-span-full text-gray-400 font-bold p-4 text-center">No batteries found.</div>`;
       return;
     }
 
-    // Show a compact preview row (first 8 items) in the thumb area
-    const preview = data.slice(0, 8);
-    thumbGrid.innerHTML = preview
+    // Sort batteries by model number (ascending)
+    const sortedData = [...data].sort((a, b) => {
+      const numA = parseInt(a.model.match(/\d+/)?.[0] || 0);
+      const numB = parseInt(b.model.match(/\d+/)?.[0] || 0);
+      return numA - numB;
+    });
+
+    // Render all filtered batteries in a grid
+    batteryGrid.innerHTML = sortedData
       .map(
         (b) => `
             <div onclick="window.updateStage('${b.id}', true)" 
-                 class="thumb-card product-thumb cursor-pointer shrink-0 border-2 border-transparent p-2 rounded-md hover:border-gray-200 transition-colors select-none">
-                <img src="${b.image}" alt="${b.model}" class="h-20 w-auto object-contain pointer-events-none">
-                <p class="text-[100%] font-black uppercase mt-2 text-center">${b.model}</p>
+                 class="battery-card cursor-pointer border-2 border-gray-200 p-4 rounded-lg hover:border-[#cc001b] transition-all text-center">
+                <img src="${b.image}" alt="${b.model}" class="h-40 w-auto object-contain mx-auto mb-3">
+                <p class="text-sm font-black uppercase leading-tight">${b.model}</p>
+                <p class="text-xs text-gray-500 mt-1">${b.ah} AH</p>
             </div>`,
       )
       .join("");
@@ -292,25 +300,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const contentMap = {
     All: {
-      img: "assets/solutions/solutions-hero.png",
+      img: "assets/solutions/solutions-hero.jpeg",
       mobile_img: "assets/solutions/mobile/solutions-hero-mobile.png",
       title: 'Dry <span class="text-[#cc001b]">Charge</span>',
       sub: "Pakistan's one & only Graphite Enhanced Lead-Acid Battery.",
     },
     Automotive: {
-      img: "assets/solutions/automotive.png",
+      img: "assets/solutions/automotive.jpeg",
       mobile_img: "assets/solutions/mobile/automotive-mobile.png",
       title: "Automotive",
       sub: "Reliable Power for Every Journey.",
     },
     Solar: {
-      img: "assets/solutions/solar.png",
+      img: "assets/solutions/solar.jpeg",
       mobile_img: "assets/solutions/mobile/solar-mobile.png",
       title: "Solar",
       sub: "Sustainable Energy You can rely on.",
     },
     Industrial: {
-      img: "assets/solutions/industrial.png",
+      img: "assets/solutions/industrial.jpeg",
       mobile_img: "assets/solutions/mobile/industrial-mobile.png",
       title: "Industrial",
       sub: "Built for Heavy Duty Performance.",

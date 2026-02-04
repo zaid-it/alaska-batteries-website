@@ -1,156 +1,96 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dry Charge | Alaska Batteries</title>
-    <link rel="icon" type="image/png" href="assets/favicon.png" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <style>
-      /* Page-scoped overrides to keep hero images under control on mobile */
-      .object-center {
-        object-position: center !important;
-      }
-      .object-cover {
-        object-fit: cover !important;
-      }
-      .w-full {
-        width: 100% !important;
-      }
-    </style>
-  </head>
-  <body class="bg-white">
-    <div id="limit-alert">Select only 2 models to compare</div>
 
-    <div id="header-placeholder"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dry Charge | Alaska Batteries</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Page-scoped overrides to keep hero images under control on mobile */
+    .object-center {
+      object-position: center !important;
+    }
 
-    <main id="top" class="bg-white">
-      <section class="bg-white space-y-2 overflow-hidden group">
-        <div class="relative h-full md:h-full flex flex-col banner-wrapper">
-          <img
-            id="hero-banner-img"
-            src="assets/solutions/solutions-hero.png"
-            data-mobile="assets/solutions/mobile/solutions-hero-mobile.png"
-            alt="Alaska Dry Charge"
-            class="w-full h-full transition-transform duration-1000 group-hover:scale-105" />
-          <div
-            id="hero-text-box"
-            class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[500px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
-            <h1 id="hero-title" class="text-3xl md:text-4xl font-bold uppercase tracking-normal leading-tight text-white">Dry <span class="text-[#cc001b]">Charge</span></h1>
-            <p id="hero-subtitle" class="text-xs md:text-lg font-normal text-white tracking-normal leading-normal mt-1 md:mt-4">Pakistan's one & only Graphite Enhanced Lead-Acid Battery</p>
-          </div>
+    .object-cover {
+      object-fit: cover !important;
+    }
+
+    .w-full {
+      width: 100% !important;
+    }
+  </style>
+</head>
+
+<body class="bg-white">
+  <div id="limit-alert">Select only 2 models to compare</div>
+
+  <div id="header-placeholder"></div>
+
+  <main id="top" class="bg-white">
+    <section class="bg-white space-y-2 overflow-hidden group">
+      <div class="relative h-full md:h-full flex flex-col banner-wrapper">
+        <img id="hero-banner-img" src="assets/solutions/solutions-hero.jpeg"
+          data-mobile="assets/solutions/mobile/solutions-hero-mobile.png" alt="Alaska Dry Charge"
+          class="w-full h-full transition-transform duration-1000 group-hover:scale-105" />
+        <div id="hero-text-box"
+          class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[500px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
+          <h1 id="hero-title" class="text-3xl md:text-4xl font-bold uppercase tracking-normal leading-tight text-white">
+            Dry <span class="text-[#cc001b]">Charge</span></h1>
+          <p id="hero-subtitle"
+            class="text-xs md:text-lg font-normal text-white tracking-normal leading-normal mt-1 md:mt-4">Pakistan's one
+            & only Graphite Enhanced Lead-Acid Battery</p>
         </div>
-      </section>
-      <section id="search-section" class="top-0 z-10 backdrop-blur-xs py-1">
-        <div class="container mx-auto px-6">
-          <div class="bg-white p-4 shadow-xl flex flex-col lg:flex-row gap-6 items-center border border-gray-100">
-            <div class="relative w-full lg:w-1/2 group">
-              <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+      </div>
+    </section>
+    <section id="search-section" class="top-0 z-10 backdrop-blur-xs py-1">
+      <div class="container mx-auto px-6">
+        <div class="bg-white p-4 shadow-xl flex flex-col lg:flex-row gap-6 items-center border border-gray-100">
+          <div class="relative w-full lg:w-1/2 group">
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
 
-              <input
-                type="text"
-                id="batterySearch"
-                placeholder="Search Model, Plates, Amps, Use, Types ..."
-                class="w-full pl-10 pr-12 py-3 bg-gray-50 border-none focus:ring-2 focus:ring-[#cc001b] outline-none text-[100%] tracking-normal"
-                autocomplete="off" />
+            <input type="text" id="batterySearch" placeholder="Search Model, Plates, Amps, Use, Types ..."
+              class="w-full pl-10 pr-12 py-3 bg-gray-50 border-none focus:ring-2 focus:ring-[#cc001b] outline-none text-[100%] tracking-normal"
+              autocomplete="off" />
 
-              <button id="clearSearch" class="hidden absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#cc001b] transition-colors">
-                <i class="fa-solid fa-circle-xmark text-lg"></i>
-              </button>
-
-              <div id="search-suggestions" class="absolute top-full left-0 w-full bg-white shadow-2xl border border-gray-100 hidden mt-1 max-h-60 overflow-y-auto"></div>
-            </div>
-
-            <div class="flex flex-wrap gap-2 lg:ml-auto justify-center lg:justify-end w-full lg:w-1/2">
-              <button class="filter-btn active border-2 border-gray-100 px-6 py-2 text-m uppercase tracking-widest rounded-md transition-all" data-cat="All">All</button>
-              <button class="filter-btn border-2 border-gray-100 px-6 py-2 text-m uppercase tracking-widest hover:border-[#cc001b] rounded-md transition-all" data-cat="Automotive">Automotive</button>
-              <button class="filter-btn border-2 border-gray-100 px-6 py-2 text-m uppercase tracking-widest hover:border-[#cc001b] rounded-md transition-all" data-cat="Solar">Solar</button>
-              <button class="filter-btn border-2 border-gray-100 px-6 py-2 text-m uppercase tracking-widest hover:border-[#cc001b] rounded-md transition-all" data-cat="Industrial">Industrial</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div id="compare-modal" class="fixed inset-0 bg-black/80 z-[200] opacity-0 pointer-events-none transition-opacity duration-300 [&.active]:opacity-100 [&.active]:pointer-events-auto">
-        <div class="absolute inset-0 flex items-center justify-center p-4">
-          <div id="compare-modal-content" class="bg-white w-full max-w-4xl h-[90vh] overflow-y-auto relative p-8 md:p-12 rounded-md shadow-2xl">
-            <button onclick="closeCompareModal()" class="absolute top-6 right-6 text-gray-400 hover:text-black transition-colors">
-              <i class="fa-solid fa-xmark text-2xl"></i>
+            <button id="clearSearch"
+              class="hidden absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#cc001b] transition-colors">
+              <i class="fa-solid fa-circle-xmark text-lg"></i>
             </button>
-            <div id="compare-render-area"></div>
+
+            <div id="search-suggestions"
+              class="absolute top-full left-0 w-full bg-white shadow-2xl border border-gray-100 hidden mt-1 max-h-60 overflow-y-auto">
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 lg:ml-auto justify-center lg:justify-end w-full lg:w-1/2">
+            <button
+              class="filter-btn active border-2 border-gray-100 px-6 py-2 text-m uppercase tracking-widest rounded-md transition-all"
+              data-cat="All">All</button>
+            <button
+              class="filter-btn border-2 border-gray-100 px-6 py-2 text-m uppercase tracking-widest hover:border-[#cc001b] rounded-md transition-all"
+              data-cat="Automotive">Automotive</button>
+            <button
+              class="filter-btn border-2 border-gray-100 px-6 py-2 text-m uppercase tracking-widest hover:border-[#cc001b] rounded-md transition-all"
+              data-cat="Solar">Solar</button>
+            <button
+              class="filter-btn border-2 border-gray-100 px-6 py-2 text-m uppercase tracking-widest hover:border-[#cc001b] rounded-md transition-all"
+              data-cat="Industrial">Industrial</button>
           </div>
         </div>
       </div>
+    </section>
 
-      <section id="details-anchor" class="bg-gray-50 py-2">
-        <div class="container mx-auto px-6">
-          <div id="product-stage" class="flex flex-col lg:flex-row items-center gap-10 bg-white p-8 md:p-12 shadow-xl min-h-[400px]">
-            <div class="w-full lg:w-1/2 flex justify-center">
-              <img id="stage-image" src="" alt="" class="max-h-[350px] w-auto object-contain transition-all duration-500" />
-            </div>
-
-            <div class="w-full lg:w-1/2 text-left">
-              <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
-                <div>
-                  <h2 id="stage-name" class="text-5xl md:text-6xl font-black uppercase tracking-normal leading-none mb-2">Model</h2>
-                  <p id="stage-tech" class="text-[#cc001b] font-bold uppercase text-[100%] tracking-widest">Technology</p>
-                </div>
-                <button
-                  id="stage-compare-btn"
-                  class="border-2 border-[#cc001b] px-6 py-2 text-[100%] rounded-md font-black uppercase hover:bg-[#cc001b] hover:text-white transition-all whitespace-nowrap">
-                  Compare +
-                </button>
-              </div>
-
-              <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 border-t border-[#cc001b] pt-6">
-                <div>
-                  <p class="text-[100%] font-normal text-gray-400 uppercase font-black tracking-widest mb-1">Plates</p>
-                  <p id="stage-plates" class="text-2xl font-bold">--</p>
-                </div>
-                <div>
-                  <p class="text-[100%] font-normal text-gray-400 uppercase font-black tracking-widest mb-1">Voltage</p>
-                  <p id="stage-power" class="text-2xl font-bold">--</p>
-                </div>
-                <div>
-                  <p class="text-[100%] font-normal text-gray-400 uppercase font-black tracking-widest mb-1">Ampere</p>
-                  <p id="stage-ah" class="text-2xl font-bold">--</p>
-                </div>
-                <div>
-                  <p class="text-[100%] font-normal text-gray-400 uppercase font-black tracking-widest mb-1">Warranty</p>
-                  <p id="stage-warranty" class="text-2xl font-bold">--</p>
-                </div>
-              </div>
-
-              <div class="mb-8">
-                <p class="text-[100%] font-normal text-gray-400 uppercase font-black tracking-widest mb-2">Recommended Usage</p>
-                <p id="stage-uses" class="text-base font-normal text-gray-600 leading-relaxed italic">--</p>
-              </div>
-              <div id="stage-tags" class="flex flex-wrap gap-2"></div>
-            </div>
-          </div>
-
-          <div class="relative px-12 md:px-16 mt-2">
-            <div class="flex items-center justify-center">
-              <div class="text-sm text-gray-600 font-black uppercase tracking-wider"></div>
-              <button id="view-all-btn" class="border-2 border-[#cc001b] px-6 py-2 text-[100%] rounded-md font-black uppercase hover:bg-[#cc001b] hover:text-white transition-all whitespace-nowrap">
-                View All
-              </button>
-
-              <div id="thumb-preview" class="hidden md:hidden overflow-hidden">
-                <div id="thumb-grid" class="flex gap-4 overflow-x-auto no-scrollbar items-center py-6 px-4"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <div id="compare-modal" class="fixed inset-0 bg-black/80 z-[200] opacity-0 pointer-events-none transition-opacity duration-300 [&.active]:opacity-100 [&.active]:pointer-events-auto">
+    <div id="compare-modal"
+      class="fixed inset-0 bg-black/80 z-[200] opacity-0 pointer-events-none transition-opacity duration-300 [&.active]:opacity-100 [&.active]:pointer-events-auto">
       <div class="absolute inset-0 flex items-center justify-center p-4">
-        <div id="compare-modal-content" class="bg-white w-full max-w-4xl h-[90vh] overflow-y-auto relative p-8 md:p-12 rounded-3xl shadow-2xl">
-          <button onclick="closeCompareModal()" class="absolute top-6 right-6 text-gray-400 hover:text-black transition-colors">
+        <div id="compare-modal-content"
+          class="bg-white w-full max-w-4xl h-[90vh] overflow-y-auto relative p-8 md:p-12 rounded-md shadow-2xl">
+          <button onclick="closeCompareModal()"
+            class="absolute top-6 right-6 text-gray-400 hover:text-black transition-colors">
             <i class="fa-solid fa-xmark text-2xl"></i>
           </button>
           <div id="compare-render-area"></div>
@@ -158,25 +98,99 @@
       </div>
     </div>
 
-    <div id="gallery-modal" class="fixed inset-0 bg-black/80 z-[210] opacity-0 pointer-events-none transition-opacity duration-300 [&.active]:opacity-100 [&.active]:pointer-events-auto">
-      <div class="absolute inset-0 flex items-start justify-center p-4 pt-12">
-        <div id="gallery-modal-content" class="bg-white w-full max-w-5xl max-h-[85vh] overflow-y-auto relative p-6 rounded-md shadow-2xl">
-          <button
-            onclick="closeGalleryModal()"
-            class="absolute top-6 right-6 bg-[#cc001b] hover:bg-red-800 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all z-50 shadow-lg">
-            <i class="fa-solid fa-xmark text-xl font-bold"></i>
-          </button>
-          <h3 class="text-xl font-black uppercase mb-4">All Models</h3>
-          <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+    <section id="details-anchor" class="bg-gray-50 py-2">
+      <div class="container mx-auto px-6">
+        <div id="product-stage"
+          class="flex flex-col lg:flex-row items-center gap-10 bg-white p-8 md:p-12 shadow-xl min-h-[400px]">
+          <div class="w-full lg:w-1/2 flex justify-center">
+            <img id="stage-image" src="" alt=""
+              class="max-h-[350px] w-auto object-contain transition-all duration-500" />
+          </div>
+
+          <div class="w-full lg:w-1/2 text-left">
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
+              <div>
+                <h2 id="stage-name" class="text-5xl md:text-6xl font-black uppercase tracking-normal leading-none mb-2">
+                  Model</h2>
+                <p id="stage-tech" class="text-[#cc001b] font-bold uppercase text-[100%] tracking-widest">Technology</p>
+              </div>
+              <button id="stage-compare-btn"
+                class="border-2 border-[#cc001b] px-6 py-2 text-[100%] rounded-md font-black uppercase hover:bg-[#cc001b] hover:text-white transition-all whitespace-nowrap">
+                Compare +
+              </button>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 border-t border-[#cc001b] pt-6">
+              <div>
+                <p class="text-[100%] font-normal text-gray-400 uppercase font-black tracking-widest mb-1">Plates</p>
+                <p id="stage-plates" class="text-2xl font-bold">--</p>
+              </div>
+              <div>
+                <p class="text-[100%] font-normal text-gray-400 uppercase font-black tracking-widest mb-1">Voltage</p>
+                <p id="stage-power" class="text-2xl font-bold">--</p>
+              </div>
+              <div>
+                <p class="text-[100%] font-normal text-gray-400 uppercase font-black tracking-widest mb-1">Ampere</p>
+                <p id="stage-ah" class="text-2xl font-bold">--</p>
+              </div>
+              <div>
+                <p class="text-[100%] font-normal text-gray-400 uppercase font-black tracking-widest mb-1">Warranty</p>
+                <p id="stage-warranty" class="text-2xl font-bold">--</p>
+              </div>
+            </div>
+
+            <div class="mb-8">
+              <p class="text-[100%] font-normal text-gray-400 uppercase font-black tracking-widest mb-2">Recommended
+                Usage</p>
+              <p id="stage-uses" class="text-base font-normal text-gray-600 leading-relaxed italic">--</p>
+            </div>
+            <div id="stage-tags" class="flex flex-wrap gap-2"></div>
+          </div>
+        </div>
+
+        <!-- Battery Grid Display -->
+        <div class="mt-8 px-0">
+          <div id="battery-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 py-6"></div>
         </div>
       </div>
+    </section>
+  </main>
+
+  <div id="compare-modal"
+    class="fixed inset-0 bg-black/80 z-[200] opacity-0 pointer-events-none transition-opacity duration-300 [&.active]:opacity-100 [&.active]:pointer-events-auto">
+    <div class="absolute inset-0 flex items-center justify-center p-4">
+      <div id="compare-modal-content"
+        class="bg-white w-full max-w-4xl h-[90vh] overflow-y-auto relative p-8 md:p-12 rounded-3xl shadow-2xl">
+        <button onclick="closeCompareModal()"
+          class="absolute top-6 right-6 text-gray-400 hover:text-black transition-colors">
+          <i class="fa-solid fa-xmark text-2xl"></i>
+        </button>
+        <div id="compare-render-area"></div>
+      </div>
     </div>
+  </div>
 
-    <div id="footer-placeholder"></div>
+  <div id="gallery-modal"
+    class="fixed inset-0 bg-black/80 z-[210] opacity-0 pointer-events-none transition-opacity duration-300 [&.active]:opacity-100 [&.active]:pointer-events-auto">
+    <div class="absolute inset-0 flex items-start justify-center p-4 pt-12">
+      <div id="gallery-modal-content"
+        class="bg-white w-full max-w-5xl max-h-[85vh] overflow-y-auto relative p-6 rounded-md shadow-2xl">
+        <button onclick="closeGalleryModal()"
+          class="absolute top-6 right-6 bg-[#cc001b] hover:bg-red-800 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all z-50 shadow-lg">
+          <i class="fa-solid fa-xmark text-xl font-bold"></i>
+        </button>
+        <h3 class="text-xl font-black uppercase mb-4">All Models</h3>
+        <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+      </div>
+    </div>
+  </div>
 
-    <script src="js/data.js"></script>
-    <script src="js/components.js"></script>
-    <script src="js/drycharge.js"></script>
-    <script src="js/animations.js"></script>
-  </body>
+  <div id="footer-placeholder"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/drycharge.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+
 </html>
