@@ -125,17 +125,25 @@
           </div>
         </div>
 
-        <!-- CTA Section -->
-        <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-8 md:p-12">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div class="flex justify-center lg:justify-start">
-              <img src="assets/technology/tech.png" alt="Graphite Enhanced Technology"
-                class="w-full max-w-md" />
-            </div>
-            <div class="text-center lg:text-left">
-              <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Discover the Science</h3>
-              <a href="graphite.html"
-                class="inline-flex items-center gap-3 bg-[#cc001b] text-white font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-lg">
+        <!-- CTA Banner with left-aligned logo + button -->
+        <div class="rounded-xl overflow-hidden shadow-sm relative">
+          <picture>
+            <source media="(max-width:640px)" srcset="assets/Tech-mob.png" />
+            <img src="assets/technology/tech-banner.png" alt="Graphite Banner" class="w-full h-[320px] md:h-[400px] max-h-[400px] object-contain" />
+          </picture>
+
+          <!-- Mobile-only CTA: overlaid at bottom-center of banner -->
+          <div class="absolute left-0 right-0 bottom-6 flex justify-center sm:hidden px-4">
+            <a href="graphite.html" class="inline-flex justify-center w-auto max-w-[200px] items-center gap-2 bg-[#cc001b] text-white font-bold uppercase tracking-widest text-xs px-3 py-1.5 rounded-md shadow-lg">
+              Learn More <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- Desktop overlay (hidden on small screens). Removed blur effect as requested -->
+          <div class="absolute inset-0 hidden sm:flex items-center">
+            <div class="rounded-lg ml-4 md:ml-8 p-3 md:p-5 max-w-full sm:max-w-sm md:max-w-md mx-4 sm:mx-0 flex flex-col items-center sm:items-start">
+              <img src="assets/technology/tech.png" alt="Graphite Logo" class="h-40 md:h-48 object-contain" />
+              <a href="graphite.html" class="mt-4 inline-flex justify-center w-full sm:w-auto items-center gap-2 bg-[#cc001b] text-white font-bold uppercase tracking-widest text-sm px-4 py-2 rounded-lg">
                 Learn More <i class="fa-solid fa-arrow-right"></i>
               </a>
             </div>
