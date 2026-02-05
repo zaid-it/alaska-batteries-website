@@ -469,6 +469,18 @@ html {
   padding-left: 30px;
 }
 
+/* Dropdown Quote Style */
+.dropdown-quote {
+  display: block;
+  padding: 12px 25px;
+  font-size: 90%;
+  font-weight: 500;
+  font-style: italic;
+  color: black;
+  text-align: center;
+  line-height: 1.5;
+}
+
 /* Ensure the container doesn't force a grid */
 
 #thumb-grid {
