@@ -373,13 +373,14 @@ const dealers = [
 document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("dealerSearch");
   const provinceSelect = document.getElementById("provinceFilter");
-  const citySelect = document.getElementById("cityFilter");
   const dealerList = document.getElementById("dealerList");
   const dealerCount = document.getElementById("dealerCount");
+  const dealerCountDisplay = document.getElementById("dealerCountDisplay");
 
   function renderDealers(data) {
     dealerList.innerHTML = "";
     dealerCount.innerText = data.length;
+    if (dealerCountDisplay) dealerCountDisplay.innerText = data.length;
 
     if (data.length === 0) {
       dealerList.innerHTML = `
@@ -391,42 +392,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
     data.forEach((dealer) => {
       const card = document.createElement("div");
-      card.className = "dealer-card bg-zinc-800 p-6 rounded-lg border-l-4 border-zinc-700 hover:border-[#cc001b] transition-all group cursor-pointer";
+      card.className = "dealer-card bg-white border-2 border-gray-200 p-5 rounded-lg hover:border-[#cc001b] hover:shadow-md transition-all group cursor-pointer";
       card.innerHTML = `
-                <div class="flex justify-between items-start">
-                    <div>
-                        <h4 class="text-white font-bold uppercase tracking-widest text-base mb-1 group-hover:text-[#cc001b]">${dealer.name}</h4>
-                        <p class="text-white text-sm font-semibold uppercase mb-4">${dealer.address}</p>
+                <div class="flex justify-between items-start mb-3">
+                    <div class="flex-1">
+                        <h4 class="text-zinc-900 font-bold uppercase tracking-wide text-sm mb-2 group-hover:text-[#cc001b] transition-colors">${dealer.name}</h4>
+                        <p class="text-gray-600 text-xs font-medium leading-relaxed">${dealer.address}</p>
                     </div>
-                    <span class="text-sm bg-zinc-800 text-[#cc001b] px-2 py-1 font-semibold uppercase">${dealer.province}</span>
+                    <span class="text-xs bg-gray-100 text-[#cc001b] px-3 py-1 rounded-full font-bold uppercase ml-2 whitespace-nowrap">${dealer.province}</span>
                 </div>
-                <div class="flex items-center gap-4">
-                    <a href="tel:${dealer.contact}" class="text-white text-base font-bold uppercase tracking-widest hover:underline">${dealer.contact}</a>
-                    <span class="text-zinc-700">|</span>
-                    <button class="text-[#cc001b] text-base font-semibold uppercase tracking-widest">Get Directions</button>
+                <div class="flex items-center gap-3 pt-3 border-t border-gray-100">
+                    <a href="tel:${dealer.contact}" class="text-zinc-900 text-xs font-bold uppercase tracking-wide hover:text-[#cc001b] transition-colors flex items-center gap-1">
+                        <i class="fa-solid fa-phone text-[10px]"></i>
+                        ${dealer.contact}
+                    </a>
+                    <span class="text-gray-300">|</span>
+                    <button class="text-[#cc001b] text-xs font-semibold uppercase tracking-wide hover:underline">Get Directions</button>
                 </div>
             `;
       dealerList.appendChild(card);
+
+      // Add click handler to update map and scroll
+      card.addEventListener("click", () => {
+        updateMapLocation(dealer.address);
+        scrollToSearchBar();
+      });
     });
   }
 
   function filterDealers() {
     const term = searchInput.value.toLowerCase();
-    const city = citySelect.value;
     const prov = provinceSelect.value;
 
     const filtered = dealers.filter((d) => {
-      const matchesSearch = d.name.toLowerCase().includes(term) || d.address.toLowerCase().includes(term) || d.city.toLowerCase().includes(term);
-      const matchesCity = city === "All" || d.city === city;
+      const matchesSearch = d.name.toLowerCase().includes(term) || d.address.toLowerCase().includes(term) || d.city.toLowerCase().includes(term) || d.province.toLowerCase().includes(term);
       const matchesProv = prov === "All" || d.province === prov;
-      return matchesSearch && matchesCity && matchesProv;
+      return matchesSearch && matchesProv;
     });
 
     renderDealers(filtered);
   }
 
   searchInput.addEventListener("input", filterDealers);
-  citySelect.addEventListener("change", filterDealers);
   provinceSelect.addEventListener("change", filterDealers);
 
   // Clear button and suggestions
@@ -442,7 +449,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const matches = dealers
       .filter((d) => {
-        return d.name.toLowerCase().includes(term) || d.address.toLowerCase().includes(term) || d.city.toLowerCase().includes(term);
+        return d.name.toLowerCase().includes(term) || d.address.toLowerCase().includes(term) || d.city.toLowerCase().includes(term) || d.province.toLowerCase().includes(term);
       })
       .slice(0, 8);
 
@@ -511,6 +518,21 @@ document.addEventListener("DOMContentLoaded", () => {
       suggestionsBox.classList.add("hidden");
     }
   });
+
+  // Update map location function
+  function updateMapLocation(address) {
+    const mapIframe = document.getElementById("dealerMap");
+    const encodedAddress = encodeURIComponent(address);
+    mapIframe.src = `https://maps.google.com/maps?q=${encodedAddress}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+  }
+
+  // Scroll to search bar function
+  function scrollToSearchBar() {
+    const searchSection = document.querySelector(".max-w-7xl");
+    if (searchSection) {
+      searchSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
 
   // Initial load
   renderDealers(dealers);

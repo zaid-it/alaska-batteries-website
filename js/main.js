@@ -49,6 +49,44 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  const faqButtons = document.querySelectorAll(".faq-filter-btn");
+  const faqItems = document.querySelectorAll(".faq-item[data-category]");
+
+  if (faqButtons.length && faqItems.length) {
+    const setFaqCategory = (category) => {
+      faqButtons.forEach((btn) => {
+        const isActive = btn.getAttribute("data-category") === category;
+        btn.classList.toggle("active", isActive);
+      });
+
+      faqItems.forEach((item) => {
+        const matches = item.getAttribute("data-category") === category;
+        item.classList.toggle("hidden", !matches);
+
+        if (!matches) {
+          const content = item.querySelector(".faq-content");
+          const icon = item.querySelector(".faq-trigger i");
+          if (content) {
+            content.style.maxHeight = "0";
+            content.style.opacity = "0";
+          }
+          if (icon) icon.style.transform = "rotate(0deg)";
+        }
+      });
+    };
+
+    faqButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        setFaqCategory(btn.getAttribute("data-category"));
+      });
+    });
+
+    const defaultBtn = document.querySelector(".faq-filter-btn.active") || faqButtons[0];
+    if (defaultBtn) {
+      setFaqCategory(defaultBtn.getAttribute("data-category"));
+    }
+  }
 });
 // Function to show the success message
 function showSuccess() {

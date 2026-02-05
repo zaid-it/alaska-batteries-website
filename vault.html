@@ -1,306 +1,547 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vault | Alaska Batteries</title>
-    <link rel="icon" type="image/png" href="assets/favicon.png" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body class="bg-white">
-    <div id="header-placeholder"></div>
 
-    <main class="bg-white">
-      <section id="blogs" class="border-b border-gray-10 flex items-center justify-center text-center bg-white overflow-hidden group">
-        <div class="relative h-[180px] md:h-[400px] w-full flex flex-col banner-wrapper">
-          <img
-            src="assets/vault/BLOGS.png"
-            data-mobile="assets/vault/mobile/BLOGS-mobile.png"
-            alt="Blogs"
-            class="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105" />
-          <div
-            id="hero-text-box"
-            class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 banner-overlay">
-            <h1 class="text-3xl md:text-7xl font-black uppercase text-left tracking-normal leading-tight text-white">Blogs</h1>
-            <p class="text-xs md:text-2xl font-normal text-white text-left leading-loose mt-1 md:mt-4">Expert Insights on Power & Performance.</p>
-          </div>
-        </div>
-      </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vault | Alaska Batteries</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
 
-      <section class="py-4 border-b border-gray-100 bg-white overflow-hidden">
-        <div class="container mx-auto px-6">
-          <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-4 gap-6">
-            <div class="text-left w-full">
-              <div class="relative w-full lg:w-[calc((100%-40px)/3)] h-12">
-                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none z-30">
-                  <i class="fa-solid fa-magnifying-glass text-gray-400 text-sm"></i>
-                </div>
-                <input
-                  id="blog-search"
-                  onkeyup="filterBlogs()"
-                  type="text"
-                  placeholder="Search articles..."
-                  class="block w-full h-full pl-12 pr-4 bg-gray-50 border border-gray-100 rounded-full text-sm outline-none focus:border-[#cc001b] transition-all" />
-              </div>
-            </div>
-            <!-- scroll buttons moved below the blog list on mobile (see after #blog-scroll-container) -->
-          </div>
+<body class="bg-white">
+  <div id="header-placeholder"></div>
 
-          <div id="blog-scroll-container" class="no-scrollbar">
-            <div class="blog-item original" onclick="openBlogModal('choosing-guide')">
-              <img src="assets/vault/best-battery-blog-1.png" alt="Guide" />
-              <div class="wash-layer"></div>
-              <div class="text-protection"></div>
-              <div class="blog-content">
-                <p class="category-tag">Guide</p>
-                <h4 class="blog-title">Best Battery for Vehicle or Solar</h4>
-              </div>
-            </div>
-            <div class="blog-item original" onclick="openBlogModal('eid-checklist')">
-              <img src="assets/vault/eid-blog-2.png" alt="Travel" />
-              <div class="wash-layer"></div>
-              <div class="text-protection"></div>
-              <div class="blog-content">
-                <p class="category-tag">Travel</p>
-                <h4 class="blog-title">Eid Travel Readiness Checklist</h4>
-              </div>
-            </div>
-            <div class="blog-item original" onclick="openBlogModal('power-saving')">
-              <img src="assets/vault/power-blog-3.png" alt="Maintenance" />
-              <div class="wash-layer"></div>
-              <div class="text-protection"></div>
-              <div class="blog-content">
-                <p class="category-tag">Maintenance</p>
-                <h4 class="blog-title">5 Power-Saving Secrets</h4>
-              </div>
-            </div>
-            <div class="blog-item original" onclick="openBlogModal('storage-tips')">
-              <img src="assets/vault/storing-blog-4.png" alt="Technical" />
-              <div class="wash-layer"></div>
-              <div class="text-protection"></div>
-              <div class="blog-content">
-                <p class="category-tag">Technical</p>
-                <h4 class="blog-title">Storing for Max Lifespan</h4>
-              </div>
-            </div>
-            <div class="blog-item original" onclick="openBlogModal('recycling-guide')">
-              <img src="assets/vault/recycle-blog-5.png" alt="Eco" />
-              <div class="wash-layer"></div>
-              <div class="text-protection"></div>
-              <div class="blog-content">
-                <p class="category-tag">Eco-Friendly</p>
-                <h4 class="blog-title">Battery Recycling Guide</h4>
-              </div>
-            </div>
-            <div class="blog-item original" onclick="openBlogModal('summer-survival')">
-              <img src="assets/vault/summer-blog-6.png" alt="Survival" />
-              <div class="wash-layer"></div>
-              <div class="text-protection"></div>
-              <div class="blog-content">
-                <p class="category-tag">Survival</p>
-                <h4 class="blog-title">Summer Survival Guide</h4>
-              </div>
-            </div>
-          </div>
-          <!-- Mobile: Show scroll buttons under the blog image/list -->
-          <div class="mt-4 md:hidden flex justify-center gap-4">
-            <button onclick="scrollBlogs(-1)" class="h-12 w-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white transition-all">
-              <i class="fa-solid fa-arrow-left"></i>
-            </button>
-            <button onclick="scrollBlogs(1)" class="h-12 w-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white transition-all">
-              <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </div>
-          <!-- Desktop arrows (visible on md+) placed under the blog list for consistent placement -->
-          <div class="hidden md:flex justify-center gap-4 mt-6">
-            <button onclick="scrollBlogs(-1)" class="h-12 w-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white transition-all">
-              <i class="fa-solid fa-arrow-left"></i>
-            </button>
-            <button onclick="scrollBlogs(1)" class="h-12 w-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white transition-all">
-              <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section id="faqs" class="border-b border-gray-10 flex items-center justify-start text-center bg-white overflow-hidden group">
-        <div class="relative h-[180px] md:h-[400px] w-full flex flex-col banner-wrapper">
-          <img
-            src="assets/vault/FAQs.png"
-            data-mobile="assets/vault/mobile/FAQs-mobile.png"
-            alt="FAQs"
-            class="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105" />
-          <div
-            id="hero-text-box"
-            class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
-            <h1 class="text-3xl md:text-7xl font-black uppercase text-left tracking-normal leading-tight text-white">FAQs</h1>
-            <p class="text-xs md:text-2xl font-normal text-left text-white leading-normal mt-1 md:mt-4">Answers to your frequently asked questions.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="py-10 bg-gray-100">
-        <div class="container mx-auto px-6 width:100%">
-          <div class="space-y-4 max-w-full">
-            <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden">
-              <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
-                <h4 class="font-bold text-base tracking-normal text-left">How long does an Alaska Battery last?</h4>
-                <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
-              </button>
-              <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
-                <p class="pb-6 text-gray-500 text-sm leading-relaxed">
-                  Alaska Batteries are built to last between 2 to 4 years, depending on usage, vehicle type, and environmental conditions. With proper care and regular maintenance, you can maximize
-                  performance and extend the battery's lifespan.
-                </p>
-              </div>
-            </div>
-
-            <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden">
-              <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
-                <h4 class="font-bold text-base tracking-normal text-left">How can I extend my battery’s lifespan?</h4>
-                <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
-              </button>
-              <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
-                <p class="pb-6 text-gray-500 text-sm leading-relaxed">
-                  Keep terminals clean, avoid frequent short trips, and check voltage regularly. Store batteries in cool, dry places and disconnect them during long-term vehicle storage. Follow our
-                  Tips & Techniques section for detailed maintenance advice.
-                </p>
-              </div>
-            </div>
-
-            <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden">
-              <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
-                <h4 class="font-bold text-base tracking-normal text-left">What is covered under the warranty?</h4>
-                <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
-              </button>
-              <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
-                <p class="pb-6 text-gray-500 text-sm leading-relaxed">
-                  Our warranty covers manufacturing defects, premature failure, and performance issues under normal usage. Physical damage, overcharging, or improper installation are not covered.
-                  Always retain your purchase receipt and warranty card.
-                </p>
-              </div>
-            </div>
-
-            <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden">
-              <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
-                <h4 class="font-bold text-base tracking-normal text-left">How do I recycle or dispose of an old battery?</h4>
-                <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
-              </button>
-              <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
-                <p class="pb-6 text-gray-500 text-sm leading-relaxed">
-                  You can return your old battery to any authorized Alaska Batteries dealer or partner recycling center. We ensure safe, eco-friendly disposal and even offer discounts on new purchases
-                  when you recycle with us.
-                </p>
-              </div>
-            </div>
-
-            <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden">
-              <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
-                <h4 class="font-bold text-base tracking-normal text-left">Where can I find an authorized Alaska Batteries dealer?</h4>
-                <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
-              </button>
-              <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
-                <p class="pb-6 text-gray-500 text-sm leading-relaxed">
-                  Visit our Find Dealer page or contact our Customer Support to find the nearest authorized Alaska Batteries dealer in your city. Our nationwide network ensures availability and
-                  support across Pakistan.
-                </p>
-              </div>
-            </div>
-
-            <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden">
-              <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
-                <h4 class="font-bold text-base tracking-normal text-left">What is the Warranty Coverage & Claim Process?</h4>
-                <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
-              </button>
-              <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
-                <p class="pb-6 text-gray-500 text-sm leading-relaxed">
-                  Our batteries come with an extended warranty, depending on the product type. To file a claim, present your original receipt and stamped warranty card at any authorized dealer. After
-                  inspection, eligible claims are processed swiftly with repair or replacement.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="gallery" class="flex items-center justify-center text-center bg-white overflow-hidden group border-t border-gray-100">
-        <div class="relative h-[180px] md:h-[400px] w-full flex flex-col banner-wrapper">
-          <img
-            src="assets/vault/Gallery.png"
-            data-mobile="assets/vault/mobile/Gallery-mobile.png"
-            alt="Gallery"
-            class="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105" />
-          <div
-            id="hero-text-box"
-            class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 rounded-lg md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
-            <h1 class="text-3xl md:text-7xl font-black uppercase text-left pt-4 md:pt-0 tracking-normal leading-tight text-white">Gallery</h1>
-          </div>
-        </div>
-      </section>
-      <section class="py-10 bg-black text-white overflow-hidden">
-        <div class="container mx-auto px-6 mb-10">
-          <div class="flex flex-col md:flex-row justify-center items-center md:items-center gap-10">
-            <div class="flex gap-6 border-b border-zinc-800 pb-2 w-full md:w-auto overflow-x-auto justify-center no-scrollbar md:text-4xl">
-              <button
-                onclick="updateGallery('corporate')"
-                class="gallery-filter-btn filter-btn active border-2 border-[#cc001b] px-6 py-2 text-[100%] rounded-md font-bold uppercase hover:bg-[#cc001b] hover:text-white transition-all whitespace-nowrap"
-                data-category="corporate">
-                Corporate
-              </button>
-
-              <button
-                onclick="updateGallery('dealer')"
-                class="gallery-filter-btn filter-btn border-2 border-[#cc001b] px-6 py-2 text-[100%] rounded-md font-bold uppercase hover:bg-[#cc001b] hover:text-white transition-all whitespace-nowrap"
-                data-category="dealer">
-                Dealer
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div id="gallery-rail" class="no-scrollbar"></div>
-      </section>
-
-      <div id="gallery-lightbox" class="fixed inset-0 z-[2000] hidden bg-black/98 flex flex-col items-center justify-center backdrop-blur-xl" onclick="handleLightboxClick(event)">
-        <button onclick="closeLightbox()" class="absolute top-6 right-6 z-[2100] text-white/50 hover:text-white text-5xl font-extralight transition-all">&times;</button>
-
-        <button
-          onclick="prevLightbox()"
-          class="hidden md:flex absolute left-6 top-1/2 -translate-y-1/2 z-[2100] w-14 h-14 items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-white transition-all">
-          <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <button
-          onclick="nextLightbox()"
-          class="hidden md:flex absolute right-6 top-1/2 -translate-y-1/2 z-[2100] w-14 h-14 items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-white transition-all">
-          <i class="fa-solid fa-chevron-right"></i>
-        </button>
-
-        <div id="lightbox-slider" class="w-full h-full flex items-center overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth"></div>
-
-        <div class="absolute bottom-8 text-center pointer-events-none">
-          <p class="text-zinc-500 text-[10px] uppercase tracking-[0.4em] mt-2">Swipe or Use Arrows to Explore</p>
+  <main class="bg-white">
+    <section id="blogs"
+      class="border-b border-gray-10 flex items-center justify-center text-center bg-white overflow-hidden group">
+      <div class="relative h-[180px] md:h-[400px] w-full flex flex-col banner-wrapper">
+        <img src="assets/vault/news.png" data-mobile="assets/vault/mobile/news-mobile.png" alt="News"
+          class="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105" />
+        <div id="hero-text-box"
+          class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 banner-overlay">
+          <h1 class="text-3xl md:text-6xl font-black uppercase text-left tracking-normal leading-tight text-white">News
+            <span class="text-[#cc001b]">Feed</span>
+          </h1>
         </div>
       </div>
-    </main>
+    </section>
 
-    <div id="blog-modal" class="fixed inset-0 z-[1000] hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 md:p-10">
-      <div id="modal-overlay" class="absolute inset-0 bg-black/80 backdrop-blur-md"></div>
-      <div class="relative bg-white w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-3xl shadow-2xl animate-modal-up">
-        <button
-          onclick="closeBlogModal()"
-          class="sticky top-4 float-right mr-4 z-50 bg-zinc-100 w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold hover:bg-[#cc001b] hover:text-white transition-colors">
-          &times;
-        </button>
-        <div id="modal-body" class="p-8 md:p-12"></div>
+    <section class="py-4 border-b border-gray-100 bg-white overflow-hidden">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-4 gap-6">
+          <div class="text-left w-full">
+            <div class="relative w-full lg:w-[calc((100%-40px)/3)] h-12">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none z-30">
+                <i class="fa-solid fa-magnifying-glass text-gray-400 text-sm"></i>
+              </div>
+              <input id="blog-search" onkeyup="filterBlogs()" type="text" placeholder="Search articles..."
+                class="block w-full h-full pl-12 pr-4 bg-gray-50 border border-gray-100 rounded-full text-sm outline-none focus:border-[#cc001b] transition-all" />
+            </div>
+          </div>
+          <!-- scroll buttons moved below the blog list on mobile (see after #blog-scroll-container) -->
+        </div>
+
+        <div id="blog-scroll-container" class="no-scrollbar">
+          <div class="blog-item original" onclick="openBlogModal('choosing-guide')">
+            <img src="assets/vault/best-battery-blog-1.png" alt="Guide" />
+            <div class="wash-layer"></div>
+            <div class="text-protection"></div>
+            <div class="blog-content">
+              <p class="category-tag">Guide</p>
+              <h4 class="blog-title">Best Battery for Vehicle or Solar</h4>
+            </div>
+          </div>
+          <div class="blog-item original" onclick="openBlogModal('eid-checklist')">
+            <img src="assets/vault/eid-blog-2.png" alt="Travel" />
+            <div class="wash-layer"></div>
+            <div class="text-protection"></div>
+            <div class="blog-content">
+              <p class="category-tag">Travel</p>
+              <h4 class="blog-title">Eid Travel Readiness Checklist</h4>
+            </div>
+          </div>
+          <div class="blog-item original" onclick="openBlogModal('power-saving')">
+            <img src="assets/vault/power-blog-3.png" alt="Maintenance" />
+            <div class="wash-layer"></div>
+            <div class="text-protection"></div>
+            <div class="blog-content">
+              <p class="category-tag">Maintenance</p>
+              <h4 class="blog-title">5 Power-Saving Secrets</h4>
+            </div>
+          </div>
+          <div class="blog-item original" onclick="openBlogModal('storage-tips')">
+            <img src="assets/vault/storing-blog-4.png" alt="Technical" />
+            <div class="wash-layer"></div>
+            <div class="text-protection"></div>
+            <div class="blog-content">
+              <p class="category-tag">Technical</p>
+              <h4 class="blog-title">Storing for Max Lifespan</h4>
+            </div>
+          </div>
+          <div class="blog-item original" onclick="openBlogModal('recycling-guide')">
+            <img src="assets/vault/recycle-blog-5.png" alt="Eco" />
+            <div class="wash-layer"></div>
+            <div class="text-protection"></div>
+            <div class="blog-content">
+              <p class="category-tag">Eco-Friendly</p>
+              <h4 class="blog-title">Battery Recycling Guide</h4>
+            </div>
+          </div>
+          <div class="blog-item original" onclick="openBlogModal('summer-survival')">
+            <img src="assets/vault/summer-blog-6.png" alt="Survival" />
+            <div class="wash-layer"></div>
+            <div class="text-protection"></div>
+            <div class="blog-content">
+              <p class="category-tag">Survival</p>
+              <h4 class="blog-title">Summer Survival Guide</h4>
+            </div>
+          </div>
+        </div>
+        <!-- Mobile: Show scroll buttons under the blog image/list -->
+        <div class="mt-4 md:hidden flex justify-center gap-4">
+          <button onclick="scrollBlogs(-1)"
+            class="h-12 w-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white transition-all">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <button onclick="scrollBlogs(1)"
+            class="h-12 w-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white transition-all">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+        <!-- Desktop arrows (visible on md+) placed under the blog list for consistent placement -->
+        <div class="hidden md:flex justify-center gap-4 mt-6">
+          <button onclick="scrollBlogs(-1)"
+            class="h-12 w-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white transition-all">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <button onclick="scrollBlogs(1)"
+            class="h-12 w-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white transition-all">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="faqs"
+      class="border-b border-gray-10 flex items-center justify-start text-center bg-white overflow-hidden group">
+      <div class="relative h-[180px] md:h-[400px] w-full flex flex-col banner-wrapper">
+        <img src="assets/vault/FAQs.png" data-mobile="assets/vault/mobile/FAQs-mobile.png" alt="FAQs"
+          class="w-full h-full object-cover object-center transition-transform duration-1000" />
+        <div id="hero-text-box"
+          class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
+          <h1 class="text-3xl md:text-7xl font-black uppercase text-left tracking-normal leading-tight text-white">FAQs
+          </h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-10 bg-white">
+      <div class="container mx-auto px-6 width:100%">
+        <div class="flex flex-col md:flex-row justify-center items-center md:items-center gap-4 mb-6">
+          <div class="grid grid-cols-3 gap-2 md:gap-4 w-full max-w-xl mx-auto px-2 md:px-0">
+            <button
+              class="faq-filter-btn filter-btn active bg-gray-100 text-zinc-900 px-2 py-2 text-sm md:px-2 md:py-3 md:text-sm rounded-lg font-bold uppercase hover:bg-gray-200 transition-all leading-tight"
+              data-category="battery-selection">
+              Battery Selection
+            </button>
+            <button
+              class="faq-filter-btn filter-btn bg-gray-100 text-zinc-900 px-2 py-2 text-sm md:px-2 md:py-3 md:text-sm rounded-lg font-bold uppercase hover:bg-gray-200 transition-all leading-tight"
+              data-category="battery-care">
+              Battery Care
+            </button>
+            <button
+              class="faq-filter-btn filter-btn bg-gray-100 text-zinc-900 px-2 py-2 text-sm md:px-2 md:py-3 md:text-sm rounded-lg font-bold uppercase hover:bg-gray-200 transition-all leading-tight"
+              data-category="warranty-support">
+              Warranty & Support
+            </button>
+          </div>
+        </div>
+
+        <div class="space-y-4 max-w-full">
+          <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden" data-category="battery-selection">
+            <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
+              <h4 class="font-bold text-base tracking-normal text-left">Which Alaska Batteries model is right for my
+                vehicle?</h4>
+              <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+              <p class="pb-6 text-gray-500 text-sm leading-relaxed">
+                Choose based on recommended capacity (Ah), terminal layout, and physical size for your vehicle. If you
+                share your vehicle, make/model and engine type, an authorized dealer can recommend the correct fit. You
+                can also visit our Solutions page to view the batteries we offer along with their specifications.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden" data-category="battery-selection">
+            <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
+              <h4 class="font-bold text-base tracking-normal text-left">How do I choose the right battery for UPS or
+                backup use?</h4>
+              <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+              <p class="pb-6 text-gray-500 text-sm leading-relaxed">
+                Select by required backup time, load (watts), and charging compatibility. Higher Ah can increase backup
+                time, but the charging setup must support it properly.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden" data-category="battery-selection">
+            <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
+              <h4 class="font-bold text-base tracking-normal text-left">How do I choose the right battery for solar
+                backup?</h4>
+              <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+              <p class="pb-6 text-gray-500 text-sm leading-relaxed">
+                Choose based on daily usage, charge controller settings, and depth-of-discharge needs. Correct sizing
+                improves backup reliability and extends battery life.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden" data-category="battery-selection">
+            <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
+              <h4 class="font-bold text-base tracking-normal text-left">What does AH (Ampere-hour) mean on a battery?
+              </h4>
+              <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+              <p class="pb-6 text-gray-500 text-sm leading-relaxed">
+                AH indicates energy storage capacity. In general: higher AH = longer backup, but correct sizing and
+                charging matter more than just going bigger.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden" data-category="battery-selection">
+            <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
+              <h4 class="font-bold text-base tracking-normal text-left">Can I install a higher AH battery than
+                recommended?</h4>
+              <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+              <p class="pb-6 text-gray-500 text-sm leading-relaxed">
+                Sometimes yes, if space, wiring, and charging output support it. Oversizing without proper charging can
+                lead to undercharging and shorter life.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden" data-category="battery-selection">
+            <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
+              <h4 class="font-bold text-base tracking-normal text-left">How do I confirm battery size and terminal type
+                before buying?</h4>
+              <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+              <p class="pb-6 text-gray-500 text-sm leading-relaxed">
+                Check your existing battery’s size code/dimensions, terminal position, and hold-down type. If unsure,
+                ask dealer for confirmation.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden" data-category="battery-care">
+            <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
+              <h4 class="font-bold text-base tracking-normal text-left">How can I increase battery life in Pakistan’s
+                heat and driving conditions?</h4>
+              <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+              <p class="pb-6 text-gray-500 text-sm leading-relaxed">
+                Keep terminals clean, ensure strong connections, avoid deep discharge, and confirm the charging system
+                is healthy, heat and heavy use require disciplined charging.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden" data-category="battery-care">
+            <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
+              <h4 class="font-bold text-base tracking-normal text-left">What are the warning signs of a weak battery?
+              </h4>
+              <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+              <p class="pb-6 text-gray-500 text-sm leading-relaxed">
+                Slow starting, dim lights, low backup time, or frequent jump-start needs. Get it tested early to avoid
+                sudden failure.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden" data-category="battery-care">
+            <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
+              <h4 class="font-bold text-base tracking-normal text-left">Is it harmful to fully discharge a battery?</h4>
+              <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+              <p class="pb-6 text-gray-500 text-sm leading-relaxed">
+                Yes. Deep discharge reduces capacity and life. Recharge as soon as possible and avoid repeated “complete
+                drain” situations.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden" data-category="battery-care">
+            <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
+              <h4 class="font-bold text-base tracking-normal text-left">Why does my battery lose performance in extreme
+                weather?</h4>
+              <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+              <p class="pb-6 text-gray-500 text-sm leading-relaxed">
+                Heat accelerates internal wear; cold reduces available power temporarily. Correct sizing and proper
+                charging reduce seasonal performance drops.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden" data-category="battery-care">
+            <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
+              <h4 class="font-bold text-base tracking-normal text-left">How often should I charge if usage is low or
+                irregular?</h4>
+              <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+              <p class="pb-6 text-gray-500 text-sm leading-relaxed">
+                Don’t let it sit weak for long. If usage is low, charge periodically to maintain a healthy
+                state-of-charge and prevent early damage.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden" data-category="battery-care">
+            <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
+              <h4 class="font-bold text-base tracking-normal text-left">What should I avoid to prevent battery failure?
+              </h4>
+              <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+              <p class="pb-6 text-gray-500 text-sm leading-relaxed">
+                Avoid loose terminals, low charge for long periods, overloaded backup setups, and using a faulty
+                charger/alternator. These are common causes of early failure.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden" data-category="warranty-support">
+            <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
+              <h4 class="font-bold text-base tracking-normal text-left">How do I claim warranty for Alaska Batteries in
+                Pakistan?</h4>
+              <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+              <p class="pb-6 text-gray-500 text-sm leading-relaxed">
+                Visit an authorized dealer with the battery, warranty card and proof of purchase. The battery will be
+                tested and the warranty process will be guided accordingly.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden" data-category="warranty-support">
+            <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
+              <h4 class="font-bold text-base tracking-normal text-left">Why is filling the warranty card at purchase
+                important?</h4>
+              <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+              <p class="pb-6 text-gray-500 text-sm leading-relaxed">
+                Because it documents purchase date, dealer stamp, battery serial/ID, and customer details, which helps
+                validate warranty quickly and prevents claim delays.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden" data-category="warranty-support">
+            <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
+              <h4 class="font-bold text-base tracking-normal text-left">What should be filled on the warranty card at
+                the time of purchase?</h4>
+              <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+              <p class="pb-6 text-gray-500 text-sm leading-relaxed">
+                At minimum: purchase date, dealer name + stamp, battery model, serial/ID, and customer name/contact.
+                Ensure the dealer completes it before you leave.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden" data-category="warranty-support">
+            <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
+              <h4 class="font-bold text-base tracking-normal text-left">What is usually not covered under warranty?</h4>
+              <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+              <p class="pb-6 text-gray-500 text-sm leading-relaxed">
+                Misuse, physical damage, tampering, incorrect installation, and problems caused by faulty charging
+                systems (over/undercharging) are commonly excluded.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden" data-category="warranty-support">
+            <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
+              <h4 class="font-bold text-base tracking-normal text-left">How can I check if my Alaska Battery is genuine?
+              </h4>
+              <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+              <p class="pb-6 text-gray-500 text-sm leading-relaxed">
+                Buy only from authorized channels, keep the invoice, and ensure warranty documentation is properly
+                completed. If unsure, ask the dealer to verify the battery identification details.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item rounded-lg bg-gray border border-b-4 overflow-hidden" data-category="warranty-support">
+            <button class="faq-trigger w-full p-6 flex justify-between items-center cursor-pointer outline-none">
+              <h4 class="font-bold text-base tracking-normal text-left">What should I do with my old battery?</h4>
+              <i class="fa-solid fa-plus text-[#cc001b] transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content max-h-0 opacity-0 transition-all duration-300 ease-in-out px-6">
+              <p class="pb-6 text-gray-500 text-sm leading-relaxed">
+                Return it to an authorized dealer for safe handling and responsible recovery. This supports proper
+                recycling and safer disposal.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="gallery"
+      class="flex items-center justify-center text-center bg-white overflow-hidden group border-t border-gray-100">
+      <div class="relative h-[180px] md:h-[400px] w-full flex flex-col banner-wrapper">
+        <img src="assets/vault/Gallery.png" data-mobile="assets/vault/mobile/Gallery-mobile.png" alt="Gallery"
+          class="w-full h-full object-cover object-center transition-transform duration-1000" />
+        <div id="hero-text-box"
+          class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 rounded-lg md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
+          <h1
+            class="text-3xl md:text-7xl font-black uppercase text-left pt-4 md:pt-0 tracking-normal leading-tight text-white">
+            Gallery</h1>
+        </div>
+      </div>
+    </section>
+    <section class="px-6 py-8 bg-white text-zinc-900 overflow-hidden border-t border-gray-100">
+      <div class="container mx-auto px-6 mb-2">
+        <div class="flex flex-col md:flex-row justify-center items-center md:items-center gap-8">
+          <div class="flex gap-4 pb-2 w-full md:w-auto overflow-x-auto justify-center no-scrollbar">
+            <button onclick="updateGallery('corporate')"
+              class="gallery-filter-btn filter-btn active bg-gray-100 text-zinc-900 px-6 py-3 text-sm rounded-lg font-bold uppercase hover:bg-gray-200 transition-all whitespace-nowrap"
+              data-category="corporate">
+              Corporate
+            </button>
+
+            <button onclick="updateGallery('dealer')"
+              class="gallery-filter-btn filter-btn bg-gray-100 text-zinc-900 px-8 py-3 text-sm rounded-lg font-bold uppercase hover:bg-gray-200 transition-all whitespace-nowrap"
+              data-category="dealer">
+              Dealer
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desktop Gallery View -->
+      <div id="gallery-rail" class="gallery-scrollbar hidden md:flex"></div>
+
+      <!-- Mobile Gallery View -->
+      <div class="md:hidden">
+        <div id="mobile-gallery-container" class="space-y-4">
+          <!-- Left/Center/Right Layout with side arrows -->
+          <div class="flex items-center">
+            <button onclick="mobilePrevGallery()"
+              class="w-10 h-10 rounded-full bg-white hover:bg-gray-100 transition-all flex items-center justify-center text-zinc-900">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <div class="flex-1 relative h-72 flex items-center justify-between overflow-visible">
+              <div id="mobile-left-image" class="w-[30%] h-40 rounded-lg overflow-hidden cursor-pointer"
+                onclick="handleMobileImageClick(-1)">
+                <img id="mobile-left-img" src="" alt="Left" class="w-full h-full object-cover mobile-side-img">
+              </div>
+              <div id="mobile-feature-image"
+                class="absolute left-1/2 -translate-x-1/2 w-[72%] h-72 rounded-lg overflow-hidden cursor-pointer z-10"
+                onclick="handleMobileImageClick(0)">
+                <img id="mobile-feature-img" src="" alt="Featured"
+                  class="w-full h-full object-cover mobile-feature-img">
+              </div>
+              <div id="mobile-right-image" class="w-[30%] h-40 rounded-lg overflow-hidden cursor-pointer"
+                onclick="handleMobileImageClick(1)">
+                <img id="mobile-right-img" src="" alt="Right" class="w-full h-full object-cover mobile-side-img">
+              </div>
+            </div>
+
+            <button onclick="mobileNextGallery()"
+              class="w-10 h-10 rounded-full bg-white hover:bg-gray-100 transition-all flex items-center justify-center text-zinc-900">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+
+          <div class="text-center text-sm text-gray-500">
+            <span id="mobile-gallery-counter">1</span>/<span id="mobile-gallery-total">8</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="gallery-lightbox"
+      class="fixed inset-0 z-[2000] hidden bg-black/98 flex flex-col items-center justify-center backdrop-blur-xl"
+      onclick="handleLightboxClick(event)">
+      <button onclick="closeLightbox()"
+        class="absolute top-4 right-4 md:top-6 md:right-6 z-[2100] text-white/50 hover:text-white text-4xl md:text-5xl font-extralight transition-all p-2">&times;</button>
+
+      <button onclick="prevLightbox()"
+        class="hidden md:flex absolute left-6 top-1/2 -translate-y-1/2 z-[2100] w-14 h-14 items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-white transition-all">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button onclick="nextLightbox()"
+        class="hidden md:flex absolute right-6 top-1/2 -translate-y-1/2 z-[2100] w-14 h-14 items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-white transition-all">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+
+      <!-- Mobile swipe buttons -->
+      <button onclick="prevLightbox()"
+        class="flex md:hidden absolute left-2 top-1/2 -translate-y-1/2 z-[2100] w-10 h-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-all">
+        <i class="fa-solid fa-chevron-left text-sm"></i>
+      </button>
+      <button onclick="nextLightbox()"
+        class="flex md:hidden absolute right-2 top-1/2 -translate-y-1/2 z-[2100] w-10 h-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-all">
+        <i class="fa-solid fa-chevron-right text-sm"></i>
+      </button>
+
+      <div id="lightbox-slider"
+        class="w-full h-full flex items-center overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth touch-pan-x">
+      </div>
+
+      <div class="absolute bottom-8 text-center pointer-events-none">
+        <p class="text-zinc-500 text-[10px] uppercase tracking-[0.4em] mt-2">Swipe or Use Arrows to Explore</p>
       </div>
     </div>
+  </main>
 
-    <div id="footer-placeholder"></div>
+  <div id="blog-modal"
+    class="fixed inset-0 z-[1000] hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 md:p-10">
+    <div id="modal-overlay" class="absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+    <div
+      class="relative bg-white w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-3xl shadow-2xl animate-modal-up">
+      <button onclick="closeBlogModal()"
+        class="sticky top-4 float-right mr-4 z-50 bg-zinc-100 w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold hover:bg-[#cc001b] hover:text-white transition-colors">
+        &times;
+      </button>
+      <div id="modal-body" class="p-8 md:p-12"></div>
+    </div>
+  </div>
 
-    <script src="js/components.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/gallery.js"></script>
-    <script src="js/animations.js"></script>
-  </body>
+  <div id="footer-placeholder"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+
 </html>
