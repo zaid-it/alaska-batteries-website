@@ -3,6 +3,247 @@ let currentBatteryId = null;
 let compareFirstId = null;
 let lastFiltered = [];
 
+function normalizeUses(uses) {
+  if (!uses) return [];
+  if (Array.isArray(uses)) return uses.filter(Boolean);
+  return String(uses)
+    .split(",")
+    .map((u) => u.trim())
+    .filter(Boolean);
+}
+
+function getUsesText(uses) {
+  const list = normalizeUses(uses);
+  return list.join(", ");
+}
+
+function formatDimensions(dimensions) {
+  if (!dimensions) return "";
+  if (typeof dimensions === "string") return dimensions.trim();
+
+  const length = dimensions.l ?? dimensions.length;
+  const width = dimensions.w ?? dimensions.width;
+  const height = dimensions.h ?? dimensions.height;
+  const unit = dimensions.unit ? ` ${dimensions.unit}` : "";
+
+  if ([length, width, height].some((v) => v === undefined || v === null || v === "")) {
+    return "";
+  }
+
+  return `${length} x ${width} x ${height}${unit}`;
+}
+
+function getBatterySearchText(battery) {
+  const usesText = getUsesText(battery.uses);
+  const dimensionsText = formatDimensions(battery.dimensions);
+  const categoriesText = Array.isArray(battery.categories) ? battery.categories.join(" ") : "";
+
+  return `${battery.model} ${battery.tech} ${battery.ah} ${battery.plates} ${categoriesText} ${usesText} ${dimensionsText}`.toLowerCase();
+}
+
+window.openDimensionsModal = function (battery) {
+  if (!battery || !battery.dimensions) return;
+
+  const dims = battery.dimensions;
+  const length = dims.l || 0;
+  const width = dims.w || 0;
+  const depth = dims.h || 0;
+  const unit = dims.unit || "mm";
+
+  const dimensionsList = document.getElementById("dimensions-list");
+  const dimensions3dImage = document.getElementById("dimensions-3d-image");
+  const dimensionsSvgOverlay = document.getElementById("dimensions-svg-overlay");
+  const modal = document.getElementById("dimensions-modal");
+
+  // Get category for 3D image path
+  const category = battery.categories && battery.categories[0] ? battery.categories[0].toLowerCase() : "automotive";
+  const threeDImagePath = `assets/batteries/${category}/batt-3d.png`;
+
+  if (dimensions3dImage) {
+    dimensions3dImage.src = threeDImagePath;
+
+    // Wait for image to load, then draw dimension lines
+    if (dimensions3dImage.complete) {
+      drawDimensionLines(dimensions3dImage, dimensionsSvgOverlay, length, width, depth, unit);
+    } else {
+      dimensions3dImage.onload = () => {
+        drawDimensionLines(dimensions3dImage, dimensionsSvgOverlay, length, width, depth, unit);
+      };
+    }
+  }
+
+  if (dimensionsList) {
+    dimensionsList.innerHTML = `
+      <div class="dimension-item">
+        <span class="dimension-label">Length:</span>
+        <span class="dimension-value">${length} ${unit}</span>
+      </div>
+      <div class="dimension-item">
+        <span class="dimension-label">Width:</span>
+        <span class="dimension-value">${width} ${unit}</span>
+      </div>
+      <div class="dimension-item">
+        <span class="dimension-label">Height:</span>
+        <span class="dimension-value">${depth} ${unit}</span>
+      </div>
+    `;
+  }
+
+  if (modal) {
+    modal.classList.add("active");
+  }
+};
+
+function drawDimensionLines(imgElement, svgElement, length, width, depth, unit) {
+  if (!svgElement || !imgElement) return;
+
+  const imgWidth = imgElement.offsetWidth;
+  const imgHeight = imgElement.offsetHeight;
+
+  // Clear previous content
+  svgElement.innerHTML = "";
+
+  // Set SVG dimensions
+  svgElement.setAttributeNS(null, "width", imgWidth);
+  svgElement.setAttributeNS(null, "height", imgHeight);
+  svgElement.setAttributeNS(null, "viewBox", `0 0 ${imgWidth} ${imgHeight}`);
+
+  const svgNS = "http://www.w3.org/2000/svg";
+
+  // Define arrow marker for both directions
+  const defs = document.createElementNS(svgNS, "defs");
+
+  const markerStart = document.createElementNS(svgNS, "marker");
+  markerStart.setAttributeNS(null, "id", "arrowhead-start");
+  markerStart.setAttributeNS(null, "markerWidth", "10");
+  markerStart.setAttributeNS(null, "markerHeight", "10");
+  markerStart.setAttributeNS(null, "refX", "0");
+  markerStart.setAttributeNS(null, "refY", "3");
+  markerStart.setAttributeNS(null, "orient", "auto");
+
+  const polygonStart = document.createElementNS(svgNS, "polygon");
+  polygonStart.setAttributeNS(null, "points", "10 0, 0 3, 10 6");
+  polygonStart.setAttributeNS(null, "fill", "#cc001b");
+  markerStart.appendChild(polygonStart);
+  defs.appendChild(markerStart);
+
+  const markerEnd = document.createElementNS(svgNS, "marker");
+  markerEnd.setAttributeNS(null, "id", "arrowhead-end");
+  markerEnd.setAttributeNS(null, "markerWidth", "10");
+  markerEnd.setAttributeNS(null, "markerHeight", "10");
+  markerEnd.setAttributeNS(null, "refX", "9");
+  markerEnd.setAttributeNS(null, "refY", "3");
+  markerEnd.setAttributeNS(null, "orient", "auto");
+
+  const polygonEnd = document.createElementNS(svgNS, "polygon");
+  polygonEnd.setAttributeNS(null, "points", "0 0, 10 3, 0 6");
+  polygonEnd.setAttributeNS(null, "fill", "#cc001b");
+  markerEnd.appendChild(polygonEnd);
+  defs.appendChild(markerEnd);
+
+  svgElement.appendChild(defs);
+
+  // Detect actual battery edges in 3D image
+  const bLeft = imgWidth * 0.18;
+  const bRight = imgWidth * 0.72;
+  const bTop = imgHeight * 0.08;
+  const bBottom = imgHeight * 0.68;
+
+  // LINE 1: HEIGHT (H) - Right edge vertical, offset outside
+  const heightX = bRight + 30;
+  const heightLine = document.createElementNS(svgNS, "line");
+  heightLine.setAttributeNS(null, "x1", heightX);
+  heightLine.setAttributeNS(null, "y1", bTop);
+  heightLine.setAttributeNS(null, "x2", heightX);
+  heightLine.setAttributeNS(null, "y2", bBottom);
+  heightLine.setAttributeNS(null, "stroke", "#cc001b");
+  heightLine.setAttributeNS(null, "stroke-width", "2");
+  heightLine.setAttributeNS(null, "marker-start", "url(#arrowhead-start)");
+  heightLine.setAttributeNS(null, "marker-end", "url(#arrowhead-end)");
+  svgElement.appendChild(heightLine);
+
+  const heightText = document.createElementNS(svgNS, "text");
+  heightText.setAttributeNS(null, "x", heightX + 15);
+  heightText.setAttributeNS(null, "y", (bTop + bBottom) / 2);
+  heightText.setAttributeNS(null, "font-size", "18");
+  heightText.setAttributeNS(null, "font-weight", "bold");
+  heightText.setAttributeNS(null, "fill", "#cc001b");
+  heightText.setAttributeNS(null, "dominant-baseline", "middle");
+  heightText.textContent = "H";
+  svgElement.appendChild(heightText);
+
+  // LINE 2: LENGTH (L) - Bottom diagonal, offset outside bottom edge
+  const lenStartX = bRight;
+  const lenStartY = bBottom + 30;
+  const lenEndX = bLeft - 20;
+  const lenEndY = bBottom + 60;
+
+  const lengthLine = document.createElementNS(svgNS, "line");
+  lengthLine.setAttributeNS(null, "x1", lenStartX);
+  lengthLine.setAttributeNS(null, "y1", lenStartY);
+  lengthLine.setAttributeNS(null, "x2", lenEndX);
+  lengthLine.setAttributeNS(null, "y2", lenEndY);
+  lengthLine.setAttributeNS(null, "stroke", "#cc001b");
+  lengthLine.setAttributeNS(null, "stroke-width", "2");
+  lengthLine.setAttributeNS(null, "marker-start", "url(#arrowhead-start)");
+  lengthLine.setAttributeNS(null, "marker-end", "url(#arrowhead-end)");
+  svgElement.appendChild(lengthLine);
+
+  const lengthText = document.createElementNS(svgNS, "text");
+  lengthText.setAttributeNS(null, "x", (lenStartX + lenEndX) / 8 - 50);
+  lengthText.setAttributeNS(null, "y", (lenStartY + lenEndY) / 4 + 60);
+  lengthText.setAttributeNS(null, "font-size", "18");
+  lengthText.setAttributeNS(null, "font-weight", "bold");
+  lengthText.setAttributeNS(null, "fill", "#cc001b");
+  lengthText.textContent = "L";
+  svgElement.appendChild(lengthText);
+
+  // LINE 3: DEPTH (D) - Left diagonal, offset outside left edge
+  const depStartX = bLeft;
+  const depStartY = bBottom + 30;
+  const depEndX = bLeft - 50;
+  const depEndY = bBottom - 20;
+
+  const depthLine = document.createElementNS(svgNS, "line");
+  depthLine.setAttributeNS(null, "x1", depStartX);
+  depthLine.setAttributeNS(null, "y1", depStartY);
+  depthLine.setAttributeNS(null, "x2", depEndX);
+  depthLine.setAttributeNS(null, "y2", depEndY);
+  depthLine.setAttributeNS(null, "stroke", "#cc001b");
+  depthLine.setAttributeNS(null, "stroke-width", "2");
+  depthLine.setAttributeNS(null, "marker-start", "url(#arrowhead-start)");
+  depthLine.setAttributeNS(null, "marker-end", "url(#arrowhead-end)");
+  svgElement.appendChild(depthLine);
+
+  const depthText = document.createElementNS(svgNS, "text");
+  depthText.setAttributeNS(null, "x", (depStartX + depEndX) / 2 - 15);
+  depthText.setAttributeNS(null, "y", (depStartY + depEndY) / 2 - 10);
+  depthText.setAttributeNS(null, "font-size", "18");
+  depthText.setAttributeNS(null, "font-weight", "bold");
+  depthText.setAttributeNS(null, "fill", "#cc001b");
+  depthText.textContent = "D";
+  svgElement.appendChild(depthText);
+}
+
+window.closeDimensionsModal = function () {
+  const modal = document.getElementById("dimensions-modal");
+  if (modal) {
+    modal.classList.remove("active");
+  }
+  const dimensionsList = document.getElementById("dimensions-list");
+  if (dimensionsList) {
+    dimensionsList.innerHTML = "";
+  }
+  const dimensions3dImage = document.getElementById("dimensions-3d-image");
+  if (dimensions3dImage) {
+    dimensions3dImage.src = "";
+  }
+  const dimensionsSvgOverlay = document.getElementById("dimensions-svg-overlay");
+  if (dimensionsSvgOverlay) {
+    dimensionsSvgOverlay.innerHTML = "";
+  }
+};
+
 // Define updateStage globally so it's ready before DOMContentLoaded triggers
 window.updateStage = function (id, shouldScroll = false) {
   currentBatteryId = id;
@@ -25,8 +266,26 @@ window.updateStage = function (id, shouldScroll = false) {
   if (stagePlates) stagePlates.innerText = battery.plates;
   if (stagePower) stagePower.innerText = battery.p + "V";
   if (stageAh) stageAh.innerText = battery.ah + " AH";
-  if (stageWarranty) stageWarranty.innerText = battery.warranty;
-  if (stageUses) stageUses.innerText = battery.uses;
+  if (stageWarranty) {
+    const rawWarranty = battery.warranty;
+    const normalized = String(rawWarranty ?? "")
+      .trim()
+      .toLowerCase();
+    const noWarrantyValues = new Set(["", "0", "0 month", "0 months", "0 yr", "0 year", "0 years", "n/a", "na", "none", "no", "no warranty"]);
+    const isZeroNumber = normalized !== "" && !Number.isNaN(Number(normalized)) && Number(normalized) === 0;
+    const hasWarranty = !(noWarrantyValues.has(normalized) || isZeroNumber);
+    stageWarranty.innerText = rawWarranty ?? "";
+
+    const warrantyBlock = stageWarranty.parentElement;
+    if (warrantyBlock) {
+      warrantyBlock.style.display = hasWarranty ? "" : "none";
+    }
+  }
+
+  if (stageUses) {
+    const usesText = getUsesText(battery.uses);
+    stageUses.innerText = usesText || "--";
+  }
   if (stageImage) stageImage.src = battery.image;
 
   if (tagsContainer) {
@@ -53,6 +312,27 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector(".filter-btn.active")?.classList.remove("active");
       targetBtn.classList.add("active");
     }
+  }
+
+  // --- DIMENSIONS OVERLAY TOGGLE BUTTON ---
+  const toggleDimensionsBtn = document.getElementById("toggle-dimensions-btn");
+  if (toggleDimensionsBtn) {
+    toggleDimensionsBtn.addEventListener("click", () => {
+      const battery = batteryData.find((b) => b.id === currentBatteryId);
+      if (battery) {
+        window.openDimensionsModal(battery);
+      }
+    });
+  }
+
+  // Close dimensions modal when clicking background
+  const dimensionsModal = document.getElementById("dimensions-modal");
+  if (dimensionsModal) {
+    dimensionsModal.addEventListener("click", (e) => {
+      if (e.target === dimensionsModal) {
+        window.closeDimensionsModal();
+      }
+    });
   }
 
   // --- 2. DRAG TO SCROLL LOGIC (Fixed) ---
@@ -126,7 +406,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const activeCat = document.querySelector(".filter-btn.active")?.getAttribute("data-cat") || "All";
 
     const filtered = batteryData.filter((b) => {
-      const searchStr = `${b.model} ${b.tech} ${b.ah} ${b.plates} ${b.categories.join(" ")}`.toLowerCase();
+      const searchStr = getBatterySearchText(b);
       const matchesSearch = searchStr.includes(term);
       const matchesCat = activeCat === "All" || b.categories.includes(activeCat);
       return matchesSearch && matchesCat;
@@ -240,7 +520,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const matches = batteryData.filter((b) => b.model.toLowerCase().includes(term) || b.ah.toString().includes(term) || b.plates.toString().includes(term)).slice(0, 6);
+    const matches = batteryData.filter((b) => getBatterySearchText(b).includes(term)).slice(0, 6);
 
     if (matches.length > 0) {
       suggestionsBox.innerHTML = matches
@@ -336,10 +616,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const imageSrc = isMobile && data.mobile_img ? data.mobile_img : data.img;
     heroImg.src = imageSrc;
     document.getElementById("hero-title").innerHTML = data.title;
-    subTitle.innerText = data.sub;
+    if (subTitle && data.sub) {
+      subTitle.innerText = data.sub;
+    }
+  }
+
+  function stopAutoScroll() {
+    if (autoScrollInterval) {
+      clearInterval(autoScrollInterval);
+      autoScrollInterval = null;
+    }
   }
 
   function startAutoScroll() {
+    const activeCat = document.querySelector(".filter-btn.active")?.getAttribute("data-cat") || "All";
+    if (activeCat !== "All") {
+      stopAutoScroll();
+      return;
+    }
+
     if (autoScrollInterval) clearInterval(autoScrollInterval);
     autoScrollInterval = setInterval(() => {
       currentIndex = (currentIndex + 1) % categories.length;
@@ -356,7 +651,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (category === "All") {
         startAutoScroll();
       } else {
-        clearInterval(autoScrollInterval);
+        stopAutoScroll();
       }
     });
   });
@@ -401,7 +696,7 @@ window.filterModalList = function () {
   const listArea = document.getElementById("modal-list-results");
   if (!listArea) return;
 
-  const matches = batteryData.filter((b) => b.id !== compareFirstId && (b.model.toLowerCase().includes(term) || b.ah.toString().includes(term) || b.plates.toString().includes(term)));
+  const matches = batteryData.filter((b) => b.id !== compareFirstId && getBatterySearchText(b).includes(term));
 
   listArea.innerHTML = matches
     .map(
@@ -429,6 +724,7 @@ window.executeComparison = function (secondId) {
     { l: "Voltage", k: "p", s: "V" },
     { l: "Ampere", k: "ah", s: " AH" },
     { l: "Warranty", k: "warranty" },
+    { l: "Uses", v: (b) => getUsesText(b.uses) },
   ];
 
   document.getElementById("compare-render-area").innerHTML = `
@@ -448,14 +744,18 @@ window.executeComparison = function (secondId) {
             </div>
             <div class="grid gap-1">
                 ${specs
-                  .map(
-                    (s) => `
+                  .map((s) => {
+                    const leftRaw = s.v ? s.v(b1) : b1[s.k];
+                    const rightRaw = s.v ? s.v(b2) : b2[s.k];
+                    const leftVal = leftRaw === undefined || leftRaw === null || leftRaw === "" ? "--" : `${leftRaw}${s.s || ""}`;
+                    const rightVal = rightRaw === undefined || rightRaw === null || rightRaw === "" ? "--" : `${rightRaw}${s.s || ""}`;
+                    return `
                     <div class="grid grid-cols-3 items-center py-2 border-b border-gray-50">
-                        <span class="font-bold text-2xl text-center">${b1[s.k]}${s.s || ""}</span>
+                        <span class="font-bold text-base md:text-2xl text-center">${leftVal}</span>
                         <span class="text-[100%] font-bold uppercase text-gray-600 text-center tracking-tighter">${s.l}</span>
-                        <span class="font-bold text-2xl text-center text-[#cc001b]">${b2[s.k]}${s.s || ""}</span>
-                    </div>`,
-                  )
+                        <span class="font-bold text-base md:text-2xl text-center text-[#cc001b]">${rightVal}</span>
+                    </div>`;
+                  })
                   .join("")}
             </div>
         </div>
@@ -470,8 +770,8 @@ window.closeCompareModal = () => {
 
 // FIX: CLICK OUTSIDE MODAL TO CLOSE
 window.addEventListener("click", (e) => {
-  const modal = document.getElementById("compare-modal");
-  if (modal && modal.classList.contains("active") && e.target === modal.firstElementChild) {
+  const compareModal = document.getElementById("compare-modal");
+  if (compareModal && compareModal.classList.contains("active") && e.target === compareModal.firstElementChild) {
     window.closeCompareModal();
   }
 });

@@ -29,14 +29,14 @@ const headerHTML = /* HTML */ `
               <a href="dealers.html" class="nav-link">Dealer</a>
               <div class="dropdown-panel">
                 <a href="dealers.html" class="dropdown-item">Find a Dealer</a>
-                <a href="become-dealer.html" class="dropdown-item">Apply to be a Dealer</a>
+                <a href="become-dealer.html" class="dropdown-item">Become a Dealer</a>
               </div>
             </li>
 
             <li class="nav-item">
               <a href="vault.html" class="nav-link">Vault</a>
               <div class="dropdown-panel">
-                <a href="vault.html#blogs" class="dropdown-item">Blog</a>
+                <a href="vault.html#blogs" class="dropdown-item">News Feed</a>
                 <a href="vault.html#faqs" class="dropdown-item">FAQ</a>
                 <a href="vault.html#gallery" class="dropdown-item">Gallery</a>
               </div>
@@ -264,7 +264,7 @@ function setupMobileMenu() {
       <a href="become-dealer.html" class="px-4 py-4 text-[15px] font-semibold text-white  transition-colors">Become a Dealer</a>
     `,
     "vault-sub": `
-      <a href="vault.html#blogs" class="px-4 py-4 text-[15px] font-semibold text-white  transition-colors">Blogs</a>
+      <a href="vault.html#blogs" class="px-4 py-4 text-[15px] font-semibold text-white  transition-colors">News Feed</a>
       <a href="vault.html#faqs" class="px-4 py-4 text-[15px] font-semibold text-white  transition-colors">FAQs</a>
       <a href="vault.html#gallery" class="px-4 py-4 text-[15px] font-semibold text-white  transition-colors">Gallery</a>
     `,

@@ -11,7 +11,8 @@ const batteryData = [
     tech: "Graphite Enhanced Lead-Acid Battery",
     image: "assets/batteries/automotive/a55.png",
     categories: ["Automotive"], // Fixed filters
-    uses: "Small Hatchbacks, Generators",
+    uses: ["Small Hatchbacks, Generators", "800cc to 1200cc Cars"], // Updated uses
+    dimensions: { l: 200, w: 150, h: 190, unit: "mm" }, // Added dimensions
   },
   {
     id: "2",
@@ -127,7 +128,7 @@ const batteryData = [
     plates: 5,
     ah: 50,
     p: 12,
-    warranty: "6 Months",
+    warranty: "0",
     tech: "Graphite Enhanced Lead-Acid Battery",
     image: "assets/batteries/solar/s50.png",
     categories: ["Solar"],

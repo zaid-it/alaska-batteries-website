@@ -25,23 +25,23 @@
   </style>
 </head>
 
-<body class="bg-white text-zinc-800 antialiased selection:bg-[#cc001b] px-2 selection:text-white">
-  <main>
-    <div id="header-placeholder"></div>
-    <section class="bg-white border-b border-gray-50 flex items-center justify-center text-center">
-      <div class="w-full flex items-center justify-center border-t-8 border-gray-100 banner-wrapper">
-        <img src="assets/technology/tech-hero.png" data-mobile="assets/mobile/tech-mobile.png" alt="Dry Charge"
-          class="max-h-[700px] md:max-h-[800px] transform group-hover:scale-105 transition-transform duration-700" />
+<body class="bg-white">
+  <div id="header-placeholder"></div>
+
+  <main id="top" class="bg-white">
+    <section class="bg-white space-y-2 overflow-hidden group">
+      <div class="relative h-full md:h-full flex flex-col banner-wrapper">
+        <img id="hero-banner-img" src="assets/technology/tech-hero.png" data-mobile="assets/mobile/tech-mobile.png"
+          alt="Graphite Technology" class="w-full h-full transition-transform duration-1000" />
         <div id="hero-text-box"
-          class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[500px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
-          <h1 id="hero-title"
-            class="text-xl md:text-6xl font-bold uppercase text-left tracking-tight leading-normal text-white">Graphite
-            <br />
-            Technology
-          </h1>
+          class="absolute top-20 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[500px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 overflow-hidden banner-overlay">
+          <h1 id="hero-title" class="text-3xl md:text-6xl font-bold uppercase tracking-normal leading-tight text-white">
+            Graphite <br /> Technology</h1>
         </div>
       </div>
     </section>
+
+
     <section class="py-4 min-h-screen">
       <div id="lang-toggle-btn"
         class="fixed top-20 right-4 z-50 opacity-0 pointer-events-none transition-all duration-300">
@@ -76,9 +76,11 @@
                   <h3 class="text-xs md:text-xl font-black uppercase">ADVANCED PLATE COMPOSITION</h3>
                 </div>
                 <ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed">
-                  <li>Traditional batteries use <b>lead-antimony or lead-calcium grids</b> that degrade faster due to
+                  <li>Traditional batteries use <b>lead-antimony or lead-calcium grids</b> that degrade faster due
+                    to
                     sulfation.</li>
-                  <li><b>Graphite Lead-Acid</b> batteries incorporate <b>Graphite</b>, reducing sulfation and increasing
+                  <li><b>Graphite Lead-Acid</b> batteries incorporate <b>Graphite</b>, reducing sulfation and
+                    increasing
                     efficiency.</li>
                 </ul>
                 <div class="mt-auto pt-3 border-t border-gray-100">
@@ -94,9 +96,11 @@
                   <h3 class="text-xs md:text-xl font-bold">جدید پلیٹ کمپوزیشن</h3>
                 </div>
                 <ul class="space-y-2 list-none pr-4 border-r-2 border-zinc-100 text-sm md:text-xl leading-relaxed">
-                  <li>روایتی بیٹریاں لیڈ-اینٹیمونی یا کیلشیم گرڈ استعمال کرتی ہیں جو <b>سلفیشن کی وجہ سے جلدی خراب</b>
+                  <li>روایتی بیٹریاں لیڈ-اینٹیمونی یا کیلشیم گرڈ استعمال کرتی ہیں جو <b>سلفیشن کی وجہ سے جلدی
+                      خراب</b>
                     ہو جاتی ہیں۔</li>
-                  <li>گریفائٹ لیڈ ایسڈ بیٹریاں، میں گریفائٹ شامل ہیں، جس سے <b>سلفیشن کم ہوتی ہے اور کارکردگی بہتر ہوتی
+                  <li>گریفائٹ لیڈ ایسڈ بیٹریاں، میں گریفائٹ شامل ہیں، جس سے <b>سلفیشن کم ہوتی ہے اور کارکردگی بہتر
+                      ہوتی
                       ہے</b>۔</li>
                 </ul>
                 <div class="mt-auto pt-3 border-t border-gray-100">
@@ -117,7 +121,8 @@
                   <h3 class="text-xs md:text-xl font-black uppercase">ENERGY EFFICIENCY & HEAT</h3>
                 </div>
                 <ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed">
-                  <li>Traditional batteries generate <b>more heat and waste energy</b> due to high internal resistance.
+                  <li>Traditional batteries generate <b>more heat and waste energy</b> due to high internal
+                    resistance.
                   </li>
                   <li>Graphite Lead-Acid models have <b>lower internal resistance</b>, keeping temperatures low and
                     performance high.</li>
@@ -135,9 +140,11 @@
                   <h3 class="text-xs md:text-xl font-bold">اخراجِ توانائی کی کارکردگی اور حرارت</h3>
                 </div>
                 <ul class="space-y-2 list-none pr-4 border-r-2 border-zinc-100 text-sm md:text-lg leading-relaxed">
-                  <li>روایتی بیٹریاں <b>زیادہ حرارت پیدا کرتی ہیں اور توانائی ضائع کرتی ہیں</b> کیونکہ ان میں اندرونی
+                  <li>روایتی بیٹریاں <b>زیادہ حرارت پیدا کرتی ہیں اور توانائی ضائع کرتی ہیں</b> کیونکہ ان میں
+                    اندرونی
                     مزاحمت زیادہ ہوتی ہے۔</li>
-                  <li>گریفائٹ لیڈ ایسڈ بیٹریاں <b>کم اندرونی مزاحمت</b> رکھتی ہیں، جس سے درجہ حرارت کم اور کارکردگی بہتر
+                  <li>گریفائٹ لیڈ ایسڈ بیٹریاں <b>کم اندرونی مزاحمت</b> رکھتی ہیں، جس سے درجہ حرارت کم اور کارکردگی
+                    بہتر
                     رہتی ہے۔</li>
                 </ul>
                 <div class="mt-auto pt-3 border-t border-gray-100">
@@ -158,7 +165,8 @@
                   <h3 class="text-xs md:text-xl font-black uppercase">CHARGE ACCEPTANCE & SPEED</h3>
                 </div>
                 <ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed">
-                  <li>Normal Lead Acid batteries charge <b>slower</b> and struggle in <b>partial state-of-charge (PSoC)
+                  <li>Normal Lead Acid batteries charge <b>slower</b> and struggle in <b>partial state-of-charge
+                      (PSoC)
                       conditions</b>.</li>
                   <li>Graphite Lead Acid batteries <b>absorb current much faster</b>, ideal for <b>modern stop-start
                       vehicle systems</b>.</li>
@@ -176,9 +184,11 @@
                   <h3 class="text-xs md:text-xl font-bold">بہترین چارج قبولیت اور تیز چارجنگ</h3>
                 </div>
                 <ul class="space-y-2 list-none pr-4 border-r-2 border-zinc-100 text-sm md:text-lg leading-relaxed">
-                  <li>عام لیڈ ایسڈ بیٹریاں <b>آہستہ چارج ہوتی ہیں</b> اور جزوی چارج کی حالت میں <b>مشکلات کا سامنا</b>
+                  <li>عام لیڈ ایسڈ بیٹریاں <b>آہستہ چارج ہوتی ہیں</b> اور جزوی چارج کی حالت میں <b>مشکلات کا
+                      سامنا</b>
                     کرتی ہیں۔</li>
-                  <li>گریفائٹ لیڈ ایسڈ بیٹریاں کرنٹ کو <b>زیادہ تیزی سے جذب</b> کرتی ہیں، جو جدید اسٹارٹ-اسٹاپ وہیکلز کے
+                  <li>گریفائٹ لیڈ ایسڈ بیٹریاں کرنٹ کو <b>زیادہ تیزی سے جذب</b> کرتی ہیں، جو جدید اسٹارٹ-اسٹاپ
+                    وہیکلز کے
                     لیے مثالی ہیں۔</li>
                 </ul>
                 <div class="mt-auto pt-3 border-t border-gray-100">
@@ -236,8 +246,10 @@
                   <h3 class="text-xs md:text-xl font-black uppercase">CYCLE LIFE & LONGEVITY</h3>
                 </div>
                 <ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed">
-                  <li>Standard batteries last <b>300-500 cycles</b>, while graphite-enhanced versions last <b>600-1000+
-                      cycles</b>.</li>
+                  <li>Standard batteries last <b>300-500 cycles</b>, while graphite-enhanced versions last
+                    <b>600-1000+
+                      cycles</b>.
+                  </li>
                   <li>Graphite slows down sulfate buildup, preserving battery health.</li>
                 </ul>
                 <div class="mt-auto pt-3 border-t border-gray-100">
@@ -276,7 +288,8 @@
                 </div>
                 <ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed">
                   <li>Traditional Lead-Acid batteries are best for <b>low-drain uses</b> like motorcycles.</li>
-                  <li>Graphite batteries excel in: Stop-Start Vehicles, Solar Energy Storage, Hybrid System & Industrial
+                  <li>Graphite batteries excel in: Stop-Start Vehicles, Solar Energy Storage, Hybrid System &
+                    Industrial
                     Use.</li>
                 </ul>
 
@@ -327,17 +340,18 @@
           </div>
         </div>
       </div>
-
-      <!-- Tech Modal -->
-      <div id="techmodal" class="techmodal-overlay">
-        <div class="techmodal-box">
-          <span class="techmodal-close">&times;</span>
-          <iframe id="techmodal-iframe" width="100%" height="420" src="" frameborder="0"
-            allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
     </section>
   </main>
+
+  <!-- Tech Modal - Outside main for proper fixed positioning -->
+  <div id="techmodal" class="techmodal-overlay">
+    <div class="techmodal-box">
+      <span class="techmodal-close">&times;</span>
+      <iframe id="techmodal-iframe" width="100%" height="420" src="" frameborder="0" allow="autoplay; encrypted-media"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+
   <div id="footer-placeholder"></div>
   <script src="js/components.js"></script>
   <script src="js/main.js"></script>

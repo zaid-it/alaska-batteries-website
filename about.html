@@ -10,9 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    #hero-text-box.banner-overlay {
-      top: 150px !important;
-    }
+
   </style>
 </head>
 
@@ -20,27 +18,27 @@
   <div id="header-placeholder"></div>
   <main>
     <section class="bg-white space-y-2 overflow-hidden group">
-      <div class="relative h-[220px] md:h-[420px] w-full flex flex-col banner-wrapper overflow-hidden">
-        <img src="assets/about-2.png" data-mobile="assets/mobile/about-mobile.png" alt="About Us"
-          class="w-full h-full object-cover object-center transition-transform duration-1000" />
-      </div>
-      <div id="hero-text-box"
-        class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 banner-overlay">
-        <h1 class="text-2xl md:text-7xl text-left font-bold uppercase tracking-tighter leading-tight text-white">The
-          Plant</h1>
+      <div class="relative h-full md:h-full flex flex-col banner-wrapper">
+        <img id="hero-banner-img" src="assets/about-2.png" data-mobile="assets/mobile/about-mobile.png" alt="About Us"
+          class="w-full h-full" />
+        <div id="hero-text-box"
+          class="absolute top-20 w-[200px] h-[55px] rounded-r-md left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[500px] md:h-[150px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
+          <h1 id="hero-title" class="text-3xl md:text-6xl font-bold uppercase tracking-normal leading-tight text-white">
+            About Us</h1>
+        </div>
       </div>
     </section>
 
     <section class="py-10 border-b border-gray-50">
       <div class="container mx-auto px-6">
-        <div class="flex flex-col md:flex-row gap-6">
+        <div class="flex flex-col md:flex-row">
           <div class="w-full md:w-1/2 justify-center items-center flex">
             <div class="relative">
-              <img src="assets/mgmt.png" alt="Management"
+              <img src="assets/mgmt.jpeg" alt="Management"
                 class="w-full max-w-[560px] h-auto md:h-[560px] object-cover rounded-lg shadow-2xl" />
             </div>
           </div>
-          <div class="w-full justify-start items-start md:w-1/2">
+          <div class="w-full justify-start items-start py-20 md:w-1/2">
             <h2 class="text-4xl font-black uppercase tracking-tighter mb-6">Message from <br /><span
                 class="text-[#cc001b]">The Management</span></h2>
             <div class="space-y-4 text-gray-600 leading-relaxed font-medium italic">
@@ -67,16 +65,15 @@
           <!-- Vision Card -->
           <div>
             <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100 h-full">
-              <div class="flex items-start gap-5 mb-6">
+              <div class="flex items-start gap-5">
                 <div class="flex-1">
-                  <h2 class="text-6xl md:text-7xl font-bold text-[#cc001b] uppercase tracking-wider">Our Vision</h2>
+                  <h2 class="text-4xl font-black uppercase tracking-tighter mb-6 text-center text-[#cc001b]">Our Vision
+                  </h2>
                 </div>
               </div>
-              <h2 class="text-3xl md:text-4xl font-bold mb-5 text-gray-900 leading-tight">To be the Industrial Leader
-              </h2>
-              <p class="text-gray-600 leading-relaxed text-lg">
-                We aim to revolutionize the sustainable energy sector through innovation, superior quality, and
-                eco-conscious practices that empower a brighter future for communities and industry.
+              <p class="text-gray-600 leading-relaxed text-lg text-justify">
+                To be Pakistan’s most trusted power storage solutions brand, enabling uninterrupted mobility, work, and
+                everyday life through dependable performance and responsible innovation.
               </p>
             </div>
           </div>
@@ -86,15 +83,14 @@
             <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100 h-full">
               <div class="flex items-start gap-5 mb-6">
                 <div class="flex-1">
-                  <h2 class="text-6xl md:text-7xl font-bold text-[#cc001b] uppercase tracking-wider">Our Mission</h2>
+                  <h2 class="text-4xl font-black uppercase tracking-tighter text-center text-[#cc001b]">Our Mission</h2>
                 </div>
               </div>
-              <h2 class="text-3xl md:text-4xl font-bold mb-5 text-gray-900 leading-tight">Deliver High-Performance
-                Solutions</h2>
-              <p class="text-gray-600 leading-relaxed text-lg">
-                To manufacture and deliver high-performance automotive and solar solutions while fostering long-term
-                partnerships, offering strong warranties, and leading in sustainable
-                manufacturing.
+
+              <p class="text-gray-600 leading-relaxed text-lg text-justify">
+                We deliver reliable power solutions designed for Pakistan’s real conditions, so customers get consistent
+                performance and
+                dependable backup.
               </p>
             </div>
           </div>
@@ -105,58 +101,137 @@
           <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-10 md:p-12">
             <!-- Header -->
             <div class="mb-12">
-              <h2 class="text-6xl md:text-7xl text-center font-bold text-[#cc001b] mb-4">Our Core Values</h2>
-              <p class="text-gray-600 text-lg text-center leading-relaxed">
-                At Alaska Batteries, values drive everything we build—from product design to after-sales support. These
+              <h2 class="text-4xl font-black uppercase tracking-tighter mb-6 text-[#cc001b] text-center">Our Core Values
+              </h2>
+              <p class="text-gray-600 text-lg text-justify md:text-center leading-relaxed">
+                At Alaska Batteries, values drive everything we build from product design to after-sales support. These
                 principles guide our decisions and define who we are.
               </p>
             </div>
 
             <!-- Values Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6">
-              <!-- Value 1: Integrity -->
+              <!-- Value 1: Customer Trust -->
               <div class="text-center core-value-card">
                 <div class="core-value-icon">
-                  <i class="fa-solid fa-shield-halved"></i>
+                  <i class="fa-solid fa-user-check"></i>
                 </div>
-                <h4 class="text-lg font-bold text-gray-900 uppercase tracking-wider mb-2">Integrity</h4>
-                <p class="text-sm text-gray-600">Honest dealings in all business relationships</p>
+                <h4 class="text-base font-bold text-gray-900 uppercase tracking-wider mb-2">Customer Trust</h4>
+
               </div>
 
-              <!-- Value 2: Innovation -->
+              <!-- Value 2: Uncompromising Quality -->
               <div class="text-center core-value-card">
                 <div class="core-value-icon">
-                  <i class="fa-solid fa-lightbulb"></i>
+                  <i class="fa-solid fa-gem"></i>
                 </div>
-                <h4 class="text-lg font-bold text-gray-900 uppercase tracking-wider mb-2">Innovation</h4>
-                <p class="text-sm text-gray-600">Continuous improvement and advancement</p>
+                <h4 class="text-base font-bold text-gray-900 uppercase tracking-wider mb-2">Uncompromising Quality</h4>
+
               </div>
 
-              <!-- Value 3: Sustainability -->
-              <div class="text-center core-value-card">
-                <div class="core-value-icon">
-                  <i class="fa-solid fa-leaf"></i>
-                </div>
-                <h4 class="text-lg font-bold text-gray-900 uppercase tracking-wider mb-2">Sustainability</h4>
-                <p class="text-sm text-gray-600">Environmental responsibility in all aspects</p>
-              </div>
-
-              <!-- Value 4: Customer First -->
+              <!-- Value 3: Integrity & Fair Dealing -->
               <div class="text-center core-value-card">
                 <div class="core-value-icon">
                   <i class="fa-solid fa-handshake"></i>
                 </div>
-                <h4 class="text-lg font-bold text-gray-900 uppercase tracking-wider mb-2">Customer First</h4>
-                <p class="text-sm text-gray-600">Your satisfaction is our priority</p>
+                <h4 class="text-base font-bold text-gray-900 uppercase tracking-wider mb-2">Integrity & Fair Dealing
+                </h4>
+
               </div>
 
-              <!-- Value 5: Excellence -->
+              <!-- Value 4: Service Excellence -->
               <div class="text-center core-value-card">
+                <div class="core-value-icon">
+                  <i class="fa-solid fa-award"></i>
+                </div>
+                <h4 class="text-base font-bold text-gray-900 uppercase tracking-wider mb-2">Service Excellence</h4>
+
+              </div>
+
+              <!-- Value 5: Ownership -->
+              <div class="text-center core-value-card">
+                <div class="core-value-icon">
+                  <i class="fa-solid fa-crown"></i>
+                </div>
+                <h4 class="text-base font-bold text-gray-900 uppercase tracking-wider mb-2">Ownership</h4>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Row 3: Awards & Certifications -->
+        <div class="w-full mt-16">
+          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-10 md:p-12">
+            <!-- Header -->
+            <div class="mb-12">
+              <h2 class="text-4xl font-black uppercase tracking-tighter mb-6 text-[#cc001b] text-center">Awards &
+                Certifications
+              </h2>
+
+            </div>
+
+            <!-- Awards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+              <!-- Award 1 -->
+              <div
+                class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300 text-center">
+                <div class="core-value-icon">
+                  <i class="fa-solid fa-trophy"></i>
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 uppercase tracking-widest mb-2">Best Emerging Brand of the
+                  Year Award 2025</h3>
+
+              </div>
+
+
+              <!-- Award 2 -->
+              <div
+                class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300 text-center">
+                <div class="core-value-icon">
+                  <i class="fa-solid fa-certificate"></i>
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 uppercase tracking-widest mb-2">ISO Certified</h3>
+
+              </div>
+
+              <!-- Award 3 -->
+              <div
+                class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300 text-center">
+                <div class="core-value-icon">
+                  <i class="fa-solid fa-earth"></i>
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 uppercase tracking-widest mb-2">Environmental</h3>
+
+              </div>
+
+              <!-- Award 4 -->
+              <div
+                class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300 text-center">
+                <div class="core-value-icon">
+                  <i class="fa-solid fa-medal"></i>
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 uppercase tracking-widest mb-2">Quality Excellence</h3>
+
+              </div>
+
+              <!-- Award 5 -->
+              <div
+                class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300 text-center">
                 <div class="core-value-icon">
                   <i class="fa-solid fa-star"></i>
                 </div>
-                <h4 class="text-lg font-bold text-gray-900 uppercase tracking-wider mb-2">Excellence</h4>
-                <p class="text-sm text-gray-600">World-class quality in everything</p>
+                <h3 class="text-lg font-bold text-gray-900 uppercase tracking-widest mb-2">Customer Choice</h3>
+
+              </div>
+
+              <!-- Award 6 -->
+              <div
+                class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300 text-center">
+                <div class="core-value-icon">
+                  <i class="fa-solid fa-leaf"></i>
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 uppercase tracking-widest mb-2">Green Initiative</h3>
+
               </div>
             </div>
           </div>
