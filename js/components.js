@@ -71,7 +71,7 @@ const footerHTML = /* HTML */ `
       <div class="flex flex-col md:flex-row md:justify-around gap-8 items-center md:items-start mb-8">
         <!-- Logo Column -->
         <div class="flex justify-center md:justify-start">
-          <img src="assets/technology/tech.png" alt="Graphite Technology" class="w-[250px] h-auto" />
+          <img src="assets/technology/tech.png" alt="Graphite Technology" class="h-14 md:h-16 w-auto object-contain" />
         </div>
 
         <!-- Address Column -->
@@ -193,7 +193,7 @@ function setupMobileMenu() {
       class="absolute top-0 right-0 h-full w-full max-w-[320px] bg-white shadow-2xl translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col">
       <div class="flex justify-between items-center p-6 border-b border-gray-100">
         <a href="index.html">
-          <img src="assets/logo.png" alt="Alaska Logo" class="h-10 w-auto object-contain" />
+          <img src="assets/logo.png" alt="Alaska Logo" class="h-14 md:h-16 w-auto object-contain" />
         </a>
         <button id="close-mobile" class="text-zinc-500 hover:text-black transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -240,7 +240,7 @@ function setupMobileMenu() {
 
       <div class="flex justify-between items-center p-6 border-b border-gray-100">
         <a href="index.html">
-          <img src="assets/technology/tech.png" alt="Tech Logo" class="h-10 w-auto object-contain" />
+          <img src="assets/technology/tech.png" alt="Tech Logo" class="h-14 md:h-16 w-auto object-contain" />
         </a>
       </div>
     </div>

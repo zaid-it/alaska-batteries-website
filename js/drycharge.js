@@ -303,25 +303,21 @@ document.addEventListener("DOMContentLoaded", () => {
       img: "assets/solutions/solutions-hero.jpeg",
       mobile_img: "assets/solutions/mobile/solutions-hero-mobile.png",
       title: 'Dry <span class="text-[#cc001b]">Charge</span>',
-      sub: "Pakistan's one & only Graphite Enhanced Lead-Acid Battery.",
     },
     Automotive: {
       img: "assets/solutions/automotive.jpeg",
       mobile_img: "assets/solutions/mobile/automotive-mobile.png",
       title: "Automotive",
-      sub: "Reliable Power for Every Journey.",
     },
     Solar: {
       img: "assets/solutions/solar.jpeg",
       mobile_img: "assets/solutions/mobile/solar-mobile.png",
       title: "Solar",
-      sub: "Sustainable Energy You can rely on.",
     },
     Industrial: {
       img: "assets/solutions/industrial.jpeg",
       mobile_img: "assets/solutions/mobile/industrial-mobile.png",
       title: "Industrial",
-      sub: "Built for Heavy Duty Performance.",
     },
   };
 

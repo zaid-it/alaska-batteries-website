@@ -28,69 +28,10 @@ const galleryData = {
   ],
 };
 
-function updateGallery(category) {
-  const rail = document.getElementById("gallery-rail");
-  const btns = document.querySelectorAll(".gallery-filter-btn");
-  if (!rail) return;
-
-  // Update Tabs (both gallery-specific and generic filter-btn active state)
-  btns.forEach((btn) => {
-    const isActive = btn.getAttribute("data-category") === category;
-    btn.classList.toggle("active-tab", isActive);
-    if (btn.classList.contains("filter-btn")) btn.classList.toggle("active", isActive);
-  });
-
-  // Clear and Fill
-  rail.innerHTML = "";
-  galleryData[category].forEach((item) => {
-    const card = document.createElement("div");
-    card.className = "gallery-card flex-none";
-    card.onclick = () => openLightbox(item.src);
-
-    card.innerHTML = `
-            <img src="${item.src}" alt="${item.title}" onerror="this.src='https://placehold.co/600x800/111/fff?text=Image'">
-            <div class="gallery-overlay"></div>
-            
-        `;
-
-    card.onmousedown = (e) => {
-      card.dataset.mouseDownX = e.clientX;
-    };
-    card.onmouseup = (e) => {
-      const delta = Math.abs(e.clientX - (card.dataset.mouseDownX || 0));
-      // If the mouse moved more than 5 pixels, don't open the modal
-      if (delta < 5) {
-        openLightbox(index);
-      }
-    };
-    rail.appendChild(card);
-  });
-
-  // Reset scroll to start
-  rail.scrollTo({ left: 0, behavior: "smooth" });
-}
-
-// Lightbox logic
-function openLightbox(src, title) {
-  const modal = document.getElementById("gallery-lightbox");
-  document.getElementById("lightbox-img").src = src;
-  document.getElementById("lightbox-title").innerText = title;
-  modal.classList.remove("hidden");
-  document.body.style.overflow = "hidden";
-}
-
-function closeLightbox() {
-  document.getElementById("gallery-lightbox").classList.add("hidden");
-  document.body.style.overflow = "auto";
-}
-
-// Close on Escape key
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeLightbox();
-});
-
-document.addEventListener("DOMContentLoaded", () => updateGallery("corporate"));
 let currentCategoryImages = [];
+let currentMobileGalleryIndex = 0;
+let currentLightboxIndex = 0;
+let isMobileLightbox = false;
 
 function updateGallery(category) {
   const rail = document.getElementById("gallery-rail");
@@ -99,6 +40,7 @@ function updateGallery(category) {
 
   // Update Global Cache for the slider
   currentCategoryImages = galleryData[category];
+  currentMobileGalleryIndex = 0; // Reset mobile gallery index
 
   // Update Tab UI (also mirror to .filter-btn.active for consistent styling)
   btns.forEach((btn) => {
@@ -120,30 +62,65 @@ function updateGallery(category) {
         `;
     rail.appendChild(card);
   });
+
+  // Update mobile gallery
+  updateMobileGallery();
 }
 
 function openLightbox(index) {
   const modal = document.getElementById("gallery-lightbox");
   const slider = document.getElementById("lightbox-slider");
 
-  slider.innerHTML = currentCategoryImages
-    .map(
-      (item) => `
+  currentLightboxIndex = index;
+  isMobileLightbox = window.innerWidth < 768;
+
+  if (isMobileLightbox) {
+    renderMobileLightboxSlide();
+  } else {
+    slider.innerHTML = currentCategoryImages
+      .map(
+        (item) => `
         <div class="lightbox-slide">
             <img src="${item.src}" alt="${item.title}" draggable="false">
         </div>
     `,
-    )
-    .join("");
+      )
+      .join("");
+  }
 
   modal.classList.remove("hidden");
   document.body.style.overflow = "hidden";
 
   // Use requestAnimationFrame to wait for the browser to render the modal
   requestAnimationFrame(() => {
-    const slideWidth = slider.clientWidth;
-    slider.scrollLeft = index * slideWidth;
+    if (!isMobileLightbox) {
+      const slideWidth = slider.clientWidth;
+      slider.scrollLeft = index * slideWidth;
+    }
     updateLightboxTitle(index);
+  });
+}
+
+function renderMobileLightboxSlide() {
+  const slider = document.getElementById("lightbox-slider");
+  const item = currentCategoryImages[currentLightboxIndex];
+  if (!item) return;
+
+  let img = document.getElementById("lightbox-mobile-img");
+  if (!img) {
+    slider.innerHTML = `
+      <div class="lightbox-slide">
+          <img id="lightbox-mobile-img" class="lightbox-mobile-img" src="${item.src}" alt="${item.title}" draggable="false">
+      </div>
+    `;
+    return;
+  }
+
+  img.classList.add("is-fading");
+  requestAnimationFrame(() => {
+    img.src = item.src;
+    img.alt = item.title || "";
+    img.onload = () => img.classList.remove("is-fading");
   });
 }
 
@@ -155,6 +132,7 @@ document.getElementById("lightbox-slider").addEventListener("scroll", function (
 
 function updateLightboxTitle(index) {
   const titleElem = document.getElementById("lightbox-title");
+  if (!titleElem) return;
   if (currentCategoryImages[index]) {
     titleElem.innerText = currentCategoryImages[index].title;
   }
@@ -162,11 +140,23 @@ function updateLightboxTitle(index) {
 
 // Navigation Controls
 function nextLightbox() {
+  if (isMobileLightbox) {
+    currentLightboxIndex = (currentLightboxIndex + 1) % currentCategoryImages.length;
+    renderMobileLightboxSlide();
+    updateLightboxTitle(currentLightboxIndex);
+    return;
+  }
   const slider = document.getElementById("lightbox-slider");
   slider.scrollBy({ left: slider.offsetWidth, behavior: "smooth" });
 }
 
 function prevLightbox() {
+  if (isMobileLightbox) {
+    currentLightboxIndex = (currentLightboxIndex - 1 + currentCategoryImages.length) % currentCategoryImages.length;
+    renderMobileLightboxSlide();
+    updateLightboxTitle(currentLightboxIndex);
+    return;
+  }
   const slider = document.getElementById("lightbox-slider");
   slider.scrollBy({ left: -slider.offsetWidth, behavior: "smooth" });
 }
@@ -227,9 +217,27 @@ slider.addEventListener("mousemove", (e) => {
   slider.scrollLeft = scrollLeft - walk;
 });
 
-// Touch Support (for hybrid laptops)
-slider.addEventListener("touchstart", () => {
+// Touch Support (for hybrid laptops + mobile swipe)
+let touchStartX = 0;
+let touchEndX = 0;
+
+slider.addEventListener("touchstart", (e) => {
   slider.style.scrollBehavior = "smooth";
+  touchStartX = e.changedTouches[0].screenX;
+});
+
+slider.addEventListener("touchend", (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+  if (!isMobileLightbox) return;
+
+  const delta = touchStartX - touchEndX;
+  if (Math.abs(delta) < 30) return;
+
+  if (delta > 0) {
+    nextLightbox();
+  } else {
+    prevLightbox();
+  }
 });
 /**
  * Universal Kinetic Scroll Logic
@@ -277,8 +285,144 @@ function enableKineticScroll(containerId) {
   ele.addEventListener("mousedown", mouseDownHandler);
 }
 
-// Initialize for both components
 document.addEventListener("DOMContentLoaded", () => {
+  updateGallery("corporate");
   enableKineticScroll("gallery-rail");
   enableKineticScroll("lightbox-slider");
+  updateMobileGallery();
 });
+
+/**
+ * Mobile Gallery Functions
+ */
+function updateMobileGallery() {
+  const featureImg = document.getElementById("mobile-feature-img");
+  const leftImg = document.getElementById("mobile-left-img");
+  const rightImg = document.getElementById("mobile-right-img");
+  const counter = document.getElementById("mobile-gallery-counter");
+  const total = document.getElementById("mobile-gallery-total");
+
+  const images = currentCategoryImages;
+  const totalCount = images.length;
+
+  if (!featureImg || !leftImg || !rightImg || totalCount === 0) return;
+
+  // Set feature image with smooth fade
+  featureImg.classList.add("is-fading");
+  requestAnimationFrame(() => {
+    featureImg.src = images[currentMobileGalleryIndex].src;
+    featureImg.onerror = () => (featureImg.src = "https://placehold.co/600x800/111/fff?text=Image");
+    featureImg.onload = () => featureImg.classList.remove("is-fading");
+  });
+
+  // Set left/right images
+  const prevIndex = (currentMobileGalleryIndex - 1 + totalCount) % totalCount;
+  const nextIndex = (currentMobileGalleryIndex + 1) % totalCount;
+
+  leftImg.classList.add("is-fading");
+  rightImg.classList.add("is-fading");
+
+  requestAnimationFrame(() => {
+    leftImg.src = images[prevIndex].src;
+    rightImg.src = images[nextIndex].src;
+
+    leftImg.onerror = () => (leftImg.src = "https://placehold.co/400x600/111/fff?text=Image");
+    rightImg.onerror = () => (rightImg.src = "https://placehold.co/400x600/111/fff?text=Image");
+
+    leftImg.onload = () => leftImg.classList.remove("is-fading");
+    rightImg.onload = () => rightImg.classList.remove("is-fading");
+  });
+
+  // Update counter
+  counter.innerText = currentMobileGalleryIndex + 1;
+  total.innerText = totalCount;
+}
+
+function mobileNextGallery() {
+  const totalCount = currentCategoryImages.length;
+  currentMobileGalleryIndex = (currentMobileGalleryIndex + 1) % totalCount;
+  updateMobileGallery();
+}
+
+function mobilePrevGallery() {
+  const totalCount = currentCategoryImages.length;
+  currentMobileGalleryIndex = (currentMobileGalleryIndex - 1 + totalCount) % totalCount;
+  updateMobileGallery();
+}
+
+function handleMobileImageClick(offset) {
+  // Ignore click if it happened right after a swipe
+  if (Date.now() - lastSwipeTime < 300) {
+    return;
+  }
+
+  const totalCount = currentCategoryImages.length;
+  let clickedIndex = currentMobileGalleryIndex + offset;
+  clickedIndex = ((clickedIndex % totalCount) + totalCount) % totalCount;
+  openLightbox(clickedIndex);
+}
+
+/**
+ * Mobile Featured Image Swipe Support
+ */
+let lastSwipeTime = 0;
+
+function initMobileFeaturedImageSwipe() {
+  const featureContainer = document.getElementById("mobile-feature-image");
+  if (!featureContainer) return;
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let isSwiping = false;
+
+  featureContainer.addEventListener(
+    "touchstart",
+    (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      isSwiping = false;
+    },
+    { passive: true },
+  );
+
+  featureContainer.addEventListener(
+    "touchmove",
+    (e) => {
+      const touchCurrentX = e.changedTouches[0].screenX;
+      const delta = Math.abs(touchStartX - touchCurrentX);
+
+      // If moved more than 10px, consider it a swipe
+      if (delta > 10) {
+        isSwiping = true;
+      }
+    },
+    { passive: true },
+  );
+
+  featureContainer.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const delta = touchStartX - touchEndX;
+
+    // If it was a swipe (moved > 50px)
+    if (isSwiping && Math.abs(delta) > 50) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      lastSwipeTime = Date.now();
+
+      if (delta > 0) {
+        // Swiped left - go to next image
+        mobileNextGallery();
+      } else {
+        // Swiped right - go to previous image
+        mobilePrevGallery();
+      }
+    }
+  });
+}
+
+// Initialize swipe support after DOM is ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initMobileFeaturedImageSwipe);
+} else {
+  initMobileFeaturedImageSwipe();
+}
