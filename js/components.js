@@ -46,6 +46,9 @@ const headerHTML = /* HTML */ `
 
             <li class="nav-item">
               <a href="about.html" class="nav-link">About Us</a>
+              <div class="dropdown-panel">
+                <div class="dropdown-quote">Find the mind behind Alaska Batteries</div>
+              </div>
             </li>
 
             <li class="nav-item">
