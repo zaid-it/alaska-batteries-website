@@ -46,7 +46,7 @@
 
         <div id="blog-scroll-container" class="no-scrollbar">
           <div class="blog-item original" onclick="openBlogModal('choosing-guide')">
-            <img src="assets/vault/best-battery-blog-1.png" alt="Guide" />
+            <img src="assets/vault/blogs/best-battery-blog-1.png" alt="Guide" loading="lazy" />
             <div class="wash-layer"></div>
             <div class="text-protection"></div>
             <div class="blog-content">
@@ -55,7 +55,7 @@
             </div>
           </div>
           <div class="blog-item original" onclick="openBlogModal('eid-checklist')">
-            <img src="assets/vault/eid-blog-2.png" alt="Travel" />
+            <img src="assets/vault/blogs/eid-blog-2.png" alt="Travel" loading="lazy" />
             <div class="wash-layer"></div>
             <div class="text-protection"></div>
             <div class="blog-content">
@@ -64,7 +64,7 @@
             </div>
           </div>
           <div class="blog-item original" onclick="openBlogModal('power-saving')">
-            <img src="assets/vault/power-blog-3.png" alt="Maintenance" />
+            <img src="assets/vault/blogs/power-blog-3.png" alt="Maintenance" loading="lazy" />
             <div class="wash-layer"></div>
             <div class="text-protection"></div>
             <div class="blog-content">
@@ -72,31 +72,31 @@
               <h4 class="blog-title">5 Power-Saving Secrets</h4>
             </div>
           </div>
-          <div class="blog-item original" onclick="openBlogModal('storage-tips')">
-            <img src="assets/vault/storing-blog-4.png" alt="Technical" />
+          <div class="blog-item original" onclick="openBlogModal('ebike-accessories')">
+            <img src="assets/vault/blogs/storing-blog-4.png" alt="E-Bike Guide" loading="lazy" />
             <div class="wash-layer"></div>
             <div class="text-protection"></div>
             <div class="blog-content">
-              <p class="category-tag">Technical</p>
-              <h4 class="blog-title">Storing for Max Lifespan</h4>
+              <p class="category-tag">E-Bike Guide</p>
+              <h4 class="blog-title">Best E-Bike Accessories for Seniors</h4>
             </div>
           </div>
-          <div class="blog-item original" onclick="openBlogModal('recycling-guide')">
-            <img src="assets/vault/recycle-blog-5.png" alt="Eco" />
+          <div class="blog-item original" onclick="openBlogModal('ebike-repairs')">
+            <img src="assets/vault/blogs/recycle-blog-5.png" alt="E-Bike Repair" loading="lazy" />
             <div class="wash-layer"></div>
             <div class="text-protection"></div>
             <div class="blog-content">
-              <p class="category-tag">Eco-Friendly</p>
-              <h4 class="blog-title">Battery Recycling Guide</h4>
+              <p class="category-tag">E-Bike Repair</p>
+              <h4 class="blog-title">DIY E-Bike Electrical Repairs</h4>
             </div>
           </div>
-          <div class="blog-item original" onclick="openBlogModal('summer-survival')">
-            <img src="assets/vault/summer-blog-6.png" alt="Survival" />
+          <div class="blog-item original" onclick="openBlogModal('ebike-charging')">
+            <img src="assets/vault/blogs/summer-blog-6.png" alt="E-Bike Tips" loading="lazy" />
             <div class="wash-layer"></div>
             <div class="text-protection"></div>
             <div class="blog-content">
-              <p class="category-tag">Survival</p>
-              <h4 class="blog-title">Summer Survival Guide</h4>
+              <p class="category-tag">E-Bike Tips</p>
+              <h4 class="blog-title">Top 5 E-Bike Charging Mistakes</h4>
             </div>
           </div>
         </div>
@@ -421,7 +421,7 @@
         <div id="hero-text-box"
           class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 rounded-lg md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
           <h1
-            class="text-3xl md:text-7xl font-black uppercase text-left pt-4 md:pt-0 tracking-normal leading-tight text-white">
+            class="text-3xl md:text-7xl font-black uppercase text-left md:pt-0 tracking-normal leading-tight text-white">
             Gallery</h1>
         </div>
       </div>
@@ -524,17 +524,247 @@
   </main>
 
   <div id="blog-modal"
-    class="fixed inset-0 z-[1000] hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 md:p-10">
-    <div id="modal-overlay" class="absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+    class="fixed inset-0 z-[1000] hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-3 md:p-6 lg:p-10 overflow-hidden">
+    <div id="modal-overlay" class="absolute inset-0 bg-black/85 backdrop-blur-sm"></div>
     <div
-      class="relative bg-white w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-3xl shadow-2xl animate-modal-up">
+      class="relative bg-white w-full max-w-3xl max-h-[90vh] overflow-y-auto overflow-x-hidden rounded-2xl md:rounded-3xl shadow-2xl transform transition-transform duration-300 scale-95">
       <button onclick="closeBlogModal()"
-        class="sticky top-4 float-right mr-4 z-50 bg-zinc-100 w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold hover:bg-[#cc001b] hover:text-white transition-colors">
+        class="sticky top-3 md:top-4 float-right mr-3 md:mr-4 z-50 bg-zinc-100 w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center text-2xl font-bold hover:bg-[#cc001b] hover:text-white transition-all shadow-md hover:shadow-lg">
         &times;
       </button>
-      <div id="modal-body" class="p-8 md:p-12"></div>
+      <div id="modal-body" class="p-6 md:p-10 lg:p-12 clear-both overflow-x-hidden"></div>
     </div>
   </div>
+
+  <style>
+    /* Blog Modal Improvements */
+    #blog-modal.active {
+      opacity: 1;
+    }
+
+    #blog-modal.active>div:nth-child(2) {
+      transform: scale(1);
+    }
+
+    /* Enhanced Typography for Blog Content */
+    .blog-content h1,
+    .blog-content h2,
+    .blog-content h3,
+    .blog-content h4,
+    .blog-content h5,
+    .blog-content h6 {
+      color: #18181b;
+      font-weight: 800;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .blog-content h2 {
+      font-size: 1.75rem;
+      border-left: 4px solid #cc001b;
+      padding-left: 1rem;
+      text-transform: uppercase;
+    }
+
+    .blog-content h3 {
+      font-size: 1.5rem;
+      color: #27272a;
+    }
+
+    .blog-content h4 {
+      font-size: 1.25rem;
+      color: #3f3f46;
+    }
+
+    .blog-content p {
+      margin-bottom: 1.25rem;
+      line-height: 1.8;
+      color: #52525b;
+      font-size: 1rem;
+    }
+
+    .blog-content ul,
+    .blog-content ol {
+      margin: 1.5rem 0;
+      padding-left: 1.75rem;
+    }
+
+    .blog-content li {
+      margin-bottom: 0.75rem;
+      line-height: 1.7;
+      color: #52525b;
+    }
+
+    .blog-content strong {
+      color: #27272a;
+      font-weight: 700;
+    }
+
+    .blog-content a {
+      color: #cc001b;
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+
+    .blog-content a:hover {
+      color: #a00016;
+    }
+
+    .blog-content img {
+      border-radius: 1rem;
+      margin: 2rem 0;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .blog-content blockquote {
+      border-left: 4px solid #cc001b;
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-style: italic;
+      color: #3f3f46;
+      background: #fef2f2;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+    }
+
+    .blog-content code {
+      background: #f4f4f5;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+      font-size: 0.9em;
+      color: #cc001b;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .blog-content pre {
+      background: #f4f4f5;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      max-width: 100%;
+    }
+
+    .blog-content pre code {
+      background: transparent;
+      padding: 0;
+      word-wrap: normal;
+      overflow-wrap: normal;
+    }
+
+    .blog-content table {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      display: block;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+
+    .blog-content table th,
+    .blog-content table td {
+      padding: 0.75rem;
+      border: 1px solid #e4e4e7;
+      text-align: left;
+    }
+
+    .blog-content table th {
+      background: #f4f4f5;
+      font-weight: 700;
+    }
+
+    /* Prevent Horizontal Overflow */
+    .blog-content * {
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .blog-content {
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-word;
+    }
+
+    .blog-content iframe,
+    .blog-content video {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Modal Container - Prevent Overflow */
+    #modal-body {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    #blog-modal>div:nth-child(2) {
+      overflow-x: hidden;
+    }
+
+    /* Mobile Optimizations */
+    @media (max-width: 768px) {
+      .blog-content h2 {
+        font-size: 1.5rem;
+      }
+
+      .blog-content h3 {
+        font-size: 1.25rem;
+      }
+
+      .blog-content p {
+        font-size: 0.95rem;
+      }
+
+      #blog-modal {
+        align-items: flex-start;
+      }
+
+      #modal-body {
+        padding-top: 3rem !important;
+      }
+
+      .blog-content pre {
+        font-size: 0.85rem;
+        padding: 0.75rem;
+      }
+
+      .blog-content table {
+        font-size: 0.85rem;
+      }
+    }
+
+    /* Smooth Scrolling */
+    #blog-modal>div:nth-child(2) {
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    /* Custom Scrollbar for Blog Modal */
+    #blog-modal>div:nth-child(2)::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    #blog-modal>div:nth-child(2)::-webkit-scrollbar-track {
+      background: #f4f4f5;
+      border-radius: 10px;
+    }
+
+    #blog-modal>div:nth-child(2)::-webkit-scrollbar-thumb {
+      background: #cc001b;
+      border-radius: 10px;
+    }
+
+    #blog-modal>div:nth-child(2)::-webkit-scrollbar-thumb:hover {
+      background: #a00016;
+    }
+  </style>
 
   <div id="footer-placeholder"></div>
 

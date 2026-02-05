@@ -124,16 +124,12 @@ document.querySelectorAll("form").forEach((form) => {
 // Code for Blog Modal
 
 const blogData = {
-  /* HTML */
   "choosing-guide": {
-    title: "How to Select the Best Battery for Your Vehicle or Solar System",
-    category: "Detailed Guide",
+    title: "How to Choose the Best Battery for Your Vehicle or Solar System",
+    category: "Guide",
+    image: "assets/vault/blogs/best-battery-blog-1.png",
     content: `
-      <div class="mb-8 rounded-2xl overflow-hidden shadow-lg border border-zinc-100">
-        <img src="assets/blog1-header.png" class="w-full object-cover" alt="Optimal Battery Selection Guide">
-      </div>
-
-      <p class="text-lg text-zinc-600 mb-8 leading-relaxed">
+      <p class="text-base md:text-lg text-zinc-700 mb-6 leading-relaxed line-height-loose">
         Choosing the right battery matters — whether it’s for your car, bike, home solar system, or industrial setup. At Alaska Batteries, we offer automotive, solar & energy storage, and industrial/commercial batteries designed for Pakistan’s climate and conditions. Here’s a detailed guide to help you choose the right one.
       </p>
 
@@ -243,61 +239,100 @@ const blogData = {
     `,
   },
   "eid-checklist": {
-    title: "Eid Travel Readiness: Complete Battery Checklist",
+    title: "Don't Let Eid Travel Leave You Stranded - Complete Battery Readiness Checklist",
     category: "Travel",
+    image: "assets/vault/blogs/eid-blog-2.png",
     content: `
-      <p class="text-gray-600 mb-4">Eid-ul-Azha is a time for joy, but unexpected battery failure can ruin the trip. Follow these simple steps before hitting the highway:</p>
-      <ul class="list-disc pl-5 space-y-2 text-gray-600">
-        <li>Clean terminals to ensure optimal power flow.</li>
-        <li>Check voltage (12.4V and above is ideal).</li>
-        <li>Inspect for swelling or fluid leaks.</li>
-      </ul>
-      <p class="mt-4 font-bold text-[#cc001b]">Alaska Tip: Graphite batteries recharge 2x faster during short breaks.</p>`,
+      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-6 italic border-l-4 border-[#cc001b] pl-4">Start your Eid journey with a few simple steps:</h3>
+      
+      <div class="bg-zinc-50 p-8 rounded-2xl mb-10 border-l-4 border-[#cc001b]">
+        <p class="mb-4 text-lg font-bold text-zinc-900">Pre-Travel Battery Checklist:</p>
+        <ul class="space-y-3 text-base text-zinc-700">
+          <li class="flex items-start gap-3">
+            <span class="text-[#cc001b] font-bold text-xl">1.</span>
+            <span><strong>Clean your battery terminals</strong> to ensure optimal power flow</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-[#cc001b] font-bold text-xl">2.</span>
+            <span><strong>Check voltage</strong> (12.4V and above is ideal)</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-[#cc001b] font-bold text-xl">3.</span>
+            <span><strong>Inspect for physical wear or damage</strong> like swelling, fluid leaks, or damaged casing</span>
+          </li>
+        </ul>
+      </div>
+
+      <h4 class="text-xl font-black uppercase text-[#cc001b] mb-4">Here's where Alaska Graphite Batteries take the lead.</h4>
+      
+      <p class="text-base md:text-lg text-zinc-700 mb-8 leading-relaxed">
+        Built for high demand and long routes, they <strong class="text-[#cc001b]">recharge 2x faster</strong> than conventional batteries, letting you regain lost charge quickly during short breaks at petrol pumps or rest stops. The added heat resistance and durability ensure you're ready for every kind of terrain — from scorching highways to high-altitude chill.
+      </p>
+
+      <div class="bg-zinc-900 text-white p-8 rounded-3xl mb-10 shadow-2xl border-t-4 border-[#cc001b]">
+        <h4 class="text-xl font-black uppercase mb-4 italic">A reliable battery means no delays, no compromises,</h4>
+        <p class="text-base leading-relaxed mb-6">
+          and no ruining what should be a joyful experience. By the end of the day, it is the <strong class="text-[#cc001b]">peace of mind</strong> you need for a stress-free Eid journey.
+        </p>
+        <p class="text-sm text-zinc-300">
+          Carry a jump starter kit and a power bank for extra security, especially if traveling with kids or elders.
+        </p>
+      </div>
+
+      <div class="text-center mb-10">
+        <p class="text-xl md:text-2xl font-black uppercase text-zinc-900 mb-4">
+          This Eid, don't just prepare your car,<br>
+          <span class="text-[#cc001b]">prepare your battery.</span>
+        </p>
+        <p class="text-lg font-bold text-zinc-600 mb-6">
+          Alaska Graphite Batteries<br>
+          <span class="text-sm italic">Built for beautiful and memorable journeys. Powered by Innovation.</span>
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-2 justify-center">
+        <span class="px-4 py-2 bg-zinc-100 rounded-full text-xs font-bold uppercase tracking-wider text-zinc-700">#Durability</span>
+        <span class="px-4 py-2 bg-zinc-100 rounded-full text-xs font-bold uppercase tracking-wider text-zinc-700">#GraphiteBatteries</span>
+        <span class="px-4 py-2 bg-zinc-100 rounded-full text-xs font-bold uppercase tracking-wider text-zinc-700">#Power</span>
+        <span class="px-4 py-2 bg-zinc-100 rounded-full text-xs font-bold uppercase tracking-wider text-zinc-700">#EidTravel</span>
+      </div>
+    `,
   },
   "power-saving": {
-    title: "5 Secrets to Make Your Car Battery Last Longer",
+    title: "5 Power-Saving Secrets to Make Your Car Battery Last Longer",
     category: "Maintenance",
+    image: "assets/vault/blogs/power-blog-3.png",
     content: `
-      <p class="text-gray-600 mb-4">Heat speeds up internal corrosion. Most drivers don't realize heat is more dangerous than cold. Here is how to fight it:</p>
-      <ol class="list-decimal pl-5 space-y-2 text-gray-600">
-        <li>Keep terminals corrosion-free with baking soda and water.</li>
-        <li>Take a 30-minute highway drive weekly to fully recharge.</li>
-        <li>Turn off non-essentials like seat warmers during short grocery runs.</li>
-        <li>Always park in shaded areas.</li>
-        <li>Check voltage during every oil change.</li>
-      </ol>`,
+      <p class="text-base md:text-lg text-zinc-700 mb-6 leading-relaxed">Paste the content from: https://alaskabatteries.com/5-power-saving-secrets-to-make-your-car-battery-last-longer-duplicate-2072/</p>
+      <p class="text-sm text-zinc-500 italic">Instructions: Copy the main article content and paste it here, formatted with proper HTML tags.</p>`,
   },
-  "storage-tips": {
-    title: "Charging & Storing Your Battery for Maximum Lifespan",
-    category: "Technical",
+  "ebike-accessories": {
+    title: "How to Choose the Best E-Bike Accessories for Senior Riders",
+    category: "E-Bike Guide",
+    image: "assets/vault/blogs/storing-blog-4.png",
     content: `
-      <p class="text-gray-600 mb-4">Neglect can turn a reliable power source into a costly paperweight. Learn the proper way to store:</p>
-      <ul class="list-disc pl-5 space-y-2 text-gray-600">
-        <li><strong>Location:</strong> Choose a cool, dry spot. Never store directly on concrete; use a wooden pallet.</li>
-        <li><strong>Disconnect:</strong> For long-term storage, remove the terminals to avoid 'parasitic drain'.</li>
-        <li><strong>Voltage:</strong> Check every 8-12 weeks. If it dips below 12.4V, recharge immediately.</li>
-      </ul>`,
+      <p class="text-base md:text-lg text-zinc-700 mb-6 leading-relaxed">Paste the content from: https://alaskabatteries.com/how-to-choose-the-best-ebike-accessories-for-senior-riders/</p>
+      <p class="text-sm text-zinc-500 italic">Instructions: Copy the main article content and paste it here, formatted with proper HTML tags.</p>`,
   },
-  "recycling-guide": {
-    title: "Battery Recycling: Powering a Greener Future",
-    category: "Eco-Friendly",
+  "ebike-repairs": {
+    title: "Simple DIY Repairs for E-Bike Electrical Problems",
+    category: "E-Bike Repair",
+    image: "assets/vault/blogs/recycle-blog-5.png",
     content: `
-      <p class="text-gray-600 mb-4">Did you know that 90% of an Alaska Battery is recyclable? Recycling saves enough energy to power a home for three hours.</p>
-      <h3 class="text-xl font-bold uppercase mt-6 mb-2">How it works:</h3>
-      <p class="text-gray-600 mb-2">Return used batteries to Alaska dealers. Lead is purified for new grids, and plastic becomes pellets for new cases.</p>
-      <p class="font-bold text-[#cc001b]">Benefit: Get exclusive discounts on new purchases when you recycle your old unit!</p>`,
+      <p class="text-base md:text-lg text-zinc-700 mb-6 leading-relaxed">Paste the content from: https://alaskabatteries.com/simple-diy-repairs-for-ebike-electrical-problems/</p>
+      <p class="text-sm text-zinc-500 italic">Instructions: Copy the main article content and paste it here, formatted with proper HTML tags.</p>`,
   },
-  "summer-survival": {
-    title: "Beat the Heat: Battery Survival Guide for Pakistan",
-    category: "Survival",
+  "ebike-charging": {
+    title: "Top 5 Common E-Bike Charging Mistakes and How to Avoid Them",
+    category: "E-Bike Tips",
+    image: "assets/vault/blogs/summer-blog-6.png",
     content: `
-      <p class="text-gray-600 mb-4">In cities like Multan and Karachi, 45°C+ temperatures kill batteries by evaporating electrolyte. Traditional batteries aren't enough.</p>
-      <p class="text-gray-600 mb-4">Alaska's <strong>Graphite Technology</strong> reduces internal resistance, leading to 50% longer life in punishing Pakistani environments.</p>
-      <p class="font-bold">Advice: Check your battery monthly during May-August.</p>`,
+      <p class="text-base md:text-lg text-zinc-700 mb-6 leading-relaxed">Paste the content from: https://alaskabatteries.com/top-5-common-ebike-charging-mistakes-and-how-to-avoid-them/</p>
+      <p class="text-sm text-zinc-500 italic">Instructions: Copy the main article content and paste it here, formatted with proper HTML tags.</p>`,
   },
 };
 
-// Open Modal
+// Open Modal with improved performance
 function openBlogModal(id) {
   const modal = document.getElementById("blog-modal");
   const body = document.getElementById("modal-body");
@@ -305,59 +340,84 @@ function openBlogModal(id) {
 
   if (!data) return;
 
-  body.innerHTML = `
-    <span class="text-[#cc001b] font-bold uppercase tracking-widest text-xs">${data.category}</span>
-    <h1 class="text-4xl font-black uppercase mt-2 mb-8">${data.title}</h1>
-    <div class="prose prose-zinc lg:prose-lg max-w-none">
-      ${data.content}
-    </div>
-  `;
+  // Use requestAnimationFrame for smoother rendering
+  requestAnimationFrame(() => {
+    body.innerHTML = `
+      <div class="space-y-6 overflow-x-hidden">
+        ${data.image ? `<div class="mb-6 rounded-2xl overflow-hidden shadow-lg border border-zinc-100"><img src="${data.image}" class="w-full h-48 md:h-64 object-cover" alt="${data.title}" loading="lazy"></div>` : ""}
+        <div class="space-y-3">
+          <span class="inline-block text-[#cc001b] font-bold uppercase tracking-widest text-xs px-3 py-1 bg-red-50 rounded-full">${data.category}</span>
+          <h1 class="text-2xl md:text-3xl lg:text-4xl font-black uppercase leading-tight text-zinc-900">${data.title}</h1>
+        </div>
+        <div class="prose prose-zinc prose-sm md:prose-base lg:prose-lg max-w-none blog-content">
+          ${data.content}
+        </div>
+      </div>
+    `;
+  });
 
   modal.classList.remove("hidden");
-  setTimeout(() => modal.classList.add("active"), 10);
-  document.body.style.overflow = "hidden"; // Lock background scroll
+  // Smoother transition
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      modal.classList.add("active");
+    });
+  });
+  document.body.style.overflow = "hidden";
 }
 
-// Close Modal
+// Close Modal with smooth transition
 function closeBlogModal() {
   const modal = document.getElementById("blog-modal");
   modal.classList.remove("active");
   setTimeout(() => {
     modal.classList.add("hidden");
     document.body.style.overflow = "";
+    // Clear content after closing to reduce memory
+    const body = document.getElementById("modal-body");
+    if (body) body.innerHTML = "";
   }, 300);
 }
 
-// Close on click outside (Overlay)
-document.getElementById("modal-overlay").addEventListener("click", closeBlogModal);
+// Close on click outside (Overlay) - with null check
+const modalOverlay = document.getElementById("modal-overlay");
+if (modalOverlay) {
+  modalOverlay.addEventListener("click", closeBlogModal);
+}
 
-// Horizontal Scroll logic
+// Horizontal Scroll logic - improved
 function scrollBlogs(distance) {
   const container = document.getElementById("blog-scroll-container");
+  if (!container) return;
   container.scrollBy({ left: distance, behavior: "smooth" });
 }
-// Logic for Blog Search
 
-// 1. SEARCH LOGIC
+// Blog Search with debouncing for better performance
+let searchTimeout;
 function filterBlogs() {
-  const input = document.getElementById("blog-search");
-  const filter = input.value.toLowerCase();
-  const container = document.getElementById("blog-scroll-container");
-  const cards = container.getElementsByClassName("blog-item");
+  clearTimeout(searchTimeout);
+  searchTimeout = setTimeout(() => {
+    const input = document.getElementById("blog-search");
+    const filter = input.value.toLowerCase();
+    const container = document.getElementById("blog-scroll-container");
+    if (!container) return;
 
-  // Disable loop snapping while searching so results don't "jump"
-  container.style.scrollSnapType = filter ? "none" : "x mandatory";
+    const cards = container.getElementsByClassName("blog-item");
 
-  for (let i = 0; i < cards.length; i++) {
-    const title = cards[i].querySelector("h4").innerText.toLowerCase();
-    const category = cards[i].querySelector("p").innerText.toLowerCase();
+    // Disable loop snapping while searching
+    container.style.scrollSnapType = filter ? "none" : "x mandatory";
 
-    if (title.includes(filter) || category.includes(filter)) {
-      cards[i].style.display = "block";
-    } else {
-      cards[i].style.display = "none";
+    for (let i = 0; i < cards.length; i++) {
+      const title = cards[i].querySelector("h4")?.innerText?.toLowerCase() || "";
+      const category = cards[i].querySelector("p")?.innerText?.toLowerCase() || "";
+
+      if (title.includes(filter) || category.includes(filter)) {
+        cards[i].style.display = "block";
+      } else {
+        cards[i].style.display = "none";
+      }
     }
-  }
+  }, 150); // Debounce by 150ms
 }
 
 const container = document.getElementById("blog-scroll-container");
@@ -388,7 +448,11 @@ function initBlogEngine() {
 }
 
 function scrollBlogs(dir) {
-  const itemWidth = container.querySelector(".blog-item").offsetWidth + 20;
+  if (!container) return;
+  const blogItem = container.querySelector(".blog-item");
+  if (!blogItem) return;
+
+  const itemWidth = blogItem.offsetWidth + 20;
   const move = window.innerWidth > 1024 ? itemWidth * 3 : itemWidth;
   container.scrollBy({ left: move * dir, behavior: "smooth" });
 }
