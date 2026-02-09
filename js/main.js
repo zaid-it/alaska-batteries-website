@@ -1,25 +1,28 @@
-// Smooth Scroll Logic for # links
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-
-    const targetId = this.getAttribute("href");
-    const targetElement = document.querySelector(targetId);
-
-    if (targetElement) {
-      // Calculate header height to avoid overlapping the title
-      const headerOffset = 80;
-      const elementPosition = targetElement.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth", // This creates the "nice scrolling effect"
-      });
-    }
-  });
-});
+// Wait for DOM to be ready before running any code
 document.addEventListener("DOMContentLoaded", () => {
+  // Smooth Scroll Logic for # links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const targetId = this.getAttribute("href");
+      const targetElement = document.querySelector(targetId);
+
+      if (targetElement) {
+        // Calculate header height to avoid overlapping the title
+        const headerOffset = 80;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth", // This creates the "nice scrolling effect"
+        });
+      }
+    });
+  });
+
+  // FAQ & Other DOM-dependent code
   const triggers = document.querySelectorAll(".faq-trigger");
 
   triggers.forEach((trigger) => {
@@ -87,14 +90,90 @@ document.addEventListener("DOMContentLoaded", () => {
       setFaqCategory(defaultBtn.getAttribute("data-category"));
     }
   }
+
+  // Form submission handling
+  document.querySelectorAll("form").forEach((form) => {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      showSuccess();
+      form.reset();
+    });
+  });
+
+  // Blog modal overlay close handler
+  const modalOverlay = document.getElementById("modal-overlay");
+  if (modalOverlay) {
+    modalOverlay.addEventListener("click", closeBlogModal);
+  }
+
+  // Contact form submission
+  const contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    const EMAIL_API_URL = "https://yourdomain.com/send-email.php";
+
+    contactForm.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const submitBtn = document.getElementById("submitBtn");
+      const originalText = submitBtn.textContent;
+
+      // Disable button and show loading state
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending...";
+      submitBtn.classList.add("opacity-50", "cursor-not-allowed");
+
+      // Collect form data
+      const formData = {
+        name: document.getElementById("fullName").value,
+        email: document.getElementById("userEmail").value,
+        phone: document.getElementById("userPhone").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value,
+      };
+
+      try {
+        const response = await fetch(EMAIL_API_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          // Show success modal
+          document.getElementById("successModal").classList.remove("hidden");
+          document.getElementById("successModal").classList.add("flex");
+
+          // Reset form
+          contactForm.reset();
+        } else {
+          alert(result.message || "Failed to send message. Please try again or contact us directly.");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Failed to send message. Please try again or contact us directly.");
+      } finally {
+        // Re-enable button
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+        submitBtn.classList.remove("opacity-50", "cursor-not-allowed");
+      }
+    });
+  }
 });
+
+// ============================================
+// GLOBAL FUNCTIONS (defined outside DOMContentLoaded)
+// ============================================
+
 // Function to show the success message
 function showSuccess() {
   const modal = document.getElementById("successModal");
   modal.classList.remove("hidden");
   modal.classList.add("flex");
-
-  // Prevent scrolling behind modal
   document.body.style.overflow = "hidden";
 }
 
@@ -103,23 +182,8 @@ function closeModal() {
   const modal = document.getElementById("successModal");
   modal.classList.add("hidden");
   modal.classList.remove("flex");
-
-  // Restore scrolling
   document.body.style.overflow = "auto";
 }
-
-// Example: Intercepting form submissions
-document.querySelectorAll("form").forEach((form) => {
-  form.addEventListener("submit", (e) => {
-    e.preventDefault(); // Stop actual submission for this demo
-
-    // You would typically send your data via fetch/AJAX here
-    showSuccess();
-
-    // Optional: Clear the form
-    form.reset();
-  });
-});
 
 // Code for Blog Modal
 
@@ -379,11 +443,7 @@ function closeBlogModal() {
   }, 300);
 }
 
-// Close on click outside (Overlay) - with null check
-const modalOverlay = document.getElementById("modal-overlay");
-if (modalOverlay) {
-  modalOverlay.addEventListener("click", closeBlogModal);
-}
+// Close on click outside (Overlay) - already handled in DOMContentLoaded
 
 // Horizontal Scroll logic - improved
 function scrollBlogs(distance) {
@@ -457,64 +517,103 @@ function scrollBlogs(dir) {
   container.scrollBy({ left: move * dir, behavior: "smooth" });
 }
 
-// TODO: Replace with your actual Hostinger PHP script URL
-const EMAIL_API_URL = "https://yourdomain.com/send-email.php";
+// Products Carousel Control
+function initCarousel() {
+  const carousel = document.getElementById("productsCarousel");
+  const dotsContainer = document.getElementById("carouselDots");
+  const prevBtn = document.getElementById("carouselPrev");
+  const nextBtn = document.getElementById("carouselNext");
+  const cards = document.querySelectorAll(".product-card");
+  const cardCount = cards.length;
 
-function closeSuccessModal() {
-  document.getElementById("successModal").classList.add("hidden");
-  document.getElementById("successModal").classList.remove("flex");
-}
+  // Create pagination dots
+  for (let i = 0; i < cardCount; i++) {
+    const dot = document.createElement("button");
+    dot.className = `carousel-dot ${i === 0 ? "active" : ""}`;
+    dot.onclick = () => scrollToCard(i);
+    dotsContainer.appendChild(dot);
+  }
 
-document.getElementById("contactForm").addEventListener("submit", async function (event) {
-  event.preventDefault();
+  // Function to check if at end and update button visibility
+  function updateButtonVisibility() {
+    if (!carousel) return;
+    const scrollWidth = carousel.scrollWidth;
+    const scrollLeft = carousel.scrollLeft;
+    const clientWidth = carousel.clientWidth;
 
-  const submitBtn = document.getElementById("submitBtn");
-  const originalText = submitBtn.textContent;
+    // Check if at start
+    if (scrollLeft <= 0) {
+      prevBtn.style.opacity = "0.4";
+      prevBtn.style.pointerEvents = "none";
+      prevBtn.style.display = "none";
+    } else {
+      prevBtn.style.opacity = "1";
+      prevBtn.style.pointerEvents = "auto";
+      prevBtn.style.display = "block";
+    }
 
-  // Disable button and show loading state
-  submitBtn.disabled = true;
-  submitBtn.textContent = "Sending...";
-  submitBtn.classList.add("opacity-50", "cursor-not-allowed");
+    // Check if at end (with small tolerance for rounding)
+    if (scrollLeft + clientWidth >= scrollWidth - 10) {
+      nextBtn.style.opacity = "0.4";
+      nextBtn.style.pointerEvents = "none";
+      nextBtn.style.display = "none";
+    } else {
+      nextBtn.style.opacity = "1";
+      nextBtn.style.pointerEvents = "auto";
+      nextBtn.style.display = "block";
+    }
+  }
 
-  // Collect form data
-  const formData = {
-    name: document.getElementById("fullName").value,
-    email: document.getElementById("userEmail").value,
-    phone: document.getElementById("userPhone").value,
-    subject: document.getElementById("subject").value,
-    message: document.getElementById("message").value,
+  // Scroll carousel by item count
+  window.scrollCarousel = function (direction) {
+    if (!carousel) return;
+    const cardWidth = cards[0].offsetWidth + parseInt(window.getComputedStyle(carousel).gap);
+    carousel.scrollBy({ left: cardWidth * direction, behavior: "smooth" });
+    setTimeout(updateButtonVisibility, 300);
   };
 
-  try {
-    const response = await fetch(EMAIL_API_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
+  // Update dots and buttons on carousel scroll
+  carousel.addEventListener("scroll", () => {
+    updateActiveDot();
+    updateButtonVisibility();
+  });
+
+  function updateActiveDot() {
+    const dots = document.querySelectorAll(".carousel-dot");
+    const scrollPos = carousel.scrollLeft;
+    const cardWidth = cards[0].offsetWidth + parseInt(window.getComputedStyle(carousel).gap);
+    const activeIndex = Math.round(scrollPos / cardWidth);
+
+    dots.forEach((dot, index) => {
+      dot.classList.toggle("active", index === activeIndex);
     });
-
-    const result = await response.json();
-
-    if (response.ok && result.success) {
-      // Show success modal
-      document.getElementById("successModal").classList.remove("hidden");
-      document.getElementById("successModal").classList.add("flex");
-
-      // Reset form
-      document.getElementById("contactForm").reset();
-    } else {
-      alert(result.message || "Failed to send message. Please try again or contact us directly.");
-    }
-  } catch (error) {
-    console.error("Error:", error);
-    alert("Failed to send message. Please try again or contact us directly.");
-  } finally {
-    // Re-enable button
-    submitBtn.disabled = false;
-    submitBtn.textContent = originalText;
-    submitBtn.classList.remove("opacity-50", "cursor-not-allowed");
   }
-});
+
+  function scrollToCard(index) {
+    if (!carousel) return;
+    const cardWidth = cards[0].offsetWidth + parseInt(window.getComputedStyle(carousel).gap);
+    carousel.scrollTo({ left: cardWidth * index, behavior: "smooth" });
+    setTimeout(updateButtonVisibility, 300);
+  }
+
+  // Initial button visibility check
+  updateButtonVisibility();
+}
+
+// Function to close the success modal
+function closeSuccessModal() {
+  const modal = document.getElementById("successModal");
+  if (modal) {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+  }
+}
+
+// Initialize carousel on page load
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initCarousel);
+} else {
+  initCarousel();
+}
 
 window.addEventListener("load", initBlogEngine);
