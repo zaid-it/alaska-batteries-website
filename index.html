@@ -26,67 +26,78 @@
     </section>
 
     <!-- Products Showcase Section -->
-    <section class="py-4 bg-gradient-to-b from-white to-gray-50">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-4">
-          <h2 class="text-4xl md:text-6xl font-bold leading-tight">Our <span class="text-[#cc001b]">Solutions</span>
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-          <!-- Dry Charge -->
-
+    <section id="products-showcase" class="products-showcase bg-white py-8 md:py-8">
+      <div class="products-carousel-wrapper relative">
+        <div class="products-carousel" id="productsCarousel">
           <!-- Automotive (Application) -->
-          <a href="dry-charge.html#Automotive" class="group relative bg-white rounded-lg overflow-hidden shadow-lg">
-            <div
-              class="aspect-video bg-gradient-to-br from-blue-600 to-blue-900 flex items-center justify-center overflow-hidden relative">
-              <img src="assets/automotive-home.png" />
-              <div class="absolute inset-0"></div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold uppercase mb-2 text-gray-900">Automotive</h3>
-
-              <div class="flex items-center text-[#cc001b] font-bold">Learn more <i
-                  class="fa-solid fa-arrow-right ml-2"></i></div>
+          <a href="dry-charge.html#Automotive"
+            class="product-card group relative bg-white rounded-2xl overflow-hidden shadow-lg">
+            <img src="assets/automotive-home.png" class="absolute inset-0 w-full h-full object-cover"
+              alt="Automotive" />
+            <div class="absolute inset-0 flex flex-col justify-between p-6 z-10">
+              <div></div>
+              <div>
+                <h3 class="text-2xl md:text-3xl font-bold uppercase mb-3 text-white">Automotive</h3>
+                <button
+                  class="bg-[#cc001b] text-white px-6 py-2 font-bold uppercase tracking-wider rounded-lg hover:bg-red-700 transition-colors">
+                  Learn More
+                </button>
+              </div>
             </div>
           </a>
 
           <!-- Solar (Application) -->
-          <a href="dry-charge.html#Solar" class="group relative bg-white rounded-lg overflow-hidden shadow-lg">
-            <div
-              class="aspect-video bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center overflow-hidden relative">
-              <img src="assets/solar-home.png" />
-              <div class="absolute inset-0"></div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold uppercase mb-2 text-gray-900">Solar</h3>
-              <div class="flex items-center text-[#cc001b] font-bold">Learn more <i
-                  class="fa-solid fa-arrow-right ml-2"></i></div>
+          <a href="dry-charge.html#Solar"
+            class="product-card group relative bg-white rounded-2xl overflow-hidden shadow-lg">
+            <img src="assets/solar-home.png" class="absolute inset-0 w-full h-full object-cover" alt="Solar" />
+            <div class="absolute inset-0 flex flex-col justify-between p-6 z-10">
+              <div></div>
+              <div>
+                <h3 class="text-2xl md:text-3xl font-bold uppercase mb-3 text-white">Solar</h3>
+                <button
+                  class="bg-[#cc001b] text-white px-6 py-2 font-bold uppercase tracking-wider rounded-lg hover:bg-red-700 transition-colors">
+                  Learn More
+                </button>
+              </div>
             </div>
           </a>
 
           <!-- Industrial (Application) -->
-          <a href="dry-charge.html#Industrial" class="group relative bg-white rounded-lg overflow-hidden shadow-lg">
-            <div
-              class="aspect-video bg-gradient-to-br from-gray-600 to-gray-900 flex items-center justify-center overflow-hidden relative">
-              <img src="assets/industrial-home.png" />
-              <div class="absolute inset-0"></div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold uppercase mb-2 text-gray-900">Industrial</h3>
-              <div class="flex items-center text-[#cc001b] font-bold">Learn more <i
-                  class="fa-solid fa-arrow-right ml-2"></i></div>
+          <a href="dry-charge.html#Industrial"
+            class="product-card group relative bg-white rounded-2xl overflow-hidden shadow-lg">
+            <img src="assets/industrial-home.png" class="absolute inset-0 w-full h-full object-cover"
+              alt="Industrial" />
+            <div class="absolute inset-0 flex flex-col justify-between p-6 z-10">
+              <div></div>
+              <div>
+                <h3 class="text-2xl md:text-3xl font-bold uppercase mb-3 text-white">Industrial</h3>
+                <button
+                  class="bg-[#cc001b] text-white px-6 py-2 font-bold uppercase tracking-wider rounded-lg hover:bg-red-700 transition-colors">
+                  Learn More
+                </button>
+              </div>
             </div>
           </a>
         </div>
 
-        <!-- CTA Button -->
-        <div class="flex justify-center mt-4">
-          <button onclick="openBatteryFinder()"
-            class="bg-[#cc001b] text-white px-4 py-4 font-black uppercase tracking-widest text-lg hover:bg-black shadow-2xl transition-all hover:scale-105 rounded-lg">
-            <i class="fa-solid fa-bolt mr-2"></i> Find Your Perfect Battery
-          </button>
-        </div>
+        <!-- Navigation Buttons -->
+        <button id="carouselPrev" class="carousel-btn carousel-btn-prev" onclick="scrollCarousel(-1)">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button id="carouselNext" class="carousel-btn carousel-btn-next" onclick="scrollCarousel(1)">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <!-- Pagination Dots -->
+      <div class="carousel-dots" id="carouselDots"></div>
+
+      <!-- CTA Button -->
+      <div class="flex justify-center mt-8">
+        <button onclick="openBatteryFinder()"
+          class="bg-[#cc001b] text-white px-6 py-4 font-black uppercase tracking-widest text-lg hover:bg-black shadow-2xl transition-all hover:scale-105 rounded-lg">
+          <i class="fa-solid fa-bolt mr-2"></i> Find Your Perfect Battery
+        </button>
       </div>
     </section>
 
@@ -155,48 +166,48 @@
       </div>
     </section>
 
-    <section class="relative overflow-hidden bg-gradient-to-br from-[#0b1120] via-[#0f172a] to-[#111827]">
+    <section class="relative overflow-hidden bg-gray-100">
       <div class="absolute inset-0 opacity-30"></div>
 
-      <div class="container mx-auto px-6 py-16 md:py-20 relative">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="container mx-auto px-6 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 items-center">
           <div class="text-center lg:text-left">
 
-            <h2 class="text-white font-bold text-4xl md:text-6xl tracking-tight leading-tight mb-6 md:mb-16">Find an
-              <span class="text-[#cc001b]">Authorized Dealer</span>
+            <h2 class="font-bold text-4xl md:text-6xl tracking-tight leading-tight mb-6 md:mb-16">Find a
+              <span class="text-[#cc001b]">Partner</span>
             </h2>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-              <div class="flex items-start gap-2 bg-white/5 rounded-xl p-4 md:p-5 border border-white/10 text-left">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-2">
+              <div class="flex items-start gap-2 bg-white/5 rounded-xl p-2 md:p-2 border border-white/10 text-left">
                 <i class="fa-solid fa-certificate text-[#cc001b] text-lg md:text-xl flex-shrink-0"></i>
                 <div class="min-w-0 flex-1 text-left">
-                  <p class="text-white font-bold text-xs md:text-sm uppercase tracking-wide leading-tight">Authorized
-                    Partners</p>
-                  <p class="text-gray-400 text-xs mt-1 leading-tight">Trusted dealers with genuine stock</p>
+                  <p class="font-bold text-xs md:text-sm uppercase tracking-wide leading-tight">Our Authorized Partners
+                  </p>
+
                 </div>
               </div>
-              <div class="flex items-start gap-2 bg-white/5 rounded-xl p-4 md:p-5 border border-white/10 text-left">
+              <div class="flex items-start gap-2 bg-white/5 rounded-xl p-2 md:p-2 border border-white/10 text-left">
                 <i class="fa-solid fa-headset text-[#cc001b] text-lg md:text-xl flex-shrink-0"></i>
                 <div class="min-w-0 flex-1 text-left">
-                  <p class="text-white font-bold text-xs md:text-sm uppercase tracking-wide leading-tight">Warranty
+                  <p class="font-bold text-xs md:text-sm uppercase tracking-wide leading-tight">Warranty
                     Support</p>
-                  <p class="text-gray-400 text-xs mt-1 leading-tight">Reliable service & claim guidance</p>
+
                 </div>
               </div>
-              <div class="flex items-start gap-2 bg-white/5 rounded-xl p-4 md:p-5 border border-white/10 text-left">
+              <div class="flex items-start gap-2 bg-white/5 rounded-xl p-2 md:p-2 border border-white/10 text-left">
                 <i class="fa-solid fa-location-crosshairs text-[#cc001b] text-lg md:text-xl flex-shrink-0"></i>
                 <div class="min-w-0 flex-1 text-left">
-                  <p class="text-white font-bold text-xs md:text-sm uppercase tracking-wide leading-tight">Nearest
+                  <p class="font-bold text-xs md:text-sm uppercase tracking-wide leading-tight">Nearest
                     Location</p>
-                  <p class="text-gray-400 text-xs mt-1 leading-tight">Find dealers close to you</p>
+
                 </div>
               </div>
-              <div class="flex items-start gap-2 bg-white/5 rounded-xl p-4 md:p-5 border border-white/10 text-left">
+              <div class="flex items-start gap-2 bg-white/5 rounded-xl p-2 md:p-2 border border-white/10 text-left">
                 <i class="fa-solid fa-box text-[#cc001b] text-lg md:text-xl flex-shrink-0"></i>
                 <div class="min-w-0 flex-1 text-left">
-                  <p class="text-white font-bold text-xs md:text-sm uppercase tracking-wide leading-tight">Availability
+                  <p class="font-bold text-xs md:text-sm uppercase tracking-wide leading-tight">Availability
                   </p>
-                  <p class="text-gray-400 text-xs mt-1 leading-tight">Updated inventory across regions</p>
+
                 </div>
               </div>
             </div>
@@ -204,33 +215,20 @@
             <div class="flex flex-col sm:flex-row items-center gap-4 py-8 justify-center lg:justify-start">
               <a href="dealers.html"
                 class="bg-[#cc001b] text-white rounded-lg font-bold uppercase tracking-widest text-sm px-8 py-4 shadow-lg">
-                Open Locator </a>
+                Locator </a>
               <a href="support.html"
-                class="text-white font-bold uppercase tracking-widest text-sm border-b border-white/40 hover:border-white">
-                Contact Support </a>
+                class="font-bold uppercase tracking-widest text-sm border border-gray-300 rounded-lg px-8 py-4 hover:border-[#cc001b] shadow-md">
+                Support </a>
             </div>
           </div>
 
           <div class="flex justify-center items-center">
-            <div class="relative w-full max-w-[560px]">
+            <div class="relative w-full max-w-[1000px]">
               <div class="absolute -inset-4 bg-white/5 rounded-2xl blur-2xl"></div>
-              <div class="relative bg-white/5 border border-white/10 rounded-2xl p-6">
+              <div class="relative bg-white/5 border border-white/10 rounded-2xl">
                 <img src="assets/dealer-map.png" alt="Alaska Dealer Map"
                   class="w-full h-full object-contain opacity-100" />
-                <div class="mt-5 grid grid-cols-3 gap-2 md:gap-3 text-center">
-                  <div class="bg-white/10 rounded-lg p-2 md:p-3">
-                    <p class="text-[10px] md:text-xs uppercase tracking-wider text-gray-300">Reach</p>
-                    <p class="text-sm md:text-lg font-bold text-white">Nationwide</p>
-                  </div>
-                  <div class="bg-white/10 rounded-lg p-2 md:p-3">
-                    <p class="text-[10px] md:text-xs uppercase tracking-wider text-gray-300">Support</p>
-                    <p class="text-sm md:text-lg font-bold text-white">Verified</p>
-                  </div>
-                  <div class="bg-white/10 rounded-lg p-2 md:p-3">
-                    <p class="text-[10px] md:text-xs uppercase tracking-wider text-gray-300">Service</p>
-                    <p class="text-sm md:text-lg font-bold text-white">Reliable</p>
-                  </div>
-                </div>
+
               </div>
             </div>
           </div>
@@ -243,100 +241,6 @@
 
   <script src="js/components.js"></script>
   <script src="js/main.js"></script>
-  <script>
-    const section = document.getElementById("products-interactive");
-    const title = document.getElementById("scrollTitle");
-    const navLabels = document.querySelectorAll(".nav-label");
-
-    // 1. Hover/Touch Activation
-    function activateRow(id) {
-      deactivateRows();
-      const bg = document.getElementById("bg-" + id);
-      if (bg) {
-        bg.style.opacity = "1";
-        bg.style.transform = ""; // removed hover zoom
-      }
-      navLabels.forEach((label) => label.classList.add("text-white"));
-      title.style.color = "#cc001b";
-    }
-
-    function deactivateRows() {
-      ["dry", "deep", "mf", "lfp"].forEach((id) => {
-        const el = document.getElementById("bg-" + id);
-        if (el) {
-          el.style.opacity = "0";
-          el.style.transform = ""; // removed hover zoom
-        }
-      });
-      navLabels.forEach((label) => label.classList.remove("text-white"));
-    }
-
-    // 2. Scroll Intersection (Detecting when the section is in view)
-    const observerOptions = { threshold: 0.5 }; // Trigger when 50% of section is visible
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // Section entered view: Title turns Black as per your request
-          title.style.color = "#000000";
-        } else {
-          // Section left view: Reset Title to Red and Backgrounds to White
-          title.style.color = "#cc001b";
-          deactivateRows();
-          title.style.color = "#cc001b";
-        }
-      });
-    }, observerOptions);
-
-    observer.observe(section);
-  </script>
-
-  <!-- Hero Video Playback Control (Muted Always) -->
-  <script>
-    const heroVideo = document.getElementById("heroVideo");
-    let playbackCount = 0;
-
-    if (heroVideo) {
-      heroVideo.muted = true;
-      heroVideo.volume = 0;
-
-      // Pause video when user scrolls away from hero section
-      const heroObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) {
-              // Hero section is out of view
-              heroVideo.pause();
-            } else {
-              // Hero section is in view (resume auto-replay if within 3 playbacks)
-              if (playbackCount < 3 && heroVideo.paused) {
-                heroVideo.play().catch(() => {
-                  /* play may be blocked */
-                });
-              }
-            }
-          });
-        },
-        { threshold: 0 },
-      );
-
-      heroObserver.observe(heroVideo.parentElement);
-
-      // Track playback count and replay up to 3 times, then stop
-      heroVideo.addEventListener("ended", () => {
-        playbackCount++;
-        if (playbackCount < 3) {
-          heroVideo.play().catch(() => {
-            /* play blocked (autoplay policy) */
-          });
-        } else {
-          heroVideo.pause();
-          heroVideo.currentTime = 0;
-        }
-      });
-    }
-  </script>
-
   <script src="js/animations.js"></script>
 </body>
 

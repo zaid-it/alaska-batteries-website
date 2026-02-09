@@ -26,10 +26,10 @@ const headerHTML = /* HTML */ `
             </li>
 
             <li class="nav-item">
-              <a href="dealers.html" class="nav-link">Dealer</a>
+              <a href="dealers.html" class="nav-link">Partners</a>
               <div class="dropdown-panel">
-                <a href="dealers.html" class="dropdown-item">Find a Dealer</a>
-                <a href="become-dealer.html" class="dropdown-item">Become a Dealer</a>
+                <a href="dealers.html" class="dropdown-item">Find a Partner</a>
+                <a href="become-dealer.html" class="dropdown-item">Become a Partner</a>
               </div>
             </li>
 
@@ -47,12 +47,15 @@ const headerHTML = /* HTML */ `
             <li class="nav-item">
               <a href="about.html" class="nav-link">About Us</a>
               <div class="dropdown-panel">
-                <div class="dropdown-quote">Find the mind behind Alaska Batteries</div>
+                <div class="dropdown-quote">Get to know the mind behind Alaska Batteries</div>
               </div>
             </li>
 
             <li class="nav-item">
               <a href="support.html" class="nav-link">Support</a>
+              <div class="dropdown-panel">
+                <div class="dropdown-quote">Always there when you need a charge</div>
+              </div>
             </li>
           </ul>
         </nav>
@@ -69,9 +72,9 @@ const headerHTML = /* HTML */ `
 `;
 
 const footerHTML = /* HTML */ `
-  <footer class="bg-gray-50 border-t-8 border-black-50 py-10">
+  <footer class="bg-gray-50 border-t-8 border-black-50 pt-6">
     <div class="container mx-auto px-6">
-      <div class="flex flex-col md:flex-row md:justify-around gap-8 items-center md:items-start mb-8">
+      <div class="flex flex-col md:flex-row md:justify-between gap-8 items-center md:items-start mb-4">
         <!-- Logo Column -->
         <div class="flex justify-center md:justify-start">
           <img src="assets/technology/tech.png" alt="Graphite Technology" class="h-14 md:h-16 w-auto object-contain" />
