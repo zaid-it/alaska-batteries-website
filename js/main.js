@@ -163,6 +163,45 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // Partner count animation under the map
+  const partnerCounter = document.getElementById("partner-count");
+  const partnerCounterWrap = document.querySelector(".partner-counter");
+  if (partnerCounter && partnerCounterWrap) {
+    const target = parseInt(partnerCounterWrap.dataset.target || "0", 10);
+    const duration = 1400;
+    let started = false;
+
+    const animateCount = () => {
+      const start = performance.now();
+      const from = 0;
+
+      const tick = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const value = Math.floor(from + (target - from) * progress);
+        partnerCounter.textContent = value.toString();
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        }
+      };
+
+      requestAnimationFrame(tick);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (started) return;
+        if (entries.some((entry) => entry.isIntersecting)) {
+          started = true;
+          animateCount();
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.4 },
+    );
+
+    observer.observe(partnerCounterWrap);
+  }
 });
 
 // ============================================
