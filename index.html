@@ -166,7 +166,7 @@
       </div>
     </section>
 
-    <section class="relative overflow-hidden bg-gray-100">
+    <section class="relative overflow-hidden bg-gray-100 py-8">
       <div class="absolute inset-0 opacity-30"></div>
 
       <div class="container mx-auto px-6 relative">
@@ -177,7 +177,7 @@
               <span class="text-[#cc001b]">Presence</span>
             </h2>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-2">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div class="flex items-start gap-2 bg-white/5 rounded-xl p-2 md:p-2 border border-white/10 text-left">
                 <i class="fa-solid fa-certificate text-[#cc001b] text-lg md:text-xl flex-shrink-0"></i>
                 <div class="min-w-0 flex-1 text-left">
@@ -223,12 +223,16 @@
           </div>
 
           <div class="flex justify-center items-center">
-            <div class="relative w-full max-w-[1000px]">
+            <div class="relative w-full max-w-full">
               <div class="absolute -inset-4 bg-white/5 rounded-2xl blur-2xl"></div>
               <div class="relative bg-white/5 border border-white/10 rounded-2xl">
                 <img src="assets/dealer-map.png" alt="Alaska Dealer Map"
                   class="w-full h-full object-contain opacity-100" />
 
+              </div>
+              <div class="partner-counter" data-target="400" aria-live="polite">
+                <p class="partner-counter-label">Partners Across Pakistan</p>
+                <p class="partner-counter-value"><span id="partner-count">0</span>+</p>
               </div>
             </div>
           </div>
