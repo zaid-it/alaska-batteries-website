@@ -123,7 +123,7 @@ img {
 }
 
 .product-card h3 {
-  font-size: 1.75rem;
+  font-size: 2rem;
   margin: 0;
 }
 
@@ -148,6 +148,12 @@ img {
 .product-card h3 {
   color: white;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.product-card-title {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .product-card button {
@@ -261,7 +267,7 @@ img {
   }
 
   .product-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.65rem;
   }
 
   .carousel-btn {
@@ -284,39 +290,37 @@ img {
   .product-card img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    object-position: center top;
   }
   .products-carousel {
-    padding: 1rem 20px;
+    padding: 0.75rem 16px 1.25rem;
     gap: 0.75rem;
-    scroll-padding-left: 50px;
+    scroll-padding-left: 16px;
   }
 
   .product-card {
-    flex: 0 0 85%;
-    height: 360px;
+    flex: 0 0 86%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    min-height: 360px;
   }
 
   .product-card h3 {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
   }
 
   .product-card button {
-    font-size: 0.8rem;
-    padding: 0.5rem 1.25rem;
+    font-size: 0.75rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .product-card > div:last-child {
+    padding: 1rem;
   }
 
   .carousel-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
-  }
-
-  .carousel-btn-prev {
-    left: 4px;
-  }
-
-  .carousel-btn-next {
-    right: 4px;
+    display: none !important;
   }
 
   .carousel-dots {

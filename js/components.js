@@ -223,7 +223,7 @@ function setupMobileMenu() {
               </button>
 
               <button onclick="openSubmenu('dealers-sub')" class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-white  rounded-lg transition-all group">
-                Dealers <i class="fa-solid fa-chevron-right text-[10px] text-white group-hover:text-[#cc001b]"></i>
+                Partners <i class="fa-solid fa-chevron-right text-[10px] text-white group-hover:text-[#cc001b]"></i>
               </button>
 
               <button onclick="openSubmenu('vault-sub')" class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-white  rounded-lg transition-all group">

@@ -11,6 +11,25 @@
   <link rel="stylesheet" href="css/style.css" />
   <style>
     /* Page-scoped overrides to keep hero images under control on mobile */
+
+    @media (max-width: 640px) {
+      .hero-fold .banner-wrapper {
+        height: 250px !important;
+      }
+    }
+
+    .hero-fold .banner-wrapper {
+      height: 100vh;
+      width: 100%;
+    }
+
+    .hero-fold .banner-wrapper img {
+      height: 92%;
+      width: 100%;
+      object-fit: cover;
+      object-position: bottom;
+    }
+
     .object-center {
       object-position: center !important;
     }
@@ -151,10 +170,10 @@
   <div id="header-placeholder"></div>
 
   <main id="top" class="bg-white">
-    <section class="bg-white space-y-2 overflow-hidden group">
+    <section class="bg-white space-y-2 overflow-hidden group hero-fold">
       <div class="relative h-full md:h-full flex flex-col banner-wrapper">
-        <img id="hero-banner-img" src="assets/solutions/solutions-hero.jpeg"
-          data-mobile="assets/solutions/mobile/solutions-hero-mobile.png" alt="Alaska Dry Charge"
+        <img id="hero-banner-img" src="assets/solutions/solutions-hero.png"
+          data-mobile="assets/solutions/solutions-hero.png" alt="Alaska Dry Charge"
           class="w-full h-full transition-transform duration-1000" />
         <div id="hero-text-box"
           class="absolute top-20 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[500px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 overflow-hidden banner-overlay">
@@ -165,12 +184,13 @@
     </section>
     <section id="search-section" class="top-0 z-10 backdrop-blur-xs py-1">
       <div class="container mx-auto px-6">
-        <div class="bg-white p-4 shadow-xl flex flex-col lg:flex-row gap-6 items-center border border-gray-100">
+        <div
+          class="bg-white p-4 shadow-xl flex flex-col lg:flex-row gap-6 items-center border border-gray-100 rounded-xl">
           <div class="relative w-full lg:w-1/2 group">
             <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
 
             <input type="text" id="batterySearch" placeholder="Search Model, Plates, Amps, Use, Types ..."
-              class="w-full pl-10 pr-12 py-3 bg-gray-50 border-none focus:ring-2 focus:ring-[#cc001b] outline-none text-[100%] tracking-normal"
+              class="w-full pl-10 pr-12 py-3 rounded-lg bg-gray-50 border-none focus:ring-2 focus:ring-[#cc001b] outline-none text-[100%] tracking-normal"
               autocomplete="off" />
 
             <button id="clearSearch"
@@ -179,7 +199,7 @@
             </button>
 
             <div id="search-suggestions"
-              class="absolute top-full left-0 w-full bg-white shadow-2xl border border-gray-100 hidden mt-1 max-h-60 overflow-y-auto">
+              class="absolute top-full left-0 w-full bg-white shadow-2xl border border-gray-100 hidden mt-1 max-h-60 overflow-y-auto rounded-lg">
             </div>
           </div>
 
@@ -218,7 +238,7 @@
     <section id="details-anchor" class="bg-gray-50 py-2">
       <div class="container mx-auto px-6">
         <div id="product-stage"
-          class="flex flex-col lg:flex-row items-center gap-10 bg-white p-8 md:p-12 shadow-xl min-h-[400px]">
+          class="flex flex-col lg:flex-row items-center gap-10 bg-white p-8 md:p-12 shadow-xl min-h-[400px] rounded-2xl">
           <div class="w-full lg:w-1/2 flex justify-center relative group">
             <button id="toggle-dimensions-btn"
               class="absolute top-2 right-2 md:top-4 md:right-4 z-10 bg-[#cc001b] text-white rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center hover:bg-red-900 transition-all duration-300 font-bold uppercase text-xs whitespace-nowrap shadow-lg hover:shadow-xl"
@@ -274,7 +294,8 @@
 
         <!-- Battery Grid Display -->
         <div class="mt-8 px-0">
-          <div id="battery-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 py-6 bg-white"></div>
+          <div id="battery-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 py-6 bg-white rounded-2xl">
+          </div>
         </div>
       </div>
     </section>
