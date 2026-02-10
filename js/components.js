@@ -36,8 +36,8 @@ const headerHTML = /* HTML */ `
             <li class="nav-item">
               <a href="vault.html" class="nav-link">Vault</a>
               <div class="dropdown-panel">
-                <a href="vault.html#blogs" class="dropdown-item">News Feed</a>
-                <a href="vault.html#faqs" class="dropdown-item">FAQ</a>
+                <a href="vault.html#blogs" class="dropdown-item">News</a>
+                <a href="vault.html#faqs" class="dropdown-item">FAQ<span class="lowercase">s</span></a>
                 <a href="vault.html#gallery" class="dropdown-item">Gallery</a>
               </div>
             </li>
@@ -115,7 +115,7 @@ const footerHTML = /* HTML */ `
 
             <ul class="flex flex-col space-y-2 items-center md:items-start">
               <li>
-                <a href="dealers.html" class="hover:text-[#cc001b] transition-colors">Dealer Locator</a>
+                <a href="dealers.html" class="hover:text-[#cc001b] transition-colors">Partner Locator</a>
               </li>
               <li>
                 <a href="about.html" class="hover:text-[#cc001b] transition-colors">About Us</a>
@@ -263,11 +263,11 @@ function setupMobileMenu() {
       <a href="graphite.html" class="px-4 py-4 text-[15px] font-semibold text-white  transition-colors">Graphite Technology</a>
     `,
     "dealers-sub": `
-      <a href="dealers.html" class="px-4 py-4 text-[15px] font-semibold text-white  transition-colors">Find a Dealer</a>
-      <a href="become-dealer.html" class="px-4 py-4 text-[15px] font-semibold text-white  transition-colors">Become a Dealer</a>
+      <a href="dealers.html" class="px-4 py-4 text-[15px] font-semibold text-white  transition-colors">Find a Partner</a>
+      <a href="become-dealer.html" class="px-4 py-4 text-[15px] font-semibold text-white  transition-colors">Become a Partner</a>
     `,
     "vault-sub": `
-      <a href="vault.html#blogs" class="px-4 py-4 text-[15px] font-semibold text-white  transition-colors">News Feed</a>
+      <a href="vault.html#blogs" class="px-4 py-4 text-[15px] font-semibold text-white  transition-colors">News</a>
       <a href="vault.html#faqs" class="px-4 py-4 text-[15px] font-semibold text-white  transition-colors">FAQs</a>
       <a href="vault.html#gallery" class="px-4 py-4 text-[15px] font-semibold text-white  transition-colors">Gallery</a>
     `,
