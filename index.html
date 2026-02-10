@@ -16,17 +16,18 @@
   <div id="header-placeholder"></div>
 
   <main>
-    <section class="hero-section relative w-full aspect-video bg-zinc-100/50 overflow-hidden">
+    <section
+      class="hero-section relative w-full h-[250px] md:h-full aspect-video bg-zinc-100/50 overflow-hidden hero-mobile">
       <!-- Video Background -->
-      <video id="heroVideo" class="absolute inset-0 w-full h-full object-cover z-0" autoplay muted playsinline
-        webkit-playsinline>
+      <video id="heroVideo" class="absolute inset-0 w-full h-[250px] md:h-full object-cover z-0 hero-mobile" autoplay
+        muted playsinline webkit-playsinline loop>
         <source src="assets/videos/home.mp4" type="video/mp4" />
         Your browser does not support HTML5 video.
       </video>
     </section>
 
     <!-- Products Showcase Section -->
-    <section id="products-showcase" class="products-showcase bg-white py-8 md:py-8">
+    <section id="products-showcase" class="products-showcase bg-white md:py-8">
       <div class="products-carousel-wrapper relative">
         <div class="products-carousel" id="productsCarousel">
           <!-- Automotive (Application) -->
@@ -34,7 +35,7 @@
             class="product-card group relative bg-white rounded-2xl overflow-hidden shadow-lg">
             <img src="assets/automotive-home.png" class="absolute inset-0 w-full h-full object-fill" alt="Automotive" />
             <div class="absolute inset-0 flex flex-col justify-between p-6 z-10">
-              <h3 class="product-card-title text-white">Automotive</h3>
+              <h3 class="product-card-title pt-8">Automotive</h3>
               <div>
                 <button
                   class="bg-[#cc001b] text-white px-6 py-2 font-bold uppercase tracking-wider rounded-lg hover:bg-red-700 transition-colors">
@@ -49,7 +50,7 @@
             class="product-card group relative bg-white rounded-2xl overflow-hidden shadow-lg">
             <img src="assets/solar-home.png" class="absolute inset-0 w-full h-full object-fill" alt="Solar" />
             <div class="absolute inset-0 flex flex-col justify-between p-6 z-10">
-              <h3 class="product-card-title text-white">Solar</h3>
+              <h3 class="product-card-title text-white pt-8">Solar</h3>
               <div>
                 <button
                   class="bg-[#cc001b] text-white px-6 py-2 font-bold uppercase tracking-wider rounded-lg hover:bg-red-700 transition-colors">
@@ -64,7 +65,7 @@
             class="product-card group relative bg-white rounded-2xl overflow-hidden shadow-lg">
             <img src="assets/industrial-home.png" class="absolute inset-0 w-full h-full object-fill" alt="Industrial" />
             <div class="absolute inset-0 flex flex-col justify-between p-6 z-10">
-              <h3 class="product-card-title text-white">Industrial</h3>
+              <h3 class="product-card-title pt-8">Industrial</h3>
               <div>
                 <button
                   class="bg-[#cc001b] text-white px-6 py-2 font-bold uppercase tracking-wider rounded-lg hover:bg-red-700 transition-colors">
@@ -93,6 +94,73 @@
           class="bg-[#cc001b] text-white px-6 py-4 font-black uppercase tracking-widest text-lg hover:bg-black shadow-2xl transition-all hover:scale-105 rounded-lg">
           <i class="fa-solid fa-bolt mr-2"></i> Choose Your Ideal Solution
         </button>
+      </div>
+    </section>
+
+    <!-- Quick Links Section -->
+    <section class="py-8 bg-white border-t border-gray-100">
+      <div class="container mx-auto px-6">
+        <div class="flex gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory">
+          <!-- News Card -->
+          <a href="vault.html#blogs"
+            class="quick-link-card flex-shrink-0 w-[85%] md:w-[calc(33.333%-1rem)] bg-gradient-to-r from-gray-50 to-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all snap-start group">
+            <div class="flex h-[180px]">
+              <div class="flex-1 p-6 flex flex-col justify-center">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-full bg-[#cc001b] flex items-center justify-center">
+                    <i class="fa-solid fa-newspaper text-white text-lg"></i>
+                  </div>
+                  <h3 class="text-2xl font-black uppercase text-gray-900">News</h3>
+                </div>
+                <p class="text-sm text-gray-600 font-medium">Stay updated with the latest from Alaska Batteries</p>
+              </div>
+              <div class="w-[45%] relative overflow-hidden">
+                <img src="assets/vault/news.png" alt="News"
+                  class="absolute inset-0 w-full h-full object-cover object-[80%_75%]">
+              </div>
+            </div>
+          </a>
+
+          <!-- FAQs Card -->
+          <a href="vault.html#faqs"
+            class="quick-link-card flex-shrink-0 w-[85%] md:w-[calc(33.333%-1rem)] bg-gradient-to-r from-gray-50 to-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all snap-start group">
+            <div class="flex h-[180px]">
+              <div class="flex-1 p-6 flex flex-col justify-center">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-full bg-[#cc001b] flex items-center justify-center">
+                    <i class="fa-solid fa-circle-question text-white text-lg"></i>
+                  </div>
+                  <h3 class="text-2xl font-black uppercase text-gray-900">FAQs</h3>
+                </div>
+                <p class="text-sm text-gray-600 font-medium">Find answers to common battery questions</p>
+              </div>
+              <div class="w-[45%] relative overflow-hidden">
+                <img src="assets/vault/FAQs.jpeg" alt="FAQs"
+                  class="absolute inset-0 w-full h-full object-cover object-[90%_75%]">
+              </div>
+            </div>
+          </a>
+
+          <!-- Gallery Card -->
+          <a href="vault.html#gallery"
+            class="quick-link-card flex-shrink-0 w-[85%] md:w-[calc(33.333%-1rem)] bg-gradient-to-r from-gray-50 to-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all snap-start group">
+            <div class="flex h-[180px]">
+              <div class="flex-1 p-6 flex flex-col justify-center">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-full bg-[#cc001b] flex items-center justify-center">
+                    <i class="fa-solid fa-images text-white text-lg"></i>
+                  </div>
+                  <h3 class="text-2xl font-black uppercase text-gray-900">Gallery</h3>
+                </div>
+                <p class="text-sm text-gray-600 font-medium">Explore our events and dealer network</p>
+              </div>
+              <div class="w-[45%] relative overflow-hidden">
+                <img src="assets/vault/Gallery.png" alt="Gallery"
+                  class="absolute inset-0 w-full h-full object-cover object-[80%_75%]">
+              </div>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -161,69 +229,90 @@
       </div>
     </section>
 
-    <section class="relative overflow-hidden bg-gray-100 py-8">
-      <div class="absolute inset-0 opacity-30"></div>
-
+    <section class="relative overflow-hidden bg-white py-16 md:py-24 border-t border-gray-200">
       <div class="container mx-auto px-6 relative">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 items-center">
-          <div class="text-center lg:text-left">
+        <!-- Heading for mobile -->
+        <h2 class="lg:hidden font-black text-5xl md:text-7xl tracking-tight leading-tight mb-8 text-center">Our
+          <span class="text-[#cc001b]">Presence</span>
+        </h2>
 
-            <h2 class="font-bold text-4xl md:text-6xl tracking-tight leading-tight mb-6 md:mb-16">Our
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div class="text-center lg:text-left order-2">
+            <!-- Heading for desktop -->
+            <h2 class="hidden lg:block font-black text-5xl md:text-7xl tracking-tight leading-tight mb-8">Our
               <span class="text-[#cc001b]">Presence</span>
             </h2>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div class="flex items-start gap-2 bg-white/5 rounded-xl p-2 md:p-2 border border-white/10 text-left">
-                <i class="fa-solid fa-certificate text-[#cc001b] text-lg md:text-xl flex-shrink-0"></i>
-                <div class="min-w-0 flex-1 text-left">
-                  <p class="font-bold text-xs md:text-sm uppercase tracking-wide leading-tight">Our Authorized Partners
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+              <div
+                class="flex items-start gap-4 bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-[#cc001b] hover:bg-red-50/30 transition-all duration-300 group">
+                <div
+                  class="w-12 h-12 rounded-xl bg-[#cc001b]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#cc001b]/20 transition-colors">
+                  <i class="fa-solid fa-certificate text-[#cc001b] text-xl"></i>
+                </div>
+                <div class="text-left">
+                  <p class="font-black text-sm uppercase tracking-widest text-gray-900 leading-tight">Authorized
                   </p>
-
+                  <p class="text-xs text-gray-600 font-medium">400+ Partners</p>
                 </div>
               </div>
-              <div class="flex items-start gap-2 bg-white/5 rounded-xl p-2 md:p-2 border border-white/10 text-left">
-                <i class="fa-solid fa-headset text-[#cc001b] text-lg md:text-xl flex-shrink-0"></i>
-                <div class="min-w-0 flex-1 text-left">
-                  <p class="font-bold text-xs md:text-sm uppercase tracking-wide leading-tight">Warranty
-                    Support</p>
 
+              <div
+                class="flex items-start gap-4 bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-[#cc001b] hover:bg-red-50/30 transition-all duration-300 group">
+                <div
+                  class="w-12 h-12 rounded-xl bg-[#cc001b]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#cc001b]/20 transition-colors">
+                  <i class="fa-solid fa-headset text-[#cc001b] text-xl"></i>
+                </div>
+                <div class="text-left">
+                  <p class="font-black text-sm uppercase tracking-widest text-gray-900 leading-tight">Support</p>
+                  <p class="text-xs text-gray-600 font-medium">24/7 Available</p>
                 </div>
               </div>
-              <div class="flex items-start gap-2 bg-white/5 rounded-xl p-2 md:p-2 border border-white/10 text-left">
-                <i class="fa-solid fa-location-crosshairs text-[#cc001b] text-lg md:text-xl flex-shrink-0"></i>
-                <div class="min-w-0 flex-1 text-left">
-                  <p class="font-bold text-xs md:text-sm uppercase tracking-wide leading-tight">Nearest
-                    Location</p>
 
+              <div
+                class="flex items-start gap-4 bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-[#cc001b] hover:bg-red-50/30 transition-all duration-300 group">
+                <div
+                  class="w-12 h-12 rounded-xl bg-[#cc001b]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#cc001b]/20 transition-colors">
+                  <i class="fa-solid fa-map text-[#cc001b] text-xl"></i>
+                </div>
+                <div class="text-left">
+                  <p class="font-black text-sm uppercase tracking-widest text-gray-900 leading-tight">Coverage</p>
+                  <p class="text-xs text-gray-600 font-medium">All Major Cities</p>
                 </div>
               </div>
-              <div class="flex items-start gap-2 bg-white/5 rounded-xl p-2 md:p-2 border border-white/10 text-left">
-                <i class="fa-solid fa-box text-[#cc001b] text-lg md:text-xl flex-shrink-0"></i>
-                <div class="min-w-0 flex-1 text-left">
-                  <p class="font-bold text-xs md:text-sm uppercase tracking-wide leading-tight">Availability
-                  </p>
 
+              <div
+                class="flex items-start gap-4 bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-[#cc001b] hover:bg-red-50/30 transition-all duration-300 group">
+                <div
+                  class="w-12 h-12 rounded-xl bg-[#cc001b]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#cc001b]/20 transition-colors">
+                  <i class="fa-solid fa-check text-[#cc001b] text-xl"></i>
+                </div>
+                <div class="text-left">
+                  <p class="font-black text-sm uppercase tracking-widest text-gray-900 leading-tight">Quality</p>
+                  <p class="text-xs text-gray-600 font-medium">Verified Partners</p>
                 </div>
               </div>
             </div>
 
-            <div class="flex flex-col sm:flex-row items-center gap-4 py-8 justify-center lg:justify-start">
+            <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
               <a href="dealers.html"
-                class="bg-[#cc001b] text-white rounded-lg font-bold uppercase tracking-widest text-sm px-8 py-4 shadow-lg">
-                Locator </a>
+                class="bg-[#cc001b] hover:bg-[#990018] text-white rounded-xl font-black uppercase tracking-widest text-sm px-8 py-4 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2">
+                <i class="fa-solid fa-map-location-dot"></i> Find Partner
+              </a>
               <a href="support.html"
-                class="font-bold uppercase tracking-widest text-sm border border-[#cc001b] rounded-lg px-8 py-4 hover:border-[#cc001b] shadow-md">
-                Support </a>
+                class="font-black uppercase tracking-widest text-sm border-2 border-[#cc001b] text-[#cc001b] rounded-xl px-8 py-3 hover:bg-red-50 transition-all duration-300 flex items-center gap-2">
+                <i class="fa-solid fa-headset"></i> Get Support
+              </a>
             </div>
           </div>
 
-          <div class="flex justify-center items-center">
+          <div class="flex justify-center items-center order-1">
             <div class="relative w-full max-w-full">
-              <div class="absolute -inset-4 bg-white/5 rounded-2xl blur-2xl"></div>
-              <div class="relative bg-white/5 border border-white/10 rounded-2xl">
+              <div class="absolute -inset-6 bg-gray-100 rounded-3xl blur-xl opacity-40"></div>
+              <div
+                class="relative bg-white border-2 border-gray-200 rounded-3xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <img src="assets/dealer-map.png" alt="Alaska Dealer Map"
-                  class="w-full h-full object-contain opacity-100" />
-
+                  class="w-full h-full object-contain rounded-2xl" />
               </div>
               <div class="partner-counter" data-target="400" aria-live="polite">
                 <p class="partner-counter-label">Partners Across Pakistan</p>
