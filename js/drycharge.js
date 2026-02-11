@@ -1,6 +1,7 @@
 // 1. GLOBAL SCOPE
 let currentBatteryId = null;
 let compareFirstId = null;
+let compareSelectingFirst = false;
 let lastFiltered = [];
 
 function normalizeUses(uses) {
@@ -24,13 +25,20 @@ function formatDimensions(dimensions) {
   const length = dimensions.l ?? dimensions.length;
   const width = dimensions.w ?? dimensions.width;
   const height = dimensions.h ?? dimensions.height;
-  const unit = dimensions.unit ? ` ${dimensions.unit}` : "";
+  const unitRaw = dimensions.unit || "";
+  const unit = unitRaw ? ` ${unitRaw}` : "";
+  const isInches = ["in", "inch", "inches"].includes(String(unitRaw).toLowerCase());
 
   if ([length, width, height].some((v) => v === undefined || v === null || v === "")) {
     return "";
   }
 
-  return `${length} x ${width} x ${height}${unit}`;
+  const base = `L: ${length} x W: ${width} x H: ${height}`;
+  if (isInches) {
+    return base;
+  }
+
+  return `${base}${unit}`;
 }
 
 function getBatterySearchText(battery) {
@@ -90,30 +98,36 @@ window.updateStage = function (id, shouldScroll = false) {
     tagsContainer.innerHTML = battery.categories.map((tag) => `<span class="bg-gray-100 px-3 py-1 text-[100%] font-black uppercase rounded-md">${tag}</span>`).join("");
   }
 
-  // Populate details section with dimensions only
+  // Populate details section with box size, dimensions, and weight
   const detailsContent = document.getElementById("stage-details");
   if (detailsContent) {
-    let detailsHtml = "";
-
+    const detailsLines = [];
+    if (battery.boxSize) detailsLines.push(`<div><strong>Battery Box Size (JIS):</strong> ${battery.boxSize}</div>`);
     if (battery.dimensions) {
-      const dims = battery.dimensions;
-      const length = dims.l || 0;
-      const width = dims.w || 0;
-      const height = dims.h || 0;
-      const unit = dims.unit || "mm";
-      detailsHtml = `<div><strong>Dimensions:</strong> ${length} x ${width} x ${height} ${unit}</div>`;
+      const unitRaw = battery.dimensions.unit || "";
+      const isInches = ["in", "inch", "inches"].includes(String(unitRaw).toLowerCase());
+      if (isInches) {
+        detailsLines.push(`<div><strong>Dimensions (inches):</strong> ${formatDimensions(battery.dimensions)}</div>`);
+      } else {
+        detailsLines.push(`<div><strong>Dimensions:</strong> ${formatDimensions(battery.dimensions)}</div>`);
+      }
     }
+    if (battery.weightKg !== undefined && battery.weightKg !== null) detailsLines.push(`<div><strong>Dry Weight:</strong> ${battery.weightKg} kg</div>`);
 
-    detailsContent.innerHTML = detailsHtml || "<div>No dimensions available</div>";
+    detailsContent.innerHTML = detailsLines.length ? detailsLines.join("") : "<div>No details available</div>";
 
     // Reset button icon to plus
     const detailsBtn = document.getElementById("stage-details-btn");
+    const detailsLabel = document.getElementById("stage-details-label");
     if (detailsBtn) {
       const icon = detailsBtn.querySelector("i");
       if (icon) {
         icon.classList.remove("fa-minus");
         icon.classList.add("fa-plus");
       }
+    }
+    if (detailsLabel) {
+      detailsLabel.innerText = "More Details";
     }
 
     // Hide details initially
@@ -144,6 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- DETAILS BUTTON - EXPAND/COLLAPSE ---
   const detailsBtn = document.getElementById("stage-details-btn");
+  const detailsLabel = document.getElementById("stage-details-label");
   if (detailsBtn) {
     detailsBtn.addEventListener("click", () => {
       const detailsContent = document.getElementById("stage-details");
@@ -155,13 +170,18 @@ document.addEventListener("DOMContentLoaded", () => {
           detailsContent.classList.remove("hidden");
           icon.classList.remove("fa-plus");
           icon.classList.add("fa-minus");
+          if (detailsLabel) detailsLabel.innerText = "Less Details";
         } else {
           detailsContent.classList.add("hidden");
           icon.classList.remove("fa-minus");
           icon.classList.add("fa-plus");
+          if (detailsLabel) detailsLabel.innerText = "More Details";
         }
       }
     });
+  }
+  if (detailsLabel && detailsBtn) {
+    detailsLabel.addEventListener("click", () => detailsBtn.click());
   }
 
   // --- 2. DRAG TO SCROLL LOGIC (Fixed) ---
@@ -499,6 +519,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // --- MODAL & COMPARISON LOGIC ---
 
 window.openCompareSelection = function (firstId) {
+  compareSelectingFirst = false;
   compareFirstId = firstId;
   const firstBattery = batteryData.find((b) => b.id === firstId);
   const modal = document.getElementById("compare-modal");
@@ -508,47 +529,98 @@ window.openCompareSelection = function (firstId) {
     document.body.style.overflow = "hidden";
 
     document.getElementById("compare-render-area").innerHTML = `
-            <div class="max-w-xl mx-auto">
-                <h3 class="text-lg font-bold uppercase mb-6 tracking-tighter text-black">Compare With...</h3>
-                <div class="flex items-center gap-2 mb-6 bg-gray-50 p-2 rounded-md">
-                    <div class="bg-[#cc001b] text-white px-3 py-1 rounded-md text-[100%] font-black uppercase">${firstBattery.model}</div>
-                    <div class="text-gray-400 text-xs font-bold italic px-1">VS</div>
-                    <div class="text-gray-400 text-[100%] font-black animate-pulse">Select Second Battery</div>
-                </div>
-                <div class="relative mb-4">
-                    <input type="text" id="modalSearch" oninput="filterModalList()" placeholder="Search Plates, AH or Model..." autofocus
-                           class="w-full bg-gray-100 border-none rounded-md py-4 pl-5 pr-12 outline-none font-bold text-sm uppercase focus:bg-white focus:ring-2 focus:ring-[#cc001b]">
-                </div>
-                <div id="modal-list-results" class="space-y-2 max-h-[40vh] overflow-y-auto pr-1"></div>
+        <div class="max-w-5xl mx-auto">
+          <h3 class="text-xl md:text-2xl font-black uppercase mb-6 tracking-tight text-black">Compare Batteries</h3>
+          <div class="grid grid-cols-2 gap-6 mb-6">
+            <div class="bg-gray-50 border border-gray-200 rounded-md p-4">
+              <p class="text-[11px] font-black uppercase text-black mb-2">Compare With</p>
+              <div class="relative">
+                <input type="text" id="modalSearchFirst" value="${firstBattery.model}" oninput="compareSelectingFirst = true; filterModalList();"
+                  onfocus="compareSelectingFirst = true;" placeholder="Enter model name" autofocus
+                  class="w-full bg-white border border-gray-200 rounded-md py-3 pl-4 pr-10 font-bold text-sm uppercase text-black focus:ring-2 focus:ring-[#cc001b] outline-none" />
+                <button type="button" onclick="clearCompareSearch('first')"
+                  class="absolute right-3 top-1/2 -translate-y-1/2 text-black hover:text-[#cc001b]">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+              <p class="text-[10px] text-black italic mt-2">Edit to change selected model</p>
             </div>
-        `;
+            <div class="bg-gray-50 border border-gray-200 rounded-md p-4">
+              <p class="text-[11px] font-black uppercase text-black mb-2">Compare With</p>
+              <div class="relative">
+                <input type="text" id="modalSearchSecond" oninput="compareSelectingFirst = false; filterModalList();" onfocus="compareSelectingFirst = false;"
+                  placeholder="Enter model name to compare"
+                  class="w-full bg-white border border-gray-200 rounded-md py-3 pl-4 pr-10 font-bold text-sm uppercase focus:ring-2 focus:ring-[#cc001b] outline-none" />
+                <button type="button" onclick="clearCompareSearch('second')"
+                  class="absolute right-3 top-1/2 -translate-y-1/2 text-black hover:text-[#cc001b]">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+              <p class="text-[10px] text-black italic mt-2">Please enter model name to compare</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-6 mb-8">
+            <div class="bg-white border border-gray-200 rounded-md p-6 text-center">
+              <p class="text-sm font-black uppercase text-black mb-3">${firstBattery.model}</p>
+              <img src="${firstBattery.image}" class="h-40 md:h-52 mx-auto object-contain" alt="${firstBattery.model}">
+            </div>
+            <div class="bg-white border border-gray-200 rounded-md p-6 text-center">
+              <p class="text-sm font-black uppercase text-black mb-3">Select to compare</p>
+              <div class="h-40 md:h-52 mx-auto border border-dashed border-gray-300 rounded-md flex items-center justify-center text-xs uppercase text-black">
+                Waiting for selection
+              </div>
+            </div>
+          </div>
+          <div id="modal-list-results" class="space-y-2 max-h-[40vh] overflow-y-auto pr-1"></div>
+        </div>
+      `;
     filterModalList();
   }
 };
 
 window.filterModalList = function () {
-  const term = document.getElementById("modalSearch")?.value.toLowerCase().trim() || "";
+  const inputId = compareSelectingFirst ? "modalSearchFirst" : "modalSearchSecond";
+  const term = document.getElementById(inputId)?.value.toLowerCase().trim() || "";
   const listArea = document.getElementById("modal-list-results");
   if (!listArea) return;
 
-  const matches = batteryData.filter((b) => b.id !== compareFirstId && getBatterySearchText(b).includes(term));
+  const matches = compareSelectingFirst
+    ? batteryData.filter((b) => getBatterySearchText(b).includes(term))
+    : batteryData.filter((b) => b.id !== compareFirstId && getBatterySearchText(b).includes(term));
 
   listArea.innerHTML = matches
     .map(
       (b) => `
-        <div onclick="executeComparison('${b.id}')" class="flex items-center justify-between p-3 bg-white border border-gray-100 rounded-md cursor-pointer hover:border-[#cc001b] transition-all group">
+        <div onclick="${compareSelectingFirst ? `selectFirstForCompare('${b.id}')` : `executeComparison('${b.id}')`}" class="flex items-center justify-between p-3 bg-white border border-gray-100 rounded-md cursor-pointer hover:border-[#cc001b] transition-all group">
             <div class="flex items-center gap-3">
                 <img src="${b.image}" class="h-8 w-auto object-contain pointer-events-none">
                 <div>
                     <p class="font-black text-[100%] uppercase leading-tight">${b.model}</p>
-                    <p class="text-[80%] text-gray-400 font-bold uppercase">${b.plates} Plates</p>
+              <p class="text-[80%] text-black font-bold uppercase">${b.plates} Plates</p>
                 </div>
             </div>
-            <span class="text-[100%] font-black text-gray-400 group-hover:text-[#cc001b]">${b.ah} AH</span>
+          <span class="text-[100%] font-black text-black group-hover:text-[#cc001b]">${b.ah} AH</span>
         </div>
     `,
     )
     .join("");
+};
+
+window.clearCompareSearch = function (which) {
+  const isFirst = which === "first";
+  compareSelectingFirst = isFirst;
+  const inputId = isFirst ? "modalSearchFirst" : "modalSearchSecond";
+  const input = document.getElementById(inputId);
+  if (input) {
+    input.value = "";
+    input.focus();
+  }
+  filterModalList();
+};
+
+window.selectFirstForCompare = function (firstId) {
+  compareSelectingFirst = false;
+  window.openCompareSelection(firstId);
 };
 
 window.executeComparison = function (secondId) {
@@ -556,6 +628,7 @@ window.executeComparison = function (secondId) {
   const b2 = batteryData.find((x) => x.id === secondId);
   const specs = [
     { l: "Plates", k: "plates" },
+    { l: "JIS Battery Box Size", k: "boxSize" },
     { l: "Voltage", k: "p", s: "V" },
     { l: "Ampere", k: "ah", s: " AH" },
     { l: "Warranty", k: "warranty" },
@@ -563,37 +636,43 @@ window.executeComparison = function (secondId) {
   ];
 
   document.getElementById("compare-render-area").innerHTML = `
-        <div class="max-w-2xl mx-auto">
-            <button onclick="openCompareSelection('${compareFirstId}')" class="mb-6 text-[100%] font-normal uppercase text-gray-400 hover:text-[#cc001b] flex items-center gap-2">
-                <i class="fa-solid fa-arrow-left"></i> Change
-            </button>
-            <div class="grid grid-cols-2 gap-4 mb-8">
-                <div class="text-center p-4 bg-white rounded-md border border-gray-100">
-                    <img src="${b1.image}" class="h-30 mx-auto mb-2 object-contain">
-                    <h4 class="text-[100%] font-bold uppercase">${b1.model}</h4>
-                </div>
-                <div class="text-center p-4 bg-white border-2 border-[#cc001b] rounded-md shadow-lg">
-                    <img src="${b2.image}" class="h-30 mx-auto mb-2 object-contain">
-                    <h4 class="text-[100%] font-bold uppercase">${b2.model}</h4>
-                </div>
-            </div>
-            <div class="grid gap-1">
-                ${specs
-                  .map((s) => {
-                    const leftRaw = s.v ? s.v(b1) : b1[s.k];
-                    const rightRaw = s.v ? s.v(b2) : b2[s.k];
-                    const leftVal = leftRaw === undefined || leftRaw === null || leftRaw === "" ? "--" : `${leftRaw}${s.s || ""}`;
-                    const rightVal = rightRaw === undefined || rightRaw === null || rightRaw === "" ? "--" : `${rightRaw}${s.s || ""}`;
-                    return `
-                    <div class="grid grid-cols-3 items-center py-2 border-b border-gray-50">
-                        <span class="font-bold text-base md:text-2xl text-center">${leftVal}</span>
-                        <span class="text-[100%] font-bold uppercase text-gray-600 text-center tracking-tighter">${s.l}</span>
-                        <span class="font-bold text-base md:text-2xl text-center text-[#cc001b]">${rightVal}</span>
-                    </div>`;
-                  })
-                  .join("")}
-            </div>
+      <div class="max-w-5xl mx-auto">
+        <button onclick="openCompareSelection('${compareFirstId}')" class="mb-6 text-[11px] font-black uppercase text-black hover:text-[#cc001b] flex items-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Change
+        </button>
+        <div class="grid grid-cols-2 gap-6 mb-8">
+          <div class="text-center p-6 bg-white rounded-md border border-gray-200">
+            <p class="text-sm font-black uppercase text-black mb-3">${b1.model}</p>
+            <img src="${b1.image}" class="h-40 md:h-56 mx-auto mb-2 object-contain" alt="${b1.model}">
+          </div>
+          <div class="text-center p-6 bg-white border border-gray-200 rounded-md">
+            <p class="text-sm font-black uppercase text-black mb-3">${b2.model}</p>
+            <img src="${b2.image}" class="h-40 md:h-56 mx-auto mb-2 object-contain" alt="${b2.model}">
+          </div>
         </div>
+        <div class="border border-gray-200 rounded-lg overflow-hidden">
+          <div class="grid grid-cols-3 bg-gray-50 text-[11px] uppercase font-black text-black">
+            <div class="p-3 text-[#cc001b]">Specs</div>
+            <div class="p-3 text-center truncate">${b1.model}</div>
+            <div class="p-3 text-center truncate">${b2.model}</div>
+          </div>
+          ${specs
+            .map((s, i) => {
+              const leftRaw = s.v ? s.v(b1) : b1[s.k];
+              const rightRaw = s.v ? s.v(b2) : b2[s.k];
+              const leftVal = leftRaw === undefined || leftRaw === null || leftRaw === "" ? "--" : `${leftRaw}${s.s || ""}`;
+              const rightVal = rightRaw === undefined || rightRaw === null || rightRaw === "" ? "--" : `${rightRaw}${s.s || ""}`;
+              const rowBg = i % 2 === 0 ? "bg-white" : "bg-gray-50";
+              return `
+            <div class="grid grid-cols-3 items-start ${rowBg} border-t border-gray-200">
+              <div class="p-3 text-[11px] font-black uppercase text-[#cc001b]">${s.l}</div>
+              <div class="p-3 text-[12px] font-semibold text-black break-words text-center">${leftVal}</div>
+              <div class="p-3 text-[12px] font-semibold text-black break-words text-center">${rightVal}</div>
+            </div>`;
+            })
+            .join("")}
+        </div>
+      </div>
     `;
 };
 

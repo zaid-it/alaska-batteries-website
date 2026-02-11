@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
-<body class="bg-white text-gray-900 font-sans">
+<body class="bg-white text-gray-900 font-sans overflow-x-hidden">
   <div id="header-placeholder"></div>
 
   <main>
@@ -28,6 +28,10 @@
 
     <!-- Products Showcase Section -->
     <section id="products-showcase" class="products-showcase bg-white md:py-8">
+      <h2 class="font-black text-center text-5xl md:text-7xl tracking-tight leading-tight mb-2">
+        Our
+        <span class="text-[#cc001b]">Solutions</span>
+      </h2>
       <div class="products-carousel-wrapper relative">
         <div class="products-carousel" id="productsCarousel">
           <!-- Automotive (Application) -->
@@ -165,42 +169,48 @@
     </section>
 
     <!-- Graphite Technology Section - Two Image Flex Layout -->
-    <section class="py-16 md:py-10 bg-white">
+    <section class="bg-white">
       <div class=" mx-auto px-6">
-        <h2 class="hidden lg:block font-black text-center text-5xl md:text-7xl tracking-tight leading-tight mb-12">
+        <h2 class="font-black text-center text-5xl md:text-7xl tracking-tight leading-tight mb-12">
           Graphite
           <span class="text-[#cc001b]">Technology</span>
         </h2>
         <!-- Two Image Flex Container -->
         <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
           <!-- Image 1 - 75% width on desktop, 100% on mobile -->
-          <div class="w-full md:w-3/4 h-64 md:h-96 md:min-h-[580px] rounded-xl overflow-hidden shadow-lg">
+          <div class="w-full md:w-3/4 h-64 md:h-96 md:min-h-[580px] rounded-xl overflow-hidden shadow-lg relative">
             <img src="assets/Tech-landing.png" alt="Graphite Technology Image 1"
               class="w-full h-full object-cover object-[55%_75%]" />
+            <!-- Text Overlay -->
+            <div
+              class="absolute inset-0 bg-black/10 md:bg-black/20 flex flex-col items-start justify-between p-6 md:p-12">
+              <h3 class="text-white font-bold text-2xl md:text-4xl lg:text-5xl text-left mb-6 md:mb-8 leading-tight">
+                Pakistan's one and only Graphite Enhanced Lead-Acid Battery
+              </h3>
+              <a href="graphite.html"
+                class="bg-[#cc001b] hover:bg-[#a00016] text-white font-bold py-3 px-8 md:py-4 md:px-12 rounded-full uppercase tracking-wide transition-all duration-300 transform hover:scale-105 shadow-lg">
+                Explore
+              </a>
+            </div>
           </div>
 
           <!-- Image 2 - Remaining width on desktop, 100% on mobile -->
           <div class="w-full h-64 md:max-w-[500px] md:h-96 md:min-h-[580px] rounded-xl overflow-hidden shadow-lg">
-            <img src="assets/Tech-landing-2.png" alt="Graphite Technology Image 2" class="w-full h-full" />
+            <img src="assets/Tech-landing-2.png" alt="Graphite Technology Image 2" class="w-auto h-auto object-cover" />
           </div>
         </div>
       </div>
     </section>
 
-    <section class="relative overflow-hidden bg-white py-16 md:py-6 border-t border-gray-200">
+    <section class="relative overflow-hidden bg-white py-16 md:py-2 border-t border-gray-200 bg-gray-100">
       <div class="container mx-auto px-6 relative">
         <!-- Heading for mobile -->
-        <h2 class="lg:hidden font-black text-5xl md:text-7xl tracking-tight leading-tight mb-2 text-center">Our
+        <h2 class="font-black text-5xl md:text-7xl tracking-tight leading-tight mt-2 text-center mb-8">Our
           <span class="text-[#cc001b]">Presence</span>
         </h2>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div class="text-center lg:text-left order-2">
-            <!-- Heading for desktop -->
-            <h2 class="hidden lg:block font-black text-5xl md:text-7xl tracking-tight leading-tight mb-8">Our
-              <span class="text-[#cc001b]">Presence</span>
-            </h2>
-
+          <div class="text-center lg:text-left order-2 md:order-1">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
               <div
                 class="flex items-start gap-4 bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-[#cc001b] hover:bg-red-50/30 transition-all duration-300 group">
@@ -264,12 +274,12 @@
             </div>
           </div>
 
-          <div class="flex justify-center items-center order-1">
+          <div class="flex justify-start items-start order-1">
             <div class="relative w-full max-w-full">
               <div class="absolute -inset-6 bg-gray-100 rounded-3xl blur-xl opacity-10"></div>
               <div class="relative ">
                 <img src="assets/dealer-map.png" alt="Alaska Dealer Map"
-                  class="w-full h-full object-contain rounded-2xl" />
+                  class="w-full h-full object-contain rounded-2xl -mt-28 pb-4" />
               </div>
               <div class="partner-counter" data-target="500" aria-live="polite">
                 <p class="partner-counter-value md:mt-[-100px] pb-4"><span id="partner-count">0</span>+ Locations</p>
