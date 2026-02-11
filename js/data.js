@@ -128,7 +128,7 @@ const batteryData = [
     plates: 5,
     ah: 50,
     p: 12,
-    warranty: "0",
+    warranty: "None",
     tech: "Graphite Enhanced Lead-Acid Battery",
     image: "assets/batteries/solar/s50.png",
     categories: ["Solar"],
