@@ -322,6 +322,20 @@ function setupMobileMenu() {
   });
 }
 
+// Set active nav item based on current page
+function setActiveNavItem() {
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  navLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    // Check if link matches current page
+    if (href === currentPage || (currentPage === "" && href === "index.html") || (currentPage === "index.html" && href === "index.html")) {
+      link.closest(".nav-item").classList.add("active");
+    }
+  });
+}
+
 function init() {
   const headerElem = document.getElementById("header-placeholder");
   const footerElem = document.getElementById("footer-placeholder");
@@ -336,6 +350,9 @@ function init() {
 
   // CRITICAL: Initialize mobile menu logic AFTER the HTML is injected
   setupMobileMenu();
+
+  // Set active navigation item
+  setActiveNavItem();
 }
 
 // Run the initialization

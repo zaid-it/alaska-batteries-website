@@ -14,7 +14,7 @@
   </style>
 </head>
 
-<body class="bg-white">
+<body class="bg-white overflow-x-hidden">
   <div id="header-placeholder"></div>
   <main>
     <section
@@ -27,14 +27,14 @@
       </video>
     </section>
 
-    <section class="border-b border-gray-50 overflow-visible">
+    <section class="overflow-visible">
       <div class="relative w-full overflow-visible">
-        <img src="assets/mgmt.jpeg" alt="Our Story" class="w-full h-[360px] md:h-[950px] object-cover object-center" />
+        <img src="assets/mgmt.png" alt="Our Story" class="w-full h-[360px] md:h-[950px] object-cover object-center" />
         <div
-          class="mt-4 md:mt-0 md:absolute md:top-10 md:right-12 md:w-[560px] md:h-[520px] lg:h-[580px] md:bg-black/5 md:backdrop-blur-2xl rounded-2xl p-5 md:p-8 shadow-2xl border-2 border-white/30 overflow-y-auto"
+          class="-mt-8 md:mt-0 border-t-4 border-[#cc001b] md:absolute md:top-2 md:right-2 md:w-[450px] md:h-[730px] bg-black/10 backdrop-blur-xl md:bg-black/15 md:backdrop-blur-2xl rounded-2xl p-5 md:p-8 shadow-2xl overflow-y-auto"
           style="z-index: 50 !important;">
           <h2
-            class="font-black uppercase tracking-normal mb-4 md:mb-6 text-black md:text-white text-2xl md:text-3xl lg:text-4xl">
+            class="font-bold uppercase tracking-normal mb-2 md:mb-6 text-white md:text-white text-3xl text-center md:text-5xl lg:text-5xl">
             Our <span style="color: #cc001b !important;">Story</span>
           </h2>
           <div
@@ -60,43 +60,53 @@
       </div>
     </section>
     <!-- Section 1: The Future is Sustainable -->
-    <section class="py-20 bg-white border-b border-gray-200 h-full md:h-[900px]">
-      <div class="mx-auto px-6 ">
-        <div class="text-center mb-12">
-          <h2 class="text-5xl md:text-6xl font-black uppercase tracking-normal text-black">
-            The Future
-            is
-            <span class="text-[#cc001b]">Sustainable</span>
-          </h2>
+    <section
+      class="pt-10 pb-20 md:py-20 bg-white bg-cover bg-center border-b border-gray-200 h-full md:h-[900px] flex items-start"
+      style="background-image: url('assets/future-1.png');">
 
-        </div>
-        <div class="max-w-5xl mx-auto p-2">
-          <p class="text-black leading-relaxed text-lg text-justify">
-            To be Pakistan's most trusted power storage solutions brand, enabling uninterrupted mobility, work, and
-            everyday life through dependable performance and responsible innovation. We're committed to building a
-            future where
-            reliable power is not just a service, but a responsibility we uphold with every battery we produce.
-          </p>
+      <div class="w-full mx-auto px-2">
+        <div
+          class="w-full md:mx-auto bg-black/45 md:bg-white/10 md:backdrop-blur-md rounded-2xl p-2 md:p-10 shadow-2xl border border-white/20">
+          <div class="text-center">
+            <h2 class="text-3xl md:text-6xl font-bold uppercase tracking-normal text-white md:text-white">
+              The Future
+              is
+              <span class="text-[#cc001b]">Sustainable</span>
+            </h2>
+          </div>
+          <div>
+            <p class="text-white md:text-white leading-relaxed text-sm md:text-lg text-justify">
+              To be Pakistan's most trusted power storage solutions brand, enabling uninterrupted mobility, work, and
+              everyday life through dependable performance and responsible innovation. We're committed to building a
+              future where
+              reliable power is not just a service, but a responsibility we uphold with every battery we produce.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Section 2: The Path to Future -->
-    <section class="py-20 bg-gray-100 border-b border-gray-200 h-full md:h-[900px]">
-      <div class="mx-auto px-6">
-        <div class="text-center mb-12">
-          <h2 class="text-5xl md:text-6xl font-black uppercase tracking-tight text-black mb-4">The Path to <span
-              class="text-[#cc001b]">Future</span>
-          </h2>
-
-        </div>
-        <div class="max-w-5xl mx-auto  p-2">
-          <p class="text-black leading-relaxed text-lg text-justify">
-            We deliver reliable power solutions designed for Pakistan's real conditions, so customers get consistent
-            performance and dependable backup. Every decision we make, from product development to customer support, is
-            guided
-            by a clear purpose: to be the partner that Pakistanis trust when power matters most.
-          </p>
+    <section
+      class="pt-10 pb-20 md:py-20 bg-gray-100 bg-cover bg-center border-b border-gray-200 h-full md:h-[900px] flex items-start"
+      style="background-image: url('assets/future-2.png');">
+      <div class="w-full mx-auto px-2">
+        <div
+          class="w-full md:mx-auto bg-black/35 md:bg-black/25 md:backdrop-blur-md rounded-2xl p-2 md:p-10 shadow-2xl border border-white/20">
+          <div class="text-center mb-2">
+            <h2 class="text-3xl md:text-6xl font-bold uppercase tracking-normal text-white md:text-white">The
+              Path to <span class="text-[#cc001b]">Future</span>
+            </h2>
+          </div>
+          <div>
+            <p class="text-white md:text-white leading-relaxed text-sm md:text-lg text-justify">
+              We deliver reliable power solutions designed for Pakistan's real conditions, so customers get consistent
+              performance and dependable backup. Every decision we make, from product development to customer support,
+              is
+              guided
+              by a clear purpose: to be the partner that Pakistanis trust when power matters most.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -108,7 +118,7 @@
           <!-- Awards Column -->
           <div class="bg-gray-100/50 shadow-lg rounded-xl border-t-4 border-t-[#cc001b] p-8">
             <div class="text-center mb-12">
-              <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight text-[#cc001b] mb-4">Awards</h2>
+              <h2 class="text-4xl md:text-5xl font-bold uppercase tracking-tight text-[#cc001b] mb-4">Awards</h2>
 
               <p class="text-gray-600 text-base max-w-xl mx-auto">
                 Recognition of our excellence and commitment to innovation in the battery industry.
@@ -119,9 +129,10 @@
               <!-- Award 1 -->
               <div
                 class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
-                onclick="openImageModal('assets/gallery/corp/corp-1.jpg', 'Best Emerging Brand of the Year Award 2025')">
-                <div class="w-full h-full bg-gray-300 overflow-hidden relative">
-                  <img src="assets/gallery/corp/corp-1.jpg" alt="Best Emerging Brand" class="w-full max-h-full" />
+                onclick="openImageModal('assets/gallery/awards/award-1.jpg', 'Best Emerging Brand of the Year Award 2025')">
+                <div class="w-full h-48 bg-gray-300 overflow-hidden relative">
+                  <img src="assets/gallery/awards/award-1.jpg" alt="Best Emerging Brand"
+                    class="w-full h-full object-cover object-[10%_35%] group-hover:scale-105 transition-transform duration-300" />
                   <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
                 </div>
               </div>
@@ -133,7 +144,7 @@
           <!-- Certifications Column -->
           <div class="bg-gray-100/50 shadow-lg rounded-xl border-t-4 border-t-[#cc001b] p-8">
             <div class="text-center mb-12">
-              <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight text-[#cc001b] mb-4">Certifications
+              <h2 class="text-4xl md:text-5xl font-bold uppercase tracking-tight text-[#cc001b] mb-4">Certifications
               </h2>
 
               <p class="text-gray-600 text-base max-w-xl mx-auto">
@@ -145,10 +156,10 @@
               <!-- Certification 1 -->
               <div
                 class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
-                onclick="openImageModal('assets/gallery/corp/corp-2.jpg', 'ISO 9001:2015 Quality Management')">
+                onclick="openImageModal('assets/gallery/certificates/ISO-9001-2015.jpeg', 'ISO 9001:2015 Quality Management')">
                 <div class="w-full h-24 bg-gray-300 overflow-hidden relative">
-                  <img src="assets/gallery/corp/corp-2.jpg" alt="ISO 9001:2015"
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <img src="assets/gallery/certificates/ISO-9001-2015.jpeg" alt="ISO 9001:2015"
+                    class="w-full h-full object-cover object-[10%_40%] group-hover:scale-105 transition-transform duration-300" />
                   <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
                 </div>
               </div>
@@ -156,10 +167,10 @@
               <!-- Certification 2 -->
               <div
                 class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
-                onclick="openImageModal('assets/gallery/corp/corp-3.jpg', 'Environmental Safety Certified')">
+                onclick="openImageModal('assets/gallery/certificates/ISO-14001-2015.jpeg', 'Environmental Safety Certified')">
                 <div class="w-full h-24 bg-gray-300 overflow-hidden relative">
-                  <img src="assets/gallery/corp/corp-3.jpg" alt="Environmental Safety"
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <img src="assets/gallery/certificates/ISO-14001-2015.jpeg" alt="Environmental Safety"
+                    class="w-full h-full object-cover object-[10%_40%] group-hover:scale-105 transition-transform duration-300" />
                   <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
                 </div>
               </div>
@@ -167,20 +178,20 @@
               <!-- Certification 3 -->
               <div
                 class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
-                onclick="openImageModal('assets/gallery/corp/corp-4.jpg', 'Product Safety Standards Approved')">
+                onclick="openImageModal('assets/gallery/certificates/ISO-45001-2018.jpeg', 'Occupational Health and Safety Management')">
                 <div class="w-full h-24 bg-gray-300 overflow-hidden relative">
-                  <img src="assets/gallery/corp/corp-4.jpg" alt="Product Safety"
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <img src="assets/gallery/certificates/ISO-45001-2018.jpeg" alt="Occupational Health and Safety"
+                    class="w-full h-full object-cover object-[10%_40%] group-hover:scale-105 transition-transform duration-300" />
                   <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
                 </div>
               </div>
               <!-- Certification 4 -->
               <div
                 class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
-                onclick="openImageModal('assets/gallery/corp/corp-5.jpg', 'Product Safety Standards Approved')">
+                onclick="openImageModal('assets/gallery/certificates/Fire-Safety.jpeg', 'Fire Safety Certified')">
                 <div class="w-full h-24 bg-gray-300 overflow-hidden relative">
-                  <img src="assets/gallery/corp/corp-5.jpg" alt="Product Safety"
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <img src="assets/gallery/certificates/Fire-Safety.jpeg" alt="Fire Safety"
+                    class="w-full h-full object-cover object-[10%_10%] group-hover:scale-105 transition-transform duration-300" />
                   <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
                 </div>
               </div>

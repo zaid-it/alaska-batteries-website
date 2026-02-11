@@ -118,7 +118,7 @@ function closeBatteryFinder() {
   }
 
   function updateBanners() {
-    document.querySelectorAll(".banner-wrapper img[data-mobile]").forEach((img) => {
+    document.querySelectorAll("img[data-mobile]").forEach((img) => {
       // store original as data-desktop if not present
       //if (!img.dataset.desktop) img.dataset.desktop = img.getAttribute("src") || "";
 
