@@ -629,10 +629,10 @@ html {
 .region-tab {
   background: #fff;
   border: 1px solid #e5e7eb;
-  color: #9ca3af;
+  color: black;
   padding: 8px 12px;
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 750;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   text-align: center;

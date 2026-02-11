@@ -17,29 +17,28 @@
 <body class="bg-white">
   <div id="header-placeholder"></div>
   <main>
-    <section class="bg-white space-y-2 overflow-hidden group">
-      <div class="relative h-full md:h-full flex flex-col banner-wrapper">
-        <img id="hero-banner-img" src="assets/about-2.png" data-mobile="assets/mobile/about-mobile.png" alt="About Us"
-          class="w-full h-full" />
-        <div id="hero-text-box"
-          class="absolute top-20 w-[200px] h-[55px] rounded-r-md left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[500px] md:h-[150px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
-          <h1 id="hero-title" class="text-3xl md:text-6xl font-bold uppercase tracking-normal leading-tight text-white">
-            About Us</h1>
-        </div>
-      </div>
+    <section
+      class="hero-section relative w-full h-[250px] md:h-full aspect-video bg-zinc-100/50 overflow-hidden hero-mobile">
+      <!-- Video Background -->
+      <video id="heroVideo" class="absolute inset-0 w-full h-[250px] md:h-full object-cover z-0 hero-mobile" autoplay
+        muted playsinline webkit-playsinline loop>
+        <source src="assets/videos/about.mp4" type="video/mp4" />
+        Your browser does not support HTML5 video.
+      </video>
     </section>
 
-    <section class="py-2 border-b border-gray-50 overflow-visible">
+    <section class="border-b border-gray-50 overflow-visible">
       <div class="relative w-full overflow-visible">
-        <img src="assets/mgmt.jpeg" alt="Our Story" class="w-full h-[520px] md:h-[950px] object-cover object-center" />
+        <img src="assets/mgmt.jpeg" alt="Our Story" class="w-full h-[360px] md:h-[950px] object-cover object-center" />
         <div
-          class="absolute inset-x-4 top-4 md:top-10 md:left-auto md:right-12 md:w-[520px] bg-black/50 md:bg-black/20 md:backdrop-blur-2xl rounded-2xl p-5 md:p-8 shadow-2xl border-2 border-white/30 max-h-[480px] md:max-h-[700px] overflow-y-auto"
-          style="z-index: 9999 !important;">
-          <h2 class="font-black uppercase tracking-normal mb-4 md:mb-6"
-            style="color: #ffffff !important; font-size: 1.5rem; line-height: 1.2;">Our <span
-              style="color: #cc001b !important;">Story</span></h2>
-          <div class="space-y-3 md:space-y-4 leading-relaxed font-medium text-justify"
-            style="color: #ffffff !important; font-size: 0.875rem; line-height: 1.6;">
+          class="mt-4 md:mt-0 md:absolute md:top-10 md:right-12 md:w-[560px] md:h-[520px] lg:h-[580px] md:bg-black/5 md:backdrop-blur-2xl rounded-2xl p-5 md:p-8 shadow-2xl border-2 border-white/30 overflow-y-auto"
+          style="z-index: 50 !important;">
+          <h2
+            class="font-black uppercase tracking-normal mb-4 md:mb-6 text-black md:text-white text-2xl md:text-3xl lg:text-4xl">
+            Our <span style="color: #cc001b !important;">Story</span>
+          </h2>
+          <div
+            class="space-y-3 md:space-y-4 leading-relaxed font-medium text-justify text-black md:text-white text-base md:text-lg">
             <p>
               Alaska Batteries may be a new name in Pakistan’s battery market, but the people behind it have spent years
               living this
@@ -60,192 +59,185 @@
         </div>
       </div>
     </section>
-    <section class="py-16 bg-gradient-to-b from-gray-50 to-white">
+    <!-- Section 1: The Future is Sustainable -->
+    <section class="py-20 bg-black border-b border-gray-200 h-full md:h-[900px]">
+      <div class="mx-auto px-6 ">
+        <div class="text-center mb-12">
+          <h2 class="text-5xl md:text-6xl font-black uppercase tracking-normal text-[#cc001b]">
+            The Future
+            is
+            Sustainable</h2>
+
+        </div>
+        <div class="max-w-5xl mx-auto p-2">
+          <p class="text-white leading-relaxed text-lg text-justify">
+            To be Pakistan's most trusted power storage solutions brand, enabling uninterrupted mobility, work, and
+            everyday life through dependable performance and responsible innovation. We're committed to building a
+            future where
+            reliable power is not just a service, but a responsibility we uphold with every battery we produce.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: The Path to Future -->
+    <section class="py-20 bg-gray-100 border-b border-gray-200 h-full md:h-[900px]">
+      <div class="mx-auto px-6">
+        <div class="text-center mb-12">
+          <h2 class="text-5xl md:text-6xl font-black uppercase tracking-tight text-[#cc001b] mb-4">The Path to Future
+          </h2>
+
+        </div>
+        <div class="max-w-5xl mx-auto  p-2">
+          <p class="text-black leading-relaxed text-lg text-justify">
+            We deliver reliable power solutions designed for Pakistan's real conditions, so customers get consistent
+            performance and dependable backup. Every decision we make, from product development to customer support, is
+            guided
+            by a clear purpose: to be the partner that Pakistanis trust when power matters most.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Awards & Certifications Section -->
+    <section class="py-20 bg-gradient-to-br from-purple-50 via-white to-purple-50 border-b border-gray-200">
       <div class="container mx-auto px-6">
-        <!-- Row 1: Vision & Mission -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          <!-- Vision Card -->
-          <div>
-            <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100 h-full">
-              <div class="flex items-start gap-5">
-                <div class="flex-1">
-                  <h2 class="text-4xl font-black uppercase tracking-normal mb-6 text-center text-[#cc001b]">Our Vision
-                  </h2>
-                </div>
-              </div>
-              <p class="text-gray-600 leading-relaxed text-lg text-justify">
-                To be Pakistan’s most trusted power storage solutions brand, enabling uninterrupted mobility, work, and
-                everyday life through dependable performance and responsible innovation.
-              </p>
-            </div>
-          </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <!-- Awards Column -->
+          <div class="bg-gray-100/50 shadow-lg rounded-xl border-t-4 border-t-[#cc001b] p-8">
+            <div class="text-center mb-12">
+              <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight text-[#cc001b] mb-4">Awards</h2>
 
-          <!-- Mission Card -->
-          <div>
-            <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100 h-full">
-              <div class="flex items-start gap-5 mb-6">
-                <div class="flex-1">
-                  <h2 class="text-4xl font-black uppercase tracking-tighter text-center text-[#cc001b]">Our Mission</h2>
-                </div>
-              </div>
-
-              <p class="text-gray-600 leading-relaxed text-lg text-justify">
-                We deliver reliable power solutions designed for Pakistan’s real conditions, so customers get consistent
-                performance and
-                dependable backup.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Row 2: Core Values -->
-        <div class="w-full">
-          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-10 md:p-12">
-            <!-- Header -->
-            <div class="mb-12">
-              <h2 class="text-4xl font-black uppercase tracking-tighter mb-6 text-[#cc001b] text-center">Our Core Values
-              </h2>
-              <p class="text-gray-600 text-lg text-justify md:text-center leading-relaxed">
-                At Alaska Batteries, values drive everything we build from product design to after-sales support. These
-                principles guide our decisions and define who we are.
+              <p class="text-gray-600 text-base max-w-xl mx-auto">
+                Recognition of our excellence and commitment to innovation in the battery industry.
               </p>
             </div>
 
-            <!-- Values Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6">
-              <!-- Value 1: Customer Trust -->
-              <div class="text-center core-value-card">
-                <div class="core-value-icon">
-                  <i class="fa-solid fa-user-check"></i>
-                </div>
-                <h4 class="text-base font-bold text-gray-900 uppercase tracking-wider mb-2">Customer Trust</h4>
-
-              </div>
-
-              <!-- Value 2: Uncompromising Quality -->
-              <div class="text-center core-value-card">
-                <div class="core-value-icon">
-                  <i class="fa-solid fa-gem"></i>
-                </div>
-                <h4 class="text-base font-bold text-gray-900 uppercase tracking-wider mb-2">Uncompromising Quality</h4>
-
-              </div>
-
-              <!-- Value 3: Integrity & Fair Dealing -->
-              <div class="text-center core-value-card">
-                <div class="core-value-icon">
-                  <i class="fa-solid fa-handshake"></i>
-                </div>
-                <h4 class="text-base font-bold text-gray-900 uppercase tracking-wider mb-2">Integrity & Fair Dealing
-                </h4>
-
-              </div>
-
-              <!-- Value 4: Service Excellence -->
-              <div class="text-center core-value-card">
-                <div class="core-value-icon">
-                  <i class="fa-solid fa-award"></i>
-                </div>
-                <h4 class="text-base font-bold text-gray-900 uppercase tracking-wider mb-2">Service Excellence</h4>
-
-              </div>
-
-              <!-- Value 5: Ownership -->
-              <div class="text-center core-value-card">
-                <div class="core-value-icon">
-                  <i class="fa-solid fa-crown"></i>
-                </div>
-                <h4 class="text-base font-bold text-gray-900 uppercase tracking-wider mb-2">Ownership</h4>
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Row 3: Awards & Certifications -->
-        <div class="w-full mt-16">
-          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-10 md:p-12">
-            <!-- Header -->
-            <div class="mb-12">
-              <h2 class="text-4xl font-black uppercase tracking-tighter mb-6 text-[#cc001b] text-center">Awards &
-                Certifications
-              </h2>
-
-            </div>
-
-            <!-- Awards Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-1 gap-4">
               <!-- Award 1 -->
               <div
-                class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300 text-center">
-                <div class="core-value-icon">
-                  <i class="fa-solid fa-trophy"></i>
+                class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
+                onclick="openImageModal('assets/awards/award-1.jpg', 'Emerging Brand of the Year Award 2025')">
+                <div class="w-full h-full bg-gray-300 overflow-hidden relative">
+                  <img src="assets/gallery/corp/corp-1.jpg" alt="Emerging Brand of the Year"
+                    class="w-full max-h-full" />
+                  <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
                 </div>
-                <h3 class="text-lg font-bold text-gray-900 uppercase tracking-widest mb-2">Best Emerging Brand of the
-                  Year Award 2025</h3>
-
               </div>
 
 
-              <!-- Award 2 -->
-              <div
-                class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300 text-center">
-                <div class="core-value-icon">
-                  <i class="fa-solid fa-certificate"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-900 uppercase tracking-widest mb-2">ISO Certified</h3>
+            </div>
+          </div>
 
+          <!-- Certifications Column -->
+          <div class="bg-gray-100/50 shadow-lg rounded-xl border-t-4 border-t-[#cc001b] p-8">
+            <div class="text-center mb-12">
+              <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight text-[#cc001b] mb-4">Certifications
+              </h2>
+
+              <p class="text-gray-600 text-base max-w-xl mx-auto">
+                Certified standards and compliance ensuring quality and reliability across all our products.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
+              <!-- Certification 1 -->
+              <div
+                class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
+                onclick="openImageModal('assets/certifications/cert-1.jpg', 'ISO 9001:2015 Quality Management')">
+                <div class="w-full h-24 bg-gray-300 overflow-hidden relative">
+                  <img src="assets/certifications/cert-1.jpg" alt="ISO 9001:2015"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
+                </div>
               </div>
 
-              <!-- Award 3 -->
+              <!-- Certification 2 -->
               <div
-                class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300 text-center">
-                <div class="core-value-icon">
-                  <i class="fa-solid fa-earth"></i>
+                class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
+                onclick="openImageModal('assets/certifications/cert-2.jpg', 'Environmental Safety Certified')">
+                <div class="w-full h-24 bg-gray-300 overflow-hidden relative">
+                  <img src="assets/certifications/cert-2.jpg" alt="Environmental Safety"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
                 </div>
-                <h3 class="text-lg font-bold text-gray-900 uppercase tracking-widest mb-2">Environmental</h3>
-
               </div>
 
-              <!-- Award 4 -->
+              <!-- Certification 3 -->
               <div
-                class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300 text-center">
-                <div class="core-value-icon">
-                  <i class="fa-solid fa-medal"></i>
+                class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
+                onclick="openImageModal('assets/certifications/cert-3.jpg', 'Product Safety Standards Approved')">
+                <div class="w-full h-24 bg-gray-300 overflow-hidden relative">
+                  <img src="assets/certifications/cert-3.jpg" alt="Product Safety"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
                 </div>
-                <h3 class="text-lg font-bold text-gray-900 uppercase tracking-widest mb-2">Quality Excellence</h3>
-
               </div>
-
-              <!-- Award 5 -->
+              <!-- Certification 4 -->
               <div
-                class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300 text-center">
-                <div class="core-value-icon">
-                  <i class="fa-solid fa-star"></i>
+                class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
+                onclick="openImageModal('assets/certifications/cert-4.jpg', 'Product Safety Standards Approved')">
+                <div class="w-full h-24 bg-gray-300 overflow-hidden relative">
+                  <img src="assets/certifications/cert-4.jpg" alt="Product Safety"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
                 </div>
-                <h3 class="text-lg font-bold text-gray-900 uppercase tracking-widest mb-2">Customer Choice</h3>
-
-              </div>
-
-              <!-- Award 6 -->
-              <div
-                class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300 text-center">
-                <div class="core-value-icon">
-                  <i class="fa-solid fa-leaf"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-900 uppercase tracking-widest mb-2">Green Initiative</h3>
-
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4"
+      onclick="closeImageModal(event)">
+      <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-auto" onclick="event.stopPropagation()">
+        <div class="flex justify-between items-center p-6 border-b border-gray-200 sticky top-0 bg-white rounded-t-2xl">
+          <h3 id="modalTitle" class="text-2xl font-bold text-gray-900"></h3>
+          <button onclick="closeImageModal()"
+            class="text-gray-500 hover:text-gray-700 text-3xl leading-none">&times;</button>
+        </div>
+        <div class="p-6">
+          <img id="modalImage" src="" alt="Award/Certification" class="w-full h-auto rounded-lg" />
+        </div>
+      </div>
+    </div>
   </main>
 
   <div id="footer-placeholder"></div>
   <script src="js/components.js"></script>
   <script src="js/animations.js"></script>
   <script src="js/components.js"></script>
-</body>
+
+  <script>
+    function openImageModal(imageSrc, title) {
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      const modalTitle = document.getElementById('modalTitle');
+
+      modalImage.src = imageSrc;
+      modalTitle.textContent = title;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageModal(event) {
+      if (event && event.target.id !== 'imageModal') {
+        return;
+      }
+
+      const modal = document.getElementById('imageModal');
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        closeImageModal();
+      }
+    });
+  </script>
 
 </html>
