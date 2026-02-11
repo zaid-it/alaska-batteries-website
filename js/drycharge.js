@@ -84,30 +84,45 @@ window.updateStage = function (id, shouldScroll = false) {
     stageUses.innerText = usesText || "--";
   }
 
-  // Display dimensions
-  const stageDimensions = document.getElementById("stage-dimensions");
-  if (stageDimensions) {
-    if (battery.dimensions) {
-      const dims = battery.dimensions;
-      const length = dims.l || 0;
-      const width = dims.w || 0;
-      const height = dims.h || 0;
-      const unit = dims.unit || "mm";
-      stageDimensions.innerHTML = `<strong>Dimensions:</strong> ${length} x ${width} x ${height} ${unit}`;
-    } else {
-      stageDimensions.innerHTML = "";
-    }
-  }
-
   if (stageImage) stageImage.src = battery.image;
 
   if (tagsContainer) {
     tagsContainer.innerHTML = battery.categories.map((tag) => `<span class="bg-gray-100 px-3 py-1 text-[100%] font-black uppercase rounded-md">${tag}</span>`).join("");
   }
 
+  // Populate details section with dimensions only
+  const detailsContent = document.getElementById("stage-details");
+  if (detailsContent) {
+    let detailsHtml = "";
+
+    if (battery.dimensions) {
+      const dims = battery.dimensions;
+      const length = dims.l || 0;
+      const width = dims.w || 0;
+      const height = dims.h || 0;
+      const unit = dims.unit || "mm";
+      detailsHtml = `<div><strong>Dimensions:</strong> ${length} x ${width} x ${height} ${unit}</div>`;
+    }
+
+    detailsContent.innerHTML = detailsHtml || "<div>No dimensions available</div>";
+
+    // Reset button icon to plus
+    const detailsBtn = document.getElementById("stage-details-btn");
+    if (detailsBtn) {
+      const icon = detailsBtn.querySelector("i");
+      if (icon) {
+        icon.classList.remove("fa-minus");
+        icon.classList.add("fa-plus");
+      }
+    }
+
+    // Hide details initially
+    detailsContent.classList.add("hidden");
+  }
+
   if (shouldScroll) {
-    const topElement = document.getElementById("top");
-    if (topElement) topElement.scrollIntoView({ behavior: "smooth" });
+    const detailsAnchor = document.getElementById("details-anchor");
+    if (detailsAnchor) detailsAnchor.scrollIntoView({ behavior: "smooth" });
   }
 };
 
@@ -127,11 +142,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // --- DETAILS BUTTON ---
+  // --- DETAILS BUTTON - EXPAND/COLLAPSE ---
   const detailsBtn = document.getElementById("stage-details-btn");
   if (detailsBtn) {
     detailsBtn.addEventListener("click", () => {
-      alert("More details feature coming soon!");
+      const detailsContent = document.getElementById("stage-details");
+      const icon = detailsBtn.querySelector("i");
+
+      if (detailsContent) {
+        const isHidden = detailsContent.classList.contains("hidden");
+        if (isHidden) {
+          detailsContent.classList.remove("hidden");
+          icon.classList.remove("fa-plus");
+          icon.classList.add("fa-minus");
+        } else {
+          detailsContent.classList.add("hidden");
+          icon.classList.remove("fa-minus");
+          icon.classList.add("fa-plus");
+        }
+      }
     });
   }
 
