@@ -9,337 +9,102 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    /* Page-scoped overrides to keep hero images under control on mobile */
-    .object-center {
-      object-position: center !important;
-    }
 
-    .object-cover {
-      object-fit: cover !important;
-    }
-
-    .w-full {
-      width: 100% !important;
-    }
-  </style>
 </head>
 
-<body class="bg-white">
+<body class="bg-gray-100">
   <div id="header-placeholder"></div>
 
-  <main id="top" class="bg-white">
-    <section class="bg-white space-y-2 overflow-hidden group">
-      <div class="relative h-full md:h-full flex flex-col banner-wrapper">
-        <img id="hero-banner-img" src="assets/technology/tech-hero.png" data-mobile="assets/mobile/tech-mobile.png"
-          alt="Graphite Technology" class="w-full h-full transition-transform duration-1000" />
+  <main id="top" class="bg-gray-100">
+    <section class="flex items-center justify-center text-center bg-gray-100 overflow-hidden group hero-fold">
+      <div class="relative h-[200px] md:h-full w-full flex flex-col banner-wrapper">
+        <img src="assets/Tech-landing.png" alt="Technology Landing"
+          class="w-full h-full transition-transform duration-1000" />
         <div id="hero-text-box"
           class="absolute top-20 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[500px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 overflow-hidden banner-overlay">
-          <h1 id="hero-title" class="text-3xl md:text-6xl font-bold uppercase tracking-normal leading-tight text-white">
-            Graphite <br /> Technology</h1>
+          <h1 class="text-2xl md:text-5xl font-bold uppercase text-left tracking-normal leading-tight text-white">
+            Graphite <br />
+            Technology
+          </h1>
         </div>
       </div>
     </section>
 
-
-    <section class="py-4 min-h-screen">
-      <div id="lang-toggle-btn"
-        class="fixed top-20 right-4 z-50 opacity-0 pointer-events-none transition-all duration-300">
-        <button onclick="toggleLang()"
-          class="flex items-center gap-2 bg-zinc-900 text-white px-6 py-2.5 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-[#cc001b] transition-all shadow-xl active:scale-95 cursor-pointer">
-          <i class="fa-solid fa-language text-lg"></i>
-          <span class="header-en">اردو</span>
-          <span class="header-ur">EN</span>
-        </button>
-      </div>
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-6xl font-black italic uppercase mb-4 transition-all">
-          <div class="header-en">
-            <span class="text-[#cc001b]">What Sets</span> <br />
-            Graphite Enhanced Lead Acid Batteries Apart?
-          </div>
-          <div class="header-ur">
-            <span class="text-[#cc001b]">گریفائٹ لیڈ ایسڈ بیٹریاں</span> <br />
-            کیوں منفرد ہیں؟
-          </div>
+    <!-- Auto-Scroll Banner Section -->
+    <section class="bg-gray-100 py-0">
+      <div class="container mx-auto px-0">
+        <h2 class="hidden lg:block font-black text-center text-5xl md:text-7xl tracking-tight leading-tight mb-12">
+          Why
+          <span class="text-[#cc001b]">Graphite?</span>
         </h2>
-        <div class="w-24 h-1 bg-[#cc001b] mx-auto rounded-full"></div>
-      </div>
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
-          <div class="card-container">
-            <div class="card-inner">
-              <div class="card-front shadow-lg border-2 border-gray-100">
-                <div
-                  class="border-2 border-[#cc001b] rounded-md py-3 px-4 mb-4 text-center flex items-center justify-center gap-3">
-                  <i class="fa-solid fa-bolt text-[#cc001b] text-[30px]"></i>
-                  <h3 class="text-xs md:text-xl font-black uppercase">ADVANCED PLATE COMPOSITION</h3>
-                </div>
-                <ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed">
-                  <li>Traditional batteries use <b>lead-antimony or lead-calcium grids</b> that degrade faster due
-                    to
-                    sulfation.</li>
-                  <li><b>Graphite Lead-Acid</b> batteries incorporate <b>Graphite</b>, reducing sulfation and
-                    increasing
-                    efficiency.</li>
-                </ul>
-                <div class="mt-auto pt-3 border-t border-gray-100">
-                  <span
-                    class="benefit-tag bg-[#cc001b] text-white px-3 py-1 rounded font-black text-sm md:text-lg uppercase mb-2">BENEFIT</span>
-                  <p class="font-bold text-sm md:text-lg italic">Longer battery life & improved energy flow.</p>
-                </div>
+        <!-- Banner Image -->
+        <div class="relative w-full h-[400px] md:h-[600px] overflow-hidden">
+          <img id="bannerImage" src="assets/technology/tech-1.png" alt="Technology Banner"
+            class="w-full h-full object-cover transition-opacity duration-700 ease-in-out" />
+        </div>
+
+        <!-- Content Tabs -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-1 bg-gray-100">
+          <!-- Tab 1: Advanced Graphite -->
+          <div class="tab-item cursor-pointer transition-all duration-300" data-index="0" onclick="selectTab(0)">
+            <div class="p-8 md:p-8 text-left">
+              <div class="mb-4">
+                <div class="w-50 h-1 mx-auto bg-[#cc001b] tab-accent"></div>
               </div>
-              <div class="card-back shadow-lg border-2 border-gray-100 text-right urdu-text">
-                <div
-                  class="border-2 border-[#cc001b] rounded-md py-3 px-4 mb-4 text-center flex items-center justify-center gap-3">
-                  <i class="fa-solid fa-bolt text-[#cc001b] text-[30px]"></i>
-                  <h3 class="text-xs md:text-xl font-bold">جدید پلیٹ کمپوزیشن</h3>
-                </div>
-                <ul class="space-y-2 list-none pr-4 border-r-2 border-zinc-100 text-sm md:text-xl leading-relaxed">
-                  <li>روایتی بیٹریاں لیڈ-اینٹیمونی یا کیلشیم گرڈ استعمال کرتی ہیں جو <b>سلفیشن کی وجہ سے جلدی
-                      خراب</b>
-                    ہو جاتی ہیں۔</li>
-                  <li>گریفائٹ لیڈ ایسڈ بیٹریاں، میں گریفائٹ شامل ہیں، جس سے <b>سلفیشن کم ہوتی ہے اور کارکردگی بہتر
-                      ہوتی
-                      ہے</b>۔</li>
-                </ul>
-                <div class="mt-auto pt-3 border-t border-gray-100">
-                  <span
-                    class="benefit-tag bg-[#cc001b] text-white px-3 py-1 rounded font-bold text-sm md:text-lg mb-2">:فائدہ</span>
-                  <p class="font-bold text-sm md:text-lg">لمبی بیٹری لائف اور بہتر توانائی کا بہاؤ۔</p>
-                </div>
-              </div>
+              <h3 class="text-xl md:text-xl font-black uppercase mb-4 text-base tab-title">Cycle Life and Longevity
+              </h3>
+              <p class="text-black text-sm md:text-base tab-desc">Superior conductivity and longer battery life with
+                cutting-edge graphite technology</p>
             </div>
           </div>
 
-          <div class="card-container">
-            <div class="card-inner">
-              <div class="card-front shadow-lg border-2 border-gray-100">
-                <div
-                  class="border-2 border-[#cc001b] rounded-md py-3 px-4 mb-4 text-center flex items-center justify-center gap-3">
-                  <i class="fa-solid fa-temperature-half text-[#cc001b] text-[30px]"></i>
-                  <h3 class="text-xs md:text-xl font-black uppercase">ENERGY EFFICIENCY & HEAT</h3>
-                </div>
-                <ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed">
-                  <li>Traditional batteries generate <b>more heat and waste energy</b> due to high internal
-                    resistance.
-                  </li>
-                  <li>Graphite Lead-Acid models have <b>lower internal resistance</b>, keeping temperatures low and
-                    performance high.</li>
-                </ul>
-                <div class="mt-auto pt-3 border-t border-gray-100">
-                  <span
-                    class="benefit-tag bg-[#cc001b] text-white px-3 py-1 rounded font-black text-sm md:text-lg uppercase mb-2">BENEFIT</span>
-                  <p class="font-bold text-sm md:text-lg italic">Improved reliability and efficiency.</p>
-                </div>
+          <!-- Tab 2: Pure Lead Technology -->
+          <div class="tab-item cursor-pointer transition-all duration-300" data-index="1" onclick="selectTab(1)">
+            <div class="p-8 md:p-8 text-left">
+              <div class="mb-4">
+                <div class="w-50 h-1 mx-auto bg-gray-300 tab-accent"></div>
               </div>
-              <div class="card-back shadow-lg border-2 border-gray-100 text-right urdu-text">
-                <div
-                  class="border-2 border-[#cc001b] rounded-md py-3 px-4 mb-4 text-center flex items-center justify-center gap-3">
-                  <i class="fa-solid fa-temperature-half text-[#cc001b] text-[30px]"></i>
-                  <h3 class="text-xs md:text-xl font-bold">اخراجِ توانائی کی کارکردگی اور حرارت</h3>
-                </div>
-                <ul class="space-y-2 list-none pr-4 border-r-2 border-zinc-100 text-sm md:text-lg leading-relaxed">
-                  <li>روایتی بیٹریاں <b>زیادہ حرارت پیدا کرتی ہیں اور توانائی ضائع کرتی ہیں</b> کیونکہ ان میں
-                    اندرونی
-                    مزاحمت زیادہ ہوتی ہے۔</li>
-                  <li>گریفائٹ لیڈ ایسڈ بیٹریاں <b>کم اندرونی مزاحمت</b> رکھتی ہیں، جس سے درجہ حرارت کم اور کارکردگی
-                    بہتر
-                    رہتی ہے۔</li>
-                </ul>
-                <div class="mt-auto pt-3 border-t border-gray-100">
-                  <span
-                    class="benefit-tag bg-[#cc001b] text-white px-3 py-1 rounded font-bold text-sm md:text-lg mb-2">:فائدہ</span>
-                  <p class="font-bold text-sm md:text-lg">زیادہ بھروسہ اور بہتر کارکردگی۔</p>
-                </div>
-              </div>
+              <h3 class="text-xl md:text-xl font-black uppercase mb-4 text-base tab-title">Advance Plate Composition &
+                Energy Efficiency</h3>
+              <p class="text-black text-sm md:text-base tab-desc">Exceptional performance and reliability for critical
+                power applications</p>
             </div>
           </div>
 
-          <div class="card-container">
-            <div class="card-inner">
-              <div class="card-front shadow-lg border-2 border-gray-100">
-                <div
-                  class="border-2 border-[#cc001b] rounded-md py-3 px-4 mb-4 text-center flex items-center justify-center gap-3">
-                  <i class="fa-solid fa-plus-circle text-[#cc001b] text-[30px]"></i>
-                  <h3 class="text-xs md:text-xl font-black uppercase">CHARGE ACCEPTANCE & SPEED</h3>
-                </div>
-                <ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed">
-                  <li>Normal Lead Acid batteries charge <b>slower</b> and struggle in <b>partial state-of-charge
-                      (PSoC)
-                      conditions</b>.</li>
-                  <li>Graphite Lead Acid batteries <b>absorb current much faster</b>, ideal for <b>modern stop-start
-                      vehicle systems</b>.</li>
-                </ul>
-                <div class="mt-auto pt-3 border-t border-gray-100">
-                  <span
-                    class="benefit-tag bg-[#cc001b] text-white px-3 py-1 rounded font-black text-sm md:text-lg uppercase mb-2">BENEFIT</span>
-                  <p class="font-bold text-sm md:text-lg italic">Faster charging and increased efficiency.</p>
-                </div>
+          <!-- Tab 3: Hybrid Solutions -->
+          <div class="tab-item cursor-pointer transition-all duration-300" data-index="2" onclick="selectTab(2)">
+            <div class="p-8 md:p-8 text-left">
+              <div class="mb-4">
+                <div class="w-50 h-1 mx-auto bg-gray-300 tab-accent"></div>
               </div>
-              <div class="card-back shadow-lg border-2 border-gray-100 text-right urdu-text">
-                <div
-                  class="border-2 border-[#cc001b] rounded-md py-3 px-4 mb-4 text-center flex items-center justify-center gap-3">
-                  <i class="fa-solid fa-plus-circle text-[#cc001b] text-[30px]"></i>
-                  <h3 class="text-xs md:text-xl font-bold">بہترین چارج قبولیت اور تیز چارجنگ</h3>
-                </div>
-                <ul class="space-y-2 list-none pr-4 border-r-2 border-zinc-100 text-sm md:text-lg leading-relaxed">
-                  <li>عام لیڈ ایسڈ بیٹریاں <b>آہستہ چارج ہوتی ہیں</b> اور جزوی چارج کی حالت میں <b>مشکلات کا
-                      سامنا</b>
-                    کرتی ہیں۔</li>
-                  <li>گریفائٹ لیڈ ایسڈ بیٹریاں کرنٹ کو <b>زیادہ تیزی سے جذب</b> کرتی ہیں، جو جدید اسٹارٹ-اسٹاپ
-                    وہیکلز کے
-                    لیے مثالی ہیں۔</li>
-                </ul>
-                <div class="mt-auto pt-3 border-t border-gray-100">
-                  <span
-                    class="benefit-tag bg-[#cc001b] text-white px-3 py-1 rounded font-bold text-sm md:text-lg mb-2">:فائدہ</span>
-                  <p class="font-bold text-sm md:text-lg">تیز چارجنگ، کم ڈاؤن ٹائم، اور بہتر کارکردگی۔</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card-container">
-            <div class="card-inner">
-              <div class="card-front shadow-lg border-2 border-gray-100">
-                <div
-                  class="border-2 border-[#cc001b] rounded-md py-3 px-4 mb-4 text-center flex items-center justify-center gap-3">
-                  <i class="fa-solid fa-battery-half text-[#cc001b] text-[30px]"></i>
-                  <h3 class="text-xs md:text-xl font-black uppercase">DEEP DISCHARGE RECOVERY</h3>
-                </div>
-                <ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed">
-                  <li>Normal batteries <b>suffer permanent</b> damage from deep discharges.</li>
-                  <li>Graphite Lead Acid batteries <b>recover better</b> from deep discharge cycles.</li>
-                </ul>
-                <div class="mt-auto pt-3 border-t border-gray-100">
-                  <span
-                    class="benefit-tag bg-[#cc001b] text-white px-3 py-1 rounded font-black text-sm md:text-lg uppercase mb-2">BENEFIT</span>
-                  <p class="font-bold text-sm md:text-lg italic">Durability in demanding conditions.</p>
-                </div>
-              </div>
-              <div class="card-back shadow-lg border-2 border-gray-100 text-right urdu-text">
-                <div
-                  class="border-2 border-[#cc001b] rounded-md py-3 px-4 mb-4 text-center flex items-center justify-center gap-3">
-                  <i class="fa-solid fa-battery-half text-[#cc001b] text-[30px]"></i>
-                  <h3 class="text-xs md:text-xl font-bold">ڈیپ ڈسچارج ریکوری</h3>
-                </div>
-                <ul class="space-y-2 list-none pr-4 border-r-2 border-zinc-100 text-sm md:text-lg leading-relaxed">
-                  <li>عام بیٹریاں <b>ڈیپ ڈسچارج سے مستقل نقصان</b> اٹھاتی ہیں۔</li>
-                  <li>گریفائٹ لیڈ ایسڈ بیٹریاں ڈیپ ڈسچارج کے بعد <b>بہتر طور پر بحال</b> ہو جاتی ہیں۔</li>
-                </ul>
-                <div class="mt-auto pt-3 border-t border-gray-100">
-                  <span
-                    class="benefit-tag bg-[#cc001b] text-white px-3 py-1 rounded font-bold text-sm md:text-lg mb-2">:فائدہ</span>
-                  <p class="font-bold text-sm md:text-lg">مشکل حالات میں زیادہ پائیداری۔</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card-container">
-            <div class="card-inner">
-              <div class="card-front shadow-lg border-2 border-gray-100">
-                <div
-                  class="border-2 border-[#cc001b] rounded-md py-3 px-4 mb-4 text-center flex items-center justify-center gap-3">
-                  <i class="fa-solid fa-arrows-spin text-[#cc001b] text-[30px]"></i>
-                  <h3 class="text-xs md:text-xl font-black uppercase">CYCLE LIFE & LONGEVITY</h3>
-                </div>
-                <ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed">
-                  <li>Standard batteries last <b>300-500 cycles</b>, while graphite-enhanced versions last
-                    <b>600-1000+
-                      cycles</b>.
-                  </li>
-                  <li>Graphite slows down sulfate buildup, preserving battery health.</li>
-                </ul>
-                <div class="mt-auto pt-3 border-t border-gray-100">
-                  <span
-                    class="benefit-tag bg-[#cc001b] text-white px-3 py-1 rounded font-black text-sm md:text-lg uppercase mb-2">BENEFIT</span>
-                  <p class="font-bold text-sm md:text-lg italic">Extended lifespan and lower costs.</p>
-                </div>
-              </div>
-              <div class="card-back shadow-lg border-2 border-gray-100 text-right urdu-text">
-                <div
-                  class="border-2 border-[#cc001b] rounded-md py-3 px-4 mb-4 text-center flex items-center justify-center gap-3">
-                  <i class="fa-solid fa-arrows-spin text-[#cc001b] text-[30px]"></i>
-                  <h3 class="text-xs md:text-xl font-bold">زیادہ سائیکل لائف اور لمبی عمر</h3>
-                </div>
-                <ul class="space-y-2 list-none pr-4 border-r-2 border-zinc-100 text-sm md:text-lg leading-relaxed">
-                  <li>عام بیٹریاں <b>300 سے 500 چارجنگ سائیکلز</b> تک چلتی ہیں، جبکہ گریفائٹ بیٹریاں <b>600 سے 1000+
-                      سائیکلز</b> تک چل سکتی ہیں۔</li>
-                  <li>گریفائٹ سلفیشن کے عمل کو سست کرتا ہے، جس سے <b>بیٹری صحت مند</b> رہتی ہے۔</li>
-                </ul>
-                <div class="mt-auto pt-3 border-t border-gray-100">
-                  <span
-                    class="benefit-tag bg-[#cc001b] text-white px-3 py-1 rounded font-bold text-sm md:text-lg mb-2">:فائدہ</span>
-                  <p class="font-bold text-sm md:text-lg">زیادہ بیٹری لائف اور کم تبدیلی کی لاگت۔</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card-container">
-            <div class="card-inner">
-              <div class="card-front shadow-lg border-2 border-gray-100">
-                <div
-                  class="border-2 border-[#cc001b] rounded-md py-3 px-4 mb-4 text-center flex items-center justify-center gap-3">
-                  <i class="fa-solid fa-rocket text-[#cc001b] text-[30px]"></i>
-                  <h3 class="text-xs md:text-xl font-black uppercase">IDEAL FOR MODERN APPLICATIONS</h3>
-                </div>
-                <ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed">
-                  <li>Traditional Lead-Acid batteries are best for <b>low-drain uses</b> like motorcycles.</li>
-                  <li>Graphite batteries excel in: Stop-Start Vehicles, Solar Energy Storage, Hybrid System &
-                    Industrial
-                    Use.</li>
-                </ul>
-
-                <div class="mt-auto pt-3 border-t border-gray-100">
-                  <span
-                    class="benefit-tag bg-[#cc001b] text-white px-3 py-1 rounded font-black text-sm md:text-lg uppercase mb-2">BENEFIT</span>
-                  <p class="font-bold text-sm md:text-lg italic">Versatility for the future of storage.</p>
-                </div>
-              </div>
-              <div class="card-back shadow-lg border-2 border-gray-100 text-right urdu-text">
-                <div
-                  class="border-2 border-[#cc001b] rounded-md py-3 px-4 mb-4 text-center flex items-center justify-center gap-3">
-                  <i class="fa-solid fa-rocket text-[#cc001b] text-[30px]"></i>
-                  <h3 class="text-xs md:text-xl font-bold">جدید ایپلیکیشنز کے لیے بہترین</h3>
-                </div>
-                <ul class="space-y-2 list-none pr-4 border-r-2 border-zinc-100 text-sm md:text-lg leading-relaxed">
-                  <li>روایتی لیڈ ایسڈ بیٹریاں <b>کم
-                      توانائی کی
-                      ضرورت</b> والے استعمال جیسے موٹر سائیکل کے لیے موزوں ہیں۔</li>
-                  <li>گریفائٹ بیٹریاں ان میں بہترین ہیں:
-                    انڈسٹریل استعمال، ہائبرڈ سسٹمز، سولر انرجی اسٹوریج، اسٹارٹ، اسٹاپ گاڑیاں۔</li>
-                </ul>
-                <div class="mt-auto pt-3 border-t border-gray-100">
-                  <span
-                    class="benefit-tag bg-[#cc001b] text-white px-3 py-1 rounded font-bold text-sm md:text-lg mb-2">:فائدہ</span>
-                  <p class="font-bold text-sm md:text-lg">مستقبل کی توانائی کے ذخیرہ کے لیے موزوں۔</p>
-                </div>
-              </div>
+              <h3 class="text-xl md:text-xl font-black uppercase mb-4 text-base tab-title">Deep Discharge Recovery
+              </h3>
+              <p class="text-black text-sm md:text-base tab-desc">Best of both worlds combining advanced materials
+                for
+                optimal efficiency</p>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- YouTube Thumbnail Button -->
-      <div class="flex justify-center py-16">
-        <div class="relative w-full max-w-2xl cursor-pointer group" onclick="openTechVideoModal()">
-          <img src="https://img.youtube.com/vi/nu4N6ER5VB4/maxresdefault.jpg" alt="Watch Technology Video"
-            class="w-full rounded-lg shadow-2xl group-hover:shadow-[0_0_30px_rgba(204,0,27,0.4)] transition-all duration-300" />
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div
-              class="bg-[#cc001b] w-24 h-24 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-white transition-all duration-300">
-              <i class="fa-solid fa-play text-white text-5xl ml-2 group-hover:text-[#cc001b] transition-all"></i>
-            </div>
-          </div>
-          <div class="absolute bottom-6 left-6 flex items-center gap-2 bg-black/70 px-4 py-2 rounded-lg">
-            <i class="fa-brands fa-youtube text-red-600 text-xl"></i>
-            <span class="text-white font-bold">Watch Video</span>
+    <!-- YouTube Thumbnail Button -->
+    <div class="flex justify-center py-16">
+      <div class="relative w-full max-w-2xl cursor-pointer group" onclick="openTechVideoModal()">
+        <img src="https://img.youtube.com/vi/nu4N6ER5VB4/maxresdefault.jpg" alt="Watch Technology Video"
+          class="w-full rounded-lg shadow-2xl group-hover:shadow-[0_0_30px_rgba(204,0,27,0.4)] transition-all duration-300" />
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div
+            class="bg-[#cc001b] w-24 h-24 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-white transition-all duration-300">
+            <i class="fa-solid fa-play text-white text-5xl ml-2 group-hover:text-[#cc001b] transition-all"></i>
           </div>
         </div>
+        <div class="absolute bottom-6 left-6 flex items-center gap-2 bg-black/70 px-4 py-2 rounded-lg">
+          <i class="fa-brands fa-youtube text-red-600 text-xl"></i>
+          <span class="text-white font-bold">Watch Video</span>
+        </div>
       </div>
+    </div>
     </section>
   </main>
 
@@ -356,33 +121,102 @@
   <script src="js/components.js"></script>
   <script src="js/main.js"></script>
   <script src="js/animations.js"></script>
+
   <script>
-    function toggleLang() {
-      document.body.classList.toggle("urdu-mode");
+    // Auto-scroll banner functionality
+    const bannerData = [
+      {
+        image: 'assets/technology/tech-1.png',
+        title: 'Advanced Graphite',
+        desc: 'Superior conductivity and longer battery life with cutting-edge graphite technology'
+      },
+      {
+        image: 'assets/technology/tech-2.png',
+        title: 'Pure Lead Technology',
+        desc: 'Exceptional performance and reliability for critical power applications'
+      },
+      {
+        image: 'assets/technology/tech-3.png',
+        title: 'Hybrid Solutions',
+        desc: 'Best of both worlds combining advanced materials for optimal efficiency'
+      }
+    ];
+
+    let currentIndex = 0; // Start with first tab active
+    let autoScrollTimer;
+    let resumeTimer;
+
+    function selectTab(index) {
+      currentIndex = index;
+      updateBanner();
+      updateTabs();
+
+      // Clear existing timers
+      clearTimeout(autoScrollTimer);
+      clearTimeout(resumeTimer);
+
+      // Resume auto-scroll after 5 seconds
+      resumeTimer = setTimeout(() => {
+        startAutoScroll();
+      }, 5000);
     }
 
-    // Show language toggle button on scroll
-    window.addEventListener('scroll', function () {
-      const cardsGrid = document.querySelector('.grid');
-      const langBtn = document.getElementById('lang-toggle-btn');
+    function updateBanner() {
+      const bannerImage = document.getElementById('bannerImage');
+      bannerImage.style.opacity = '0';
 
-      if (cardsGrid && langBtn) {
-        const gridRect = cardsGrid.getBoundingClientRect();
-        const gridHeight = cardsGrid.offsetHeight;
-        const halfwayPoint = gridRect.top + (gridHeight / 2);
+      setTimeout(() => {
+        bannerImage.src = bannerData[currentIndex].image;
+        bannerImage.style.opacity = '1';
+      }, 300);
+    }
 
-        // Show button when scrolled to halfway through cards
-        if (halfwayPoint < window.innerHeight) {
-          langBtn.style.opacity = '1';
-          langBtn.style.pointerEvents = 'auto';
+    function updateTabs() {
+      const tabs = document.querySelectorAll('.tab-item');
+
+      tabs.forEach((tab, index) => {
+        const title = tab.querySelector('.tab-title');
+        const desc = tab.querySelector('.tab-desc');
+        const accent = tab.querySelector('.tab-accent');
+
+        if (index === currentIndex) {
+          tab.classList.add('active');
+          title.classList.remove('text-gray-400');
+          title.classList.add('text-black');
+          desc.classList.remove('text-gray-500');
+          desc.classList.add('text-black');
+          accent.classList.remove('bg-gray-300');
+          accent.classList.add('bg-[#cc001b]');
         } else {
-          langBtn.style.opacity = '0';
-          langBtn.style.pointerEvents = 'none';
+          tab.classList.remove('active');
+          title.classList.add('text-gray-400');
+          title.classList.remove('text-white');
+          desc.classList.add('text-gray-500');
+          desc.classList.remove('text-white');
+          accent.classList.add('bg-gray-300');
+          accent.classList.remove('bg-[#cc001b]');
         }
-      }
+      });
+    }
+
+    function autoScroll() {
+      currentIndex = (currentIndex + 1) % bannerData.length;
+      updateBanner();
+      updateTabs();
+    }
+
+    function startAutoScroll() {
+      autoScrollTimer = setInterval(autoScroll, 4000); // Change every 4 seconds
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      updateTabs();
+      updateBanner();
+      startAutoScroll();
     });
-    // Load header and footer
   </script>
+
   <script>
     const techmodal = document.getElementById("techmodal");
     const closeTechModal = document.querySelector(".techmodal-close");
