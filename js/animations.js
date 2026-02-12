@@ -32,7 +32,7 @@ function openBatteryFinder() {
   modal.innerHTML = `
     <div class="bg-white max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-lg shadow-2xl p-8 animate-slideUp">
       <div class="flex justify-between items-center mb-6">
-        <h2 class="text-3xl font-black uppercase tracking-tighter">Find Your Perfect <span class="text-[#cc001b]">Battery</span></h2>
+        <h2 class="text-3xl font-black uppercase tracking-tighter">Find Your Perfect <span class="text-[#c00d1e]">Battery</span></h2>
         <button onclick="closeBatteryFinder()" class="text-gray-400 hover:text-black text-2xl">
           <i class="fa-solid fa-xmark"></i>
         </button>
@@ -42,22 +42,22 @@ function openBatteryFinder() {
         <div>
           <label class="block text-sm font-black uppercase mb-3 text-gray-700">What's Your Primary Use?</label>
           <div class="space-y-3">
-            <button onclick="selectUse('automotive')" class="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-[#cc001b] hover:bg-red-50 transition-all text-left flex items-start gap-4">
-              <i class="fa-solid fa-car text-[#cc001b] text-2xl flex-shrink-0 mt-1"></i>
+            <button onclick="selectUse('automotive')" class="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-[#c00d1e] hover:bg-red-50 transition-all text-left flex items-start gap-4">
+              <i class="fa-solid fa-car text-[#c00d1e] text-2xl flex-shrink-0 mt-1"></i>
               <div>
                 <p class="font-bold uppercase text-lg">Automotive</p>
                 <p class="text-base text-gray-500">Cars, Bikes, Trucks</p>
               </div>
             </button>
-            <button onclick="selectUse('solar')" class="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-[#cc001b] hover:bg-red-50 transition-all text-left flex items-start gap-4">
-              <i class="fa-solid fa-sun text-[#cc001b] text-2xl flex-shrink-0 mt-1"></i>
+            <button onclick="selectUse('solar')" class="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-[#c00d1e] hover:bg-red-50 transition-all text-left flex items-start gap-4">
+              <i class="fa-solid fa-sun text-[#c00d1e] text-2xl flex-shrink-0 mt-1"></i>
               <div>
                 <p class="font-bold uppercase text-lg">Solar</p>
                 <p class="text-base text-gray-500">Renewable Energy</p>
               </div>
             </button>
-            <button onclick="selectUse('industrial')" class="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-[#cc001b] hover:bg-red-50 transition-all text-left flex items-start gap-4">
-              <i class="fa-solid fa-industry text-[#cc001b] text-2xl flex-shrink-0 mt-1"></i>
+            <button onclick="selectUse('industrial')" class="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-[#c00d1e] hover:bg-red-50 transition-all text-left flex items-start gap-4">
+              <i class="fa-solid fa-industry text-[#c00d1e] text-2xl flex-shrink-0 mt-1"></i>
               <div>
                 <p class="font-bold uppercase text-lg">Industrial</p>
                 <p class="text-base text-gray-500">UPS, Backup Systems</p>
@@ -70,8 +70,8 @@ function openBatteryFinder() {
         <div class="pt-6 border-t border-gray-200">
           
           <div class="flex gap-4">
-            <button onclick="closeBatteryFinder()" class="flex-1 px-6 py-3 border-2 border-gray-200 font-bold uppercase text-sm rounded-lg hover:border-[#cc001b] transition-all">Cancel</button>
-            <a href="dry-charge.html" class="flex-1 px-6 py-3 bg-[#cc001b] text-white font-bold uppercase text-sm rounded-lg hover:bg-black transition-all text-center">View All Batteries</a>
+            <button onclick="closeBatteryFinder()" class="flex-1 px-6 py-3 border-2 border-gray-200 font-bold uppercase text-sm rounded-lg hover:border-[#c00d1e] transition-all">Cancel</button>
+            <a href="dry-charge.html" class="flex-1 px-6 py-3 bg-[#c00d1e] text-white font-bold uppercase text-sm rounded-lg hover:bg-black transition-all text-center">View All Batteries</a>
           </div>
         </div>
       </div>

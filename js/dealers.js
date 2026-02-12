@@ -392,22 +392,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     data.forEach((dealer) => {
       const card = document.createElement("div");
-      card.className = "dealer-card bg-white border-2 border-gray-200 p-5 rounded-lg hover:border-[#cc001b] hover:shadow-md transition-all group cursor-pointer";
+      card.className = "dealer-card bg-white border-2 border-gray-200 p-5 rounded-lg hover:border-[#c00d1e] hover:shadow-md transition-all group cursor-pointer";
       card.innerHTML = `
                 <div class="flex justify-between items-start mb-3">
                     <div class="flex-1">
-                        <h4 class="text-zinc-900 font-bold uppercase tracking-wide text-sm mb-2 group-hover:text-[#cc001b] transition-colors">${dealer.name}</h4>
+                        <h4 class="text-zinc-900 font-bold uppercase tracking-wide text-sm mb-2 group-hover:text-[#c00d1e] transition-colors">${dealer.name}</h4>
                         <p class="text-gray-600 text-xs font-medium leading-relaxed">${dealer.address}</p>
                     </div>
-                    <span class="text-xs bg-gray-100 text-[#cc001b] px-3 py-1 rounded-full font-bold uppercase ml-2 whitespace-nowrap">${dealer.province}</span>
+                    <span class="text-xs bg-gray-100 text-[#c00d1e] px-3 py-1 rounded-full font-bold uppercase ml-2 whitespace-nowrap">${dealer.province}</span>
                 </div>
                 <div class="flex items-center gap-3 pt-3 border-t border-gray-100">
-                    <a href="tel:${dealer.contact}" class="text-zinc-900 text-xs font-bold uppercase tracking-wide hover:text-[#cc001b] transition-colors flex items-center gap-1">
+                    <a href="tel:${dealer.contact}" class="text-zinc-900 text-xs font-bold uppercase tracking-wide hover:text-[#c00d1e] transition-colors flex items-center gap-1">
                         <i class="fa-solid fa-phone text-[10px]"></i>
                         ${dealer.contact}
                     </a>
                     <span class="text-gray-300">|</span>
-                    <button class="text-[#cc001b] text-xs font-semibold uppercase tracking-wide hover:underline">Get Directions</button>
+                    <button class="text-[#c00d1e] text-xs font-semibold uppercase tracking-wide hover:underline">Get Directions</button>
                 </div>
             `;
       dealerList.appendChild(card);
