@@ -37,10 +37,10 @@
           <div class="relative md:col-span-1">
             <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
             <input type="text" id="dealerSearch" autocomplete="off" placeholder="SEARCH BY NAME, CITY, PROVINCE..."
-              class="w-full bg-gray-50 border-2 border-gray-200 text-zinc-900 pl-12 pr-10 py-4 rounded-lg outline-none focus:ring-2 focus:ring-[#cc001b] focus:border-[#cc001b] font-black text-xs tracking-widest uppercase placeholder:text-gray-400" />
+              class="w-full bg-gray-50 border-2 border-gray-200 text-zinc-900 pl-12 pr-10 py-4 rounded-lg outline-none focus:ring-2 focus:ring-[#c00d1e] focus:border-[#c00d1e] font-black text-xs tracking-widest uppercase placeholder:text-gray-400" />
 
             <button id="dealerClear"
-              class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-[#cc001b] bg-transparent w-8 h-8 rounded-full hidden items-center justify-center transition-colors">
+              class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-[#c00d1e] bg-transparent w-8 h-8 rounded-full hidden items-center justify-center transition-colors">
               <i class="fa-solid fa-circle-xmark text-lg"></i>
             </button>
 
@@ -52,7 +52,7 @@
           </div>
 
           <select id="provinceFilter"
-            class="bg-gray-50 border-2 border-gray-200 text-zinc-900 p-4 rounded-lg outline-none focus:ring-2 focus:ring-[#cc001b] focus:border-[#cc001b] font-black text-xs tracking-widest uppercase appearance-none cursor-pointer">
+            class="bg-gray-50 border-2 border-gray-200 text-zinc-900 p-4 rounded-lg outline-none focus:ring-2 focus:ring-[#c00d1e] focus:border-[#c00d1e] font-black text-xs tracking-widest uppercase appearance-none cursor-pointer">
             <option value="All">All Provinces</option>
             <option value="Islamabad">Islamabad Capital Territory</option>
             <option value="Punjab">Punjab</option>
@@ -62,7 +62,7 @@
             <option value="Azad Kashmir">Azad Kashmir</option>
           </select>
           <div
-            class="bg-[#cc001b] text-white flex items-center justify-center p-4 rounded-lg font-black text-xs tracking-[0.3em] uppercase">
+            class="bg-[#c00d1e] text-white flex items-center justify-center p-4 rounded-lg font-black text-xs tracking-[0.3em] uppercase">
             <span id="dealerCount" class="mr-2">0</span> Partners Found
           </div>
         </div>
@@ -70,10 +70,10 @@
 
       <div class="flex flex-col md:flex-row gap-8 mb-8">
         <div class="w-full md:w-3/5">
-          <div class="bg-gray-50 rounded-xl p-6 border-t-4 border-[#cc001b]">
+          <div class="bg-gray-50 rounded-xl p-6 border-t-4 border-[#c00d1e]">
             <div class="flex items-center justify-between mb-5 pb-4 border-b border-gray-200">
               <p class="text-sm font-black uppercase tracking-wider text-zinc-900">Search Results</p>
-              <span class="bg-[#cc001b] text-white px-3 py-1 rounded-full text-xs font-bold"
+              <span class="bg-[#c00d1e] text-white px-3 py-1 rounded-full text-xs font-bold"
                 id="dealerCountDisplay">0</span>
             </div>
             <div id="dealerList"
@@ -82,7 +82,7 @@
         </div>
 
         <div
-          class="w-full md:w-2/5 h-[350px] md:h-[800px] rounded-xl overflow-hidden shadow-sm relative bg-zinc-50 border-l-4 border-[#cc001b]">
+          class="w-full md:w-2/5 h-[350px] md:h-[800px] rounded-xl overflow-hidden shadow-sm relative bg-zinc-50 border-l-4 border-[#c00d1e]">
           <iframe id="dealerMap" width="100%" height="100%" frameborder="0" style="border: 0"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3319.674011205133!2d73.01977527376371!3d33.69150423669559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbfe1b6146989%3A0x12bad86d9a306ff7!2sAlaska%20Batteries!5e0!3m2!1sen!2s!4v1769365949757!5m2!1sen!2s"
             allowfullscreen="">

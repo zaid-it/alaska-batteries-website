@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const infoContainer = document.getElementById("info-container");
 
   // We target the section top or the contact header for scrolling
-  const scrollTarget = document.querySelector("h4.text-\\[\\#cc001b\\]");
+  const scrollTarget = document.querySelector("h4.text-\\[\\#c00d1e\\]");
 
   if (!tabs.length || !mapFrame) {
     console.warn("Map Switcher: Required elements not found in DOM.");

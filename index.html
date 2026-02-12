@@ -28,10 +28,6 @@
 
     <!-- Products Showcase Section -->
     <section id="products-showcase" class="products-showcase bg-white md:py-8">
-      <h2 class="font-black text-center text-5xl md:text-7xl tracking-tight leading-tight mb-2">
-        Our
-        <span class="text-[#cc001b]">Solutions</span>
-      </h2>
       <div class="products-carousel-wrapper relative">
         <div class="products-carousel" id="productsCarousel">
           <!-- Automotive (Application) -->
@@ -39,11 +35,12 @@
             class="product-card group relative bg-white rounded-2xl overflow-hidden shadow-lg">
             <img src="assets/automotive-home.png" data-mobile="assets/mobile/automotive-mob.png"
               class="absolute inset-0 w-full h-full object-fill" alt="Automotive" />
-            <div class="absolute inset-0 flex flex-col justify-between p-6 z-10">
-              <h3 class="product-card-title pt-8">Automotive</h3>
-              <div>
-                <button
-                  class="bg-[#cc001b] text-white px-6 py-2 font-bold uppercase tracking-wider rounded-lg hover:bg-red-700 transition-colors">
+            <div class="product-card-content">
+              <div class="product-card-title-wrap">
+                <h3 class="product-card-title">Automotive</h3>
+              </div>
+              <div class="product-card-action">
+                <button class="btn-secondary btn-lg">
                   Learn More
                 </button>
               </div>
@@ -55,11 +52,12 @@
             class="product-card group relative bg-white rounded-2xl overflow-hidden shadow-lg">
             <img src="assets/solar-home.png" data-mobile="assets/mobile/solar-mob.png"
               class="absolute inset-0 w-full h-full object-fill" alt="Solar" />
-            <div class="absolute inset-0 flex flex-col justify-between p-6 z-10">
-              <h3 class="product-card-title text-white pt-8">Solar</h3>
-              <div>
-                <button
-                  class="bg-[#cc001b] text-white px-6 py-2 font-bold uppercase tracking-wider rounded-lg hover:bg-red-700 transition-colors">
+            <div class="product-card-content">
+              <div class="product-card-title-wrap">
+                <h3 class="product-card-title">Solar</h3>
+              </div>
+              <div class="product-card-action">
+                <button class="btn-secondary btn-lg">
                   Learn More
                 </button>
               </div>
@@ -71,11 +69,12 @@
             class="product-card group relative bg-white rounded-2xl overflow-hidden shadow-lg">
             <img src="assets/industrial-home.png" data-mobile="assets/mobile/industrial-mob.png"
               class="absolute inset-0 w-full h-full object-fill" alt="Industrial" />
-            <div class="absolute inset-0 flex flex-col justify-between p-6 z-10">
-              <h3 class="product-card-title pt-8">Industrial</h3>
-              <div>
-                <button
-                  class="bg-[#cc001b] text-white px-6 py-2 font-bold uppercase tracking-wider rounded-lg hover:bg-red-700 transition-colors">
+            <div class="product-card-content">
+              <div class="product-card-title-wrap">
+                <h3 class="product-card-title">Industrial</h3>
+              </div>
+              <div class="product-card-action">
+                <button class="btn-secondary btn-lg">
                   Learn More
                 </button>
               </div>
@@ -97,74 +96,56 @@
 
       <!-- CTA Button -->
       <div class="flex justify-center mt-8">
-        <button onclick="openBatteryFinder()"
-          class="bg-[#cc001b] text-white px-6 py-4 font-black uppercase tracking-widest text-lg hover:bg-black shadow-2xl transition-all hover:scale-105 rounded-lg">
-          <i class="fa-solid fa-bolt mr-2"></i> Choose Your Ideal Solution
+        <button onclick="openBatteryFinder()" class="btn-cta">
+          <i class="fa-solid fa-bolt"></i> Choose Your Ideal Solution
         </button>
       </div>
     </section>
-
     <!-- Quick Links Section -->
     <section class="py-8 bg-white border-t border-b border-gray-100">
-      <div class="container mx-auto px-6">
-        <div class="flex gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory">
+      <div class="mx-auto px-6">
+        <div class="flex gap-4 w-full overflow-x-auto md:overflow-visible no-scrollbar snap-x snap-mandatory">
           <!-- News Card -->
           <a href="vault.html#blogs"
-            class="quick-link-card flex-shrink-0 w-[85%] md:w-[calc(33.333%-1rem)] bg-gradient-to-r from-gray-50 to-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all snap-start group">
-            <div class="flex h-[180px]">
-              <div class="flex-1 p-6 flex flex-col justify-center">
-                <div class="flex items-center gap-3 mb-3">
-                  <div class="w-10 h-10 rounded-full bg-[#cc001b] flex items-center justify-center">
-                    <i class="fa-solid fa-newspaper text-white text-lg"></i>
-                  </div>
-                  <h3 class="text-2xl font-black uppercase text-gray-900">News</h3>
-                </div>
-                <p class="text-sm text-gray-600 font-medium">Stay updated with the latest from Alaska Batteries</p>
+            class="quick-link-card flex-shrink-0 w-[85%] md:flex-1 border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all snap-start group relative h-[180px]">
+            <img src="assets/vault/news.png" alt="News"
+              class="absolute inset-0 w-full h-full object-cover object-[70%_75%] md:object-[80%_75%]">
+            <div class="quick-link-overlay"></div>
+            <div class="relative z-10 h-full p-4 flex flex-col justify-end items-start text-white">
+              <div class="flex items-center gap-3 ml-2">
+                <h3 class="text-2xl font-black uppercase text-[#c00d1e]">News</h3>
               </div>
-              <div class="w-[45%] relative overflow-hidden">
-                <img src="assets/vault/news.png" alt="News"
-                  class="absolute inset-0 w-full h-full object-cover object-[80%_75%]">
-              </div>
+              <!-- <p class=" text-sm font-medium text-white/90">Stay updated with the latest from Alaska Batteries</p>
+                  -->
             </div>
           </a>
 
           <!-- FAQs Card -->
           <a href="vault.html#faqs"
-            class="quick-link-card flex-shrink-0 w-[85%] md:w-[calc(33.333%-1rem)] bg-gradient-to-r from-gray-50 to-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all snap-start group">
-            <div class="flex h-[180px]">
-              <div class="flex-1 p-6 flex flex-col justify-center">
-                <div class="flex items-center gap-3 mb-3">
-                  <div class="w-10 h-10 rounded-full bg-[#cc001b] flex items-center justify-center">
-                    <i class="fa-solid fa-circle-question text-white text-lg"></i>
-                  </div>
-                  <h3 class="text-2xl font-black uppercase text-gray-900">FAQs</h3>
-                </div>
-                <p class="text-sm text-gray-600 font-medium">Find answers to common battery questions</p>
+            class="quick-link-card flex-shrink-0 w-[85%] md:flex-1 border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all snap-start group relative h-[180px]">
+            <img src="assets/vault/FAQs.png" alt="FAQs"
+              class="absolute inset-0 w-full h-full object-cover object-[90%_75%]">
+            <div class="quick-link-overlay"></div>
+            <div class="relative z-10 h-full p-4 flex flex-col justify-end items-start text-white">
+              <div class="flex items-center gap-3 ml-2">
+
+                <h3 class="text-2xl font-black uppercase text-[#c00d1e]">FAQs</h3>
               </div>
-              <div class="w-[45%] relative overflow-hidden">
-                <img src="assets/vault/FAQs - Home.png" alt="FAQs"
-                  class="absolute inset-0 w-full h-full object-cover object-scale-down">
-              </div>
+              <!--  <p class="text-sm font-medium text-white/90">Find answers to common battery questions</p> -->
             </div>
           </a>
 
           <!-- Gallery Card -->
           <a href="vault.html#gallery"
-            class="quick-link-card flex-shrink-0 w-[85%] md:w-[calc(33.333%-1rem)] bg-gradient-to-r from-gray-50 to-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all snap-start group">
-            <div class="flex h-[180px]">
-              <div class="flex-1 p-6 flex flex-col justify-center">
-                <div class="flex items-center gap-3 mb-3">
-                  <div class="w-10 h-10 rounded-full bg-[#cc001b] flex items-center justify-center">
-                    <i class="fa-solid fa-images text-white text-lg"></i>
-                  </div>
-                  <h3 class="text-2xl font-black uppercase text-gray-900">Gallery</h3>
-                </div>
-                <p class="text-sm text-gray-600 font-medium">Explore our events and dealer network</p>
+            class="quick-link-card flex-shrink-0 w-[85%] md:flex-1 border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all snap-start group relative h-[180px]">
+            <img src="assets/vault/Gallery.png" alt="Gallery"
+              class="absolute inset-0 w-full h-full object-cover md:object-[85%_75%] object-[80%_75%]">
+            <div class="quick-link-overlay"></div>
+            <div class="relative z-10 h-full p-4 flex flex-col justify-end items-start text-white">
+              <div class="flex items-center gap-3 ml-2">
+                <h3 class="text-2xl font-black uppercase text-[#c00d1e]">Gallery</h3>
               </div>
-              <div class="w-[45%] relative overflow-hidden">
-                <img src="assets/vault/Gallery.png" alt="Gallery"
-                  class="absolute inset-0 w-full h-full object-cover object-[80%_75%]">
-              </div>
+              <!--    <p class="text-sm font-medium text-white/90">Explore our events and partner network</p> -->
             </div>
           </a>
         </div>
@@ -174,10 +155,6 @@
     <!-- Graphite Technology Section - Two Image Flex Layout -->
     <section class="bg-white">
       <div class=" mx-auto px-6">
-        <h2 class="font-black text-center text-5xl md:text-7xl tracking-tight leading-tight mb-12">
-          Graphite
-          <span class="text-[#cc001b]">Technology</span>
-        </h2>
         <!-- Two Image Flex Container -->
         <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
           <!-- Image 1 - 75% width on desktop, 100% on mobile -->
@@ -185,13 +162,12 @@
             <img src="assets/Tech-landing.png" alt="Graphite Technology Image 1"
               class="w-full h-full object-cover object-[55%_75%]" />
             <!-- Text Overlay -->
-            <div
-              class="absolute inset-0 bg-black/10 md:bg-black/20 flex flex-col items-start justify-between p-6 md:p-12">
-              <h3 class="text-white font-bold text-2xl md:text-4xl lg:text-5xl text-left mb-6 md:mb-8 leading-tight">
-                Pakistan's one and only Graphite Enhanced Lead-Acid Battery
+            <div class="absolute inset-0 bg-black/10 flex flex-col items-start justify-between p-6 md:p-12">
+              <h3
+                class="text-[#c00d1e] font-extrabold text-2xl md:text-4xl uppercase text-left mb-6 md:mb-8 leading-tight">
+                Get to Know the Process
               </h3>
-              <a href="graphite.html"
-                class="bg-[#cc001b] hover:bg-[#a00016] text-white font-bold py-3 px-8 md:py-4 md:px-12 rounded-full uppercase tracking-wide transition-all duration-300 transform hover:scale-105 shadow-lg">
+              <a href="graphite.html" class="btn-primary text-2xl">
                 Explore
               </a>
             </div>
@@ -199,27 +175,30 @@
 
           <!-- Image 2 - Remaining width on desktop, 100% on mobile -->
           <div class="w-full h-64 md:max-w-[500px] md:h-96 md:min-h-[580px] rounded-xl overflow-hidden shadow-lg">
-            <img src="assets/Tech-landing-2.png" alt="Graphite Technology Image 2" class="w-auto h-auto object-cover" />
+            <img src="assets/Tech-landing-2.png" alt="Graphite Technology Image 2"
+              class="w-auto h-auto md:bg-white/90" />
           </div>
         </div>
       </div>
     </section>
 
-    <section class="relative overflow-hidden bg-white py-16 md:py-2 border-t border-gray-200 bg-gray-100">
+    <section class="relative overflow-hidden bg-gray-100 border-t border-gray-200 min-h-screen flex items-center py-12">
       <div class="container mx-auto px-6 relative">
-        <!-- Heading for mobile -->
-        <h2 class="font-black text-5xl md:text-7xl tracking-tight leading-tight mt-2 text-center mb-8">Our
-          <span class="text-[#cc001b]">Presence</span>
-        </h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <!-- Left Side: Heading, Details, Counter, and CTAs -->
+          <div class="text-center lg:text-left order-2 lg:order-1 flex flex-col gap-8">
+            <!-- Heading -->
+            <h2 class="font-black text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight">Our
+              <span class="text-[#c00d1e]">Presence</span>
+            </h2>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div class="text-center lg:text-left order-2 md:order-1">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+            <!-- Details Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div
-                class="flex items-start gap-4 bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-[#cc001b] hover:bg-red-50/30 transition-all duration-300 group">
+                class="flex items-start gap-4 bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-[#c00d1e] hover:bg-red-50/30 transition-all duration-300 group">
                 <div
-                  class="w-12 h-12 rounded-xl bg-[#cc001b]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#cc001b]/20 transition-colors">
-                  <i class="fa-solid fa-certificate text-[#cc001b] text-xl"></i>
+                  class="w-12 h-12 rounded-xl bg-[#c00d1e]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#c00d1e]/20 transition-colors">
+                  <i class="fa-solid fa-certificate text-[#c00d1e] text-xl"></i>
                 </div>
                 <div class="text-left">
                   <p class="font-black text-sm uppercase tracking-widest text-gray-900 leading-tight">Authorized
@@ -229,10 +208,10 @@
               </div>
 
               <div
-                class="flex items-start gap-4 bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-[#cc001b] hover:bg-red-50/30 transition-all duration-300 group">
+                class="flex items-start gap-4 bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-[#c00d1e] hover:bg-red-50/30 transition-all duration-300 group">
                 <div
-                  class="w-12 h-12 rounded-xl bg-[#cc001b]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#cc001b]/20 transition-colors">
-                  <i class="fa-solid fa-headset text-[#cc001b] text-xl"></i>
+                  class="w-12 h-12 rounded-xl bg-[#c00d1e]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#c00d1e]/20 transition-colors">
+                  <i class="fa-solid fa-headset text-[#c00d1e] text-xl"></i>
                 </div>
                 <div class="text-left">
                   <p class="font-black text-sm uppercase tracking-widest text-gray-900 leading-tight">Support</p>
@@ -241,10 +220,10 @@
               </div>
 
               <div
-                class="flex items-start gap-4 bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-[#cc001b] hover:bg-red-50/30 transition-all duration-300 group">
+                class="flex items-start gap-4 bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-[#c00d1e] hover:bg-red-50/30 transition-all duration-300 group">
                 <div
-                  class="w-12 h-12 rounded-xl bg-[#cc001b]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#cc001b]/20 transition-colors">
-                  <i class="fa-solid fa-map text-[#cc001b] text-xl"></i>
+                  class="w-12 h-12 rounded-xl bg-[#c00d1e]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#c00d1e]/20 transition-colors">
+                  <i class="fa-solid fa-map text-[#c00d1e] text-xl"></i>
                 </div>
                 <div class="text-left">
                   <p class="font-black text-sm uppercase tracking-widest text-gray-900 leading-tight">Coverage</p>
@@ -253,10 +232,10 @@
               </div>
 
               <div
-                class="flex items-start gap-4 bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-[#cc001b] hover:bg-red-50/30 transition-all duration-300 group">
+                class="flex items-start gap-4 bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-[#c00d1e] hover:bg-red-50/30 transition-all duration-300 group">
                 <div
-                  class="w-12 h-12 rounded-xl bg-[#cc001b]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#cc001b]/20 transition-colors">
-                  <i class="fa-solid fa-check text-[#cc001b] text-xl"></i>
+                  class="w-12 h-12 rounded-xl bg-[#c00d1e]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#c00d1e]/20 transition-colors">
+                  <i class="fa-solid fa-check text-[#c00d1e] text-xl"></i>
                 </div>
                 <div class="text-left">
                   <p class="font-black text-sm uppercase tracking-widest text-gray-900 leading-tight">Quality</p>
@@ -265,28 +244,26 @@
               </div>
             </div>
 
+            <!-- Counter -->
+            <div class="partner-counter" data-target="500" aria-live="polite">
+              <p class="partner-counter-value text-center lg:text-left"><span id="partner-count">0</span>+ Locations</p>
+            </div>
+
+            <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-              <a href="dealers.html"
-                class="bg-[#cc001b] hover:bg-[#990018] text-white rounded-xl font-black uppercase tracking-widest text-sm px-8 py-4 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2">
+              <a href="dealers.html" class="btn-cta">
                 <i class="fa-solid fa-map-location-dot"></i> Find A Partner
               </a>
-              <a href="support.html"
-                class="font-black uppercase tracking-widest text-sm border-2 border-[#cc001b] text-[#cc001b] rounded-xl px-8 py-3 hover:bg-red-50 transition-all duration-300 flex items-center gap-2">
+              <a href="support.html" class="btn-cta-alt">
                 <i class="fa-solid fa-headset"></i> Get Support
               </a>
             </div>
           </div>
 
-          <div class="flex justify-start items-start order-1">
-            <div class="relative w-full max-w-full">
-              <div class="absolute -inset-6 bg-gray-100 rounded-3xl blur-xl opacity-10"></div>
-              <div class="relative ">
-                <img src="assets/dealer-map.png" alt="Alaska Dealer Map"
-                  class="w-full h-full object-contain rounded-2xl -mt-28 pb-4" />
-              </div>
-              <div class="partner-counter" data-target="500" aria-live="polite">
-                <p class="partner-counter-value md:mt-[-100px] pb-4"><span id="partner-count">0</span>+ Locations</p>
-              </div>
+          <!-- Right Side: Map in Rounded Box -->
+          <div class="flex justify-center items-center order-1 lg:order-2">
+            <div class="relative w-full bg-white/25 rounded-3xl shadow-xl p-6 lg:p-8">
+              <img src="assets/dealer-map.png" alt="Alaska Dealer Map" class="w-full h-full object-fill rounded-2xl" />
             </div>
           </div>
         </div>
