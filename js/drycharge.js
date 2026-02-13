@@ -261,13 +261,21 @@ document.addEventListener("DOMContentLoaded", () => {
       return matchesSearch && matchesCat;
     });
 
-    lastFiltered = filtered;
-    renderThumbnails(filtered);
+    // Sort batteries by model number (ascending) BEFORE updating stage
+    const sortedFiltered = [...filtered].sort((a, b) => {
+      const numA = parseInt(a.model.match(/\d+/)?.[0] || 0);
+      const numB = parseInt(b.model.match(/\d+/)?.[0] || 0);
+      return numA - numB;
+    });
 
-    // FIX: Update the main stage if filtered results exist
-    if (filtered.length > 0) {
-      window.updateStage(filtered[0].id, false);
+    lastFiltered = sortedFiltered;
+
+    // Update the main stage with the first sorted battery
+    if (sortedFiltered.length > 0) {
+      window.updateStage(sortedFiltered[0].id, false);
     }
+
+    renderThumbnails(sortedFiltered);
   }
 
   function renderThumbnails(data) {
@@ -279,12 +287,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Sort batteries by model number (ascending)
-    const sortedData = [...data].sort((a, b) => {
-      const numA = parseInt(a.model.match(/\d+/)?.[0] || 0);
-      const numB = parseInt(b.model.match(/\d+/)?.[0] || 0);
-      return numA - numB;
-    });
+    // Data is already sorted when passed to this function
+    const sortedData = data;
 
     // Render all filtered batteries in a grid
     batteryGrid.innerHTML = sortedData
@@ -660,53 +664,55 @@ window.executeComparison = function (secondId) {
         
         <h3 class="text-2xl font-black uppercase mb-8 text-center">Battery Comparison</h3>
         
-        <div style="border: 1px solid #e5e7eb;">
-          <!-- Header Row -->
-          <div class="grid" style="grid-template-columns: minmax(180px, auto) 1fr 1fr; background-color: white; border-bottom: 1px solid #e5e7eb;">
-            <div style="padding: 1rem; border-right: 1px solid #e5e7eb;"></div>
-            <div style="padding: 1rem 1.5rem; border-right: 1px solid #e5e7eb;">
-              <h4 class="text-lg font-black uppercase text-center text-[#c00d1e]">${b1.model}</h4>
+        <div style="overflow-x: auto;">
+          <div style="min-width: 680px; border: 1px solid #e5e7eb; border-radius: 1rem; overflow: hidden;">
+            <!-- Header Row -->
+            <div class="grid" style="grid-template-columns: minmax(180px, auto) 1fr 1fr; background-color: white; border-bottom: 1px solid #e5e7eb;">
+              <div style="padding: 1rem; border-right: 1px solid #e5e7eb;"></div>
+              <div style="padding: 1rem 1.5rem; border-right: 1px solid #e5e7eb;">
+                <h4 class="text-lg font-black uppercase text-center text-[#c00d1e]">${b1.model}</h4>
+              </div>
+              <div style="padding: 1rem 1.5rem;">
+                <h4 class="text-lg font-black uppercase text-center text-[#c00d1e]">${b2.model}</h4>
+              </div>
             </div>
-            <div style="padding: 1rem 1.5rem;">
-              <h4 class="text-lg font-black uppercase text-center text-[#c00d1e]">${b2.model}</h4>
-            </div>
-          </div>
 
-          <!-- Image Row - White -->
-          <div class="grid" style="grid-template-columns: minmax(180px, auto) 1fr 1fr; background-color: white; border-bottom: 1px solid #e5e7eb;">
-            <div style="padding: 1.5rem; border-right: 1px solid #e5e7eb;"></div>
-            <div style="padding: 1.5rem; border-right: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center;">
-              <img src="${b1.image}" class="h-48 object-contain" alt="${b1.model}">
+            <!-- Image Row - White -->
+            <div class="grid" style="grid-template-columns: minmax(180px, auto) 1fr 1fr; background-color: white; border-bottom: 1px solid #e5e7eb;">
+              <div style="padding: 1.5rem; border-right: 1px solid #e5e7eb;"></div>
+              <div style="padding: 1.5rem; border-right: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center;">
+                <img src="${b1.image}" class="h-48 object-contain" alt="${b1.model}">
+              </div>
+              <div style="padding: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                <img src="${b2.image}" class="h-48 object-contain" alt="${b2.model}">
+              </div>
             </div>
-            <div style="padding: 1.5rem; display: flex; align-items: center; justify-content: center;">
-              <img src="${b2.image}" class="h-48 object-contain" alt="${b2.model}">
-            </div>
-          </div>
 
-          <!-- Specs Rows -->
-          ${specs
-            .map((s, i) => {
-              const val1 = s.v ? s.v(b1) : b1[s.k];
-              const displayVal1 = val1 === undefined || val1 === null || val1 === "" ? "--" : `${val1}${s.s || ""}`;
-              const val2 = s.v ? s.v(b2) : b2[s.k];
-              const displayVal2 = val2 === undefined || val2 === null || val2 === "" ? "--" : `${val2}${s.s || ""}`;
-              const isGray = i % 2 === 0;
-              const bgColor = isGray ? "#f3f4f6" : "white";
-              const borderBottom = i < specs.length - 1 ? "1px solid #e5e7eb" : "none";
-              return `
-              <div class="grid" style="grid-template-columns: minmax(180px, auto) 1fr 1fr; background-color: ${bgColor}; border-bottom: ${borderBottom};">
-                <div style="padding: 0.75rem 1rem; border-right: 1px solid #e5e7eb; display: flex; align-items: center;">
-                  <span class="text-xs font-bold uppercase text-[#c00d1e]">${s.l}</span>
-                </div>
-                <div style="padding: 0.75rem 1rem; border-right: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center;">
-                  <span class="text-sm font-semibold text-black">${displayVal1}</span>
-                </div>
-                <div style="padding: 0.75rem 1rem; display: flex; align-items: center; justify-content: center;">
-                  <span class="text-sm font-semibold text-black">${displayVal2}</span>
-                </div>
-              </div>`;
-            })
-            .join("")}
+            <!-- Specs Rows -->
+            ${specs
+              .map((s, i) => {
+                const val1 = s.v ? s.v(b1) : b1[s.k];
+                const displayVal1 = val1 === undefined || val1 === null || val1 === "" ? "--" : `${val1}${s.s || ""}`;
+                const val2 = s.v ? s.v(b2) : b2[s.k];
+                const displayVal2 = val2 === undefined || val2 === null || val2 === "" ? "--" : `${val2}${s.s || ""}`;
+                const bgColor = i % 2 === 0 ? "#f3f4f6" : "white";
+                const borderBottom = i < specs.length - 1 ? "1px solid #e5e7eb" : "none";
+                return `
+                <div class="grid" style="grid-template-columns: minmax(180px, auto) 1fr 1fr; background-color: ${bgColor}; border-bottom: ${borderBottom};">
+                  <div style="padding: 0.75rem 1rem; border-right: 1px solid #e5e7eb; display: flex; align-items: center;">
+                    <span class="text-xs font-bold uppercase text-[#c00d1e]">${s.l}</span>
+                  </div>
+                  <div style="padding: 0.75rem 1rem; border-right: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center;">
+                    <span class="text-sm font-semibold text-black">${displayVal1}</span>
+                  </div>
+                  <div style="padding: 0.75rem 1rem; display: flex; align-items: center; justify-content: center;">
+                    <span class="text-sm font-semibold text-black">${displayVal2}</span>
+                  </div>
+                </div>`;
+              })
+              .join("")}
+          </div>
+        </div>
         </div>
       </div>
     `;

@@ -168,7 +168,6 @@ img {
   background-color: #a00016 !important;
   border-color: #a00016 !important;
   box-shadow: 0 12px 30px rgba(192, 13, 30, 0.35) !important;
-  transform: translateY(-2px) !important;
 }
 
 .btn-cta:active {
@@ -198,7 +197,6 @@ img {
   background-color: var(--alaska-red) !important;
   color: white !important;
   box-shadow: 0 12px 30px rgba(192, 13, 30, 0.35) !important;
-  transform: translateY(-2px) !important;
 }
 
 .btn-cta-alt:active {
@@ -236,15 +234,17 @@ img {
 .products-carousel {
   display: flex;
   gap: 1.5rem;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* smoother momentum on touch devices */
+  scroll-snap-type: x proximity; /* less aggressive snapping for smoother feel */
   scroll-behavior: smooth;
-  scroll-padding-left: 260px;
+  scroll-padding-inline: 50%; /* ensure snapped item lands centered in viewport */
   -ms-overflow-style: none;
   scrollbar-width: none;
   width: 100%;
   padding: 1rem 40px;
   box-sizing: border-box;
+  align-items: center; /* vertically center shrink-wrapped cards */
 }
 
 .products-carousel::-webkit-scrollbar {
@@ -252,24 +252,31 @@ img {
 }
 
 .product-card {
-  flex: 0 0 65%;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  flex: 0 0 auto; /* shrink-wrap to image size */
+  width: auto;
+  scroll-snap-align: center; /* center the card when snapping */
+  scroll-snap-stop: normal;
   border-radius: 24px;
   overflow: hidden;
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
   position: relative;
-  height: 600px;
+  height: auto; /* let image determine height */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  display: inline-block; /* shrink-wrap */
+  max-width: 100%;
 }
 
 .product-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
+  display: block;
+  width: auto; /* image intrinsic width controls wrapper */
+  height: auto;
+  max-width: 100%; /* but never overflow carousel */
+  max-height: 600px; /* visual limit */
+  object-fit: contain; /* ensure no cropping */
   object-position: center;
+  margin: 0; /* remove extra gap */
 }
 
 .product-card h3 {
@@ -421,6 +428,7 @@ img {
   }
 
   .product-card {
+    /* on tablet keep cards slightly larger but still responsive */
     flex: 0 0 70%;
     height: 400px;
   }
@@ -685,18 +693,16 @@ html {
 }
 
 .partner-counter-label {
-  font-size: 0.75rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: #111827;
+  font-size: 40px;
+  font-weight: 700;
+  color: #000000;
   margin-bottom: 0.35rem;
 }
 
 .partner-counter-value {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 900;
-  color: #c00d1e;
+  font-size: 40px;
+  font-weight: 700;
+  color: #000000;
   line-height: 1;
 }
 
@@ -2052,6 +2058,7 @@ body.urdu-mode .header-ur {
       padding: 2rem 2.5rem 2rem 1.5rem !important;
       border-radius: 0 20px 20px 0 !important; /* Straight left, rounded right */
       text-align: left !important;
+      top: 2rem !important; /* Adjust this value to position vertically */
     }
 
     /* Mobile Active Animation Override */
