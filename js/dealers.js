@@ -423,10 +423,12 @@ document.addEventListener("DOMContentLoaded", () => {
   function filterDealers() {
     const term = searchInput.value.toLowerCase();
     const prov = provinceSelect.value;
+    const provNorm = (prov || "").toLowerCase();
 
     const filtered = dealers.filter((d) => {
       const matchesSearch = d.name.toLowerCase().includes(term) || d.address.toLowerCase().includes(term) || d.city.toLowerCase().includes(term) || d.province.toLowerCase().includes(term);
-      const matchesProv = prov === "All" || d.province === prov;
+      const dProv = (d.province || "").toLowerCase();
+      const matchesProv = prov === "All" || dProv === provNorm || (provNorm === "gilgit baltistan" && dProv.includes("gilgit"));
       return matchesSearch && matchesProv;
     });
 
@@ -447,9 +449,15 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    const prov = provinceSelect.value;
+    const provNorm = (prov || "").toLowerCase();
+
     const matches = dealers
       .filter((d) => {
-        return d.name.toLowerCase().includes(term) || d.address.toLowerCase().includes(term) || d.city.toLowerCase().includes(term) || d.province.toLowerCase().includes(term);
+        const matchesSearch = d.name.toLowerCase().includes(term) || d.address.toLowerCase().includes(term) || d.city.toLowerCase().includes(term) || d.province.toLowerCase().includes(term);
+        const dProv = (d.province || "").toLowerCase();
+        const matchesProv = prov === "All" || dProv === provNorm || (provNorm === "gilgit baltistan" && dProv.includes("gilgit"));
+        return matchesSearch && matchesProv;
       })
       .slice(0, 8);
 

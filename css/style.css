@@ -203,6 +203,82 @@ img {
   transform: translateY(0) !important;
 }
 
+/* === RESPONSIVE BUTTON STYLES === */
+/* Mobile: Small buttons for tight spaces */
+@media (max-width: 640px) {
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.75rem !important;
+  }
+
+  .btn-lg {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  .btn-sm {
+    padding: 0.375rem 0.75rem !important;
+    font-size: 0.65rem !important;
+  }
+
+  .btn-cta,
+  .btn-cta-alt {
+    padding: 0.875rem 1.5rem !important;
+    font-size: 0.875rem !important;
+  }
+}
+
+/* Tablet: Medium buttons */
+@media (min-width: 641px) and (max-width: 1023px) {
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.625rem 1.25rem !important;
+    font-size: 0.8125rem !important;
+  }
+
+  .btn-lg {
+    padding: 0.875rem 1.75rem !important;
+    font-size: 0.9375rem !important;
+  }
+
+  .btn-sm {
+    padding: 0.5rem 0.875rem !important;
+    font-size: 0.7rem !important;
+  }
+
+  .btn-cta,
+  .btn-cta-alt {
+    padding: 1rem 2rem !important;
+    font-size: 1rem !important;
+  }
+}
+
+/* Desktop: Full-size buttons (this is the default, kept for clarity) */
+@media (min-width: 1024px) {
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.625rem 1.5rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  .btn-lg {
+    padding: 1rem 2rem !important;
+    font-size: 1rem !important;
+  }
+
+  .btn-sm {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.75rem !important;
+  }
+
+  .btn-cta,
+  .btn-cta-alt {
+    padding: 1.25rem 2.75rem !important;
+    font-size: 1.125rem !important;
+  }
+}
+
 /* Video hero tweaks */
 .hero-section {
   aspect-ratio: auto;

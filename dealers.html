@@ -9,6 +9,21 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* keep only subtle scrollbar styling for province select (restore original) */
+    select#provinceFilter::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    select#provinceFilter::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    select#provinceFilter::-webkit-scrollbar-thumb {
+      background: #c00d1e;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 
 <body class="bg-white overflow-x-hidden">
@@ -31,43 +46,50 @@
       </div>
     </section>
 
-    <div class="max-w-7xl mx-auto px-4 md:px-2 lg:px-2 py-8">
-      <div class="bg-white border-2 border-gray-200 p-6 md:p-8 rounded-xl shadow-lg mb-10">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div class="relative md:col-span-1">
-            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-            <input type="text" id="dealerSearch" autocomplete="off" placeholder="SEARCH BY NAME, CITY, PROVINCE..."
-              class="w-full bg-gray-50 border-2 border-gray-200 text-zinc-900 pl-12 pr-10 py-4 rounded-lg outline-none focus:ring-2 focus:ring-[#c00d1e] focus:border-[#c00d1e] font-black text-xs tracking-widest uppercase placeholder:text-gray-400" />
+    <section id="search-section" class="sticky top-0 z-10 backdrop-blur-xs py-6 bg-white">
+      <div class="max-w-7xl mx-auto px-4 md:px-2 lg:px-2">
+        <div class="bg-white border-2 border-gray-200 p-6 md:p-8 rounded-xl shadow-lg mb-10">
+          <div class="flex flex-col md:flex-row gap-4 items-center">
+            <div class="relative w-full md:flex-1">
+              <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
 
-            <button id="dealerClear"
-              class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-[#c00d1e] bg-transparent w-8 h-8 rounded-full hidden items-center justify-center transition-colors">
-              <i class="fa-solid fa-circle-xmark text-lg"></i>
-            </button>
+              <input type="text" id="dealerSearch" autocomplete="off" placeholder="Search by name, city or province"
+                class="w-full pl-10 pr-12 py-3 rounded-lg bg-gray-100 border-none focus:ring-2 focus:ring-[#c00d1e] outline-none text-base tracking-normal" />
 
-            <div id="dealer-suggestions"
-              class="absolute left-0 right-0 mt-1 bg-white text-black rounded-lg shadow-lg overflow-hidden hidden z-50">
-              <!-- suggestions populated by JS -->
-              <div class="p-3 text-gray-500 text-sm">No suggestions</div>
+              <button id="dealerClear"
+                class="hidden absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#c00d1e] transition-colors">
+                <i class="fa-solid fa-circle-xmark text-lg"></i>
+              </button>
+
+              <div id="dealer-suggestions"
+                class="absolute top-full left-0 w-full bg-white shadow-2xl border border-gray-100 hidden mt-1 max-h-60 overflow-y-auto rounded-lg z-50">
+                <div class="p-3 text-gray-500 text-sm">No suggestions</div>
+              </div>
             </div>
-          </div>
 
-          <select id="provinceFilter"
-            class="bg-gray-50 border-2 border-gray-200 text-zinc-900 p-4 rounded-lg outline-none focus:ring-2 focus:ring-[#c00d1e] focus:border-[#c00d1e] font-black text-xs tracking-widest uppercase appearance-none cursor-pointer">
-            <option value="All">All Provinces</option>
-            <option value="Islamabad">Islamabad Capital Territory</option>
-            <option value="Punjab">Punjab</option>
-            <option value="Sindh">Sindh</option>
-            <option value="KPK">KPK</option>
-            <option value="Balochistan">Balochistan</option>
-            <option value="Azad Kashmir">Azad Kashmir</option>
-          </select>
-          <div
-            class="bg-[#c00d1e] text-white flex items-center justify-center p-4 rounded-lg font-black text-xs tracking-[0.3em] uppercase">
-            <span id="dealerCount" class="mr-2">0</span> Partners Found
+            <select id="provinceFilter"
+              class="filter-btn border-2 border-gray-100 px-6 py-2 font-semibold text-lg uppercase tracking-widest rounded-md transition-all">
+              <option value="All" disabled selected>Area</option>
+              <option value="All">All</option>
+              <option value="Islamabad">ICT</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Sindh">Sindh</option>
+              <option value="KPK">KPK</option>
+              <option value="Balochistan">Balochistan</option>
+              <option value="Gilgit Baltistan">Gilgit Baltistan</option>
+              <option value="Azad Kashmir">Azad Kashmir</option>
+            </select>
+
+            <div
+              class="filter-btn active border-2 border-gray-100 px-6 py-2 text-m uppercase tracking-widest rounded-md transition-all">
+              <span id="dealerCount" class="mr-2">0</span> Partners Found
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
+    <div class="max-w-7xl mx-auto px-4 md:px-2 lg:px-2">
       <div class="flex flex-col md:flex-row gap-8 mb-8">
         <div class="w-full md:w-3/5">
           <div class="bg-gray-50 rounded-xl p-6 border-t-4 border-[#c00d1e]">

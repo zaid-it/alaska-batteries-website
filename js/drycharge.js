@@ -135,8 +135,7 @@ window.updateStage = function (id, shouldScroll = false) {
   }
 
   if (shouldScroll) {
-    const detailsAnchor = document.getElementById("details-anchor");
-    if (detailsAnchor) detailsAnchor.scrollIntoView({ behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 };
 
@@ -662,57 +661,77 @@ window.executeComparison = function (secondId) {
           <i class="fa-solid fa-arrow-left"></i> Change Selection
         </button>
         
-        <h3 class="text-2xl font-black uppercase mb-8 text-center">Battery Comparison</h3>
-        
-        <div style="overflow-x: auto;">
-          <div style="min-width: 680px; border: 1px solid #e5e7eb; border-radius: 1rem; overflow: hidden;">
-            <!-- Header Row -->
-            <div class="grid" style="grid-template-columns: minmax(180px, auto) 1fr 1fr; background-color: white; border-bottom: 1px solid #e5e7eb;">
-              <div style="padding: 1rem; border-right: 1px solid #e5e7eb;"></div>
-              <div style="padding: 1rem 1.5rem; border-right: 1px solid #e5e7eb;">
-                <h4 class="text-lg font-black uppercase text-center text-[#c00d1e]">${b1.model}</h4>
-              </div>
-              <div style="padding: 1rem 1.5rem;">
-                <h4 class="text-lg font-black uppercase text-center text-[#c00d1e]">${b2.model}</h4>
-              </div>
-            </div>
+        <h3 class="text-2xl font-black uppercase mb-2 text-center">Battery Comparison</h3>
 
-            <!-- Image Row - White -->
-            <div class="grid" style="grid-template-columns: minmax(180px, auto) 1fr 1fr; background-color: white; border-bottom: 1px solid #e5e7eb;">
-              <div style="padding: 1.5rem; border-right: 1px solid #e5e7eb;"></div>
-              <div style="padding: 1.5rem; border-right: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center;">
-                <img src="${b1.image}" class="h-48 object-contain" alt="${b1.model}">
-              </div>
-              <div style="padding: 1.5rem; display: flex; align-items: center; justify-content: center;">
-                <img src="${b2.image}" class="h-48 object-contain" alt="${b2.model}">
-              </div>
+        <!-- Two Column Layout: Battery Images -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;" class="battery-compare-grid">
+          <!-- Battery 1 -->
+          <div style="text-align: center; background: white;">
+            <div style="display: flex; align-items: center; justify-content: center; height: 300px;">
+              <img src="${b1.image}" class="object-contain" style="max-height: 100%; max-width: 100%;" alt="${b1.model}">
             </div>
+          </div>
 
-            <!-- Specs Rows -->
-            ${specs
-              .map((s, i) => {
-                const val1 = s.v ? s.v(b1) : b1[s.k];
-                const displayVal1 = val1 === undefined || val1 === null || val1 === "" ? "--" : `${val1}${s.s || ""}`;
-                const val2 = s.v ? s.v(b2) : b2[s.k];
-                const displayVal2 = val2 === undefined || val2 === null || val2 === "" ? "--" : `${val2}${s.s || ""}`;
-                const bgColor = i % 2 === 0 ? "#f3f4f6" : "white";
-                const borderBottom = i < specs.length - 1 ? "1px solid #e5e7eb" : "none";
-                return `
-                <div class="grid" style="grid-template-columns: minmax(180px, auto) 1fr 1fr; background-color: ${bgColor}; border-bottom: ${borderBottom};">
-                  <div style="padding: 0.75rem 1rem; border-right: 1px solid #e5e7eb; display: flex; align-items: center;">
-                    <span class="text-xs font-bold uppercase text-[#c00d1e]">${s.l}</span>
-                  </div>
-                  <div style="padding: 0.75rem 1rem; border-right: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center;">
-                    <span class="text-sm font-semibold text-black">${displayVal1}</span>
-                  </div>
-                  <div style="padding: 0.75rem 1rem; display: flex; align-items: center; justify-content: center;">
-                    <span class="text-sm font-semibold text-black">${displayVal2}</span>
-                  </div>
-                </div>`;
-              })
-              .join("")}
+          <!-- Battery 2 -->
+          <div style="text-align: center; background: white;">
+            <div style="display: flex; align-items: center; justify-content: center; height: 300px;">
+              <img src="${b2.image}" class="object-contain" style="max-height: 100%; max-width: 100%;" alt="${b2.model}">
+            </div>
           </div>
         </div>
+
+        <!-- Specs Table -->
+        <div style="border: 1px solid #e5e7eb; border-radius: 0.5rem; overflow: hidden;" class="battery-compare-specs">
+          <!-- Header Row -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; background-color: white; border-bottom: 2px solid #e5e7eb;" class="specs-grid">
+            <div style="padding: 1rem; text-align: center; border-right: 1px solid #e5e7eb;">
+              <h4 class="text-lg font-black uppercase text-[#c00d1e]">${b1.model}</h4>
+            </div>
+            <div style="padding: 1rem; text-align: center; border-right: 1px solid #e5e7eb;">
+              <p class="text-xs font-bold uppercase text-gray-400">Specs</p>
+            </div>
+            <div style="padding: 1rem; text-align: center;">
+              <h4 class="text-lg font-black uppercase text-[#c00d1e]">${b2.model}</h4>
+            </div>
+          </div>
+
+          <!-- Specs Rows -->
+          ${specs
+            .map((s, i) => {
+              const val1 = s.v ? s.v(b1) : b1[s.k];
+              const val2 = s.v ? s.v(b2) : b2[s.k];
+              const displayVal1 = val1 === undefined || val1 === null || val1 === "" ? "--" : `${val1}${s.s || ""}`;
+              const displayVal2 = val2 === undefined || val2 === null || val2 === "" ? "--" : `${val2}${s.s || ""}`;
+              const bgColor = i % 2 === 0 ? "white" : "#f3f4f6";
+              const borderBottom = i < specs.length - 1 ? "1px solid #e5e7eb" : "none";
+              return `
+              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; background-color: ${bgColor}; border-bottom: ${borderBottom};" class="specs-grid">
+                <div style="padding: 1rem; text-align: center; border-right: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center;">
+                  <span class="text-sm font-semibold text-black">${displayVal1}</span>
+                </div>
+                <div style="padding: 1rem; text-align: center; border-right: 1px solid #e5e7eb;">
+                  <span class="text-xs font-bold uppercase text-[#c00d1e]">${s.l}</span>
+                </div>
+                <div style="padding: 1rem; text-align: center; display: flex; align-items: center; justify-content: center;">
+                  <span class="text-sm font-semibold text-black">${displayVal2}</span>
+                </div>
+              </div>`;
+            })
+            .join("")}
+        </div>
+
+        <!-- Mobile Responsive Styles -->
+        <style>
+          @media (max-width: 768px) {
+            .battery-compare-grid {
+              grid-template-columns: 1fr 1fr !important;
+              gap: 0.5rem !important;
+            }
+            .specs-grid {
+              grid-template-columns: 1fr 1fr 1fr !important;
+            }
+          }
+        </style>
         </div>
       </div>
     `;
