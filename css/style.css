@@ -621,30 +621,39 @@ html {
 .dealer-card {
   transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);
 }
-.dealer-card:hover {
-  transform: translateX(5px);
-  border-color: #c00d1e;
-}
-/* Core Values (About page) */
-.core-value-card {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+
+/* Tweak three-column feature columns and headings for consistent alignment and sizing */
+.grid.grid-cols-1.md\:grid-cols-3 .p-6,
+.grid .p-6 {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  gap: 0.25rem !important;
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
 }
 
-.core-value-icon {
-  position: relative;
-  width: 4rem;
-  height: 4rem;
-  margin: 0 auto 1rem auto;
-  border-radius: 9999px;
-  background: #ffffff;
-  border: 2px solid var(--alaska-red);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow:
-    0 12px 30px -14px rgba(15, 23, 42, 0.45),
-    0 0 0 6px rgba(192, 13, 30, 0.08);
+.grid .p-6 h4 {
+  font-size: 1.05rem !important; /* slightly larger */
+  font-weight: 800 !important;
+  line-height: 1.08 !important;
+  letter-spacing: 0.01em !important;
+  margin: 0 0 0.45rem !important;
+  text-transform: uppercase !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  white-space: normal !important;
+  text-align: left !important;
+  max-height: 3.6rem !important; /* allow up to ~2 lines */
+}
+
+/* Ensure inline elements inside headings don't split */
+.grid .p-6 h4 span,
+.grid .p-6 h4 strong,
+.grid .p-6 h4 b {
+  word-break: keep-all !important;
+}
 }
 
 .core-value-icon::before {
@@ -669,6 +678,31 @@ html {
 
 .core-value-card p {
   line-height: 1.5;
+}
+
+/* Tweak three-column feature headings (vault/blog grid) for better fit and alignment */
+/* Tweak three-column feature headings (vault/blog grid) for better fit and alignment */
+.grid.grid-cols-1.md\:grid-cols-3 .p-6 h4,
+.grid .p-6 h4,
+.blog-content .grid .p-6 h4 {
+  font-size: 1rem !important; /* slightly larger */
+  line-height: 1.06 !important;
+  letter-spacing: 0.01em !important;
+  margin-bottom: 0.45rem !important;
+  text-transform: uppercase !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  white-space: normal !important;
+  display: block !important;
+  text-align: left !important;
+  min-height: 3.2rem !important; /* ensure consistent heading height across columns */
+}
+
+/* Stronger rule for inline elements inside headings to avoid word-splitting */
+.grid .p-6 h4 span,
+.grid .p-6 h4 strong,
+.grid .p-6 h4 b {
+  word-break: keep-all !important;
 }
 /* Custom Industrial Theme Styles */
 
@@ -1698,7 +1732,7 @@ body.urdu-mode .header-ur {
 }
 
 .category-tag {
-  color: #c00d1e !important;
+  display: none !important;
   font-weight: 900;
   text-transform: uppercase;
   font-size: 10px;
@@ -2277,4 +2311,33 @@ body.urdu-mode .header-ur {
       overflow: hidden !important;
     }
   }
+}
+
+/* Neutralize red utility/color classes inside blog content and modals
+   so blog headings and labels are not red site-wide. */
+.blog-content .text-\[\#c00d1e\],
+.blog-content .text-\[\#cc001b\],
+.prose .text-\[\#c00d1e\],
+.prose .text-\[\#cc001b\] {
+  color: inherit !important;
+}
+
+.blog-content .border-\[\#c00d1e\],
+.blog-content .border-\[\#cc001b\],
+.prose .border-\[\#c00d1e\],
+.prose .border-\[\#cc001b\] {
+  border-color: transparent !important;
+}
+
+/* Ensure any small category badges in modals/listings are neutral */
+.blog-content .inline-block.bg-red-50,
+.inline-block.bg-red-50 {
+  background-color: #f3f4f6 !important; /* neutral light gray */
+}
+
+/* Hide category labels and modal category badge across blogs */
+.category-tag,
+.category-badge,
+#blog-modal .category-badge {
+  display: none !important;
 }
