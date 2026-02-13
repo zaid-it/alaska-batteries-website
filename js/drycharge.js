@@ -291,7 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .map(
         (b) => `
             <div onclick="window.updateStage('${b.id}', true)" 
-                 class="battery-card cursor-pointer border-2 border-gray-200 p-4 rounded-lg hover:border-[#cc001b] transition-all text-center">
+                 class="battery-card cursor-pointer border-2 border-gray-200 p-4 rounded-lg hover:border-[#c00d1e] transition-all text-center">
                 <img src="${b.image}" alt="${b.model}" class="h-40 w-auto object-contain mx-auto mb-3">
                 <p class="text-sm font-black uppercase leading-tight">${b.model}</p>
                 <p class="text-xs text-gray-500 mt-1">${b.ah} AH</p>
@@ -380,7 +380,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <span class="font-black text-[100%] uppercase">${m.model}</span>
                         <span class="text-[80%] text-gray-400 font-bold uppercase">${m.plates} Plates</span>
                     </div>
-                    <span class="text-[100%] text-[#cc001b] font-black">${m.ah} AH</span>
+                    <span class="text-[100%] text-[#c00d1e] font-black">${m.ah} AH</span>
                 </div>`,
         )
         .join("");
@@ -437,7 +437,7 @@ document.addEventListener("DOMContentLoaded", () => {
     All: {
       img: "assets/solutions/solutions-hero.png",
       mobile_img: "assets/solutions/solutions-hero.png",
-      title: 'Dry <span class="text-[#cc001b]">Charge</span>',
+      title: 'Dry <span class="text-[#c00d1e]">Charge</span>',
     },
     Automotive: {
       img: "assets/solutions/automotive.png",
@@ -502,18 +502,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const category = this.getAttribute("data-cat");
       updateHero(category);
 
-      // Auto-scroll logic: only for "All"
-      if (category === "All") {
-        startAutoScroll();
-      } else {
-        stopAutoScroll();
-      }
+      // Auto-scroll disabled
+      // if (category === "All") {
+      //   startAutoScroll();
+      // } else {
+      //   stopAutoScroll();
+      // }
     });
   });
 
   // Start UI
   triggerAnimations();
-  startAutoScroll();
+  // Auto-scroll disabled - startAutoScroll();
 });
 
 // --- MODAL & COMPARISON LOGIC ---
@@ -537,9 +537,9 @@ window.openCompareSelection = function (firstId) {
               <div class="relative">
                 <input type="text" id="modalSearchFirst" value="${firstBattery.model}" oninput="compareSelectingFirst = true; filterModalList();"
                   onfocus="compareSelectingFirst = true;" placeholder="Enter model name" autofocus
-                  class="w-full bg-white border border-gray-200 rounded-md py-3 pl-4 pr-10 font-bold text-sm uppercase text-black focus:ring-2 focus:ring-[#cc001b] outline-none" />
+                  class="w-full bg-white border border-gray-200 rounded-md py-3 pl-4 pr-10 font-bold text-sm uppercase text-black focus:ring-2 focus:ring-[#c00d1e] outline-none" />
                 <button type="button" onclick="clearCompareSearch('first')"
-                  class="absolute right-3 top-1/2 -translate-y-1/2 text-black hover:text-[#cc001b]">
+                  class="absolute right-3 top-1/2 -translate-y-1/2 text-black hover:text-[#c00d1e]">
                   <i class="fa-solid fa-xmark"></i>
                 </button>
               </div>
@@ -550,9 +550,9 @@ window.openCompareSelection = function (firstId) {
               <div class="relative">
                 <input type="text" id="modalSearchSecond" oninput="compareSelectingFirst = false; filterModalList();" onfocus="compareSelectingFirst = false;"
                   placeholder="Enter model name to compare"
-                  class="w-full bg-white border border-gray-200 rounded-md py-3 pl-4 pr-10 font-bold text-sm uppercase focus:ring-2 focus:ring-[#cc001b] outline-none" />
+                  class="w-full bg-white border border-gray-200 rounded-md py-3 pl-4 pr-10 font-bold text-sm uppercase focus:ring-2 focus:ring-[#c00d1e] outline-none" />
                 <button type="button" onclick="clearCompareSearch('second')"
-                  class="absolute right-3 top-1/2 -translate-y-1/2 text-black hover:text-[#cc001b]">
+                  class="absolute right-3 top-1/2 -translate-y-1/2 text-black hover:text-[#c00d1e]">
                   <i class="fa-solid fa-xmark"></i>
                 </button>
               </div>
@@ -591,7 +591,7 @@ window.filterModalList = function () {
   listArea.innerHTML = matches
     .map(
       (b) => `
-        <div onclick="${compareSelectingFirst ? `selectFirstForCompare('${b.id}')` : `executeComparison('${b.id}')`}" class="flex items-center justify-between p-3 bg-white border border-gray-100 rounded-md cursor-pointer hover:border-[#cc001b] transition-all group">
+        <div onclick="${compareSelectingFirst ? `selectFirstForCompare('${b.id}')` : `executeComparison('${b.id}')`}" class="flex items-center justify-between p-3 bg-white border border-gray-100 rounded-md cursor-pointer hover:border-[#c00d1e] transition-all group">
             <div class="flex items-center gap-3">
                 <img src="${b.image}" class="h-8 w-auto object-contain pointer-events-none">
                 <div>
@@ -599,7 +599,7 @@ window.filterModalList = function () {
               <p class="text-[80%] text-black font-bold uppercase">${b.plates} Plates</p>
                 </div>
             </div>
-          <span class="text-[100%] font-black text-black group-hover:text-[#cc001b]">${b.ah} AH</span>
+          <span class="text-[100%] font-black text-black group-hover:text-[#c00d1e]">${b.ah} AH</span>
         </div>
     `,
     )
@@ -626,49 +626,85 @@ window.selectFirstForCompare = function (firstId) {
 window.executeComparison = function (secondId) {
   const b1 = batteryData.find((x) => x.id === compareFirstId);
   const b2 = batteryData.find((x) => x.id === secondId);
+
+  // Helper function to format dimensions
+  const formatDimensions = (b) => {
+    if (b.dimensions) {
+      const d = b.dimensions;
+      return `${d.l} × ${d.w} × ${d.h} ${d.unit}`;
+    }
+    return "--";
+  };
+
+  // Helper function to format weight
+  const formatWeight = (b) => {
+    return b.weightKg ? `${b.weightKg} kg` : "--";
+  };
+
   const specs = [
     { l: "Plates", k: "plates" },
     { l: "JIS Battery Box Size", k: "boxSize" },
     { l: "Voltage", k: "p", s: "V" },
     { l: "Ampere", k: "ah", s: " AH" },
+    { l: "Dimensions (L×W×H)", v: formatDimensions },
+    { l: "Weight", v: formatWeight },
     { l: "Warranty", k: "warranty" },
     { l: "Uses", v: (b) => getUsesText(b.uses) },
   ];
 
   document.getElementById("compare-render-area").innerHTML = `
-      <div class="max-w-5xl mx-auto">
-        <button onclick="openCompareSelection('${compareFirstId}')" class="mb-6 text-[11px] font-black uppercase text-black hover:text-[#cc001b] flex items-center gap-2">
-          <i class="fa-solid fa-arrow-left"></i> Change
+      <div class="max-w-6xl mx-auto">
+        <button onclick="openCompareSelection('${compareFirstId}')" class="mb-6 text-xs font-black uppercase text-black hover:text-[#c00d1e] flex items-center gap-2 transition-colors">
+          <i class="fa-solid fa-arrow-left"></i> Change Selection
         </button>
-        <div class="grid grid-cols-2 gap-6 mb-8">
-          <div class="text-center p-6 bg-white rounded-md border border-gray-200">
-            <p class="text-sm font-black uppercase text-black mb-3">${b1.model}</p>
-            <img src="${b1.image}" class="h-40 md:h-56 mx-auto mb-2 object-contain" alt="${b1.model}">
+        
+        <h3 class="text-2xl font-black uppercase mb-8 text-center">Battery Comparison</h3>
+        
+        <div style="border: 1px solid #e5e7eb;">
+          <!-- Header Row -->
+          <div class="grid" style="grid-template-columns: minmax(180px, auto) 1fr 1fr; background-color: white; border-bottom: 1px solid #e5e7eb;">
+            <div style="padding: 1rem; border-right: 1px solid #e5e7eb;"></div>
+            <div style="padding: 1rem 1.5rem; border-right: 1px solid #e5e7eb;">
+              <h4 class="text-lg font-black uppercase text-center text-[#c00d1e]">${b1.model}</h4>
+            </div>
+            <div style="padding: 1rem 1.5rem;">
+              <h4 class="text-lg font-black uppercase text-center text-[#c00d1e]">${b2.model}</h4>
+            </div>
           </div>
-          <div class="text-center p-6 bg-white border border-gray-200 rounded-md">
-            <p class="text-sm font-black uppercase text-black mb-3">${b2.model}</p>
-            <img src="${b2.image}" class="h-40 md:h-56 mx-auto mb-2 object-contain" alt="${b2.model}">
+
+          <!-- Image Row - White -->
+          <div class="grid" style="grid-template-columns: minmax(180px, auto) 1fr 1fr; background-color: white; border-bottom: 1px solid #e5e7eb;">
+            <div style="padding: 1.5rem; border-right: 1px solid #e5e7eb;"></div>
+            <div style="padding: 1.5rem; border-right: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center;">
+              <img src="${b1.image}" class="h-48 object-contain" alt="${b1.model}">
+            </div>
+            <div style="padding: 1.5rem; display: flex; align-items: center; justify-content: center;">
+              <img src="${b2.image}" class="h-48 object-contain" alt="${b2.model}">
+            </div>
           </div>
-        </div>
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <div class="grid grid-cols-3 bg-gray-50 text-[11px] uppercase font-black text-black">
-            <div class="p-3 text-[#cc001b]">Specs</div>
-            <div class="p-3 text-center truncate">${b1.model}</div>
-            <div class="p-3 text-center truncate">${b2.model}</div>
-          </div>
+
+          <!-- Specs Rows -->
           ${specs
             .map((s, i) => {
-              const leftRaw = s.v ? s.v(b1) : b1[s.k];
-              const rightRaw = s.v ? s.v(b2) : b2[s.k];
-              const leftVal = leftRaw === undefined || leftRaw === null || leftRaw === "" ? "--" : `${leftRaw}${s.s || ""}`;
-              const rightVal = rightRaw === undefined || rightRaw === null || rightRaw === "" ? "--" : `${rightRaw}${s.s || ""}`;
-              const rowBg = i % 2 === 0 ? "bg-white" : "bg-gray-50";
+              const val1 = s.v ? s.v(b1) : b1[s.k];
+              const displayVal1 = val1 === undefined || val1 === null || val1 === "" ? "--" : `${val1}${s.s || ""}`;
+              const val2 = s.v ? s.v(b2) : b2[s.k];
+              const displayVal2 = val2 === undefined || val2 === null || val2 === "" ? "--" : `${val2}${s.s || ""}`;
+              const isGray = i % 2 === 0;
+              const bgColor = isGray ? "#f3f4f6" : "white";
+              const borderBottom = i < specs.length - 1 ? "1px solid #e5e7eb" : "none";
               return `
-            <div class="grid grid-cols-3 items-start ${rowBg} border-t border-gray-200">
-              <div class="p-3 text-[11px] font-black uppercase text-[#cc001b]">${s.l}</div>
-              <div class="p-3 text-[12px] font-semibold text-black break-words text-center">${leftVal}</div>
-              <div class="p-3 text-[12px] font-semibold text-black break-words text-center">${rightVal}</div>
-            </div>`;
+              <div class="grid" style="grid-template-columns: minmax(180px, auto) 1fr 1fr; background-color: ${bgColor}; border-bottom: ${borderBottom};">
+                <div style="padding: 0.75rem 1rem; border-right: 1px solid #e5e7eb; display: flex; align-items: center;">
+                  <span class="text-xs font-bold uppercase text-[#c00d1e]">${s.l}</span>
+                </div>
+                <div style="padding: 0.75rem 1rem; border-right: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center;">
+                  <span class="text-sm font-semibold text-black">${displayVal1}</span>
+                </div>
+                <div style="padding: 0.75rem 1rem; display: flex; align-items: center; justify-content: center;">
+                  <span class="text-sm font-semibold text-black">${displayVal2}</span>
+                </div>
+              </div>`;
             })
             .join("")}
         </div>
@@ -705,7 +741,7 @@ function renderGrid(products) {
   grid.innerHTML = "";
   products.forEach((product) => {
     const card = document.createElement("div");
-    card.className = "group bg-white border border-gray-100 p-6 hover:shadow-2xl hover:border-[#cc001b] transition-all duration-500 cursor-pointer flex flex-col items-center text-center";
+    card.className = "group bg-white border border-gray-100 p-6 hover:shadow-2xl hover:border-[#c00d1e] transition-all duration-500 cursor-pointer flex flex-col items-center text-center";
 
     card.onclick = () => {
       updateStage(product);

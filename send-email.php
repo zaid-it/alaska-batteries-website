@@ -76,11 +76,11 @@ $email_body = "
     <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: #cc001b; color: white; padding: 20px; text-align: center; }
+        .header { background: #c00d1e; color: white; padding: 20px; text-align: center; }
         .content { background: #f9f9f9; padding: 20px; border: 1px solid #ddd; }
         .field { margin-bottom: 15px; }
-        .label { font-weight: bold; color: #cc001b; }
-        .value { margin-top: 5px; padding: 10px; background: white; border-left: 3px solid #cc001b; }
+        .label { font-weight: bold; color: #c00d1e; }
+        .value { margin-top: 5px; padding: 10px; background: white; border-left: 3px solid #c00d1e; }
         .footer { text-align: center; padding: 20px; font-size: 12px; color: #777; }
     </style>
 </head>
@@ -129,10 +129,10 @@ $reply_body = "
     <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: #cc001b; color: white; padding: 20px; text-align: center; }
+        .header { background: #c00d1e; color: white; padding: 20px; text-align: center; }
         .content { background: #f9f9f9; padding: 20px; border: 1px solid #ddd; }
         .footer { background: #333; color: white; padding: 20px; }
-        .footer a { color: #cc001b; text-decoration: none; }
+        .footer a { color: #c00d1e; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -144,7 +144,7 @@ $reply_body = "
             <p>Dear $name,</p>
             <p>Thank you for reaching out to Alaska Batteries. We have received your message and our team will review it carefully.</p>
             <p>We aim to respond to all inquiries within <strong>48 business hours</strong>. If your matter is urgent, please call us at <strong>+92 51 874 0280</strong>.</p>
-            <p style='margin-top: 20px; padding: 15px; background: white; border-left: 3px solid #cc001b;'>
+            <p style='margin-top: 20px; padding: 15px; background: white; border-left: 3px solid #c00d1e;'>
                 <strong>Your Message:</strong><br>
                 " . nl2br($message) . "
             </p>
