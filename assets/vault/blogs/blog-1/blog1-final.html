@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Best Battery for Vehicle or Solar | Alaska Batteries</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: #1f2937;
+      background: #f9fafb;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1f2937 100%);
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* SECTIONS */
+    .section {
+      margin-bottom: 50px;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .section-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: #c00d1e;
+      color: white;
+      border-radius: 50%;
+      font-size: 1.8rem;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .section h2 {
+      font-size: 1.8rem;
+      color: #0f172a;
+      margin: 0;
+      font-weight: 800;
+    }
+
+    .section h3 {
+      font-size: 1.3rem;
+      color: #0f172a;
+      margin: 30px 0 15px 0;
+      font-weight: 700;
+      padding-top: 20px;
+      border-top: 2px solid #e5e7eb;
+    }
+
+    .section p {
+      font-size: 1.05rem;
+      color: #4b5563;
+      margin-bottom: 1.2rem;
+      line-height: 1.8;
+    }
+
+    /* LISTS */
+    ul {
+      list-style: none;
+      margin: 20px 0;
+    }
+
+    li {
+      padding: 12px 0 12px 40px;
+      position: relative;
+      color: #4b5563;
+      font-size: 1rem;
+      line-height: 1.6;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
+
+    li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #c00d1e;
+      font-weight: 900;
+      font-size: 1.2rem;
+    }
+
+    /* CALLOUT BOX */
+    .callout {
+      background: #fff7f6;
+      border-left: 5px solid #c00d1e;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 25px 0;
+      font-size: 1.05rem;
+      color: #1f2937;
+      line-height: 1.8;
+    }
+
+    .callout strong {
+      color: #c00d1e;
+      font-weight: 700;
+    }
+
+    /* BADGE */
+    .badge-center {
+      display: flex;
+      justify-content: center;
+      margin: 40px 0;
+    }
+
+    .badge {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c00d1e 0%, #d91e2f 100%);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.1rem;
+      text-align: center;
+      line-height: 1.4;
+      box-shadow: 0 10px 30px rgba(192, 13, 30, 0.3);
+    }
+
+    /* IMAGE */
+    .img-container {
+      margin: 30px 0;
+      text-align: center;
+    }
+
+    .img-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* GRID CARDS */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 25px 0;
+    }
+
+    .card {
+      background: #f9fafb;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: #c00d1e;
+      box-shadow: 0 8px 15px rgba(192, 13, 30, 0.1);
+    }
+
+    .card h4 {
+      color: #c00d1e;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      margin: 0;
+      color: #6b7280;
+      font-size: 0.95rem;
+    }
+
+    /* CTA SECTION */
+    .final-section {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .final-section .section-title {
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #c00d1e 0%, #d91e2f 100%);
+      color: white;
+      padding: 14px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(192, 13, 30, 0.3);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .container {
+        padding: 20px 15px;
+      }
+
+      .section {
+        padding: 25px;
+      }
+
+      .section h2 {
+        font-size: 1.4rem;
+      }
+
+      .section-title {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .badge {
+        width: 140px;
+        height: 140px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Best Battery for Vehicle or Solar</h1>
+    <p>A complete guide to selecting the right battery for maximum performance and reliability</p>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <!-- SECTION 1 -->
+    <section class="section">
+      <div class="section-title">
+        <div class="section-number">1</div>
+        <h2>Understand Battery Types</h2>
+      </div>
+
+      <p>Different battery types are engineered for different purposes. Choosing the wrong type leads to poor performance and early failure.</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <h4>🚗 Automotive Batteries</h4>
+          <p>High cranking power for engine starts. Not designed for sustained discharge. Best for vehicles with frequent starting.</p>
+        </div>
+        <div class="card">
+          <h4>☀️ Deep-Cycle Batteries</h4>
+          <p>Sustained energy for extended periods. Ideal for solar systems, backup power, and repeated charge-discharge cycles.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>Quick Decision:</strong> Use automotive batteries for vehicles. Use deep-cycle batteries for solar storage and backup power systems.
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="section">
+      <div class="section-title">
+        <div class="section-number">2</div>
+        <h2>Check Capacity, Size & Compatibility</h2>
+      </div>
+
+      <p>Getting the right fit is essential. A battery that doesn't fit or match your load will underperform.</p>
+
+      <h3>For Vehicles</h3>
+      <ul>
+        <li>Confirm voltage (12V, 24V, etc.)</li>
+        <li>Verify group size and physical dimensions</li>
+        <li>Check Ah rating for cranking power</li>
+        <li>Confirm terminal layout and polarity</li>
+        <li>Check CCA for winter reliability</li>
+      </ul>
+
+      <h3>For Solar & Storage</h3>
+      <ul>
+        <li>Calculate daily energy consumption (kWh)</li>
+        <li>Determine desired backup hours</li>
+        <li>Size battery bank correctly (Ah × voltage = Wh capacity)</li>
+        <li>Account for depth of discharge (50-80%)</li>
+        <li>Ensure charging system can handle the load</li>
+      </ul>
+
+      <div class="badge-center">
+        <div class="badge">CHECK<br>CAPACITY<br>SIZE</div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="section">
+      <div class="section-title">
+        <div class="section-number">3</div>
+        <h2>Consider Local Conditions</h2>
+      </div>
+
+      <p>Pakistan's extreme heat and humidity demand batteries built for resilience. Standard batteries fail quickly in these conditions.</p>
+
+      <div class="callout">
+        <strong>Why It Matters:</strong> Batteries engineered for hot climates deliver 30-50% longer lifespan, faster charging, and better heat dissipation.
+      </div>
+
+      <p><strong>Alaska Batteries' Graphite Technology:</strong></p>
+      <ul>
+        <li>Enhanced heat resistance for extreme temperatures</li>
+        <li>Faster charge acceptance with unstable supplies</li>
+        <li>Superior cycle life under heavy use</li>
+        <li>Better performance in Pakistan's climate</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="section">
+      <div class="section-title">
+        <div class="section-number">4</div>
+        <h2>Maintenance & Care</h2>
+      </div>
+
+      <p>Even premium batteries require proper maintenance. Neglecting care is the top cause of early failure.</p>
+
+      <ul>
+        <li>Clean terminals monthly and remove corrosion</li>
+        <li>Keep terminal connections tight and secure</li>
+        <li>Avoid deep discharges; recharge promptly</li>
+        <li>Test voltage regularly (12.4V+ = healthy)</li>
+        <li>Test weak batteries early to prevent failures</li>
+        <li>Ensure charging system works properly</li>
+      </ul>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-section">
+      <div class="section-title">
+        <div class="section-number" style="background: #0f172a;">✓</div>
+        <h2>Final Checklist</h2>
+      </div>
+
+      <ul>
+        <li>Physical size fits your battery tray</li>
+        <li>Voltage and Ah rating match your needs</li>
+        <li>Terminal orientation is correct</li>
+        <li>Manufacturing date is current</li>
+        <li>Warranty terms are clear</li>
+        <li>Purchase from authorized dealer only</li>
+        <li>Complete warranty card at purchase</li>
+      </ul>
+
+      <a href="/products.html" class="cta-btn">
+        <i class="fas fa-bolt"></i> Explore Alaska Batteries
+      </a>
+    </section>
+  </div>
+</body>
+</html>
