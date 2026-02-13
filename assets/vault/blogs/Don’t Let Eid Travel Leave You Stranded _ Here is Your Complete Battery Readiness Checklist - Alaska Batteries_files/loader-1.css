@@ -1,0 +1,212 @@
+/*--------------------------------------------------------------
+    Loader
+--------------------------------------------------------------*/
+
+    .pre-loader {
+        height: 100%;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 999991;
+        background-color: #fff;
+    }
+
+    .loader-inner {
+        padding: 25px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        text-align: center;
+        width: 100%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+
+    /* Additional */
+
+    .loader-icon{
+      font-size: clamp(5rem, 4.4231rem + 2.5641vw, 7.5rem); /* 80 - 120 */
+      color: var(--wdtPrimaryColor);
+      display: inline-flex;
+    }
+
+    .custom-loader-icon {
+      transform-origin: center center;
+      animation: 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+    }
+
+    .custom-loader-icon-size-1 {
+      rx: 16px;
+      ry: 16px;
+    }
+
+    .custom-loader-icon-size-2 {
+      rx: 23px;
+      ry: 23px;
+    }
+
+    .loader-icon-class-1 {
+      animation-name: loader-icon-class-1;
+      transform: translateX(52px) translateY(164px);
+    }
+
+    @keyframes loader-icon-class-1 {
+      0% {
+        transform: translateX(52px) translateY(164px);
+        rx: 16px;
+        ry: 16px;
+      }
+      50% {
+        transform: translateX(192px) translateY(164px);
+        rx: 23px;
+        ry: 23px;
+      }
+      100% {
+        rx: 16px;
+        ry: 16px;
+        transform: translateX(192px) translateY(164px);
+      }
+    }
+
+    .loader-icon-class-2 {
+      animation-name: loader-icon-class-2;
+      transform: translateX(122px) translateY(43px);
+    }
+
+    @keyframes loader-icon-class-2 {
+      0% {
+        transform: translateX(122px) translateY(43px);
+        rx: 16px;
+        ry: 16px;
+      }
+      50% {
+        transform: translateX(52px) translateY(164px);
+        rx: 23px;
+        ry: 23px;
+      }
+      100% {
+        rx: 16px;
+        ry: 16px;
+        transform: translateX(52px) translateY(164px);
+      }
+    }
+
+    .loader-icon-class-3 {
+      animation-name: loader-icon-class-3;
+      transform: translateX(192px) translateY(164px);
+    }
+
+    @keyframes loader-icon-class-3 {
+      0% {
+        transform: translateX(192px) translateY(164px);
+        rx: 16px;
+        ry: 16px;
+      }
+      50% {
+        transform: translateX(122px) translateY(43px);
+        rx: 23px;
+        ry: 23px;
+      }
+      100% {
+        rx: 16px;
+        ry: 16px;
+        transform: translateX(122px) translateY(43px);
+      }
+    }
+
+    .loader-icon-class-4 {
+      animation-name: loader-icon-class-4;
+      transform: translateX(52px) translateY(83px);
+    }
+
+    @keyframes loader-icon-class-4 {
+      0% {
+        rx: 23px;
+        ry: 23px;
+        transform: translateX(52px) translateY(83px);
+      }
+      50% {
+        transform: translateX(52px) translateY(83px);
+        rx: 16px;
+        ry: 16px;
+      }
+      100% {
+        transform: translateX(122px) translateY(204px);
+        rx: 23px;
+        ry: 23px;
+      }
+    }
+
+    .loader-icon-class-5 {
+      animation-name: loader-icon-class-5;
+      transform: translateX(122px) translateY(204px);
+    }
+
+    @keyframes loader-icon-class-5 {
+      0% {
+        rx: 23px;
+        ry: 23px;
+        transform: translateX(122px) translateY(204px);
+      }
+      50% {
+        transform: translateX(122px) translateY(204px);
+        rx: 16px;
+        ry: 16px;
+      }
+      100% {
+        transform: translateX(192px) translateY(83px);
+        rx: 23px;
+        ry: 23px;
+      }
+    }
+
+    .loader-icon-class-6 {
+      animation-name: loader-icon-class-6;
+      transform: translateX(192px) translateY(83px);
+    }
+
+    @keyframes loader-icon-class-6 {
+      0% {
+        rx: 23px;
+        ry: 23px;
+        transform: translateX(192px) translateY(83px);
+      }
+      50% {
+        transform: translateX(192px) translateY(83px);
+        rx: 16px;
+        ry: 16px;
+      }
+      100% {
+        transform: translateX(52px) translateY(83px);
+        rx: 23px;
+        ry: 23px;
+      }
+    }
+
+/*--------------------------------------------------------------
+    Accents
+--------------------------------------------------------------*/
+
+    .pre-loader { background-color: var(--wdtBodyBGColor); }
+
+
+/*--------------------------------------------------------------
+    Responsive
+--------------------------------------------------------------*/
+
+    /*----*****---- << Mobile (Landscape) >> ----*****----*/
+
+    /* Note: Design for a width of 480px */
+
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
+
+    }
+
+
+    /* Common Styles for the devices below 479px width */
+
+    @media only screen and (max-width: 479px) {
+
+    }
