@@ -304,6 +304,16 @@ const blogData = {
         <h4 class="text-lg font-black uppercase mb-2">Pro Tip</h4>
         <p class="text-sm">Choose batteries built for high-temperature environments. Alaska’s Graphite technology reduces internal heat and improves charge acceptance under heavy use.</p>
       </div>
+<<<<<<< Updated upstream
+=======
+
+      <p class="text-zinc-600 leading-relaxed mb-6">If you depend on your vehicle daily, a small preventive effort now will avoid breakdowns and costly replacements later. When in doubt, have an authorized dealer test your battery and charging system.</p>
+
+      <div class="text-center">
+        <a href="products.html" style="color:#ffffff;text-decoration:none;" class="inline-block bg-[#cc001b] text-white px-8 py-3 rounded-full font-black uppercase tracking-tighter hover:scale-105 transition-transform">
+          View Summer Ready Batteries
+        </a>
+>>>>>>> Stashed changes
       </div>
     `,
   },
@@ -338,11 +348,15 @@ const blogData = {
         Built for high demand and long routes, they <strong class="text-[#c00d1e]">recharge 2x faster</strong> than conventional batteries, letting you regain lost charge quickly during short breaks at petrol pumps or rest stops. The added heat resistance and durability ensure you're ready for every kind of terrain — from scorching highways to high-altitude chill.
       </p>
 
+<<<<<<< Updated upstream
  
       <div class="bg-zinc-50 text-zinc-700 p-8 rounded-3xl mb-10 shadow-sm border-t-4 border-[#cc001b]">
  
       <div class="bg-zinc-100 text-zinc-800 p-8 rounded-3xl mb-10 shadow-sm border-t-4 border-[#c00d1e]">
 
+=======
+      <div class="bg-zinc-50 text-zinc-700 p-8 rounded-3xl mb-10 shadow-sm border-t-4 border-[#cc001b]">
+>>>>>>> Stashed changes
         <h4 class="text-xl font-black uppercase mb-4 italic">A reliable battery means no delays, no compromises,</h4>
         <p class="text-base leading-relaxed mb-6">
           and no ruining what should be a joyful experience. By the end of the day, it is the <strong class="text-[#c00d1e]">peace of mind</strong> you need for a stress-free Eid journey.
@@ -405,7 +419,13 @@ const blogData = {
 
       <p class="text-zinc-600 leading-relaxed mb-6">A small preventive effort today avoids roadside breakdowns and costly replacements tomorrow. When unsure, have an authorized dealer test your battery and charging system.</p>
 
+<<<<<<< Updated upstream
       
+=======
+      <div class="text-center">
+        <a href="products.html" style="color:#ffffff;text-decoration:none;" class="inline-block bg-[#cc001b] text-white px-8 py-3 rounded-full font-black uppercase tracking-tighter hover:scale-105 transition-transform">Explore Battery Options</a>
+      </div>
+>>>>>>> Stashed changes
     `,
   },
   "ebike-accessories": {
@@ -450,7 +470,13 @@ const blogData = {
 
       <p class="text-zinc-600 leading-relaxed mb-6">Little preventive steps today will prevent roadside trouble and extend battery life through the peak summer months. When in doubt, have an authorized dealer run a load and charging test.</p>
 
+<<<<<<< Updated upstream
       
+=======
+      <div class="text-center">
+        <a href="products.html" style="color:#ffffff;text-decoration:none;" class="inline-block bg-[#cc001b] text-white px-8 py-3 rounded-full font-black uppercase tracking-tighter hover:scale-105 transition-transform">Find Heat-Ready Batteries</a>
+      </div>
+>>>>>>> Stashed changes
     `,
   },
   "ebike-repairs": {
@@ -478,7 +504,13 @@ const blogData = {
 
       <p class="text-zinc-600 leading-relaxed mb-6">With simple, scheduled checks and correct storage practices, your battery will remain ready when you need it. If unsure, have an authorized dealer test and maintain your battery to avoid premature failure.</p>
 
+<<<<<<< Updated upstream
       
+=======
+      <div class="text-center">
+        <a href="products.html" style="color:#ffffff;text-decoration:none;" class="inline-block bg-[#cc001b] text-white px-8 py-3 rounded-full font-black uppercase tracking-tighter hover:scale-105 transition-transform">See Battery Care Products</a>
+      </div>
+>>>>>>> Stashed changes
     `,
   },
   "ebike-charging": {
