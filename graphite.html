@@ -19,6 +19,39 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
+
+    /* Swipe transition animation for image */
+    @keyframes swipeOut {
+      from {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      to {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+    }
+
+    @keyframes swipeIn {
+      from {
+        opacity: 0;
+        transform: scale(1.05);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    #featureImage {
+      animation: swipeIn 0.4s ease-in-out;
+    }
+
+    #featureImage.swiping {
+      animation: swipeOut 0.3s ease-in-out;
+    }
   </style>
 
 </head>
@@ -41,115 +74,126 @@
       </div>
     </section>
 
-    <!-- Auto-Scroll Banner Section -->
-    <section class="bg-gray-100 py-0">
-      <div class="container mx-auto px-0 md:px-24">
-        <h2 class="lg:block font-bold text-center text-5xl md:text-7xl tracking-tight leading-tight mb-2 md:mb-16">
-          Why
-          <span class="text-[#c00d1e]">Graphite?</span>
-        </h2>
-        <!-- Banner Image -->
-        <div class="relative w-full h-[250px] md:h-[600px] overflow-hidden bg-gray-200">
-          <img id="bannerImage" src="assets/technology/tech-1.png" alt="Technology Banner"
-            class="absolute w-full h-full object-cover"
-            style="transform: translateX(0); transition: transform 700ms ease-in-out;" />
-          <img id="bannerImageNext" src="assets/technology/tech-2.png" alt="Technology Banner"
-            class="absolute w-full h-full object-cover"
-            style="transform: translateX(100%); transition: transform 700ms ease-in-out;" />
-        </div>
-
-        <!-- Content Tabs -->
-        <div class="md:grid md:grid-cols-3 md:gap-1 bg-gray-100">
-          <!-- Mobile Dynamic Text Display -->
-          <div class="md:hidden bg-black">
-            <div class="px-8 py-6">
-              <div class="mb-3">
-                <div id="mobileLine" class="w-12 h-1 bg-[#c00d1e]"></div>
-              </div>
-              <h3 id="mobileTitle"
-                class="text-base font-black uppercase mb-2 text-white transition-opacity duration-300">Cycle Life and
-                Longevity</h3>
-              <p id="mobileDesc" class="text-gray-300 text-xs leading-relaxed transition-opacity duration-300">Superior
-                conductivity and longer battery life with cutting-edge graphite technology</p>
-            </div>
+    <!-- Video Section with Text and Player -->
+    <section class="bg-white py-12 md:py-20">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <!-- Left: Text Content -->
+          <div class="flex flex-col justify-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+              Experience <span class="text-[#c00d1e]">Graphite Technology</span> in Action
+            </h2>
+            <p class="text-base md:text-lg text-gray-600 mb-4 leading-relaxed text-justify">
+              Discover how our advanced graphite technology delivers superior performance, longer cycle life, and
+              exceptional reliability. Watch our expert demonstration to understand the benefits of choosing Alaska
+              Batteries' graphite-infused solutions.
+            </p>
+            <p class="text-base md:text-lg text-gray-600 mb-6 leading-relaxed text-justify">
+              From automotive to industrial applications, graphite technology ensures your battery performs when it
+              matters most.
+            </p>
           </div>
 
-          <!-- Desktop Grid Tabs -->
-          <div class="hidden md:grid md:grid-cols-3 md:gap-1 md:bg-gray-100 col-span-3">
-            <!-- Tab 1: Desktop -->
-            <div class="tab-item cursor-pointer transition-all duration-300" data-index="0" onclick="selectTab(0)">
-              <div class="p-8 text-left">
-                <div class="mb-4">
-                  <div class="w-50 h-1 bg-[#c00d1e] tab-accent"></div>
-                </div>
-                <h3 class="text-xl font-black uppercase mb-4 text-black tab-title">Cycle Life and Longevity</h3>
-                <p class="text-black text-base tab-desc">Superior conductivity and longer battery life with cutting-edge
-                  graphite technology</p>
-              </div>
-            </div>
-
-            <!-- Tab 2: Desktop -->
-            <div class="tab-item cursor-pointer transition-all duration-300" data-index="1" onclick="selectTab(1)">
-              <div class="p-8 text-left">
-                <div class="mb-4">
-                  <div class="w-50 h-1 bg-gray-300 tab-accent"></div>
-                </div>
-                <h3 class="text-xl font-black uppercase mb-4 text-black tab-title">Advance Plate Composition & Energy
-                  Efficiency</h3>
-                <p class="text-black text-base tab-desc">Exceptional performance and reliability for critical power
-                  applications</p>
-              </div>
-            </div>
-
-            <!-- Tab 3: Desktop -->
-            <div class="tab-item cursor-pointer transition-all duration-300" data-index="2" onclick="selectTab(2)">
-              <div class="p-8 text-left">
-                <div class="mb-4">
-                  <div class="w-50 h-1 bg-gray-300 tab-accent"></div>
-                </div>
-                <h3 class="text-xl font-black uppercase mb-4 text-black tab-title">Deep Discharge Recovery</h3>
-                <p class="text-black text-base tab-desc">Best of both worlds combining advanced materials for optimal
-                  efficiency</p>
-              </div>
-            </div>
+          <!-- Right: Video Player -->
+          <div class="flex justify-center">
+            <video width="100%" height="auto" controls class="rounded-lg shadow-2xl bg-black">
+              <source src="assets/videos/tech.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- YouTube Thumbnail Button -->
-    <section class="pb-4 md:pb-16">
-      <h2 class="font-bold text-center text-2xl md:text-7xl tracking-tight leading-tight py-4 md:mb-2">
-        Graphite Technology is the
-        <span class="text-[#c00d1e]">Future</span>
-      </h2>
-      <div class="flex justify-center py-2 md:py-8 px-4">
-        <div class="relative w-full max-w-2xl cursor-pointer group" onclick="openTechVideoModal()">
-          <img src="https://img.youtube.com/vi/nu4N6ER5VB4/maxresdefault.jpg" alt="Watch Technology Video"
-            class="w-full rounded-lg shadow-2xl group-hover:shadow-[0_0_30px_rgba(204,0,27,0.4)] transition-all duration-300" />
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div
-              class="bg-[#c00d1e] w-24 h-24 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-white transition-all duration-300">
-              <i class="fa-solid fa-play text-white text-5xl ml-2 group-hover:text-[#c00d1e] transition-all"></i>
+    <!-- Graphite Features Section -->
+    <section class="bg-gray-100 py-6 md:py-10">
+      <div class="container mx-auto px-6">
+        <!-- Feature Content: Image Left, Text Right -->
+        <div class="grid grid-cols-1 md:grid-cols-[600px_1fr] gap-8 md:gap-12 items-center p-8 md:p-12 rounded-lg mb-1">
+          <!-- Left: Vertical Image Tile (600px height) -->
+          <div class="flex justify-center">
+            <img id="featureImage" src="assets/technology/tech-1.png" alt="Feature Image"
+              class="h-[350px] md:h-[600px] w-auto object-fill md:object-contain rounded-lg shadow-2xl" />
+          </div>
+
+          <!-- Right: Text Content -->
+          <div class="flex flex-col justify-center items-start">
+            <h2 id="featureTitle" class="text-3xl md:text-4xl font-black uppercase mb-6 text-black">
+              --
+            </h2>
+            <div id="featureDesc" class="text-base md:text-lg text-gray-600 mb-2 leading-relaxed">
+              --
             </div>
           </div>
-          <div class="absolute bottom-6 left-6 flex items-center gap-2 bg-black/70 px-4 py-2 rounded-lg">
-            <i class="fa-brands fa-youtube text-red-600 text-xl"></i>
-            <span class="text-white font-bold">Watch Video</span>
+        </div>
+
+        <!-- Feature Headings/Tabs - Scrollable with Chevrons -->
+        <div class="flex items-center gap-4 md:gap-6">
+          <!-- Left Chevron (Desktop only) -->
+          <button id="scrollLeftBtn"
+            class="hidden md:flex items-center justify-center text-gray-600 hover:text-black transition-colors flex-shrink-0"
+            onclick="scrollTabsLeft()">
+            <i class="fas fa-chevron-left text-xl"></i>
+          </button>
+
+          <!-- Scrollable Tabs Container -->
+          <div id="tabsContainer" class="flex-1 overflow-x-auto scrollbar-hide pb-4">
+            <div class="flex gap-6 min-w-max md:min-w-0 md:flex-nowrap text-center">
+              <!-- Tab 1 -->
+              <div class="feature-tab cursor-pointer border-t-4 border-gray-300 pt-4 transition-all w-2/3 md:flex-1"
+                data-index="0" onclick="selectFeatureTab(0)">
+                <h3 class="text-base md:text-lg font-black uppercase text-gray-400 break-words">COMPOSITION
+                </h3>
+              </div>
+
+              <!-- Tab 2 -->
+              <div class="feature-tab cursor-pointer border-t-4 border-gray-300 pt-4 transition-all w-2/3 md:flex-1"
+                data-index="1" onclick="selectFeatureTab(1)">
+                <h3 class="text-base md:text-lg font-black uppercase text-gray-400 break-words">EFFICIENCY
+                </h3>
+              </div>
+
+              <!-- Tab 3 -->
+              <div class="feature-tab cursor-pointer border-t-4 border-gray-300 pt-4 transition-all w-2/3 md:flex-1"
+                data-index="2" onclick="selectFeatureTab(2)">
+                <h3 class="text-base md:text-lg font-black uppercase text-gray-400 break-words">LONGEVITY
+                </h3>
+              </div>
+
+              <!-- Tab 4 -->
+              <div class="feature-tab cursor-pointer border-t-4 border-gray-300 pt-4 transition-all w-2/3 md:flex-1"
+                data-index="3" onclick="selectFeatureTab(3)">
+                <h3 class="text-base md:text-lg font-black uppercase text-gray-400 break-words">RECOVERY
+                </h3>
+              </div>
+
+              <!-- Tab 5 -->
+              <div class="feature-tab cursor-pointer border-t-4 border-gray-300 pt-4 transition-all w-2/3 md:flex-1"
+                data-index="4" onclick="selectFeatureTab(4)">
+                <h3 class="text-base md:text-lg font-black uppercase text-gray-400 break-words">APPLICATIONS
+                </h3>
+              </div>
+
+              <!-- Tab 6 -->
+              <div class="feature-tab cursor-pointer border-t-4 border-gray-300 pt-4 transition-all w-2/3 md:flex-1"
+                data-index="5" onclick="selectFeatureTab(5)">
+                <h3 class="text-base md:text-lg font-black uppercase text-gray-400 break-words">CHARGE
+                </h3>
+              </div>
+            </div>
           </div>
+
+          <!-- Right Chevron (Desktop only) -->
+          <button id="scrollRightBtn"
+            class="hidden md:flex items-center justify-center text-gray-600 hover:text-black transition-colors flex-shrink-0"
+            onclick="scrollTabsRight()">
+            <i class="fas fa-chevron-right text-xl"></i>
+          </button>
         </div>
       </div>
     </section>
+
   </main>
-
-  <!-- Tech Modal - Outside main for proper fixed positioning -->
-  <div id="techmodal" class="techmodal-overlay" style="display: none;">
-    <div class="techmodal-box">
-      <span class="techmodal-close">&times;</span>
-      <iframe id="techmodal-iframe" width="100%" height="420" src="" frameborder="0" allow="autoplay; encrypted-media"
-        allowfullscreen></iframe>
-    </div>
-  </div>
 
   <div id="footer-placeholder"></div>
   <script src="js/components.js"></script>
@@ -157,154 +201,209 @@
   <script src="js/animations.js"></script>
 
   <script>
-    // Auto-scroll banner functionality
-    const bannerData = [
+    // Feature data - Only 3 items
+    const featureData = [
       {
-        image: 'assets/technology/tech-1.png',
-        title: 'Cycle Life and Longevity',
-        desc: 'Superior conductivity and longer battery life with cutting-edge graphite technology'
+        id: 0,
+        title: 'ADVANCED PLATE COMPOSITION',
+        desc: `<ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed">
+                <li>Traditional batteries use <b>lead- antimony or lead - calcium grids</b > that degrade faster due
+                    to
+                    sulfation.</li>
+            <li><b>Graphite Lead-Acid</b> batteries incorporate <b>Graphite</b>, reducing sulfation and
+              increasing
+              efficiency.</li>
+                </ul >
+                <div class="mt-auto pt-3 border-t border-gray-100">
+                  <span
+                    class="benefit-tag bg-[#cc001b] text-white px-3 py-1 rounded font-black text-sm md:text-lg uppercase mb-2">BENEFIT</span>
+                  <p class="font-bold text-sm md:text-lg italic">Longer battery life & improved energy flow.</p>
+                </div>
+`
+        ,
+        image: 'assets/technology/tech-1.png'
       },
       {
-        image: 'assets/technology/tech-2.png',
-        title: 'Advance Plate Composition & Energy Efficiency',
-        desc: 'Exceptional performance and reliability for critical power applications'
+        id: 1,
+        title: 'ENERGY EFFICIENCY & HEAT',
+        desc: `<ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed">
+                  <li>Traditional batteries generate <b>more heat and waste energy</b> due to high internal
+                    resistance.
+                  </li>
+                  <li>Graphite Lead-Acid models have <b>lower internal resistance</b>, keeping temperatures low and
+                    performance high.</li>
+                </ul>
+                <div class="mt-auto pt-3 border-t border-gray-100">
+                  <span
+                    class="benefit-tag bg-[#cc001b] text-white px-3 py-1 rounded font-black text-sm md:text-lg uppercase mb-2">BENEFIT</span>
+                  <p class="font-bold text-sm md:text-lg italic">Improved reliability and efficiency.</p>
+                </div>
+              </div>`,
+        image: 'assets/technology/tech-2.png'
       },
       {
-        image: 'assets/technology/tech-3.png',
-        title: 'Deep Discharge Recovery',
-        desc: 'Best of both worlds combining advanced materials for optimal efficiency'
+        id: 2,
+        title: 'CYCLE LIFE & LONGEVITY',
+        desc: `<ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed">
+                  <li>Standard batteries last <b>300-500 cycles</b>, while graphite-enhanced versions last
+                    <b>600-1000+
+                      cycles</b>.
+                  </li>
+                  <li>Graphite slows down sulfate buildup, preserving battery health.</li>
+                </ul>
+                <div class="mt-auto pt-3 border-t border-gray-100">
+                  <span
+                    class="benefit-tag bg-[#cc001b] text-white px-3 py-1 rounded font-black text-sm md:text-lg uppercase mb-2">BENEFIT</span>
+                  <p class="font-bold text-sm md:text-lg italic">Extended lifespan and lower costs.</p>
+                </div>`,
+        image: 'assets/technology/tech-3.png'
+      },
+      {
+        id: 3,
+        title: 'DEEP DISCHARGE RECOVERY',
+        desc: `<ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed">
+                  <li>Normal batteries <b>suffer permanent</b> damage from deep discharges.</li>
+                  <li>Graphite Lead Acid batteries <b>recover better</b> from deep discharge cycles.</li>
+                </ul>
+                <div class="mt-auto pt-3 border-t border-gray-100">
+                  <span
+                    class="benefit-tag bg-[#cc001b] text-white px-3 py-1 rounded font-black text-sm md:text-lg uppercase mb-2">BENEFIT</span>
+                  <p class="font-bold text-sm md:text-lg italic">Durability in demanding conditions.</p>
+                </div>`,
+        image: 'assets/technology/tech-4.png'
+      },
+      {
+        id: 4,
+        title: 'IDEAL FOR MODERN APPLICATIONS',
+        desc: `<ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed">
+                  <li>Traditional Lead-Acid batteries are best for <b>low-drain uses</b> like motorcycles.</li>
+                  <li>Graphite batteries excel in: Stop-Start Vehicles, Solar Energy Storage, Hybrid System &
+                    Industrial
+                    Use.</li>
+                </ul>
+
+                <div class="mt-auto pt-3 border-t border-gray-100">
+                  <span
+                    class="benefit-tag bg-[#cc001b] text-white px-3 py-1 rounded font-black text-sm md:text-lg uppercase mb-2">BENEFIT</span>
+                  <p class="font-bold text-sm md:text-lg italic">Versatility for the future of storage.</p>
+                </div>`,
+        image: 'assets/technology/tech-5.png'
+      },
+      {
+        id: 5,
+        title: 'CHARGE ACCEPTANCE & SPEED',
+        desc: `<ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed">
+                  <li>Normal Lead Acid batteries charge <b>slower</b> and struggle in <b>partial state-of-charge
+                      (PSoC)
+                      conditions</b>.</li>
+                  <li>Graphite Lead Acid batteries <b>absorb current much faster</b>, ideal for <b>modern stop-start
+                      vehicle systems</b>.</li>
+                </ul>
+                <div class="mt-auto pt-3 border-t border-gray-100">
+                  <span
+                    class="benefit-tag bg-[#cc001b] text-white px-3 py-1 rounded font-black text-sm md:text-lg uppercase mb-2">BENEFIT</span>
+                  <p class="font-bold text-sm md:text-lg italic">Faster charging and increased efficiency.</p>
+                </div>`,
+        image: 'assets/technology/tech-6.png'
       }
     ];
 
-    let currentIndex = 0; // Start with first tab active
-    let autoScrollTimer;
-    let resumeTimer;
+    function selectFeatureTab(index) {
+      const feature = featureData[index];
+      const featureImage = document.getElementById('featureImage');
 
-    function selectTab(index) {
-      currentIndex = index;
-      updateBanner();
-      updateTabs();
+      // Add swipe out animation
+      featureImage.classList.add('swiping');
 
-      // Clear existing timers
-      clearTimeout(autoScrollTimer);
-      clearTimeout(resumeTimer);
-
-      // Resume auto-scroll after 5 seconds
-      resumeTimer = setTimeout(() => {
-        startAutoScroll();
-      }, 5000);
-    }
-
-    function updateBanner() {
-      const bannerImage = document.getElementById('bannerImage');
-      const bannerImageNext = document.getElementById('bannerImageNext');
-
-      // Set the next image source
-      bannerImageNext.src = bannerData[currentIndex].image;
-
-      // Start animation: slide both images left
-      bannerImage.style.transform = 'translateX(-100%)';
-      bannerImageNext.style.transform = 'translateX(0)';
-
-      // After animation completes, reset for next transition
+      // Update after animation starts
       setTimeout(() => {
-        // Swap the images
-        const tempSrc = bannerImage.src;
-        bannerImage.src = bannerImageNext.src;
-        bannerImageNext.src = tempSrc;
+        // Update image and text
+        featureImage.src = feature.image;
+        document.getElementById('featureTitle').textContent = feature.title;
+        document.getElementById('featureDesc').innerHTML = feature.desc;
 
-        // Reset positions without transition
-        bannerImage.style.transition = 'none';
-        bannerImageNext.style.transition = 'none';
+        // Remove swipe animation to trigger swipeIn
+        featureImage.classList.remove('swiping');
+      }, 200);
 
-        bannerImage.style.transform = 'translateX(0)';
-        bannerImageNext.style.transform = 'translateX(100%)';
-
-        // Re-enable transitions
-        setTimeout(() => {
-          bannerImage.style.transition = 'transform 700ms ease-in-out';
-          bannerImageNext.style.transition = 'transform 700ms ease-in-out';
-        }, 50);
-      }, 700);
-    }
-
-    function updateTabs() {
-      const tabs = document.querySelectorAll('.tab-item');
-
-      // Update mobile text dynamically
-      const mobileTitle = document.getElementById('mobileTitle');
-      const mobileDesc = document.getElementById('mobileDesc');
-
-      if (mobileTitle && mobileDesc) {
-        // Fade out
-        mobileTitle.style.opacity = '0';
-        mobileDesc.style.opacity = '0';
-
-        setTimeout(() => {
-          // Update text
-          mobileTitle.textContent = bannerData[currentIndex].title;
-          mobileDesc.textContent = bannerData[currentIndex].desc;
-
-          // Fade in
-          mobileTitle.style.opacity = '1';
-          mobileDesc.style.opacity = '1';
-        }, 150);
-      }
-
-      tabs.forEach((tab) => {
-        const tabIndex = parseInt(tab.getAttribute('data-index'));
-        const title = tab.querySelector('.tab-title');
-        const desc = tab.querySelector('.tab-desc');
-        const accent = tab.querySelector('.tab-accent');
-
-        if (tabIndex === currentIndex) {
-          tab.classList.add('active');
-          if (accent) {
-            accent.classList.remove('bg-gray-300');
-            accent.classList.add('bg-[#c00d1e]');
-          }
-
-          // Desktop tab text styling
-          if (title && desc) {
-            title.classList.remove('text-gray-400');
-            title.classList.add('text-black');
-            desc.classList.remove('text-gray-500');
-            desc.classList.add('text-black');
-          }
+      // Update tab styling
+      const tabs = document.querySelectorAll('.feature-tab');
+      tabs.forEach((tab, i) => {
+        if (i === index) {
+          tab.classList.remove('border-gray-300', 'text-gray-400');
+          tab.classList.add('border-[#c00d1e]', 'text-black');
+          tab.querySelector('h3').classList.remove('text-gray-400');
+          tab.querySelector('h3').classList.add('text-black');
         } else {
-          tab.classList.remove('active');
-          if (accent) {
-            accent.classList.remove('bg-[#c00d1e]');
-            accent.classList.add('bg-gray-300');
-          }
-
-          // Desktop tab text styling
-          if (title && desc) {
-            title.classList.remove('text-black');
-            title.classList.add('text-gray-400');
-            desc.classList.remove('text-black');
-            desc.classList.add('text-gray-500');
-          }
+          tab.classList.remove('border-[#c00d1e]', 'text-black');
+          tab.classList.add('border-gray-300', 'text-gray-400');
+          tab.querySelector('h3').classList.remove('text-black');
+          tab.querySelector('h3').classList.add('text-gray-400');
         }
       });
-    }
 
-    function autoScroll() {
-      currentIndex = (currentIndex + 1) % bannerData.length;
-      updateBanner();
-      updateTabs();
-    }
+      // On mobile, scroll the clicked tab under the image
+      if (window.innerWidth < 768) {
+        const clickedTab = document.querySelector(`[data-index="${index}"]`);
+        if (clickedTab) {
+          const container = document.getElementById('tabsContainer');
+          clickedTab.scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'center'
+          });
+        }
 
-    function startAutoScroll() {
-      autoScrollTimer = setInterval(autoScroll, 4000); // Change every 4 seconds
+        // Scroll to image on mobile
+        featureImage.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
     }
 
     // Initialize on page load
     document.addEventListener('DOMContentLoaded', () => {
-      updateTabs();
-      updateBanner();
-      startAutoScroll();
+      selectFeatureTab(0); // Show first feature by default
+      checkChevronVisibility();
     });
+
+    // Check if scrolling is needed and hide/show chevrons
+    function checkChevronVisibility() {
+      const container = document.getElementById('tabsContainer');
+      const leftBtn = document.getElementById('scrollLeftBtn');
+      const rightBtn = document.getElementById('scrollRightBtn');
+
+      // If content fits without scrolling, hide chevrons
+      if (container.scrollWidth <= container.clientWidth) {
+        leftBtn.style.display = 'none';
+        rightBtn.style.display = 'none';
+      } else {
+        // Show chevrons if scrolling is needed
+        leftBtn.style.display = 'flex';
+        rightBtn.style.display = 'flex';
+      }
+    }
+
+    // Re-check on window resize
+    window.addEventListener('resize', checkChevronVisibility);
+
+    // Scroll tabs functions
+    function scrollTabsLeft() {
+      const container = document.getElementById('tabsContainer');
+      container.scrollBy({
+        left: -300,
+        behavior: 'smooth'
+      });
+    }
+
+    function scrollTabsRight() {
+      const container = document.getElementById('tabsContainer');
+      container.scrollBy({
+        left: 300,
+        behavior: 'smooth'
+      });
+    }
   </script>
 
   <script>
