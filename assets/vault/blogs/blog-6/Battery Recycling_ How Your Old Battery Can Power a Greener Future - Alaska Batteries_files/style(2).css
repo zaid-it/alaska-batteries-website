@@ -1,0 +1,50 @@
+/* Fuel Calculater */
+
+.wdt-sc-emi-form .wdt-sc-one-third { display: grid; grid-template-columns: repeat(2, 1fr); text-align: left; text-transform: capitalize; } 
+.wdt-sc-emi-form .wdt-sc-one-third .wdt-fuel-range-progress + .selected-range-value{ display: none; }
+.wdt-sc-emi-form .wdt-sc-one-third .wdt-fuel-range-progress { padding-right: 10%; }
+.wdt-sc-emi-form .wdt-sc-one-third .wdt-fuel-range-progress p { margin-bottom: 0; text-transform: none; }
+.wdt-sc-emi-form .wdt-sc-one-third .wdt-sc-emi-result > div { font-size: var(--wdtFontSize_H5); font-weight: var(--wdtFontWeight_H5); line-height: var(--wdtLineHeight_H5); font-family: var(--wdtFontTypo_H5); color: var(--wdtHeadAltColor); flex: 0 50%; position: relative; }
+.wdt-sc-emi-form .wdt-sc-one-third .wdt-sc-emi-result .wdt-label-heading { margin-bottom: 10px; padding-bottom: 0; position: relative; width: fit-content; color: var(--wdtPrimaryColor); font-size: var(--wdtFontSize_Base); font-weight: var(--wdtFontWeight_Base); }
+.wdt-sc-emi-form input[type="range"] { height: 8px; padding: 0; border-width: 0px 0 1px 0; border-color: var(--wdtBorderColor); border-radius: var(--wdtRadius_Part); -webkit-border-radius: var(--wdtRadius_Part); cursor: e-resize; }
+.wdt-sc-emi-form input[type="range"]:focus { border-color: var(--wdtBorderColor); }
+.wdt-sc-emi-form input[type="range"]::-webkit-slider-thumb { width: 20px; height: 20px; appearance: none; -webkit-appearance: none; background: linear-gradient(45deg, var(--wdtPrimaryColor), var(--wdtSecondaryColor)); border-radius: var(--wdtRadius_Full); border: 0; }
+.wdt-sc-emi-form .wdt-fuel-range-label-group { display: flex; align-items: baseline; margin-bottom: 25px; }
+.wdt-sc-emi-form .wdt-fuel-range-label-group label { font-size: var(--wdtFontSize_H6); margin-right: 10px; }
+.wdt-sc-emi-form .wdt-fuel-range-label-group .selected-range-value { font-size: var(--wdtFontSize_H5); font-weight: var(--wdtFontWeight_H5); line-height: 1; color: var(--wdtHeadAltColor); }
+.wdt-sc-emi-form .range-values { margin-top: 10px; display: flex; justify-content: space-between; align-items: baseline; }
+.wdt-sc-emi-form .wdt-fuel-range-progress .cost-perlitre { margin: 20px 0 clamp(1.25rem, 1.1058rem + 0.641vw, 1.875rem); padding-bottom: clamp(1.25rem, 1.1058rem + 0.641vw, 1.875rem); border-bottom: 1px solid var(--wdtBorderColor); }
+.wdt-sc-emi-form .wdt-sc-one-third .wdt-sc-emi-result > div .monthly-savings,
+.wdt-sc-emi-form .wdt-sc-one-third .wdt-sc-emi-result > div .annual-savings { margin-bottom: 15px; padding: var(--wdtInputPadding); background: var(--wdtQuaternaryColor);border-bottom: 0; display: flex; justify-content: space-between; gap: 15px; }
+.wdt-sc-emi-form .wdt-sc-one-third .wdt-sc-emi-result > div:not(.wdt-label-heading):is(.annual-savings) { margin-bottom: 0; }
+.wdt-sc-emi-form .wdt-sc-one-third .wdt-sc-emi-result { padding: clamp(1.5625rem, 1.3462rem + 0.9615vw, 2.5rem); background-color: var(--wdtTertiaryColor); position: relative; overflow: hidden; display: flex; flex-wrap: wrap; max-height: fit-content; }
+.wdt-calculator-disclaimer, .wdt-calculator-disclaimer + p { font-size: 13px; }
+.wdt-sc-emi-form .wdt-fuel-range-progress .cost-perlitre span.note { font-weight: var(--wdtFontWeight_Alt); }
+.wdt-sc-emi-form .wdt-fuel-range-label-group .selected-range-value { color: var(--wdtPrimaryColor); }
+.wdt-sc-emi-form .wdt-sc-one-third .wdt-sc-emi-result > div.cost-savings-wrapper { margin-top: 30px; padding-top: 30px; border-top: 1px solid var(--wdtBorderColor); flex: 0 100%; }
+.wdt-sc-emi-form .wdt-sc-one-third .wdt-sc-emi-result > div.cost-savings-wrapper .wdt-label-heading { margin-bottom: 20px; }
+.wdt-sc-emi-form .wdt-sc-one-third .wdt-sc-emi-result > div.monthly-petrol-cost-wrapper:after { content: ""; position: absolute; right: 5%; width: 1px; height: 100%; background: var(--wdtBorderColor); top: 0; bottom: 0; margin: auto; }
+.wdt-sc-emi-form .wdt-sc-one-third .wdt-sc-emi-result > div .annual-savings { margin-bottom: 0; }
+.wdt-sc-emi-form .wdt-sc-one-third .wdt-sc-emi-result > div.monthly-petrol-cost-wrapper{ padding-right: 5%; }
+.wdt-sc-emi-form .wdt-sc-one-third .wdt-sc-emi-result > div.monthly-electricity-cost-wrapper { padding-left: 5%; }
+
+@-moz-document url-prefix() {
+   /* Firefox-specific styles */
+   .wdt-sc-emi-form input[type="range"]::-moz-range-thumb { width: 20px; height: 20px; appearance: none; -webkit-appearance: none; background: linear-gradient(45deg, var(--wdtPrimaryColor), var(--wdtSecondaryColor)); border-radius: var(--wdtRadius_Full); border: 0; }
+}
+/* Responsive */
+@media screen and (max-width: 1024px){
+   .wdt-sc-emi-form .wdt-sc-one-third { grid-template-columns: 100%; }
+   .wdt-sc-emi-form .wdt-sc-one-third .wdt-fuel-range-progress { padding-right: 0; padding-bottom: 30px; }
+}
+@media screen and (max-width: 767px){
+   .wdt-sc-emi-form .wdt-sc-one-third .wdt-sc-emi-result > div.monthly-electricity-cost-wrapper,
+   .wdt-sc-emi-form .wdt-sc-one-third .wdt-sc-emi-result > div.monthly-petrol-cost-wrapper { padding-left: 0; flex: 0 100%; }
+   .wdt-sc-emi-form .wdt-sc-one-third .wdt-sc-emi-result > div.monthly-petrol-cost-wrapper { padding-bottom: 30px; }
+   .wdt-sc-emi-form .wdt-sc-one-third .wdt-sc-emi-result > div.monthly-petrol-cost-wrapper:after { background: none; }
+}
+@media screen and (max-width: 479px){
+   .wdt-sc-emi-form .wdt-sc-one-third .wdt-sc-emi-result > div .monthly-savings,
+   .wdt-sc-emi-form .wdt-sc-one-third .wdt-sc-emi-result > div .annual-savings  { flex-direction: column; gap: 0; }
+   .wdt-sc-emi-form .wdt-sc-one-third .wdt-sc-emi-result > div:not(.wdt-label-heading) span { margin-top: 15px; }
+}

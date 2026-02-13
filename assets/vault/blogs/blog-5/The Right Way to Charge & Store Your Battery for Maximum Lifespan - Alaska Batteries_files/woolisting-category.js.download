@@ -1,0 +1,69 @@
+// Carousel Layout JS
+
+(function( $ ) {
+    "use strict";
+
+    // Start Slider Js
+    var Slider = function ($scope) {
+        var $_this = $scope.find('.woolisting-category-slider');
+        var $currentID = '#' + $_this.attr('id');
+        var woolisting_slider_autoplay = $_this.data('woolisting-slider-autoplay');
+        var woolisting_slider_speed = $_this.data('woolisting-slider-autoplay-speed');
+        var woolisting_slider_dots = $_this.data('woolisting-slider-dots');
+        var woolisting_slider_arrows = $_this.data('woolisting-slider-arrows');
+        var woolisting_slider_slides_to_scroll = $_this.data('woolisting-slider-to-scroll');
+        var woolisting_slider_infinite = $_this.data('woolisting-slider-infinite');
+        var woolisting_slider_pause_on_hover = $_this.data('woolisting-slider-pause-on-hover');
+        var woolisting_next_arrow = $_this.data('woolisting-next-arrow');
+        var woolisting_prev_arrow = $_this.data('woolisting-prev-arrow');
+        var woolisting_slides_to_show = $_this.data('woolisting-slides-to-show');
+        var woolisting_slides_to_show_tablet = $_this.data('woolisting-slides-to-show-tablet');
+        var woolisting_slides_to_show_mobile = $_this.data('woolisting-slides-to-show-mobile');
+
+        jQuery($currentID + ".woolisting-category-slider").slick({    
+            infinite: (woolisting_slider_infinite == 'yes') ? true : false,
+            slidesToShow: woolisting_slides_to_show,
+            slidesToScroll: woolisting_slider_slides_to_scroll,
+            dots: (woolisting_slider_dots == 'yes') ? true : false,
+            arrows: (woolisting_slider_arrows == 'yes') ? true : false,
+            autoplay: (woolisting_slider_autoplay == 'yes') ? true : false,
+            autoplaySpeed: woolisting_slider_speed,
+            focusOnSelect: (woolisting_slider_pause_on_hover == 'yes') ? true : false,
+            prevArrow: '<button type="button" class="slick-prev">'+woolisting_prev_arrow+'</button>',
+            nextArrow: '<button type="button" class="slick-next">'+woolisting_next_arrow+'</button>',
+            responsive: [
+                {
+                    breakpoint: 1900,
+                    settings: {
+                    slidesToShow: woolisting_slides_to_show,
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                    slidesToShow: woolisting_slides_to_show_tablet,
+                    }
+                },
+                {
+                    breakpoint: 980,
+                    settings: {
+                    slidesToShow: woolisting_slides_to_show_tablet,
+                    }
+                },
+                {
+                    breakpoint: 425,
+                    settings: {
+                    slidesToShow: woolisting_slides_to_show_mobile,
+                    }
+                }
+            ]
+        });
+    }
+
+    jQuery(window).on('elementor/frontend/init', function () {
+        elementorFrontend.hooks.addAction('frontend/element_ready/woolisting-category.default', Slider);  //get_name from Widget File.
+    });
+
+})(jQuery);
+
+//End Carousel Layout JS

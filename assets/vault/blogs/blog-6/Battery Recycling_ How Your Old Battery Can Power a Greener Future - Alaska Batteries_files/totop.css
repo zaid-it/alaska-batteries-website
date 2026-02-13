@@ -1,0 +1,99 @@
+/*--------------------------------------------------------------
+    Totop
+--------------------------------------------------------------*/
+
+    #back-to-top {
+        position: fixed;
+        display: none;
+        text-decoration: none;
+        bottom: 8px;
+        right: 8px;
+        overflow: hidden;
+        width: 62px;
+        height: 62px;
+        border: none;
+        text-indent: 100%;
+        z-index: 9;
+        text-indent: -9999px;
+    }
+
+    .back-to-top-icon {
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        top: 50%;
+        transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        color: var(--wdtHeadAltColor);
+        -webkit-transition: all .3s linear;
+        -moz-transition: all .3s linear;
+        -o-transition: all .3s linear;
+        -ms-transition: all .3s linear;
+        transition: all .3s linear;
+        text-indent: 0;
+        text-align: center;
+        font-size: var(--wdtFontSize_H3);
+        line-height: 1;
+    }
+
+    .back-to-top-icon i:before { margin: 0; }
+
+    /* #back-to-top:hover .back-to-top-icon {
+        margin-top: -4px;
+    } */
+
+    #back-to-top:after {
+        background-color: var(--wdtAccentTxtColor);
+        content: "";
+        display: block;
+        height: 15px;
+        margin: 0 auto;
+        opacity: 0;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        text-align: center;
+        text-indent: 0;
+        width: 2px;
+        -webkit-transform: translate(-50%, 50%);
+        transform: translate(-50%, 50%);
+        -webkit-transition: all .3s linear;
+        transition: all .3s linear;
+    }
+
+    /* #back-to-top:hover:after {
+        margin-top: 2px;
+        opacity: 1;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    } */
+
+    #back-to-top:active,
+    #back-to-top:focus {
+        outline: none;
+    }
+
+
+/*--------------------------------------------------------------
+    Accents
+--------------------------------------------------------------*/
+
+
+    /* Primary */
+    #back-to-top { box-shadow: inset 0 0 10px 0px var(--wdtPrimaryColor), 0 0 0 0 var(--wdtPrimaryColor); border: 1px solid var(--wdtPrimaryColor); border-radius: var(--wdtRadius_Full); background-color: var(--wdtAccentTxtColor); }
+    #back-to-top:hover { box-shadow: inset -5px -3px 10px 0 var(--wdtPrimaryColor), 0 0 10px -5px var(--wdtPrimaryColor); }
+
+/*--------------------------------------------------------------
+    Responsive
+--------------------------------------------------------------*/
+
+    @media only screen and (max-width: 1280px) {
+
+        .nav-is-visible #back-to-top {
+            opacity: 0;
+        }
+    }
