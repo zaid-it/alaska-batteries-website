@@ -236,6 +236,7 @@ const blogData = {
         Summer in Pakistan is hard on batteries. High temperatures accelerate chemical reactions inside the cell, increasing corrosion and electrolyte evaporation which shortens battery life. Below are concise, actionable steps to protect your battery and keep your vehicle running through the hottest months.
       </p>
 
+<<<<<<< HEAD
       <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">Why Heat Damages Batteries</h3>
       <p class="mb-4 text-zinc-600">Heat increases internal resistance and speeds up chemical breakdown. Over time this causes capacity loss, slower cranking, and a higher risk of sudden failure.</p>
 
@@ -256,9 +257,41 @@ const blogData = {
         <li class="p-4 bg-zinc-50 rounded-lg">
           <strong class="block text-sm text-[#cc001b] uppercase tracking-widest mb-1">Check Charging System</strong>
           Overcharging and voltage spikes also damage batteries. Have your alternator and regulator checked during service visits.
+=======
+      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-6 italic border-l-4 border-[#c00d1e] pl-4">1) Identify Your Application</h3>
+      <p class="mb-4 font-bold text-zinc-800">Start by clarifying the usage:</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        <div class="p-6 bg-zinc-50 rounded-xl">
+          <h4 class="font-bold text-[#c00d1e] uppercase mb-2 text-sm tracking-widest">Automotive (cars/bikes/SUVs)</h4>
+          <p class="text-xs leading-normal text-zinc-500">Requires reliable starting power, vibration resistance, correct size, and terminal layout.</p>
+        </div>
+        <div class="p-6 bg-zinc-50 rounded-xl">
+          <h4 class="font-bold text-[#c00d1e] uppercase mb-2 text-sm tracking-widest">Solar & Energy-Storage</h4>
+          <p class="text-xs leading-normal text-zinc-500">Needs deep-cycle capability, suitable capacity for your load, and backup duration.</p>
+        </div>
+        <div class="p-6 bg-zinc-50 rounded-xl">
+          <h4 class="font-bold text-[#c00d1e] uppercase mb-2 text-sm tracking-widest">Industrial/Commercial</h4>
+          <p class="text-xs leading-normal text-zinc-500">Often demands high capacity, long life, robust construction, and maybe special configurations.</p>
+        </div>
+      </div>
+      <p class="mb-10 italic text-sm text-zinc-400">Alaska Batteries divides its catalog into precisely these three categories.</p>
+
+      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-6 italic border-l-4 border-[#c00d1e] pl-4">2) Understand Battery Technologies & Types</h3>
+      <p class="mb-4">Different battery types suit different needs:</p>
+      <ul class="space-y-4 mb-10">
+        <li class="bg-zinc-900 text-white p-6 rounded-2xl shadow-xl">
+          <strong class="text-[#c00d1e] uppercase block mb-1">Automotive batteries</strong> 
+          in Alaska use advanced technology <strong>graphite lead acid</strong> batteries for longer life and higher heat tolerance.
+        </li>
+        <li class="border border-zinc-200 p-6 rounded-2xl">
+          <strong class="text-[#c00d1e] uppercase block mb-1">Deep-cycle batteries</strong> 
+          (for solar/storage) differ from standard starter batteries: they handle repeated discharges and recharges.
+>>>>>>> 91645f354ffc65bd499a2d617989a1c6054cc5d7
         </li>
       </ul>
 
+<<<<<<< HEAD
       <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">Monthly Maintenance Checklist</h3>
       <ul class="list-inside list-disc mb-8 text-zinc-600">
         <li>Measure open-circuit voltage (12.4V+ for healthy 12V lead-acid batteries).</li>
@@ -277,6 +310,74 @@ const blogData = {
       <div class="text-center">
         <a href="products.html" style="color:#ffffff;text-decoration:none;" class="inline-block bg-[#cc001b] text-white px-8 py-3 rounded-full font-black uppercase tracking-tighter hover:scale-105 transition-transform">
           View Summer Ready Batteries
+=======
+      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-6 italic border-l-4 border-[#c00d1e] pl-4">3. Check Capacity, Size & Compatibility</h3>
+      <div class="flex flex-col md:flex-row gap-8 mb-10 items-center">
+        <div class="flex-1 space-y-4 text-sm text-zinc-600">
+          <p><strong>For vehicles:</strong> Confirm battery matches your vehicle’s voltage, group size, Ah rating, terminal layout (polarity).</p>
+          <p><strong>For solar/storage:</strong> Calculate your system’s load (in watts), backup time, and match to a battery bank (Ah rating × voltage).</p>
+          <p class="bg-[#c00d1e]/5 p-3 border-l-2 border-[#c00d1e] italic text-zinc-800">
+            Example: If you need a 4-hour backup at a given load, you’ll need a battery with sufficient capacity (e.g., larger Ah).
+          </p>
+        </div>
+        <img src="assets/Graphite-image01.png" class="w-full md:w-1/3 rounded-xl shadow-md">
+      </div>
+
+      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-6 italic border-l-4 border-[#c00d1e] pl-4">4. Consider Local Conditions & Brand Reliability</h3>
+      <p class="mb-6 leading-relaxed">In Pakistan’s climate (high temperatures, voltage fluctuations), battery quality and brand matter:</p>
+      <div class="bg-zinc-50 p-6 rounded-2xl mb-10">
+         <p class="mb-4 font-bold tracking-tight text-zinc-900">Alaska Batteries emphasizes <span class="text-[#c00d1e]">“graphite technology”</span> for better heat resistance and longer life.</p>
+         <p class="text-sm">Choose trusted brands, good warranty, and check the manufacturing date.</p>
+      </div>
+
+      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-6 italic border-l-4 border-[#c00d1e] pl-4">5. Match the Right Product from Alaska’s Portfolio</h3>
+      <div class="space-y-3 mb-10">
+        <div class="flex items-center gap-4 border-b border-zinc-100 pb-3">
+          <span class="w-8 h-8 rounded-full bg-zinc-900 text-white flex items-center justify-center text-xs">🚗</span>
+          <p class="text-sm"><strong>For your car</strong> → go to the “Automotive Batteries Built for Extreme Weather” section.</p>
+        </div>
+        <div class="flex items-center gap-4 border-b border-zinc-100 pb-3">
+          <span class="w-8 h-8 rounded-full bg-zinc-900 text-white flex items-center justify-center text-xs">☀️</span>
+          <p class="text-sm"><strong>For home solar</strong> → browse “Solar & Energy Storage Solution” items.</p>
+        </div>
+        <div class="flex items-center gap-4 border-b border-zinc-100 pb-3">
+          <span class="w-8 h-8 rounded-full bg-zinc-900 text-white flex items-center justify-center text-xs">🏭</span>
+          <p class="text-sm"><strong>For industrial use</strong> → check “Industrial / Commercial – Uninterrupted Power” category.</p>
+        </div>
+      </div>
+
+      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-6 italic border-l-4 border-[#c00d1e] pl-4">6. Maintenance & Care</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+        <div class="space-y-2">
+          <h4 class="font-bold text-xs uppercase tracking-widest text-zinc-400">Automotive</h4>
+          <p class="text-xs text-zinc-500">Avoid deep discharges, ensure the alternator is working fine, and keep terminals clean.</p>
+        </div>
+        <div class="space-y-2">
+          <h4 class="font-bold text-xs uppercase tracking-widest text-zinc-400">Solar/Storage</h4>
+          <p class="text-xs text-zinc-500">Avoid full deep discharges, maintain correct charging cycle, check electrolyte if applicable.</p>
+        </div>
+      </div>
+      <p class="text-sm italic text-[#c00d1e] mb-10 text-center">Proper usage enhances lifespan, which Alaska Batteries addresses via their “Battery Life” resources.</p>
+
+      <div class="p-8 bg-zinc-900 text-white rounded-3xl mb-10 shadow-2xl border-t-4 border-[#c00d1e]">
+        <h3 class="text-xl font-black uppercase mb-6 italic">Final Checklist Before Purchase</h3>
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-center gap-3"><i class="fa-solid fa-square-check text-[#c00d1e]"></i> Confirm correct size, voltage, and terminal orientation.</li>
+          <li class="flex items-center gap-3"><i class="fa-solid fa-square-check text-[#c00d1e]"></i> Confirm capacity matches your requirement (vehicle start power or solar load).</li>
+          <li class="flex items-center gap-3"><i class="fa-solid fa-square-check text-[#c00d1e]"></i> Ensure the product listing is from Alaska and it’s labeled properly.</li>
+          <li class="flex items-center gap-3"><i class="fa-solid fa-square-check text-[#c00d1e]"></i> Check for warranty and manufacturing date.</li>
+          <li class="flex items-center gap-3"><i class="fa-solid fa-square-check text-[#c00d1e]"></i> Ask about compatibility if unclear.</li>
+        </ul>
+      </div>
+
+      <p class="text-zinc-600 leading-relaxed mb-6">
+        Selecting the right battery is a process, but when you align your requirement (vehicle, solar, or industrial) with the correct technology, capacity, and trusted brand like Alaska Batteries, you’ll get reliable, long-lasting performance tailored to Pakistan’s conditions.
+      </p>
+      
+      <div class="text-center">
+        <a href="products.html" class="inline-block bg-[#c00d1e] text-white px-8 py-4 rounded-full font-black uppercase tracking-tighter hover:scale-105 transition-transform">
+          Visit Products Page
+>>>>>>> 91645f354ffc65bd499a2d617989a1c6054cc5d7
         </a>
       </div>
     `,
@@ -286,36 +387,40 @@ const blogData = {
     category: "Travel",
     image: "assets/vault/blogs/eid-blog-2.png",
     content: `
-      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-6 italic border-l-4 border-[#cc001b] pl-4">Start your Eid journey with a few simple steps:</h3>
+      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-6 italic border-l-4 border-[#c00d1e] pl-4">Start your Eid journey with a few simple steps:</h3>
       
-      <div class="bg-zinc-50 p-8 rounded-2xl mb-10 border-l-4 border-[#cc001b]">
+      <div class="bg-zinc-50 p-8 rounded-2xl mb-10 border-l-4 border-[#c00d1e]">
         <p class="mb-4 text-lg font-bold text-zinc-900">Pre-Travel Battery Checklist:</p>
         <ul class="space-y-3 text-base text-zinc-700">
           <li class="flex items-start gap-3">
-            <span class="text-[#cc001b] font-bold text-xl">1.</span>
+            <span class="text-[#c00d1e] font-bold text-xl">1.</span>
             <span><strong>Clean your battery terminals</strong> to ensure optimal power flow</span>
           </li>
           <li class="flex items-start gap-3">
-            <span class="text-[#cc001b] font-bold text-xl">2.</span>
+            <span class="text-[#c00d1e] font-bold text-xl">2.</span>
             <span><strong>Check voltage</strong> (12.4V and above is ideal)</span>
           </li>
           <li class="flex items-start gap-3">
-            <span class="text-[#cc001b] font-bold text-xl">3.</span>
+            <span class="text-[#c00d1e] font-bold text-xl">3.</span>
             <span><strong>Inspect for physical wear or damage</strong> like swelling, fluid leaks, or damaged casing</span>
           </li>
         </ul>
       </div>
 
-      <h4 class="text-xl font-black uppercase text-[#cc001b] mb-4">Here's where Alaska Graphite Batteries take the lead.</h4>
+      <h4 class="text-xl font-black uppercase text-[#c00d1e] mb-4">Here's where Alaska Graphite Batteries take the lead.</h4>
       
       <p class="text-base md:text-lg text-zinc-700 mb-8 leading-relaxed">
-        Built for high demand and long routes, they <strong class="text-[#cc001b]">recharge 2x faster</strong> than conventional batteries, letting you regain lost charge quickly during short breaks at petrol pumps or rest stops. The added heat resistance and durability ensure you're ready for every kind of terrain — from scorching highways to high-altitude chill.
+        Built for high demand and long routes, they <strong class="text-[#c00d1e]">recharge 2x faster</strong> than conventional batteries, letting you regain lost charge quickly during short breaks at petrol pumps or rest stops. The added heat resistance and durability ensure you're ready for every kind of terrain — from scorching highways to high-altitude chill.
       </p>
 
+<<<<<<< HEAD
       <div class="bg-zinc-50 text-zinc-700 p-8 rounded-3xl mb-10 shadow-sm border-t-4 border-[#cc001b]">
+=======
+      <div class="bg-zinc-900 text-white p-8 rounded-3xl mb-10 shadow-2xl border-t-4 border-[#c00d1e]">
+>>>>>>> 91645f354ffc65bd499a2d617989a1c6054cc5d7
         <h4 class="text-xl font-black uppercase mb-4 italic">A reliable battery means no delays, no compromises,</h4>
         <p class="text-base leading-relaxed mb-6">
-          and no ruining what should be a joyful experience. By the end of the day, it is the <strong class="text-[#cc001b]">peace of mind</strong> you need for a stress-free Eid journey.
+          and no ruining what should be a joyful experience. By the end of the day, it is the <strong class="text-[#c00d1e]">peace of mind</strong> you need for a stress-free Eid journey.
         </p>
         <p class="text-sm text-zinc-600">
           Carry a jump starter kit and a power bank for extra security, especially if traveling with kids or elders.
@@ -325,7 +430,7 @@ const blogData = {
       <div class="text-center mb-10">
         <p class="text-xl md:text-2xl font-black uppercase text-zinc-900 mb-4">
           This Eid, don't just prepare your car,<br>
-          <span class="text-[#cc001b]">prepare your battery.</span>
+          <span class="text-[#c00d1e]">prepare your battery.</span>
         </p>
         <p class="text-lg font-bold text-zinc-600 mb-6">
           Alaska Graphite Batteries<br>
@@ -481,7 +586,7 @@ function openBlogModal(id) {
       <div class="space-y-6 overflow-x-hidden">
         ${data.image ? `<div class="mb-6 rounded-2xl overflow-hidden shadow-lg border border-zinc-100"><img src="${data.image}" class="w-full h-48 md:h-64 object-cover" alt="${data.title}" loading="lazy"></div>` : ""}
         <div class="space-y-3">
-          <span class="inline-block text-[#cc001b] font-bold uppercase tracking-widest text-xs px-3 py-1 bg-red-50 rounded-full">${data.category}</span>
+          <span class="inline-block text-[#c00d1e] font-bold uppercase tracking-widest text-xs px-3 py-1 bg-red-50 rounded-full">${data.category}</span>
           <h1 class="text-2xl md:text-3xl lg:text-4xl font-black uppercase leading-tight text-zinc-900">${data.title}</h1>
         </div>
         <div class="prose prose-zinc prose-sm md:prose-base lg:prose-lg max-w-none blog-content">

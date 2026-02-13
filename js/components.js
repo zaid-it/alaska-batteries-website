@@ -1,6 +1,6 @@
 // js/components.js
 
-const brandRed = "#cc001b";
+const brandRed = "#c00d1e";
 
 const headerHTML = /* HTML */ `
   <header class="fixed top-0 left-0 w-full z-[100] bg-white border-b border-gray-100">
@@ -47,21 +47,21 @@ const headerHTML = /* HTML */ `
             <li class="nav-item">
               <a href="about.html" class="nav-link">About Us</a>
               <div class="dropdown-panel">
-                <div class="dropdown-quote">Get to know the mind behind Alaska Batteries</div>
+                <div class="dropdown-quote">Get to know the mind <br />behind Alaska Batteries</div>
               </div>
             </li>
 
             <li class="nav-item">
               <a href="support.html" class="nav-link">Support</a>
               <div class="dropdown-panel">
-                <div class="dropdown-quote">Always there when you need a charge</div>
+                <div class="dropdown-quote">Always there when <br /> you need a charge</div>
               </div>
             </li>
           </ul>
         </nav>
 
         <div class="lg:hidden w-3/4 flex justify-end">
-          <button id="mobile-menu-trigger" class="text-[#cc001b] text-3xl">
+          <button id="mobile-menu-trigger" class="text-[#c00d1e] text-3xl">
             <i class="fa-solid fa-car-battery"></i>
           </button>
         </div>
@@ -87,10 +87,10 @@ const footerHTML = /* HTML */ `
             <p>Sector F-9/G-9, Jinnah Avenue, New Blue Area,</p>
             <p>Islamabad, Pakistan, 44010</p>
             <p class="pt-2">
-              <a href="tel:0518740280" class="text-gray-600 font-bold hover:text-[#cc001b] transition-colors">+92 51 874 0280</a>
+              <a href="tel:0518740280" class="text-gray-600 font-bold hover:text-[#c00d1e] transition-colors">+92 51 874 0280</a>
             </p>
             <p>
-              <a href="mailto:info@alaskabatteries.com" class="text-[#cc001b] hover:underline transition-colors">info@alaskabatteries.com</a>
+              <a href="mailto:info@alaskabatteries.com" class="text-[#c00d1e] hover:underline transition-colors">info@alaskabatteries.com</a>
             </p>
           </div>
         </div>
@@ -100,28 +100,28 @@ const footerHTML = /* HTML */ `
           <div class="grid grid-cols-1 md:grid-cols-2 gap-y-2 md:gap-y-0 gap-x-10 text-baseline font-medium text-gray-700 text-center md:text-left">
             <ul class="flex flex-col space-y-2 items-center md:items-start">
               <li>
-                <a href="index.html" class="hover:text-[#cc001b] transition-colors">Home</a>
+                <a href="index.html" class="hover:text-[#c00d1e] transition-colors">Home</a>
               </li>
               <li>
-                <a href="dry-charge.html" class="hover:text-[#cc001b] transition-colors">Solutions</a>
+                <a href="dry-charge.html" class="hover:text-[#c00d1e] transition-colors">Solutions</a>
               </li>
               <li>
-                <a href="graphite.html" class="hover:text-[#cc001b] transition-colors">Technology</a>
+                <a href="graphite.html" class="hover:text-[#c00d1e] transition-colors">Technology</a>
               </li>
               <li>
-                <a href="vault.html" class="hover:text-[#cc001b] transition-colors">Vault</a>
+                <a href="vault.html" class="hover:text-[#c00d1e] transition-colors">Vault</a>
               </li>
             </ul>
 
             <ul class="flex flex-col space-y-2 items-center md:items-start">
               <li>
-                <a href="dealers.html" class="hover:text-[#cc001b] transition-colors">Partner Locator</a>
+                <a href="dealers.html" class="hover:text-[#c00d1e] transition-colors">Partner Locator</a>
               </li>
               <li>
-                <a href="about.html" class="hover:text-[#cc001b] transition-colors">About Us</a>
+                <a href="about.html" class="hover:text-[#c00d1e] transition-colors">About Us</a>
               </li>
               <li>
-                <a href="support.html" class="hover:text-[#cc001b] transition-colors">Support</a>
+                <a href="support.html" class="hover:text-[#c00d1e] transition-colors">Support</a>
               </li>
             </ul>
           </div>
@@ -159,11 +159,11 @@ const footerHTML = /* HTML */ `
     </div>
     <div id="successModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
       <div class="bg-white max-w-md w-full p-12 text-center shadow-2xl relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-2 bg-[#cc001b]"></div>
+        <div class="absolute top-0 left-0 w-full h-2 bg-[#c00d1e]"></div>
 
         <div class="mb-8 flex justify-center">
           <div class="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center border border-gray-100">
-            <i class="fa-solid fa-check text-4xl text-[#cc001b]"></i>
+            <i class="fa-solid fa-check text-4xl text-[#c00d1e]"></i>
           </div>
         </div>
 
@@ -173,7 +173,7 @@ const footerHTML = /* HTML */ `
           Our team will review your details and contact you within 48 business hours.
         </p>
 
-        <button onclick="closeModal()" class="w-full bg-black text-white font-black uppercase py-4 text-[10px] tracking-[0.3em] hover:bg-[#cc001b] transition-all">Return to Site</button>
+        <button onclick="closeModal()" class="w-full bg-black text-white font-black uppercase py-4 text-[10px] tracking-[0.3em] hover:bg-[#c00d1e] transition-all">Return to Site</button>
       </div>
     </div>
   </footer>
@@ -208,26 +208,26 @@ function setupMobileMenu() {
         </button>
       </div>
 
-      <div class="flex-grow overflow-hidden relative bg-[#cc001b]">
+      <div class="flex-grow overflow-hidden relative bg-[#c00d1e]">
         <div id="mobile-menu-container" class="flex w-[200%] h-full transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]">
           <div id="main-view" class="w-1/2 h-full flex flex-col">
             <nav class="p-4">
               <a href="index.html" class="flex items-center px-4 py-4 text-[15px] font-semibold text-white  rounded-lg transition-all">Home</a>
 
               <button onclick="openSubmenu('solutions-sub')" class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-white  rounded-lg transition-all group">
-                Solutions <i class="fa-solid fa-chevron-right text-[10px] text-white group-hover:text-[#cc001b]"></i>
+                Solutions <i class="fa-solid fa-chevron-right text-[10px] text-white group-hover:text-[#c00d1e]"></i>
               </button>
 
               <button onclick="openSubmenu('tech-sub')" class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-white  rounded-lg transition-all group">
-                Technology <i class="fa-solid fa-chevron-right text-[10px] text-white group-hover:text-[#cc001b]"></i>
+                Technology <i class="fa-solid fa-chevron-right text-[10px] text-white group-hover:text-[#c00d1e]"></i>
               </button>
 
               <button onclick="openSubmenu('dealers-sub')" class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-white  rounded-lg transition-all group">
-                Partners <i class="fa-solid fa-chevron-right text-[10px] text-white group-hover:text-[#cc001b]"></i>
+                Partners <i class="fa-solid fa-chevron-right text-[10px] text-white group-hover:text-[#c00d1e]"></i>
               </button>
 
               <button onclick="openSubmenu('vault-sub')" class="w-full flex justify-between items-center px-4 py-4 text-[15px] font-semibold text-white  rounded-lg transition-all group">
-                Vault <i class="fa-solid fa-chevron-right text-[10px] text-white group-hover:text-[#cc001b]"></i>
+                Vault <i class="fa-solid fa-chevron-right text-[10px] text-white group-hover:text-[#c00d1e]"></i>
               </button>
 
               <a href="about.html" class="flex items-center px-4 py-4 text-[15px] font-semibold text-white  rounded-lg transition-all">About Us</a>
@@ -235,7 +235,7 @@ function setupMobileMenu() {
             </nav>
           </div>
 
-          <div id="sub-view" class="w-1/2 h-full flex flex-col bg-[#cc001b]">
+          <div id="sub-view" class="w-1/2 h-full flex flex-col bg-[#c00d1e]">
             <button onclick="closeSubmenu()" class="flex items-center gap-3 px-8 py-6 text-white font-bold text-xs uppercase tracking-widest border-b border-zinc-200/50">
               <i class="fa-solid fa-arrow-left"></i> Back to Main
             </button>
