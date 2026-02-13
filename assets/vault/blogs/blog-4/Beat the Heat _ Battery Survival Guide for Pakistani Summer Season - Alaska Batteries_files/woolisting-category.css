@@ -1,0 +1,647 @@
+/* Start Woolisting Category Listing Custom Global Css */
+
+.product-category img{
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    transition: all 0.3s ease-out 0s;
+}
+.woolisting-category-style-1 .product-category {
+    position: relative;
+}
+.woolisting-category-style-1 .woolist-category-img{
+    overflow: hidden;
+    position: relative;
+}
+.woolisting-category-style-1 .product-category::after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0;
+    transition: 0.3s;
+}
+.woolisting-category-style-1 .woolist-category:hover .product-category:after{
+    opacity: 0.5;
+    transition: 0.3s;
+}
+.woolist-category {
+    position: relative;
+}
+.woolist-category .woolist-category-title h2 {
+    font-size: 26px;
+    margin: 0;
+}
+.woolist-category .woolist-category-description {
+    font-size: 16px;
+    line-height: 24px;
+}
+.woolist-category-title h2,
+.woolist-category-description,
+.woolist-post-count a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.woolist-post-count a:hover {
+    color: #FFFFFF;
+}
+.woolisting-category-style-1 .woolist-category-title h2,
+.woolisting-category-style-3 .woolist-category-title h2 {
+    color: #2D2D2D;
+}
+.woolisting-category-style-1 .woolist-category-description,
+.woolisting-category-style-3 .woolist-category-description {
+    color: #2D2D2D;
+}
+.woolisting-category-style-3 .woolist-post-count a {
+    color: #2D2D2D;
+}
+.woolist-category p {
+    margin: 0;
+}
+.woolist-category .woolist-category-description {
+    margin-top: 5px;
+}
+.woolist-category .product-category img {
+    height: 330px !important;
+    display: block;
+}
+.woolist-category .woolist-category-img {
+    overflow: hidden;
+    transition: all 0.3s ease-out 0s;
+}
+.woolisting-category-style-3 .woolist-img img,
+.woolisting-category-style-4 .woolist-img img {
+    transition: 0.4s all ease-in-out;
+    width: 100%;
+    transform: scale(1);
+}
+.woolisting-category-style-3 .woolist-category-img:hover .woolist-img img,
+.woolisting-category-style-4 .woolist-category-img:hover .woolist-img img {
+    transform: scale(1.2);
+}
+/* End Woolisting Category Listing Custom Global Css */
+
+/* Woolisting Category Listing Slider Global Css */
+.woolist-category-img{
+    margin: 10px;
+}
+.woolisting-category-slider.woolisting-category-style-1 .slick-prev,
+.woolisting-category-slider.woolisting-category-style-3 .slick-prev,
+.woolisting-category-slider.woolisting-category-style-4 .slick-prev,
+.woolisting-category-slider.woolisting-category-style-5 .slick-prev,
+.woolisting-category-slider.woolisting-category-style-6 .slick-prev {
+    left: 0 !important;
+}
+.woolisting-category-slider.woolisting-category-style-1 .slick-next,
+.woolisting-category-slider.woolisting-category-style-2 .slick-next,
+.woolisting-category-slider.woolisting-category-style-3 .slick-next,
+.woolisting-category-slider.woolisting-category-style-4 .slick-next,
+.woolisting-category-slider.woolisting-category-style-5 .slick-next,
+.woolisting-category-slider.woolisting-category-style-6 .slick-next {
+    right: 10px !important;
+}
+.woolisting-category-slider.woolisting-category-style-1 .slick-list.draggable,
+.woolisting-category-slider.woolisting-category-style-3 .slick-list.draggable,
+.woolisting-category-slider.woolisting-category-style-4 .slick-list.draggable,
+.woolisting-category-slider.woolisting-category-style-5 .slick-list.draggable,
+.woolisting-category-slider.woolisting-category-style-6 .slick-list.draggable {
+    margin: 0 42px 30px;
+}
+.woolisting-category-slider.woolisting-category-style-2 .slick-list.draggable {
+    margin: 0 40px 30px;
+}
+.woolisting-category-slider.woolisting-category-style-1 .slick-prev i,
+.woolisting-category-slider.woolisting-category-style-1 .slick-next i,
+.woolisting-category-slider.woolisting-category-style-2 .slick-prev i,
+.woolisting-category-slider.woolisting-category-style-2 .slick-next i,
+.woolisting-category-slider.woolisting-category-style-3 .slick-prev i,
+.woolisting-category-slider.woolisting-category-style-3 .slick-next i,
+.woolisting-category-slider.woolisting-category-style-4 .slick-prev i,
+.woolisting-category-slider.woolisting-category-style-4 .slick-next i,
+.woolisting-category-slider.woolisting-category-style-5 .slick-prev i,
+.woolisting-category-slider.woolisting-category-style-5 .slick-next i,
+.woolisting-category-slider.woolisting-category-style-6 .slick-prev i,
+.woolisting-category-slider.woolisting-category-style-6 .slick-next i {
+    color: #FFFFFF !important;
+    background-color: #FD5056 !important;
+    border-radius: 50px;
+    padding: 10px 13px;
+}
+.woolisting-slider .woolisting-category-img {
+    margin: 0 8px 0 7px;
+    position: relative;
+}
+.woolisting-category-slider.woolisting-category-style-1 .slick-next, .woolisting-category-slider.woolisting-category-style-2 .slick-next, .woolisting-category-slider.woolisting-category-style-3 .slick-next, .woolisting-category-slider.woolisting-category-style-4 .slick-next, .woolisting-category-slider.woolisting-category-style-5 .slick-next, .woolisting-category-slider.woolisting-category-style-6 .slick-next {
+    right: 0px !important;
+}
+.woolisting-category-style-5 .slick-slide>div {
+    margin: 20px 10px;
+}
+.woolisting-category-slider.woolisting-category-style-3 .slick-dots li button::before,
+.woolisting-category-slider.woolisting-category-style-5 .slick-dots li button::before {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 20px;
+    height: 20px;
+    content: "" !important;
+    -webkit-font-smoothing: antialiased;
+}
+.woolist-category {
+    position: relative;
+}
+.woolist-category .woolisting_cat_link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+}
+/* End Woolisting Category Listing Custom Global Css */
+
+/* Start Woolisting Category Listing Style 1 Css */
+.woolisting-category-style-1 .woolist-post-count a {
+    background-color: #FD5056;
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 14px;
+}
+.woolisting-category-style-1 .woolist-post-count {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+}
+.woolisting-category-style-1 .woolist-slider .woolist-post-count {
+    left: 16px;
+}
+.woolisting-category-style-1 .woolist-category-img {
+    border: 1px solid #E8E8E8;
+    border-radius: 10px;
+}
+.woolisting-category-style-1 .woolist-category-content {
+    padding: 25px;
+    transition: all 0.3s ease-out 0s;
+}
+.woolisting-category-style-1 .woolist-img {
+    position: relative;
+}
+.woolisting-category-style-1 .woolist-img::after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0;
+    transition: 0.3s;
+}
+.woolisting-category-style-1 .woolist-category-img:hover .woolist-img::after {
+    opacity: 0.5;
+}
+/* End Woolisting Category Listing Style 1 Css */
+
+/* Start Woolisting Category Listing Style 2 Css */
+.woolisting-category-style-2 .product-category {
+    position: relative;
+    z-index: 9;
+}
+.woolisting-category-style-2 .product-category::after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.3;
+    transition: all .3s ease;
+}
+.woolisting-category-style-2 .woolist-category-img:hover .product-category::after {
+    opacity: 0.5;
+}
+.woolisting-category-style-2 .woolist-frame {
+    width: calc(100% - 100px);
+    height: calc(100% - 100px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid;
+    position: absolute;
+    opacity: 0;
+    z-index: 9;
+}
+.woolisting-category-style-2 .woolist-category-img:hover .woolist-frame {
+    opacity: 1;
+    border-color: #fff;
+    transition: color 0.3s ease-in-out, all 0.3s ease-in-out;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+}
+.woolisting-category-style-2 .woolist-category-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+}
+.woolisting-category-style-2 .woolist-content {
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    z-index: 99;
+}
+/* End Woolisting Category Listing Style 2 Css */
+
+/* Start Woolisting Category Listing Style 3 Css */
+.woolisting-category-style-3 .woolist-img {
+    position: relative;
+    z-index: 9;
+}
+.woolisting-category-style-3 .woolist-img::after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0;
+}
+.woolisting-category-style-3 .woolist-category-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+}
+.woolisting-category-style-3 .woolist-content {
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    z-index: 99;
+    background-color: rgb(255 255 255 / 80%);
+    margin: 20px;
+}
+.woolisting-category-style-3 .woolist-category-title h2,
+.woolisting-category-style-3 .woolist-category-description {
+    color: #000000;
+}
+.woolisting-category-style-3 .woolist-post-count a {
+    color: #747474;
+}
+/* End Woolisting Category Listing Style 3 Css */
+
+/* Start Woolisting Category Listing Style 4 Css */
+.woolisting-category-style-4 .woolist-category-img {
+    border-radius: 20px;
+}
+.woolisting-category-style-4 .product-category-over {
+    overflow: hidden;
+}
+.woolisting-category-style-4 .product-category {
+    position: relative;
+    z-index: 9;
+}
+.woolisting-category-style-3 .product-category img, .woolisting-category-style-4 .product-category img {
+    transition: 0.4s all ease-in-out;
+    width: 100%;
+    transform: scale(1);
+}
+.woolisting-category-style-3 .woolist-category-img:hover .product-category img,
+.woolisting-category-style-4 .woolist-category-img:hover .product-category img {
+    transform: scale(1.2);
+}
+.woolisting-category-style-4 .product-category::after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.3;
+}
+.woolisting-category-style-4 .woolist-category-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+.woolisting-category-style-4 .woolist-content {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    z-index: 99;
+}
+.woolisting-category-style-4 .woolist-category-title h2 {
+    display: inline-block;
+    position: relative;
+}
+.woolisting-category-style-4 .woolist-category-title h2:after {
+    display      : block;
+    content      : '';
+    border-bottom: solid 2px #fff;
+    transform    : scaleX(0);
+    transition   : 0.4s all ease-in-out;
+}
+.woolisting-category-style-4 .woolist-category-img:hover .woolist-category-title h2:after {
+    transform: scaleX(1);
+}
+/* End Woolisting Category Listing Style 4 Css */
+
+/* Start Woolisting Listing Style 4 Slider Css */
+.woolisting-category-slider.woolisting-category-style-4 .slick-prev, 
+.woolisting-category-slider.woolisting-category-style-4 .slick-next {
+    bottom: -45px !important;
+    top: auto !important;
+    position: absolute;
+}
+.woolisting-category-slider.woolisting-category-style-4 .slick-prev {
+    left: 88.5% !important;
+}
+.woolisting-category-slider.woolisting-category-style-4 .slick-next {
+    right: 3% !important;
+}
+.woolisting-category-slider.woolisting-category-style-4 .slick-list.draggable {
+    margin-bottom: 60px;
+}
+.woolisting-category-slider.woolisting-category-style-4 .slick-prev i, 
+.woolisting-category-slider.woolisting-category-style-4 .slick-next i {
+    font-size: 17px;
+    border-radius: 20px;
+    padding: 8px 12px 9px 12px;
+    border: 1px solid #BFBFBF;
+    color: #BFBFBF;
+}
+.woolisting-category-slider.woolisting-category-style-4 .slick-dots {
+    position: absolute;
+    bottom: -45px !important;
+}
+@media only screen and (max-width: 768px) {
+    .woolisting-category-slider.woolisting-category-style-4 .slick-prev {
+        left: 85.5% !important;
+    }
+}
+@media only screen and (max-width: 425px) {
+    .woolisting-category-slider.woolisting-category-style-4 .slick-prev {
+        left: 75.5% !important;
+    }
+}
+@media only screen and (max-width: 375px) {
+    .woolisting-category-slider.woolisting-category-style-4 .slick-prev {
+        left: 72.5% !important;
+    }
+}
+/* End Woolisting Listing Style 4 Slider Css */
+
+/* Start Woolisting Category Listing Style 4 Slider Css */
+.woolist-category-slider.woolisting-category-style-4 .slick-prev, 
+.woolist-category-slider.woolisting-category-style-4 .slick-next {
+    bottom: 50% !important;
+    top: auto !important;
+    position: absolute;
+}
+.woolist-category-slider.woolisting-category-style-4 .slick-prev {
+    left: 0% !important;
+}
+.woolist-category-slider.woolisting-category-style-4 .slick-next {
+    right: 15px !important;
+}
+.woolist-category-slider.woolisting-category-style-4 .slick-list.draggable {
+    margin-bottom: 60px;
+}
+.woolist-category-slider.woolisting-category-style-4 .slick-prev i, 
+.woolist-category-slider.woolisting-category-style-4 .slick-next i {
+    font-size: 17px;
+    border-radius: 20px;
+    padding: 8px 12px 9px 12px;
+    border: none;
+}
+.woolist-category-slider.woolisting-category-style-4 .slick-dots {
+    position: absolute;
+    bottom: -23px !important;
+}
+@media only screen and (max-width: 768px) {
+    .woolist-category-slider.woolisting-category-style-4 .slick-prev {
+        left: 0% !important;
+    }
+}
+@media only screen and (max-width: 425px) {
+    .woolist-category-slider.woolisting-category-style-4 .slick-prev {
+        left: 0% !important;
+    }
+}
+@media only screen and (max-width: 375px) {
+    .woolist-category-slider.woolisting-category-style-4 .slick-prev {
+        left: 0% !important;
+    }
+}
+/* End Woolisting Category Listing Style 4 Slider Css */
+
+/* Start Woolisting Category Listing Style 5 Css */
+.woolisting-category-style-5 .woolisting-category {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.woolisting-category-style-5 .woolisting-category .woolisting_cat_link {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+.woolisting-category-style-5 .woolisting-category-description,
+.woolisting-category-style-5 .woolisting-post-count a,
+.woolisting-category-style-5 .woolisting-category-title h2{
+    color: #fff;
+}
+
+.woolisting-category-style-5 .woolisting-category-img {
+    position: relative;
+    z-index: 9;
+    overflow: hidden;
+}
+.woolisting-category-style-5 .product-category::after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.25;
+}
+.woolisting-category-style-5 .woolisting-category-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+.woolisting-category-style-5 .woolisting-content {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    z-index: 99;
+}
+.woolisting-category-style-5 .woolisting-img img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.woolisting-category-style-5 .overlay {
+    width: calc(100% - 200px);
+    height: calc(100% - 200px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    opacity: 0;
+    z-index: 9;
+    background-color: #000000;
+}
+.woolisting-category-style-5 .woolisting-category-img:hover .overlay {
+    opacity: 0.5;
+    transition: color 0.3s ease-in-out, all 0.3s ease-in-out;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+}
+/* End Woolisting Category Listing Style 5 Css */
+
+/* Start Woolisting Category Listing Style 6 Css */
+.woolisting-category-style-6 .woolist-category-description{
+    color: #000;
+    font-size: 14px;
+}
+.woolisting-category-style-6 .woolist-category-title h2{
+    color: #000;
+    font-size: 20px;
+}
+.woolisting-category-style-6 .woolist-category-description{
+    text-align: center;
+}
+.woolisting-category-style-6 .woolist-post-count a{
+    color: #000;
+    font-size: 16px;
+}
+.woolisting-category-style-6 .woolist-title-post-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+.woolisting-category-style-6 .woolist-content {
+    padding: 15px 15px;
+    background-color: #e4f2ff;
+}
+.woolisting-category-style-6 .woolist-category .product-category{
+    transition: all .3s ease;
+    overflow: hidden;
+}
+.woolisting-category-style-6 .woolist-category:hover .product-category img{
+    transform: scale(1.1);
+}
+/* End Woolisting Category Listing Style 6 Css */
+
+/* Woolisting Category Listing Slider CSS */
+@media screen and (max-width: 425px) {
+    .woolisting-category-slider .slick-list.draggable {
+        margin: 0 32px 30px;
+    }
+    .woolisting-category-slider.woolisting-category-style-4 .slick-list.draggable {
+        margin: 0 0 55px !important;
+    }
+}
+/* Start Woolisting Slider Arrow & Dots CSS */
+.woolist-category-slider .slick-dots {
+	position: absolute;
+	bottom: -20px !important;
+	display: block;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	text-align: center;
+}
+.woolist-category-slider .slick-dots li button:before {
+    color: #FD5056;
+    opacity: .35 !important;
+    border-radius: 50px;
+}
+.woolist-category-slider .slick-dots li.slick-active button::before {
+    opacity: 1 !important;
+}
+.woolist-category-slider .slick-dots [type="button"]:focus-visible, 
+.woolist-category-slider .slick-dots [type="reset"]:focus-visible,
+.woolist-category-slider .slick-dots [type="submit"]:focus-visible,
+.woolist-category-slider .slick-dots button:focus-visible,
+    [type=button]:focus, [type=submit]:focus, button:focus {
+    outline: 0 !important;
+}
+.woolist-category-slider .slick-dots [type="button"]:focus, 
+.woolist-category-slider .slick-dots [type="button"]:hover,
+.woolist-category-slider .slick-dots [type="submit"]:focus, 
+.woolist-category-slider .slick-dots [type="submit"]:hover, 
+.woolist-category-slider .slick-dots button:focus,
+.woolist-category-slider .slick-dots button:hover {
+	color: #ffff !important;
+	background: none !important;
+	text-decoration: none;
+}
+.woolist-category-slider .slick-prev:before, .woolist-category-slider .slick-next:before {
+    font-size: 0 !important;
+    color: transparent !important;
+}
+.woolist-category-slider [type=button], 
+.woolist-category-slider [type=submit], 
+.woolist-category-slider button {
+    color: #000 !important;
+    background-color: transparent;
+    border: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+}
+.woolist-category-slider [type=button]:focus, 
+.woolist-category-slider [type=button]:hover, 
+.woolist-category-slider [type=submit]:focus, 
+.woolist-category-slider [type=submit]:hover,
+.woolist-category-slider button:focus, 
+.woolist-category-slider button:hover {
+	background: none !important;
+	text-decoration: none;
+}
+.woolist-category-slider .slick-prev, .woolist-category-slider .slick-next {
+    top: 50% !important;
+    z-index: 9;
+}
+/* End Woolisting Slider Arrow & Dots CSS */
