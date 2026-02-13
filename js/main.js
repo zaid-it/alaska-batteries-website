@@ -405,9 +405,7 @@ const blogData = {
 
       <p class="text-zinc-600 leading-relaxed mb-6">A small preventive effort today avoids roadside breakdowns and costly replacements tomorrow. When unsure, have an authorized dealer test your battery and charging system.</p>
 
-      <div class="text-center">
-        <a href="products.html" style="color:#ffffff;text-decoration:none;" class="inline-block bg-[#cc001b] text-white px-8 py-3 rounded-full font-black uppercase tracking-tighter hover:scale-105 transition-transform">Explore Battery Options</a>
-      </div>
+      
     `,
   },
   "ebike-accessories": {
@@ -452,9 +450,7 @@ const blogData = {
 
       <p class="text-zinc-600 leading-relaxed mb-6">Little preventive steps today will prevent roadside trouble and extend battery life through the peak summer months. When in doubt, have an authorized dealer run a load and charging test.</p>
 
-      <div class="text-center">
-        <a href="products.html" style="color:#ffffff;text-decoration:none;" class="inline-block bg-[#cc001b] text-white px-8 py-3 rounded-full font-black uppercase tracking-tighter hover:scale-105 transition-transform">Find Heat-Ready Batteries</a>
-      </div>
+      
     `,
   },
   "ebike-repairs": {
@@ -482,9 +478,7 @@ const blogData = {
 
       <p class="text-zinc-600 leading-relaxed mb-6">With simple, scheduled checks and correct storage practices, your battery will remain ready when you need it. If unsure, have an authorized dealer test and maintain your battery to avoid premature failure.</p>
 
-      <div class="text-center">
-        <a href="products.html" style="color:#ffffff;text-decoration:none;" class="inline-block bg-[#cc001b] text-white px-8 py-3 rounded-full font-black uppercase tracking-tighter hover:scale-105 transition-transform">See Battery Care Products</a>
-      </div>
+      
     `,
   },
   "ebike-charging": {
