@@ -1,0 +1,45 @@
+jQuery(function($) {
+    // Function to update the range value dynamically
+    function updateRangeValue(rangeInput) {
+    var value = $(rangeInput).val(); 
+    $("#selected-value").text(value);
+}
+
+    function updateRangeBackground($range) {
+        var value = $range.val();
+        var max = $range.attr('max');
+        var min = $range.attr('min');
+        const percentage = ((value - min) / (max - min)) * 100;
+        var direction = $('body').hasClass('rtl') ? 'to left' : 'to right';
+        $range.css('background', 'linear-gradient(' + direction + ', var(--wdtPrimaryColor) ' + percentage + '%, var(--wdtBorderColor) ' + percentage + '%)');
+    }
+
+ function calculateBudget() {
+   var kmsPerDay = $('#kms_per_day').val();
+   var petrolCostPerLitre = $('#kms_per_day_cost').val();
+   var electricityCostPerKm = 0.572;
+   var monthlyPetrolCost = (kmsPerDay * petrolCostPerLitre);
+   var monthlyElectricityCost = kmsPerDay * electricityCostPerKm;
+   $('#monthly-petrol-cost').text('$' + monthlyPetrolCost.toFixed(2));
+   $('#monthly-electricity-cost').text('$' + monthlyElectricityCost.toFixed(2));
+   var monthlySavings =  monthlyPetrolCost - monthlyElectricityCost;
+   $('#monthly-savings').text('$' + monthlySavings.toFixed(2));
+   var yearlySavings = monthlySavings * 12;
+   $('#annual-savings').text('$' + yearlySavings.toFixed(2));
+ }
+
+    $('#frmemicalc input[type="range"]').each(function() {
+        updateRangeBackground($(this));
+    });
+
+    calculateBudget();
+
+    $('#frmemicalc input[type="range"], #frmemicalc input[type="checkbox"], #frmemicalc select').on('input change', function() {
+        calculateBudget();
+        if ($(this).is('input[type="range"]')) {
+            updateRangeBackground($(this));
+        }
+    });
+
+    window.updateRangeValue = updateRangeValue;
+});
