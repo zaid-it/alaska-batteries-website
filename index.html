@@ -103,7 +103,7 @@
 
     <!-- Graphite Technology Section - Two Image Flex Layout -->
     <section class="bg-white">
-      <div class=" mx-auto px-6">
+      <div class=" mx-auto px-6 py-4 md:py-8">
         <!-- Two Image Flex Container -->
         <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
           <!-- Image 1 - 75% width on desktop, 100% on mobile -->
@@ -113,7 +113,8 @@
             <!-- Text Overlay -->
             <div class="absolute inset-0 bg-black/10 flex flex-col items-start justify-between p-6 md:p-12">
               <h3
-                class="text-[#c00d1e] font-extrabold text-2xl md:text-4xl uppercase text-left mb-6 md:mb-8 leading-tight">
+                class="text-[#c00d1e] font-extrabold text-2xl md:text-4xl uppercase text-left mb-6 md:mb-8 leading-tight drop-shadow-lg"
+                style="text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);">
                 Experience the Power of Graphite Technology
               </h3>
               <a href="graphite.html" class="btn-primary text-2xl">
@@ -125,56 +126,46 @@
           <!-- Image 2 - Remaining width on desktop, 100% on mobile -->
           <div class="w-full h-64 md:max-w-[500px] md:h-96 md:min-h-[580px] rounded-xl overflow-hidden shadow-lg">
             <img src="assets/Tech-landing-2.png" alt="Graphite Technology Image 2"
-              class="w-auto h-auto md:bg-white/90" />
+              class="w-full h-full md:bg-white/90 object-cover object-[55%_45%]" />
           </div>
         </div>
       </div>
     </section>
 
-    <section class="py-8 bg-white border-t border-b border-gray-100">
+    <section class="py-12 bg-white border-t border-b border-gray-100">
       <div class="mx-auto px-6">
-        <div class="flex gap-4 w-full overflow-x-auto md:overflow-visible no-scrollbar snap-x snap-mandatory">
+        <div
+          class="flex gap-4 w-full overflow-x-auto md:overflow-visible md:grid md:grid-cols-3 md:gap-6 no-scrollbar snap-x snap-mandatory md:snap-none">
           <!-- News Card -->
           <a href="vault.html#blogs"
-            class="quick-link-card flex-shrink-0 w-[85%] md:flex-1 border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all snap-start group relative h-[180px]">
-            <img src="assets/vault/news.png" alt="News"
-              class="absolute inset-0 w-full h-full object-cover object-[70%_75%] md:object-[80%_75%]">
-            <div class="quick-link-overlay"></div>
-            <div class="relative z-10 h-full p-4 flex flex-col justify-end items-start text-white">
-              <div class="flex items-center gap-3 ml-2">
-                <h3 class="text-2xl font-extrabold uppercase text-[#c00d1e]">News</h3>
-              </div>
-              <!-- <p class=" text-sm font-medium text-white/90">Stay updated with the latest from Alaska Batteries</p>
-                      -->
+            class="vault-card flex-shrink-0 w-[85%] md:flex-1 md:w-auto flex flex-col rounded-xl overflow-hidden border border-gray-200 shadow-lg snap-start">
+            <div class="relative h-48 overflow-hidden bg-gray-100">
+              <img src="assets/vault/news.png" alt="News" class="w-full h-full object-cover object-[55%_45%]">
+            </div>
+            <div class="flex-1 bg-white p-6 flex flex-col justify-start">
+              <h3 class="text-xl md:text-2xl font-extrabold uppercase text-center text-[#c00d1e]">News</h3>
             </div>
           </a>
 
           <!-- FAQs Card -->
           <a href="vault.html#faqs"
-            class="quick-link-card flex-shrink-0 w-[85%] md:flex-1 border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all snap-start group relative h-[180px]">
-            <img src="assets/vault/FAQs.png" alt="FAQs"
-              class="absolute inset-0 w-full h-full object-cover object-[90%_75%]">
-            <div class="quick-link-overlay"></div>
-            <div class="relative z-10 h-full p-4 flex flex-col justify-end items-start text-white">
-              <div class="flex items-center gap-3 ml-2">
-
-                <h3 class="text-2xl font-extrabold uppercase text-[#c00d1e]">FAQs</h3>
-              </div>
-              <!--  <p class="text-sm font-medium text-white/90">Find answers to common battery questions</p> -->
+            class="vault-card flex-shrink-0 w-[85%] md:flex-1 md:w-auto flex flex-col rounded-xl overflow-hidden border border-gray-200 shadow-lg snap-start">
+            <div class="relative h-48 overflow-hidden bg-gray-100">
+              <img src="assets/vault/FAQs.png" alt="FAQs" class="w-full h-full object-cover object-[90%_45%]">
+            </div>
+            <div class="flex-1 bg-white p-6 flex flex-col justify-start">
+              <h3 class="text-xl md:text-2xl font-extrabold uppercase text-center text-[#c00d1e]">FAQs</h3>
             </div>
           </a>
 
           <!-- Gallery Card -->
           <a href="vault.html#gallery"
-            class="quick-link-card flex-shrink-0 w-[85%] md:flex-1 border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all snap-start group relative h-[180px]">
-            <img src="assets/vault/Gallery.png" alt="Gallery"
-              class="absolute inset-0 w-full h-full object-cover md:object-[85%_75%] object-[80%_75%]">
-            <div class="quick-link-overlay"></div>
-            <div class="relative z-10 h-full p-4 flex flex-col justify-end items-start text-white">
-              <div class="flex items-center gap-3 ml-2">
-                <h3 class="text-2xl font-extrabold uppercase text-[#c00d1e]">Gallery</h3>
-              </div>
-              <!--    <p class="text-sm font-medium text-white/90">Explore our events and partner network</p> -->
+            class="vault-card flex-shrink-0 w-[85%] md:flex-1 md:w-auto flex flex-col rounded-xl overflow-hidden border border-gray-200 shadow-lg snap-start">
+            <div class="relative h-48 overflow-hidden bg-gray-100">
+              <img src="assets/vault/Gallery.png" alt="Gallery" class="w-full h-full object-cover object-[75%_45%]">
+            </div>
+            <div class="flex-1 bg-white p-6 flex flex-col justify-start">
+              <h3 class="text-xl md:text-2xl font-extrabold uppercase text-center text-[#c00d1e]">Gallery</h3>
             </div>
           </a>
         </div>
