@@ -18,27 +18,19 @@
   <div id="header-placeholder"></div>
   <main>
     <section
-      class="hero-section relative w-full h-[250px] md:h-full aspect-video bg-zinc-100/50 overflow-hidden hero-mobile">
-      <!-- Video Background -->
-      <video id="heroVideo" class="absolute inset-0 w-full h-[250px] md:h-full object-cover z-0 hero-mobile" autoplay
-        muted playsinline webkit-playsinline loop>
-        <source src="assets/videos/about.mp4" type="video/mp4" />
-        Your browser does not support HTML5 video.
-      </video>
-    </section>
-
-    <section class="overflow-visible">
-      <div class="relative w-full overflow-visible">
-        <img src="assets/mgmt.png" alt="Our Story" class="w-full h-[360px] md:h-[950px] object-cover object-center" />
-        <div
-          class="-mt-8 md:mt-0 border-t-4 border-[#c00d1e] md:absolute md:top-2 md:right-2 md:w-[450px] md:h-[730px] bg-black/10 backdrop-blur-xl md:bg-black/15 md:backdrop-blur-2xl rounded-2xl p-5 md:p-8 shadow-2xl overflow-y-auto"
-          style="z-index: 50 !important;">
-          <h2
-            class="font-bold uppercase tracking-normal mb-2 md:mb-6 text-white md:text-white text-3xl text-center md:text-5xl lg:text-5xl">
-            Our <span style="color: #c00d1e !important;">Story</span>
+      class="relative md:bg-cover md:bg-left bg-cover bg-right w-full h-auto md:h-screen md:w-full border-b border-gray-200 flex items-center justify-center px-4 py-8 md:py-0"
+      style="max-height: 900px; background-image: url('assets/mgmt.png');">
+      <!--<div class="absolute w-full overflow-visible">
+        <img src="assets/mgmt.png" alt="Our Story" class="w-full object-cover object-left h-[360px] md:h-[950px]" /> -->
+      <div
+        class="md:mt-0 border-t-4 border-[#c00d1e] relative md:absolute md:w-[650px] md:top-12 md:left-16 md:h-[600px] bg-black/40 backdrop-blur-xl md:bg-white/15 md:backdrop-blur-2xl rounded-2xl p-5 md:p-8 shadow-2xl overflow-y-auto"
+        style="z-index: 50 !important;">
+        <h2min0
+          class="font-bold uppercase tracking-normal mb-2 md:mb-2 text-white md:text-white text-3xl text-center md:text-4xl lg:text-5xl">
+          Our <span style="color: #c00d1e !important;">Story</span>
           </h2>
           <div
-            class="space-y-3 md:space-y-4 leading-relaxed font-sm text-justify text-black md:text-white text-base md:text-lg">
+            class="space-y-3 md:space-y-4 leading-relaxed md:tracking-normal font-sm text-justify md:text-white text-base md:text-lg">
             <p>
               Alaska Batteries may be a new name in Pakistan’s battery market, but the people behind it have spent years
               living this
@@ -56,17 +48,17 @@
               problems, so our
               customers can drive, work, and live with confidence.</p>
           </div>
-        </div>
       </div>
+      <!-- </div> -->
     </section>
     <!-- Section 1: The Future is Sustainable -->
     <section
-      class="pt-10 pb-20 md:py-20 bg-white bg-cover bg-center border-b border-gray-200 h-full md:h-[900px] flex items-start"
+      class="relative w-full h-auto md:h-screen bg-cover bg-center border-b border-gray-200 flex items-center justify-center px-4 py-12 md:py-0"
       style="background-image: url('assets/future-1.png');">
 
-      <div class="w-full mx-auto px-2">
+      <div class="w-full max-w-5xl px-2 md:px-0">
         <div
-          class="w-full md:mx-auto bg-black/45 md:bg-white/10 md:backdrop-blur-md rounded-2xl p-2 md:p-10 shadow-2xl border border-white/20">
+          class="bg-black/50 md:bg-white/10 md:backdrop-blur-md rounded-2xl p-6 md:p-10 shadow-2xl border border-white/20">
           <div class="text-center">
             <h2 class="text-3xl md:text-6xl font-bold uppercase tracking-normal text-white md:text-white">
               The Future
@@ -82,19 +74,8 @@
               reliable power is not just a service, but a responsibility we uphold with every battery we produce.
             </p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 2: The Path to Future -->
-    <section
-      class="pt-10 pb-20 md:py-20 bg-gray-100 bg-cover bg-center border-b border-gray-200 h-full md:h-[900px] flex items-start"
-      style="background-image: url('assets/future-2.png');">
-      <div class="w-full mx-auto px-2">
-        <div
-          class="w-full md:mx-auto bg-black/35 md:bg-black/25 md:backdrop-blur-md rounded-2xl p-2 md:p-10 shadow-2xl border border-white/20">
           <div class="text-center mb-2">
-            <h2 class="text-3xl md:text-6xl font-bold uppercase tracking-normal text-white md:text-white">The
+            <h2 class="text-3xl md:text-6xl font-bold uppercase tracking-normal text-white md:text-white pt-8">The
               Path to <span class="text-[#c00d1e]">Future</span>
             </h2>
           </div>
@@ -129,9 +110,9 @@
               <!-- Award 1 -->
               <div
                 class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
-                onclick="openImageModal('assets/gallery/awards/award-1.png', 'Best Emerging Brand of the Year Award 2025')">
+                onclick="openImageModal('assets/gallery/awards/award-1.png', 'Brand of the Year Award 2025')">
                 <div class="w-full h-full bg-gray-300 overflow-hidden relative">
-                  <img src="assets/gallery/awards/award-1.png" alt="Best Emerging Brand"
+                  <img src="assets/gallery/awards/award-1.png" alt="Brand of the Year Award 2025"
                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
                   <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
                 </div>
@@ -152,12 +133,12 @@
               </p>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <!-- Certification 1 -->
               <div
                 class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
                 onclick="openImageModal('assets/gallery/certificates/ISO-9001-2015.jpeg', 'ISO 9001:2015 Quality Management')">
-                <div class="w-full h-24 bg-gray-300 overflow-hidden relative">
+                <div class="w-full h-56 md:h-48 bg-gray-300 overflow-hidden relative">
                   <img src="assets/gallery/certificates/ISO-9001-2015.jpeg" alt="ISO 9001:2015"
                     class="w-full h-full object-cover object-[10%_40%] group-hover:scale-105 transition-transform duration-300" />
                   <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
@@ -168,7 +149,7 @@
               <div
                 class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
                 onclick="openImageModal('assets/gallery/certificates/ISO-14001-2015.jpeg', 'Environmental Safety Certified')">
-                <div class="w-full h-24 bg-gray-300 overflow-hidden relative">
+                <div class="w-full h-56 md:h-48 bg-gray-300 overflow-hidden relative">
                   <img src="assets/gallery/certificates/ISO-14001-2015.jpeg" alt="Environmental Safety"
                     class="w-full h-full object-cover object-[10%_40%] group-hover:scale-105 transition-transform duration-300" />
                   <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
@@ -179,7 +160,7 @@
               <div
                 class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
                 onclick="openImageModal('assets/gallery/certificates/ISO-45001-2018.jpeg', 'Occupational Health and Safety Management')">
-                <div class="w-full h-24 bg-gray-300 overflow-hidden relative">
+                <div class="w-full h-56 md:h-48 bg-gray-300 overflow-hidden relative">
                   <img src="assets/gallery/certificates/ISO-45001-2018.jpeg" alt="Occupational Health and Safety"
                     class="w-full h-full object-cover object-[10%_40%] group-hover:scale-105 transition-transform duration-300" />
                   <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
@@ -189,7 +170,7 @@
               <div
                 class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
                 onclick="openImageModal('assets/gallery/certificates/Fire-Safety.jpeg', 'Fire Safety Certified')">
-                <div class="w-full h-24 bg-gray-300 overflow-hidden relative">
+                <div class="w-full h-56 md:h-48 bg-gray-300 overflow-hidden relative">
                   <img src="assets/gallery/certificates/Fire-Safety.jpeg" alt="Fire Safety"
                     class="w-full h-full object-cover object-[10%_10%] group-hover:scale-105 transition-transform duration-300" />
                   <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
@@ -201,20 +182,48 @@
       </div>
     </section>
 
-    <!-- Image Modal -->
-    <div id="imageModal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4"
+    <!-- Image Modal (image-only with close) -->
+    <div id="imageModal" class="fixed inset-0 bg-black/80 z-50 hidden items-center justify-center p-4"
       onclick="closeImageModal(event)">
-      <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-auto" onclick="event.stopPropagation()">
-        <div class="flex justify-between items-center p-6 border-b border-gray-200 sticky top-0 bg-white rounded-t-2xl">
-          <h3 id="modalTitle" class="text-2xl font-bold text-gray-900"></h3>
-          <button onclick="closeImageModal()"
-            class="text-gray-500 hover:text-gray-700 text-3xl leading-none">&times;</button>
-        </div>
-        <div class="p-6">
-          <img id="modalImage" src="" alt="Award/Certification" class="w-full h-auto rounded-lg" />
+      <div class="bg-white rounded-2xl w-full max-w-full md:max-w-4xl max-h-[92vh] overflow-hidden relative"
+        onclick="event.stopPropagation()">
+        <!-- Close button (overlay) -->
+        <button id="modalCloseBtn"
+          class="absolute top-3 right-3 z-20 bg-black/40 hover:bg-black/60 text-white rounded-full w-9 h-9 flex items-center justify-center">&times;</button>
+        <div class="flex items-center justify-center p-2 md:p-4 min-h-[60vh] md:min-h-[300px]">
+          <img id="modalImage" src="" alt="" class="max-w-full max-h-[86vh] object-contain rounded-lg" />
         </div>
       </div>
     </div>
+
+    <section class="relative w-full h-96 md:h-full overflow-hidden pb-2">
+      <div class="bg-gray-100 shadow-lg rounded-xl border-t-4 border-t-[#c00d1e] pt-2">
+        <div class="text-center mb-2">
+          <h2 class="text-4xl md:text-5xl font-bold uppercase tracking-tight text-[#c00d1e] mb-4">Our Plant
+          </h2>
+          <p class="text-gray-600 text-base max-w-xl mx-auto mb-4">
+            Where Innovation Meets Excellence <br>A Glimpse into Our State-of-the-Art Manufacturing Facility.
+          </p>
+        </div>
+        <!-- Full-Fold Video with Controls, Thumbnail, and Play Button -->
+        <div class="relative w-full h-full">
+          <video id="heroVideo" class="w-full h-full object-cover cursor-pointer" controls playsinline
+            webkit-playsinline poster="assets/videos/about-thumbnail.png">
+            <source src="assets/videos/about.mp4" type="video/mp4" />
+            Your browser does not support HTML5 video.
+          </video>
+          <!-- Play Button Overlay -->
+          <div id="playButtonOverlay"
+            class="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors duration-300 cursor-pointer"
+            onclick="document.getElementById('heroVideo').play()">
+            <div
+              class="flex items-center justify-center w-16 h-16 md:w-24 md:h-24 bg-white/90 hover:bg-white rounded-full shadow-lg transition-all duration-300">
+              <i class="fas fa-play text-2xl md:text-4xl text-[#c00d1e] ml-1"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <div id="footer-placeholder"></div>
@@ -223,30 +232,65 @@
   <script src="js/components.js"></script>
 
   <script>
-    function openImageModal(imageSrc, title) {
+    // Hide play button when video plays, show when paused
+    const heroVideo = document.getElementById('heroVideo');
+    const playButtonOverlay = document.getElementById('playButtonOverlay');
+
+    if (heroVideo && playButtonOverlay) {
+      heroVideo.addEventListener('play', function () {
+        playButtonOverlay.classList.add('hidden');
+      });
+
+      heroVideo.addEventListener('pause', function () {
+        playButtonOverlay.classList.remove('hidden');
+      });
+
+      heroVideo.addEventListener('ended', function () {
+        playButtonOverlay.classList.remove('hidden');
+      });
+    }
+  </script>
+
+  <script>
+    function openImageModal(imageSrc) {
       const modal = document.getElementById('imageModal');
       const modalImage = document.getElementById('modalImage');
-      const modalTitle = document.getElementById('modalTitle');
+      const modalCloseBtn = document.getElementById('modalCloseBtn');
 
+      // Populate
       modalImage.src = imageSrc;
-      modalTitle.textContent = title;
+
+      // Show modal
       modal.classList.remove('hidden');
+      modal.classList.add('flex');
       document.body.style.overflow = 'hidden';
+
+      // Close button handler (ensure only one listener)
+      if (modalCloseBtn && !modalCloseBtn._bound) {
+        modalCloseBtn.addEventListener('click', function () { closeImageModal(); });
+        modalCloseBtn._bound = true;
+      }
 
       // Handle image loading errors
       modalImage.onerror = function () {
-        this.src = 'assets/logo.png'; // Fallback to logo if image doesn't exist
-        modalTitle.textContent = title + ' (Image not available)';
+        this.src = 'assets/logo.png'; // Fallback
       };
     }
 
     function closeImageModal(event) {
-      if (event && event.target.id !== 'imageModal') {
+      // If called from an event, only allow clicks on the overlay (#imageModal)
+      if (event && event.target && event.target.id && event.target.id !== 'imageModal') {
         return;
       }
 
       const modal = document.getElementById('imageModal');
-      modal.classList.add('hidden');
+      const modalImage = document.getElementById('modalImage');
+
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+      if (modalImage) modalImage.src = '';
       document.body.style.overflow = 'auto';
     }
 

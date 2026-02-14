@@ -18,15 +18,31 @@
     <section
       class="border-b border-gray-10 flex items-center justify-start text-center bg-white overflow-hidden group  hero-fold">
       <div class="relative h-[180px] md:h-full w-full flex flex-col banner-wrapper">
-        <img src="assets/support.png" alt="Support" class="w-full h-full" />
+        <img id="hero-banner-img" src="assets/support.png" alt="Support" class="w-full h-full" />
         <div id="hero-text-box"
           class="absolute bottom-1 left-0 right-0 md:bottom-auto  md:left-8 md:w-[500px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 overflow-hidden banner-overlay">
-          <h1 class="text-3xl md:text-7xl text-left font-black uppercase tracking-normal leading-tight text-white">
+          <h1 id="hero-banner-title"
+            class="text-3xl md:text-7xl text-left font-black uppercase tracking-normal leading-tight text-white">
             Support</h1>
         </div>
       </div>
     </section>
-    <section class="min-h-screen flex flex-col md:flex-row border-t border-gray-100">
+
+    <!-- Toggle Buttons for Support/Careers -->
+    <section class="bg-white border-b border-gray-100">
+      <div class="container mx-auto px-6 py-6">
+        <div class="flex justify-center gap-4">
+          <button id="support-btn" onclick="switchTab('support')" class="btn-primary btn-lg active" data-active="true">
+            Support
+          </button>
+          <button id="careers-btn" onclick="switchTab('careers')" class="btn-secondary btn-lg" data-active="false">
+            Careers
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- SUPPORT SECTION -->
+    <section id="support-content" class="min-h-screen flex flex-col md:flex-row border-t border-gray-100">
       <div class="w-full md:w-1/2 p-12 md:p-24 bg-white border-r border-gray-100">
         <h2 class="text-4xl font-black uppercase mb-12 tracking-tighter">Get in <span
             class="text-[#c00d1e]">Touch</span></h2>
@@ -117,7 +133,7 @@
                 </button>
               </div>
               <div class="space-y-4 mt-12">
-                <p class="font-black uppercase text-sm text-black">Manufacturing Plant</p>
+                <p class="font-black uppercase text-sm text-black">Factory</p>
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   <button type="button" class="region-tab w-full" data-title="Manufacturing Plant"
                     data-address="Plot #19, Phase III, Industrial Estate, Hattar, Pakistan" data-phone="+92 51 874 0280"
@@ -131,100 +147,203 @@
           </div>
         </div>
     </section>
-  </main>
-  <div id="footer-placeholder"></div>
 
-  <script src="js/components.js"></script>
-  <script src="js/map.js"></script>
-  <script src="js/animations.js"></script>
+    <!-- CAREERS SECTION (HIDDEN BY DEFAULT) -->
+    <section id="careers-content" class="hidden min-h-screen flex flex-col md:flex-row border-t border-gray-100">
+      <div class="w-full md:w-1/2 p-12 md:p-24 bg-white border-r border-gray-100">
+        <h2 class="text-4xl font-black uppercase mb-12 tracking-tighter">Join Our <span
+            class="text-[#c00d1e]">Team</span></h2>
+        <form id="careersForm" class="space-y-8">
+          <input type="text" id="careers-fullName" placeholder="Full Name" required
+            class="w-full border-b-2 border-gray-100 py-3 outline-none focus:border-[#c00d1e] transition-colors uppercase text-xs font-black tracking-widest" />
+          <input type="email" id="careers-email" placeholder="Email Address" required
+            class="w-full border-b-2 border-gray-100 py-3 outline-none focus:border-[#c00d1e] transition-colors uppercase text-xs font-black tracking-widest" />
+          <input type="tel" id="careers-phone" placeholder="Phone Number" required
+            class="w-full border-b-2 border-gray-100 py-3 outline-none focus:border-[#c00d1e] transition-colors uppercase text-xs font-black tracking-widest" />
 
-  <script>
+          <textarea rows="4" id="careers-message"
+            placeholder="Tell us about yourself and why you'd like to join Alaska Batteries"
+            class="w-full border-b-2 border-gray-100 py-3 outline-none focus:border-[#c00d1e] transition-colors uppercase text-xs font-black tracking-widest resize-none"></textarea>
+          <input type="file" id="careers-resume" placeholder="Upload Resume (PDF)" accept=".pdf,.doc,.docx" required
+            class="w-full border-b-2 border-gray-100 py-3 outline-none focus:border-[#c00d1e] transition-colors uppercase text-xs font-black tracking-widest" />
+
+          <button type="submit" id="careersSubmitBtn" class="btn-primary btn-lg">
+            Submit Application
+          </button>
+        </form>
+      </div>
+
+      <div class="w-full md:w-1/2 p-12 md:p-24 bg-gray-50 flex flex-col justify-start">
+        <div class="space-y-8">
+          <div>
+            <h4 class="text-[#c00d1e] font-black uppercase text-xs tracking-widest mb-4">Why Join Alaska Batteries?</h4>
+            <p class="text-gray-600 text-base leading-relaxed mb-6">We are Pakistan's fastest-growing battery brand,
+              committed to powering reliable solutions across automotive, industrial, and solar sectors. Join a team
+              passionate about innovation, customer success, and sustainable growth.</p>
+          </div>
+
+          <div>
+            <h4 class="text-[#c00d1e] font-black uppercase text-xs tracking-widest mb-4">What We Offer</h4>
+            <ul class="space-y-3 text-gray-600 text-sm">
+              <li class="flex items-start gap-3">
+                <i class="fas fa-check text-[#c00d1e] mt-1"></i>
+                <span>Competitive salary and benefits package</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fas fa-check text-[#c00d1e] mt-1"></i>
+                <span>Professional development and training opportunities</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fas fa-check text-[#c00d1e] mt-1"></i>
+                <span>Work in a dynamic, fast-growing organization</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fas fa-check text-[#c00d1e] mt-1"></i>
+                <span>Collaborative and inclusive work environment</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fas fa-check text-[#c00d1e] mt-1"></i>
+                <span>Opportunities to make a real impact</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-12 pt-8 border-t border-gray-200">
+            <h4 class="text-[#c00d1e] font-black uppercase text-xs tracking-widest mb-4">Contact HR</h4>
+            <p class="text-gray-600 text-sm mb-2">For questions about open positions:</p>
+            <p class="font-semibold text-gray-900"><a href="mailto:careers@alaskabatteries.com"
+                class="text-[#c00d1e] hover:underline">careers@alaskabatteries.com</a></p>
+            <p class="font-semibold text-gray-900 mt-2"><a href="tel:+92518740280"
+                class="text-[#c00d1e] hover:underline">+92 51 874 0280</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div id="footer-placeholder"></div>
+
+    <script src="js/components.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/animations.js"></script>
+
+    <script>
+      // Toggle Support/Careers Tabs
+      function switchTab(tab) {
+        const supportContent = document.getElementById('support-content');
+        const careersContent = document.getElementById('careers-content');
+        const supportBtn = document.getElementById('support-btn');
+        const careersBtn = document.getElementById('careers-btn');
+        const heroBannerImg = document.getElementById('hero-banner-img');
+        const heroBannerTitle = document.getElementById('hero-banner-title');
+
+        if (tab === 'support') {
+          // Show Support
+          supportContent.classList.remove('hidden');
+          careersContent.classList.add('hidden');
+          supportBtn.classList.add('btn-primary');
+          supportBtn.classList.remove('btn-secondary');
+          careersBtn.classList.add('btn-secondary');
+          careersBtn.classList.remove('btn-primary');
+          heroBannerImg.src = 'assets/support.png';
+          heroBannerTitle.textContent = 'Support';
+        } else if (tab === 'careers') {
+          // Show Careers
+          supportContent.classList.add('hidden');
+          careersContent.classList.remove('hidden');
+          supportBtn.classList.add('btn-secondary');
+          supportBtn.classList.remove('btn-primary');
+          careersBtn.classList.add('btn-primary');
+          careersBtn.classList.remove('btn-secondary');
+          heroBannerImg.src = 'assets/careers.png';
+          heroBannerTitle.textContent = 'Careers';
+        }
+      }
+    </script>
     // TODO: Replace with your actual Hostinger PHP script URL
     const EMAIL_API_URL = 'https://yourdomain.com/send-email.php';
 
     // Success modal element (check if it exists in components.js)
     function showSuccessModal() {
-      const modal = document.getElementById('successModal');
-      if (modal) {
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-      } else {
-        // Fallback if modal doesn't exist
-        alert('Message sent successfully! We will get back to you within 48 hours.');
-      }
+    const modal = document.getElementById('successModal');
+    if (modal) {
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    } else {
+    // Fallback if modal doesn't exist
+    alert('Message sent successfully! We will get back to you within 48 hours.');
+    }
     }
 
     function closeModal() {
-      const modal = document.getElementById('successModal');
-      if (modal) {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-      }
+    const modal = document.getElementById('successModal');
+    if (modal) {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    }
     }
 
     // Form submission handler
     document.getElementById('contactForm').addEventListener('submit', async function (event) {
-      event.preventDefault();
+    event.preventDefault();
 
-      const submitBtn = document.getElementById('submitBtn');
-      const originalText = submitBtn.textContent;
+    const submitBtn = document.getElementById('submitBtn');
+    const originalText = submitBtn.textContent;
 
-      // Validate form fields
-      const fullName = document.getElementById('fullName');
-      const userEmail = document.getElementById('userEmail');
-      const userPhone = document.getElementById('userPhone');
+    // Validate form fields
+    const fullName = document.getElementById('fullName');
+    const userEmail = document.getElementById('userEmail');
+    const userPhone = document.getElementById('userPhone');
 
-      // Browser will handle required validation, but double-check
-      if (!fullName.value.trim() || !userEmail.value.trim() || !userPhone.value.trim()) {
-        alert('Please fill in all required fields (Name, Email, Phone)');
-        return;
-      }
+    // Browser will handle required validation, but double-check
+    if (!fullName.value.trim() || !userEmail.value.trim() || !userPhone.value.trim()) {
+    alert('Please fill in all required fields (Name, Email, Phone)');
+    return;
+    }
 
-      // Disable button and show loading state
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
-      submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+    // Disable button and show loading state
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
 
-      // Collect form data
-      const formData = {
-        name: fullName.value,
-        email: userEmail.value,
-        phone: userPhone.value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
-      };
+    // Collect form data
+    const formData = {
+    name: fullName.value,
+    email: userEmail.value,
+    phone: userPhone.value,
+    subject: document.getElementById('subject').value,
+    message: document.getElementById('message').value
+    };
 
-      try {
-        const response = await fetch(EMAIL_API_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData)
-        });
-
-        const result = await response.json();
-
-        if (response.ok && result.success) {
-          // Show success modal
-          showSuccessModal();
-
-          // Reset form
-          document.getElementById('contactForm').reset();
-        } else {
-          alert(result.message || 'Failed to send message. Please try again or contact us directly at +92 51 874 0280.');
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        alert('Failed to send message. Please try again or contact us directly at +92 51 874 0280.');
-      } finally {
-        // Re-enable button
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-        submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-      }
+    try {
+    const response = await fetch(EMAIL_API_URL, {
+    method: 'POST',
+    headers: {
+    'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData)
     });
-  </script>
+
+    const result = await response.json();
+
+    if (response.ok && result.success) {
+    // Show success modal
+    showSuccessModal();
+
+    // Reset form
+    document.getElementById('contactForm').reset();
+    } else {
+    alert(result.message || 'Failed to send message. Please try again or contact us directly at +92 51 874 0280.');
+    }
+    } catch (error) {
+    console.error('Error:', error);
+    alert('Failed to send message. Please try again or contact us directly at +92 51 874 0280.');
+    } finally {
+    // Re-enable button
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+    submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+    }
+    });
+    </script>
 </body>
 
 </html>

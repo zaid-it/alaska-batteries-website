@@ -738,7 +738,6 @@ html {
 .grid .p-6 h4 b {
   word-break: keep-all !important;
 }
-}
 
 .core-value-icon::before {
   content: "";
