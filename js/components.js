@@ -52,7 +52,7 @@ const headerHTML = /* HTML */ `
             </li>
 
             <li class="nav-item">
-              <a href="support.html" class="nav-link">Support</a>
+              <a href="support.html" class="nav-link">Contact Us</a>
               <div class="dropdown-panel">
                 <div class="dropdown-quote">Always there when <br /> you need a charge</div>
               </div>
@@ -121,7 +121,7 @@ const footerHTML = /* HTML */ `
                 <a href="about.html" class="hover:text-[#c00d1e] transition-colors">About Us</a>
               </li>
               <li>
-                <a href="support.html" class="hover:text-[#c00d1e] transition-colors">Support</a>
+                <a href="support.html" class="hover:text-[#c00d1e] transition-colors">Contact Us</a>
               </li>
             </ul>
           </div>
@@ -231,7 +231,7 @@ function setupMobileMenu() {
               </button>
 
               <a href="about.html" class="flex items-center px-4 py-4 text-[15px] font-semibold text-white  rounded-lg transition-all">About Us</a>
-              <a href="support.html" class="flex items-center px-4 py-4 text-[15px] font-semibold text-white  rounded-lg transition-all">Support</a>
+              <a href="support.html" class="flex items-center px-4 py-4 text-[15px] font-semibold text-white  rounded-lg transition-all">Contact Us</a>
             </nav>
           </div>
 

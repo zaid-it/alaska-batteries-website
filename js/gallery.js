@@ -4,8 +4,6 @@
 
 const galleryData = {
   corporate: [
-    { src: "assets/gallery/corp/corp-1.jpg" },
-    { src: "assets/gallery/corp/corp-2.jpg" },
     { src: "assets/gallery/corp/corp-3.jpg" },
     { src: "assets/gallery/corp/corp-5.jpg" },
     { src: "assets/gallery/corp/corp-6.jpg" },
@@ -26,6 +24,7 @@ const galleryData = {
     { src: "assets/gallery/dealer/d-10.jpg" },
     { src: "assets/gallery/dealer/d-11.jpg" },
   ],
+  awards: [{ src: "assets/gallery/awards/award-1.png" }, { src: "assets/gallery/awards/award-2.jpg" }, { src: "assets/gallery/awards/award-3.jpg" }],
 };
 
 let currentCategoryImages = [];
