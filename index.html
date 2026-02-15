@@ -10,6 +10,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/themes/odometer-theme-default.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="bg-white text-gray-900 font-sans overflow-x-hidden">
@@ -34,11 +37,11 @@
           <a href="dry-charge.html#Automotive"
             class="product-card group relative bg-white rounded-2xl overflow-hidden shadow-lg">
             <img src="assets/automotive-home.png" data-mobile="assets/mobile/automotive-mob.png" alt="Automotive" />
-            <div class="product-card-content">
+            <div class="product-card-content items-start text-left">
               <div class="product-card-title-wrap">
                 <h3 class="product-card-title">Automotive</h3>
               </div>
-              <div class="product-card-action">
+              <div class="product-card-action flex items-start">
                 <button class="btn-secondary btn-lg">
                   Learn More
                 </button>
@@ -128,7 +131,8 @@
             class="w-full h-64 md:max-w-[500px] md:h-96 md:min-h-[580px] rounded-xl overflow-hidden shadow-lg relative">
             <img src="assets/Tech-landing-2.png" alt="Graphite Technology Image 2"
               class="w-full h-full object-cover object-[55%_45%]" />
-            <div class="absolute inset-0 bg-black/10 flex flex-col items-end justify-end p-6 md:p-8">
+            <div
+              class="absolute inset-0 bg-black/10 flex flex-col items-center md:items-end justify-end md:justify-end p-6 md:p-8">
               <a href="graphite.html" class="btn-secondary text-2xl">
                 Explore
               </a>
@@ -200,16 +204,17 @@
 
             <!-- Counter -->
             <div class="partner-counter" data-target="500" aria-live="polite">
-              <p class="partner-counter-value text-center lg:text-left"><span id="partner-count">0</span>+ <span
+              <p class="partner-counter-value text-center lg:text-left"><span id="partner-count"
+                  class="odometer">0</span><span class="partner-plus">+</span> <span
                   class="partner-counter-label">Locations in All Major Cities</span></p>
             </div>
 
             <!-- CTA Buttons -->
-            <div class="flex flex-col sm:flex-row items-center gap-3 justify-center lg:justify-start pt-8">
-              <a href="dealers.html" class="btn-cta">
+            <div class="flex flex-row items-center gap-3 justify-center lg:justify-start pt-8">
+              <a href="dealers.html" class="btn-cta btn-compact w-1/2 sm:w-auto flex items-center justify-center">
                 <i class="fa-solid fa-map-location-dot"></i> Find A Partner
               </a>
-              <a href="support.html" class="btn-cta-alt">
+              <a href="support.html" class="btn-cta-alt btn-compact w-1/2 sm:w-auto flex items-center justify-center">
                 <i class="fa-solid fa-headset"></i> Get Support
               </a>
             </div>
@@ -223,6 +228,9 @@
 
   <div id="footer-placeholder"></div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/odometer.min.js"
+    integrity="sha512-v3fZyWIk7kh9yGNQZf1SnSjIxjAKsYbg6UQ+B+QxAZqJQLrN3jMjrdNwcxV6tis6S0s1xyVDZrDz9UoRLfRpWw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="js/components.js"></script>
   <script src="js/main.js"></script>
   <script src="js/animations.js"></script>

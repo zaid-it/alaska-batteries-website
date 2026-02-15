@@ -22,7 +22,7 @@
           class="w-full h-full object-cover object-[65%_10%] transition-transform duration-1000 group-hover:scale-105" />
         <div id="hero-text-box"
           class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 banner-overlay">
-          <h1 class="text-3xl md:text-6xl font-black uppercase text-left tracking-normal leading-tight text-white">News
+          <h1 class="text-3xl md:text-5xl font-bold uppercase text-left tracking-normal leading-tight text-white">News
           </h1>
         </div>
       </div>
@@ -37,7 +37,7 @@
                 <i class="fa-solid fa-magnifying-glass text-gray-400 text-sm"></i>
               </div>
               <input id="blog-search" onkeyup="filterBlogs()" type="text" placeholder="Search articles..."
-                class="block w-full h-full pl-12 pr-4 bg-gray-50 border border-gray-100 rounded-full text-sm outline-none focus:border-[#c00d1e] transition-all" />
+                class="block w-full h-full pl-12 pr-4 bg-gray-50 border border-gray-100 rounded-xl text-sm outline-none focus:border-[#c00d1e] transition-all" />
             </div>
           </div>
           <!-- scroll buttons moved below the blog list on mobile (see after #blog-scroll-container) -->
@@ -124,6 +124,70 @@
       </div>
     </section>
 
+    <style>
+      /* Unified filter button styles (FAQ + Gallery) - compact, wrapping text */
+      .faq-filter-btn,
+      .gallery-filter-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0.5rem 0.5rem;
+        min-height: 44px;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        line-height: 1.1;
+        max-width: 180px;
+        width: auto;
+      }
+
+      /* Mobile: give space between + icon and text, allow wrapping */
+      @media (max-width: 767px) {
+        .faq-trigger {
+          gap: 0.75rem;
+          align-items: center;
+        }
+
+        .faq-trigger h4 {
+          flex: 1 1 auto;
+          min-width: 0;
+          margin-right: 0.5rem;
+          word-break: break-word;
+        }
+
+        .faq-trigger i {
+          flex: 0 0 auto;
+          margin-left: 0.5rem;
+          align-self: center;
+        }
+
+        .faq-item .faq-content {
+          padding-left: 1.25rem;
+          padding-right: 1.25rem;
+        }
+
+        /* Mobile: keep buttons compact and allow wrapping */
+        .gallery-filter-btn,
+        .faq-filter-btn {
+          display: inline-flex !important;
+          padding: 0.4rem 0.5rem !important;
+          min-height: 44px !important;
+          height: auto !important;
+          font-size: 0.95rem !important;
+          line-height: 1.1 !important;
+          max-width: 150px !important;
+        }
+
+        .gallery-filter-btn.btn-lg,
+        .faq-filter-btn.btn-lg {
+          padding-top: 0.35rem !important;
+          padding-bottom: 0.35rem !important;
+          height: auto !important;
+        }
+      }
+    </style>
+
     <section id="faqs"
       class="border-b border-gray-10 flex items-center justify-start text-center bg-white overflow-hidden group">
       <div class="relative h-[180px] md:h-[400px] w-full flex flex-col banner-wrapper">
@@ -131,7 +195,7 @@
           class="w-full h-full object-cover object-[90%_10%] transition-transform duration-1000" />
         <div id="hero-text-box"
           class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
-          <h1 class="text-3xl md:text-7xl font-black uppercase text-left tracking-normal leading-tight text-white">FAQs
+          <h1 class="text-3xl md:text-5xl font-bold text-left tracking-normal leading-tight text-white">FAQs
           </h1>
         </div>
       </div>
@@ -420,7 +484,7 @@
         <div id="hero-text-box"
           class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 rounded-lg md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
           <h1
-            class="text-3xl md:text-7xl font-black uppercase text-left md:pt-0 tracking-normal leading-tight text-white">
+            class="text-3xl md:text-5xl font-bold uppercase text-left md:pt-0 tracking-normal leading-tight text-white">
             Gallery</h1>
         </div>
       </div>
@@ -428,7 +492,7 @@
     <section class="px-6 py-8 bg-white text-zinc-900 overflow-hidden border-t border-gray-100">
       <div class="container mx-auto px-6 mb-2">
         <div class="flex flex-col md:flex-row justify-center items-center md:items-center gap-4 mb-6">
-          <div class="grid grid-cols-3 gap-2 md:gap-4 w-full max-w-2xl mx-auto px-2 md:px-0">
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 w-full max-w-2xl mx-auto px-2 md:px-0">
             <button onclick="updateGallery('corporate')"
               class="gallery-filter-btn filter-btn btn-secondary btn-lg active bg-gray-100 text-zinc-900 px-2 py-2 text-sm md:px-2 md:py-2 md:text-sm rounded-lg font-bold uppercase hover:bg-gray-200 transition-all leading-tight"
               data-category="corporate">

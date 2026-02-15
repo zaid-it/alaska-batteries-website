@@ -148,9 +148,9 @@ img {
 .btn-cta {
   background-color: var(--alaska-red) !important;
   color: white !important;
-  padding: 1.25rem 2.75rem !important;
+  padding: 1.25rem 1.75rem !important;
   font-weight: 800 !important;
-  font-size: 1.125rem !important;
+  font-size: 1rem !important;
   text-transform: uppercase !important;
   letter-spacing: 0.06em !important;
   border-radius: 0.75rem !important;
@@ -177,9 +177,9 @@ img {
 .btn-cta-alt {
   background-color: white !important;
   color: var(--alaska-red) !important;
-  padding: 1.25rem 2.75rem !important;
+  padding: 1.25rem 1.75rem !important;
   font-weight: 800 !important;
-  font-size: 1.125rem !important;
+  font-size: 1rem !important;
   text-transform: uppercase !important;
   letter-spacing: 0.06em !important;
   border-radius: 0.75rem !important;
@@ -222,12 +222,12 @@ img {
   .btn-primary,
   .btn-secondary {
     padding: 0.5rem 1rem !important;
-    font-size: 0.75rem !important;
+    font-size: 0.8rem !important;
   }
 
   .btn-lg {
     padding: 0.75rem 1.5rem !important;
-    font-size: 0.875rem !important;
+    font-size: 0.75rem !important;
   }
 
   .btn-sm {
@@ -238,7 +238,26 @@ img {
   .btn-cta,
   .btn-cta-alt {
     padding: 0.875rem 1.5rem !important;
-    font-size: 0.875rem !important;
+    font-size: 0.7rem !important;
+  }
+}
+
+/* Allow stage title to wrap on small screens so forced <br> can take effect */
+@media (max-width: 640px) {
+  #stage-name {
+    white-space: normal !important;
+    line-height: 1.05 !important;
+    word-break: break-word !important;
+  }
+}
+
+/* Utility: force mobile-only break for specific phrases */
+.mobile-break {
+  display: inline;
+}
+@media (max-width: 640px) {
+  .mobile-break {
+    display: block !important;
   }
 }
 
@@ -292,6 +311,15 @@ img {
   }
 }
 
+/* Compact CTA modifier: slightly smaller CTAs for large layouts when needed */
+@media (min-width: 1024px) {
+  .btn-cta.btn-compact,
+  .btn-cta-alt.btn-compact {
+    padding: 0.75rem 1.75rem !important;
+    font-size: 1rem !important;
+  }
+}
+
 /* Video hero tweaks */
 .hero-section {
   aspect-ratio: auto;
@@ -309,6 +337,19 @@ img {
     height: 250px;
     max-height: 250px;
     min-height: 250px;
+  }
+}
+
+/* Fix: on small phones avoid centering the first carousel card (large left gap) */
+@media (max-width: 430px) {
+  .products-carousel {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    gap: 0.75rem !important;
+    scroll-padding-inline: 12px !important; /* ensure snapped item aligns with left edge */
+  }
+  .product-card {
+    scroll-snap-align: start !important;
   }
 }
 
@@ -397,6 +438,25 @@ img {
 
 .product-card-action {
   padding: 0 2.5rem 2.5rem;
+}
+
+/* Mobile: reduce left/right padding on product cards so titles/buttons align closer to screen edge */
+@media (max-width: 640px) {
+  .product-card-title-wrap {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .product-card-action {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .product-card {
+    /* ensure card content uses full width */
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
 }
 
 .product-card h3 {
@@ -708,13 +768,17 @@ select.filter-btn {
   background-position: right 1rem center;
   background-size: 1.25rem;
   padding-right: 3rem !important;
+
+  /* Center the displayed value so "ALL REGIONS" stays centered on all screens */
+  text-align: center !important;
+  -moz-text-align-last: center !important; /* Firefox */
+  text-align-last: center !important;
 }
 
 select#provinceFilter:focus,
 select.filter-btn:focus {
   outline: none !important;
   border-color: #c00d1e !important; /* red border on focus */
-  ring: 0 !important;
   box-shadow: none !important;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23c00d1e' d='M4.427 6.427l3.396 3.396a.25.25 0 00.354 0l3.396-3.396A.25.25 0 0011.396 6H4.604a.25.25 0 00-.177.427z'/%3E%3C/svg%3E");
 }
@@ -836,25 +900,177 @@ html {
 }
 
 .partner-counter {
-  text-align: center;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.25rem; /* tighten space between number and plus */
+  text-align: left;
+  vertical-align: middle;
 }
 
 .partner-counter-label {
-  font-size: 40px;
-  font-weight: 700;
+  font-size: 30px;
+  font-weight: 600;
   color: #000000;
-  margin-bottom: 0.35rem;
 }
 
 .partner-counter-value {
-  font-size: 40px;
-  font-weight: 700;
+  font-size: 2.5rem; /* slightly larger for emphasis */
+  font-weight: 800;
   color: #000000;
   line-height: 1;
+  display: inline-block;
+}
+
+/* Odometer + sign alignment and spacing fixes */
+.partner-counter .odometer {
+  display: inline-block;
+  font-weight: inherit;
+  line-height: 1;
+}
+
+.partner-counter .partner-plus {
+  display: inline-block;
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1;
+  margin-left: 0.1rem; /* small positive gap */
 }
 
 .group:hover .map-iframe {
   filter: grayscale(0) contrast(1) brightness(1);
+}
+
+/* Mobile: harmonize counter and label appearance */
+@media (max-width: 767px) {
+  .partner-counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    text-align: center;
+  }
+
+  .partner-counter-value {
+    font-size: 2rem; /* slightly reduced on mobile */
+    font-weight: 800;
+  }
+
+  .partner-counter .odometer {
+    font-size: 2rem;
+  }
+
+  .partner-counter .partner-plus {
+    font-size: 1.1rem;
+    margin-left: 0.12rem;
+    transform: translateY(-0.04em);
+  }
+
+  .partner-counter-label {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: none;
+  }
+}
+
+/* Prevent CTA buttons wrapping on small screens and override inline w-1/2 used in markup */
+@media (max-width: 640px) {
+  .btn-cta,
+  .btn-cta-alt {
+    white-space: nowrap; /* keep icon + text on one line */
+  }
+
+  /* If markup applied Tailwind width utilities (w-1/2), override them on phones */
+  .btn-cta.w-1\/2,
+  .btn-cta-alt.w-1\/2,
+  a.btn-cta.w-1\/2,
+  a.btn-cta-alt.w-1\/2 {
+    width: auto !important;
+    min-width: 0 !important;
+  }
+
+  /* Slightly reduce CTA padding/font on very small screens to help fit */
+  .btn-cta.btn-compact,
+  .btn-cta-alt.btn-compact {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+/* Dealers page: make search controls match width on mobile */
+@media (max-width: 640px) {
+  /* Ensure the search row stacks and controls span full width */
+  #search-section .flex.flex-col,
+  #search-section .flex.flex-col > * {
+    width: 100% !important;
+  }
+
+  #search-section .flex > .relative,
+  #search-section select#provinceFilter,
+  #search-section .filter-btn {
+    width: 100% !important;
+    display: block !important;
+  }
+
+  /* Match visual weight: make select and partners button use same height/padding as input */
+  #search-section select#provinceFilter,
+  #search-section .filter-btn {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    padding-top: 0.625rem !important;
+    padding-bottom: 0.625rem !important;
+    font-size: 1rem !important;
+    border-radius: 0.5rem !important;
+    text-align: center !important;
+  }
+
+  /* Keep the partners count text bold and centered like the search label */
+  #search-section .filter-btn span#dealerCount {
+    font-weight: 800 !important;
+    margin-right: 0.5rem !important;
+  }
+
+  /* Make "All Regions" look like a secondary button on mobile */
+  #search-section select#provinceFilter {
+    background: white !important;
+    color: var(--alaska-red) !important;
+    border: 2px solid var(--alaska-red) !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Non-active filter buttons: show as secondary-style (white bg, red border/text) */
+  #search-section .filter-btn:not(.active) {
+    background: white !important;
+    color: var(--alaska-red) !important;
+    border: 2px solid var(--alaska-red) !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  /* Make the partners-count control (active) look like a primary button on mobile */
+  #search-section .filter-btn.active {
+    background: var(--alaska-red) !important;
+    color: white !important;
+    border: 2px solid var(--alaska-red) !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+  }
+
+  /* Ensure the count number remains prominent */
+  #search-section .filter-btn #dealerCount {
+    font-size: 1.125rem !important;
+  }
 }
 
 .map-trigger {
@@ -947,7 +1163,7 @@ html {
   line-height: 1.2;
   transition: all 0.3s ease;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 .region-tab:hover {
   border-color: #c00d1e;

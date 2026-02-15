@@ -13,6 +13,28 @@ function normalizeUses(uses) {
     .filter(Boolean);
 }
 
+// Format the stage title for mobile: force a break before 'Lead-Acid' when narrow
+function formatStageTitle(text) {
+  if (!text) return "";
+  try {
+    // Normalize variants like "Lead Acid", "Lead-Acid", "lead acid" etc.
+    const regex = /\bLead[\s-]*Acid\b/i;
+    if (window.innerWidth <= 640 && regex.test(text)) {
+      // Replace first match with a standardized break + capitalization
+      return text.replace(regex, function (match) {
+        return "<br>Lead-Acid";
+      });
+    }
+    // As a fallback on small screens, allow a soft break before "Battery" if present
+    if (window.innerWidth <= 640 && /\bBattery\b/i.test(text) && !regex.test(text)) {
+      return text.replace(/\bBattery\b/i, "<br>Battery");
+    }
+  } catch (e) {
+    return text;
+  }
+  return text;
+}
+
 function getUsesText(uses) {
   const list = normalizeUses(uses);
   return list.join(", ");
@@ -66,8 +88,8 @@ window.updateStage = function (id, shouldScroll = false) {
   const stageImage = document.getElementById("stage-image");
   const tagsContainer = document.getElementById("stage-tags");
 
-  if (stageName) stageName.innerText = battery.model;
-  if (stageTech) stageTech.innerText = battery.tech;
+  if (stageName) stageName.innerHTML = formatStageTitle(battery.model);
+  if (stageTech) stageTech.innerHTML = formatStageTitle(battery.tech);
   if (stagePlates) stagePlates.innerText = battery.plates;
   if (stagePower) stagePower.innerText = battery.p + "V";
   if (stageAh) stageAh.innerText = battery.ah + " AH";
@@ -135,7 +157,14 @@ window.updateStage = function (id, shouldScroll = false) {
   }
 
   if (shouldScroll) {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const target = document.getElementById("details-anchor") || document.getElementById("product-stage") || document.getElementById("search-section");
+    if (target) {
+      const offset = 20; // small gap from top
+      const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   }
 };
 
@@ -681,16 +710,16 @@ window.executeComparison = function (secondId) {
         </div>
 
         <!-- Specs Table -->
-        <div style="border: 1px solid #e5e7eb; border-radius: 0.5rem; overflow: hidden;" class="battery-compare-specs">
+        <div style="border: 1px solid #e5e7eb; border-radius: 0.5rem; overflow: hidden; width:100%; margin:0;" class="battery-compare-specs">
           <!-- Header Row -->
-          <div style="display: grid; grid-template-columns: 1fr 0.5fr 1fr; background-color: white; border-bottom: 2px solid #e5e7eb;" class="specs-grid">
-            <div style="padding: 1rem; text-align: center; border-right: 1px solid #e5e7eb;">
+          <div style="display: grid; grid-template-columns: 1fr 0.5fr 1fr; background-color: white; border-bottom: 2px solid #e5e7eb;" class="specs-grid specs-header">
+            <div style="padding: 0.75rem; display:flex; align-items:center; justify-content:center;">
               <h4 class="text-lg font-bold uppercase text-[#c00d1e]">${b1.model}</h4>
             </div>
-            <div style="padding: 1rem; text-align: center; border-right: 1px solid #e5e7eb;">
+            <div style="padding: 0.75rem; display:flex; align-items:center; justify-content:center;">
               <p class="text-lg font-bold uppercase text-[#c00d1e]">Specs</p>
             </div>
-            <div style="padding: 1rem; text-align: center;">
+            <div style="padding: 0.75rem; display:flex; align-items:center; justify-content:center;">
               <h4 class="text-lg font-bold uppercase text-[#c00d1e]">${b2.model}</h4>
             </div>
           </div>
@@ -703,16 +732,16 @@ window.executeComparison = function (secondId) {
               const displayVal1 = val1 === undefined || val1 === null || val1 === "" ? "--" : `${val1}${s.s || ""}`;
               const displayVal2 = val2 === undefined || val2 === null || val2 === "" ? "--" : `${val2}${s.s || ""}`;
               const bgColor = i % 2 === 0 ? "white" : "#f3f4f6";
-              const borderBottom = i < specs.length - 1 ? "1px solid #e5e7eb" : "none";
+              const borderBottom = "1px solid #e5e7eb";
               return `
               <div style="display: grid; grid-template-columns: 1fr 0.5fr 1fr; background-color: ${bgColor}; border-bottom: ${borderBottom};" class="specs-grid">
-                <div style="padding: 1rem; text-align: center; border-right: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center;">
+                <div style="padding: 0.75rem; display:flex; align-items:center; justify-content:center;">
                   <span class="text-sm font-semibold text-black">${displayVal1}</span>
                 </div>
-                <div style="padding: 1rem; text-align: center; border-right: 1px solid #e5e7eb;">
+                <div style="padding: 0.75rem; display:flex; align-items:center; justify-content:center;">
                   <span class="text-xs font-bold uppercase text-[#c00d1e]">${s.l}</span>
                 </div>
-                <div style="padding: 1rem; text-align: center; display: flex; align-items: center; justify-content: center;">
+                <div style="padding: 0.75rem; display:flex; align-items:center; justify-content:center;">
                   <span class="text-sm font-semibold text-black">${displayVal2}</span>
                 </div>
               </div>`;
@@ -720,15 +749,48 @@ window.executeComparison = function (secondId) {
             .join("")}
         </div>
 
-        <!-- Mobile Responsive Styles -->
+        <!-- Compare modal divider/wrapping styles -->
         <style>
+          /* Desktop: draw single vertical dividers using the first and third cell borders to avoid double lines */
+          .battery-compare-specs .specs-grid > div { box-sizing: border-box; }
+          .battery-compare-specs .specs-grid > div:nth-child(1) { border-right: 1px solid #e5e7eb; }
+          .battery-compare-specs .specs-grid > div:nth-child(2) { border-left: none; border-right: none; }
+          .battery-compare-specs .specs-grid > div:nth-child(3) { border-left: 1px solid #e5e7eb; }
+
+          /* Ensure each row draws its bottom line consistently */
+          .battery-compare-specs .specs-grid { border-bottom: 1px solid #e5e7eb; }
+
+          /* Typography: allow wrapping and center alignment; use responsive sizing */
+          .battery-compare-specs .specs-grid span,
+          .battery-compare-specs .specs-grid p,
+          .battery-compare-specs .specs-grid h4 {
+            word-break: break-word;
+            overflow-wrap: anywhere;
+            white-space: normal;
+            text-align: center;
+            line-height: 1.2;
+            font-size: 0.95rem;
+          }
+
+          /* Header slightly larger */
+          .battery-compare-specs .specs-grid h4 { font-size: 1.05rem; }
+
+          /* Mobile adjustments: remove per-cell vertical borders and give middle column more space so specs wrap nicely */
           @media (max-width: 768px) {
-            .battery-compare-grid {
-              grid-template-columns: 1fr 1fr !important;
-              gap: 0.5rem !important;
-            }
-            .specs-grid {
-              grid-template-columns: 1fr 0.5fr 1fr !important;
+            .battery-compare-grid { grid-template-columns: 1fr 1fr !important; gap: 0.5rem !important; }
+            /* Make middle column wider to allow long labels to wrap */
+            .specs-grid { grid-template-columns: 0.8fr 1.6fr 0.8fr !important; }
+            .battery-compare-specs .specs-grid > div { border-left: none !important; border-right: none !important; }
+            /* Draw single thin divider around the middle column */
+            .battery-compare-specs .specs-grid > div:nth-child(2) { border-left: 1px solid #e5e7eb !important; border-right: 1px solid #e5e7eb !important; }
+            .battery-compare-specs .specs-grid { border-bottom: 1px solid #e5e7eb; }
+            .battery-compare-specs { padding-left: 0.25rem; padding-right: 0.25rem; }
+
+            /* Reduce font size slightly on very narrow screens */
+            @media (max-width: 420px) {
+              .battery-compare-specs .specs-grid span,
+              .battery-compare-specs .specs-grid p,
+              .battery-compare-specs .specs-grid h4 { font-size: 0.85rem; }
             }
           }
         </style>
