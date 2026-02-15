@@ -258,91 +258,92 @@
         }
       }
     </script>
-    // TODO: Replace with your actual Hostinger PHP script URL
-    const EMAIL_API_URL = 'https://yourdomain.com/send-email.php';
+    <script>
+      // TODO: Replace with your actual Hostinger PHP script URL
+      const EMAIL_API_URL = 'https://yourdomain.com/send-email.php';
 
-    // Success modal element (check if it exists in components.js)
-    function showSuccessModal() {
-    const modal = document.getElementById('successModal');
-    if (modal) {
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    } else {
-    // Fallback if modal doesn't exist
-    alert('Message sent successfully! We will get back to you within 48 hours.');
-    }
-    }
+      // Success modal element (check if it exists in components.js)
+      function showSuccessModal() {
+        const modal = document.getElementById('successModal');
+        if (modal) {
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+        } else {
+          // Fallback if modal doesn't exist
+          alert('Message sent successfully! We will get back to you within 48 hours.');
+        }
+      }
 
-    function closeModal() {
-    const modal = document.getElementById('successModal');
-    if (modal) {
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
-    }
-    }
+      function closeModal() {
+        const modal = document.getElementById('successModal');
+        if (modal) {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+        }
+      }
 
-    // Form submission handler
-    document.getElementById('contactForm').addEventListener('submit', async function (event) {
-    event.preventDefault();
+      // Form submission handler
+      document.getElementById('contactForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
 
-    const submitBtn = document.getElementById('submitBtn');
-    const originalText = submitBtn.textContent;
+        const submitBtn = document.getElementById('submitBtn');
+        const originalText = submitBtn.textContent;
 
-    // Validate form fields
-    const fullName = document.getElementById('fullName');
-    const userEmail = document.getElementById('userEmail');
-    const userPhone = document.getElementById('userPhone');
+        // Validate form fields
+        const fullName = document.getElementById('fullName');
+        const userEmail = document.getElementById('userEmail');
+        const userPhone = document.getElementById('userPhone');
 
-    // Browser will handle required validation, but double-check
-    if (!fullName.value.trim() || !userEmail.value.trim() || !userPhone.value.trim()) {
-    alert('Please fill in all required fields (Name, Email, Phone)');
-    return;
-    }
+        // Browser will handle required validation, but double-check
+        if (!fullName.value.trim() || !userEmail.value.trim() || !userPhone.value.trim()) {
+          alert('Please fill in all required fields (Name, Email, Phone)');
+          return;
+        }
 
-    // Disable button and show loading state
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
-    submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+        // Disable button and show loading state
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
 
-    // Collect form data
-    const formData = {
-    name: fullName.value,
-    email: userEmail.value,
-    phone: userPhone.value,
-    subject: document.getElementById('subject').value,
-    message: document.getElementById('message').value
-    };
+        // Collect form data
+        const formData = {
+          name: fullName.value,
+          email: userEmail.value,
+          phone: userPhone.value,
+          subject: document.getElementById('subject').value,
+          message: document.getElementById('message').value
+        };
 
-    try {
-    const response = await fetch(EMAIL_API_URL, {
-    method: 'POST',
-    headers: {
-    'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(formData)
-    });
+        try {
+          const response = await fetch(EMAIL_API_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+          });
 
-    const result = await response.json();
+          const result = await response.json();
 
-    if (response.ok && result.success) {
-    // Show success modal
-    showSuccessModal();
+          if (response.ok && result.success) {
+            // Show success modal
+            showSuccessModal();
 
-    // Reset form
-    document.getElementById('contactForm').reset();
-    } else {
-    alert(result.message || 'Failed to send message. Please try again or contact us directly at +92 51 874 0280.');
-    }
-    } catch (error) {
-    console.error('Error:', error);
-    alert('Failed to send message. Please try again or contact us directly at +92 51 874 0280.');
-    } finally {
-    // Re-enable button
-    submitBtn.disabled = false;
-    submitBtn.textContent = originalText;
-    submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-    }
-    });
+            // Reset form
+            document.getElementById('contactForm').reset();
+          } else {
+            alert(result.message || 'Failed to send message. Please try again or contact us directly at +92 51 874 0280.');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('Failed to send message. Please try again or contact us directly at +92 51 874 0280.');
+        } finally {
+          // Re-enable button
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+          submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+      });
     </script>
 </body>
 
