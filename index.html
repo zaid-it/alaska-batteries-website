@@ -93,9 +93,11 @@
 
       <!-- CTA Button -->
       <div class="flex justify-center mt-8">
-        <button onclick="openBatteryFinder()" class="btn-cta">
-          <i class="fa-solid fa-bolt"></i> Choose Your Ideal Solution
-        </button>
+        <div class="cta-shell">
+          <button onclick="openBatteryFinder()" class="btn-cta">
+            <i class="fa-solid fa-bolt"></i> Choose Your Ideal Solution
+          </button>
+        </div>
       </div>
     </section>
     <!-- Quick Links Section -->
@@ -111,28 +113,32 @@
             <img src="assets/Tech-landing.png" alt="Graphite Technology Image 1"
               class="w-full h-full object-cover object-[55%_75%]" />
             <!-- Text Overlay -->
-            <div class="absolute inset-0 bg-black/10 flex flex-col items-start justify-between p-6 md:p-12">
+            <div class="absolute inset-0 bg-black/10 flex flex-col items-start justify-end p-6 md:p-8">
               <h3
-                class="text-[#c00d1e] font-extrabold text-2xl md:text-4xl uppercase text-left mb-6 md:mb-8 leading-tight drop-shadow-lg"
-                style="text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);">
+                class="text-[#c00d1e] font-bold text-2xl md:text-5xl uppercase text-left mb-6 md:mb-8 leading-tight drop-shadow-lg"
+                style="text-shadow: 4px 4px 4px rgba(255, 255, 255, 0.848);">
                 Experience the Power of Graphite Technology
               </h3>
-              <a href="graphite.html" class="btn-primary text-2xl">
-                Explore
-              </a>
+
             </div>
           </div>
 
           <!-- Image 2 - Remaining width on desktop, 100% on mobile -->
-          <div class="w-full h-64 md:max-w-[500px] md:h-96 md:min-h-[580px] rounded-xl overflow-hidden shadow-lg">
+          <div
+            class="w-full h-64 md:max-w-[500px] md:h-96 md:min-h-[580px] rounded-xl overflow-hidden shadow-lg relative">
             <img src="assets/Tech-landing-2.png" alt="Graphite Technology Image 2"
-              class="w-full h-full md:bg-white/90 object-cover object-[55%_45%]" />
+              class="w-full h-full object-cover object-[55%_45%]" />
+            <div class="absolute inset-0 bg-black/10 flex flex-col items-end justify-end p-6 md:p-8">
+              <a href="graphite.html" class="btn-secondary text-2xl">
+                Explore
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="py-12 bg-white border-t border-b border-gray-100">
+    <section class="py-6 bg-white border-t border-b border-gray-100">
       <div class="mx-auto px-6">
         <div
           class="flex gap-4 w-full overflow-x-auto md:overflow-visible md:grid md:grid-cols-3 md:gap-6 no-scrollbar snap-x snap-mandatory md:snap-none">
@@ -142,7 +148,7 @@
             <div class="relative h-48 overflow-hidden bg-gray-100">
               <img src="assets/vault/news.png" alt="News" class="w-full h-full object-cover object-[55%_45%]">
             </div>
-            <div class="flex-1 bg-white p-6 flex flex-col justify-start">
+            <div class="flex-1 bg-white p-2 flex flex-col justify-start">
               <h3 class="text-xl md:text-2xl font-extrabold uppercase text-center text-[#c00d1e]">News</h3>
             </div>
           </a>
@@ -153,7 +159,7 @@
             <div class="relative h-48 overflow-hidden bg-gray-100">
               <img src="assets/vault/FAQs.png" alt="FAQs" class="w-full h-full object-cover object-[90%_45%]">
             </div>
-            <div class="flex-1 bg-white p-6 flex flex-col justify-start">
+            <div class="flex-1 bg-white p-2 flex flex-col justify-start">
               <h3 class="text-xl md:text-2xl font-extrabold uppercase text-center text-[#c00d1e]">FAQs</h3>
             </div>
           </a>
@@ -164,7 +170,7 @@
             <div class="relative h-48 overflow-hidden bg-gray-100">
               <img src="assets/vault/Gallery.png" alt="Gallery" class="w-full h-full object-cover object-[75%_45%]">
             </div>
-            <div class="flex-1 bg-white p-6 flex flex-col justify-start">
+            <div class="flex-1 bg-white p-2 flex flex-col justify-start">
               <h3 class="text-xl md:text-2xl font-extrabold uppercase text-center text-[#c00d1e]">Gallery</h3>
             </div>
           </a>
@@ -172,15 +178,22 @@
       </div>
     </section>
 
-    <section class="bg-white border-t border-gray-200" style="height: calc(100vh - 80px);">
+    <section class="bg-gray-50 rounded-xl" style="height: calc(100vh - 80px);">
       <div class="mx-auto px-4 sm:px-8 w-full h-full flex items-center">
-        <!-- Two-column flex: Mobile stacked, Desktop 25/75 -->
-        <div class="flex flex-col lg:flex-row gap-4 sm:gap-6 w-full h-full items-stretch">
-          <!-- Details: 100% on mobile, 25% on lg -->
-          <div
-            class="w-full lg:w-1/4 flex flex-col gap-3 sm:gap-4 justify-start sm:justify-center py-4 sm:py-0 overflow-y-auto sm:overflow-y-visible">
+        <div class="flex flex-col lg:flex-row w-full h-full items-center lg:items-stretch gap-4 sm:gap-6">
+          <!-- Map: flexes to take remaining space - first on mobile, second on desktop -->
+          <div class="flex-1 h-[220px] sm:h-[280px] lg:h-full rounded-xl overflow-hidden order-1 lg:order-2">
+            <div class="relative w-full h-full flex items-center justify-center overflow-hidden pb-4">
+              <img src="assets/dealer-map.png" alt="Alaska Dealer Map" class="w-full h-full object-cover" />
+            </div>
+          </div>
+
+          <!-- Text + CTA block: auto width, no fixed split - second on mobile, first on desktop -->
+          <div class="flex flex-col gap-3 sm:gap-3 justify-center py-4 sm:py-0 order-2 lg:order-1">
             <div class="text-left">
-              <h2 class="font-bold text-black text-5xl lg:text-6xl tracking-tight leading-tight">Our
+              <h2
+                class="font-bold text-black text-5xl text-center md:text-left lg:text-6xl tracking-tight leading-tight pb-8">
+                Our
                 <span class="text-[#c00d1e]"> Presence</span>
               </h2>
             </div>
@@ -188,77 +201,17 @@
             <!-- Counter -->
             <div class="partner-counter" data-target="500" aria-live="polite">
               <p class="partner-counter-value text-center lg:text-left"><span id="partner-count">0</span>+ <span
-                  class="partner-counter-label">Locations</span></p>
-            </div>
-
-            <!-- Details Grid (2 columns x 2 rows) -->
-            <div class="grid grid-cols-2 gap-3 w-full">
-              <div
-                class="w-full flex items-start gap-4 bg-gray-50 rounded-2xl p-4 border border-gray-200 hover:border-[#c00d1e] hover:bg-red-50/30 transition-all duration-300 group">
-                <div
-                  class="w-10 h-10 rounded-xl bg-[#c00d1e]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#c00d1e]/20 transition-colors">
-                  <i class="fa-solid fa-certificate text-[#c00d1e] text-lg"></i>
-                </div>
-                <div class="text-left">
-                  <p class="font-black text-xs uppercase tracking-widest text-gray-900 leading-tight">Authorized
-                  </p>
-                  <p class="text-[11px] text-gray-600 font-medium">500+ Partners</p>
-                </div>
-              </div>
-
-              <div
-                class="w-full flex items-start gap-4 bg-gray-50 rounded-2xl p-4 border border-gray-200 hover:border-[#c00d1e] hover:bg-red-50/30 transition-all duration-300 group">
-                <div
-                  class="w-10 h-10 rounded-xl bg-[#c00d1e]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#c00d1e]/20 transition-colors">
-                  <i class="fa-solid fa-headset text-[#c00d1e] text-lg"></i>
-                </div>
-                <div class="text-left">
-                  <p class="font-black text-xs uppercase tracking-widest text-gray-900 leading-tight">Support</p>
-                  <p class="text-[11px] text-gray-600 font-medium">24/7 Available</p>
-                </div>
-              </div>
-
-              <div
-                class="w-full flex items-start gap-4 bg-gray-50 rounded-2xl p-4 border border-gray-200 hover:border-[#c00d1e] hover:bg-red-50/30 transition-all duration-300 group">
-                <div
-                  class="w-10 h-10 rounded-xl bg-[#c00d1e]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#c00d1e]/20 transition-colors">
-                  <i class="fa-solid fa-map text-[#c00d1e] text-lg"></i>
-                </div>
-                <div class="text-left">
-                  <p class="font-black text-xs uppercase tracking-widest text-gray-900 leading-tight">Coverage</p>
-                  <p class="text-[11px] text-gray-600 font-medium">All Major Cities</p>
-                </div>
-              </div>
-
-              <div
-                class="w-full flex items-start gap-4 bg-gray-50 rounded-2xl p-4 border border-gray-200 hover:border-[#c00d1e] hover:bg-red-50/30 transition-all duration-300 group">
-                <div
-                  class="w-10 h-10 rounded-xl bg-[#c00d1e]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#c00d1e]/20 transition-colors">
-                  <i class="fa-solid fa-check text-[#c00d1e] text-lg"></i>
-                </div>
-                <div class="text-left">
-                  <p class="font-black text-xs uppercase tracking-widest text-gray-900 leading-tight">Quality</p>
-                  <p class="text-[11px] text-gray-600 font-medium">Verified Partners</p>
-                </div>
-              </div>
+                  class="partner-counter-label">Locations in All Major Cities</span></p>
             </div>
 
             <!-- CTA Buttons -->
-            <div class="flex flex-col sm:flex-row items-center gap-3 justify-center lg:justify-start">
+            <div class="flex flex-col sm:flex-row items-center gap-3 justify-center lg:justify-start pt-8">
               <a href="dealers.html" class="btn-cta">
                 <i class="fa-solid fa-map-location-dot"></i> Find A Partner
               </a>
               <a href="support.html" class="btn-cta-alt">
                 <i class="fa-solid fa-headset"></i> Get Support
               </a>
-            </div>
-          </div>
-
-          <!-- Map: 100% on mobile, 75% on lg -->
-          <div class="w-full lg:w-3/4 h-64 lg:h-full rounded-xl overflow-hidden p-2 sm:p-4 lg:p-8">
-            <div
-              class="relative w-full h-full bg-white/5 rounded-3xl shadow-xl flex items-center justify-center overflow-hidden">
-              <img src="assets/dealer-map.png" alt="Alaska Dealer Map" class="w-full h-full object-contain" />
             </div>
           </div>
         </div>

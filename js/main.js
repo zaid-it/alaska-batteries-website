@@ -482,7 +482,7 @@ const blogData = {
 
       <p class="text-zinc-600 leading-relaxed mb-6">With simple, scheduled checks and correct storage practices, your battery will remain ready when you need it. If unsure, have an authorized dealer test and maintain your battery to avoid premature failure.</p>
       <div class="text-center">
-        <a href="products.html" style="color:#ffffff;text-decoration:none;" class="inline-block bg-[#cc001b] text-white px-8 py-3 rounded-full font-black uppercase tracking-tighter hover:scale-105 transition-transform">See Battery Care Products</a>
+        <a href="vault.html#faqs" style="color:#ffffff;text-decoration:none;" class="inline-block bg-[#cc001b] text-white px-8 py-3 rounded-full font-black uppercase tracking-tighter hover:scale-105 transition-transform">Read for Battery Care</a>
       </div>
     `,
   },
@@ -531,6 +531,14 @@ function openBlogModal(id) {
         </div>
       </div>
     `;
+
+    // Add click listener to all buttons and links inside the blog content
+    const buttons = body.querySelectorAll("button, a");
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        closeBlogModal();
+      });
+    });
   });
 
   modal.classList.remove("hidden");
