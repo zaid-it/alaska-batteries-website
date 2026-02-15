@@ -18,39 +18,65 @@
   <div id="header-placeholder"></div>
   <main>
     <section
-      class="relative md:bg-cover md:bg-left bg-cover bg-right w-full h-auto md:h-screen md:w-full border-b border-gray-200 flex items-center justify-center px-4 py-8 md:py-0"
-      style="max-height: 900px; background-image: url('assets/mgmt.png');">
-      <!--<div class="absolute w-full overflow-visible">
-        <img src="assets/mgmt.png" alt="Our Story" class="w-full object-cover object-left h-[360px] md:h-[950px]" /> -->
-      <div
-        class="md:mt-0 border-t-4 border-[#c00d1e] relative md:absolute md:w-[650px] md:top-12 md:left-16 md:h-[600px] bg-black/40 backdrop-blur-xl md:bg-white/15 md:backdrop-blur-2xl rounded-2xl p-5 md:p-8 shadow-2xl overflow-y-auto"
-        style="z-index: 50 !important;">
-        <h2min0
-          class="font-bold uppercase tracking-normal mb-2 md:mb-2 text-white md:text-white text-3xl text-center md:text-4xl lg:text-5xl">
-          Our <span style="color: #c00d1e !important;">Story</span>
-          </h2>
-          <div
-            class="space-y-3 md:space-y-4 leading-relaxed md:tracking-normal font-sm text-justify md:text-white text-base md:text-lg">
-            <p>
-              Alaska Batteries may be a new name in Pakistan’s battery market, but the people behind it have spent years
-              living this
-              industry, and in real customer conversations. We started Alaska because we felt the category had become
-              repetitive, the
-              same claims, the same approach, and not enough attention to what customers actually go through when a
-              battery fails at
-              the wrong time. So we built a customer-first company with a simple belief, power should not be a worry. We
-              focus on
-              understanding how people really use their vehicles and backup systems in Pakistan and then guide them to
-              the right
-              solution, not just a product. Whether it’s choosing the correct battery, improving battery life through
-              better usage and
-              maintenance advice, or standing behind our promise with support, Alaska exists to solve everyday power
-              problems, so our
-              customers can drive, work, and live with confidence.</p>
-          </div>
+      class="border-b border-gray-10 flex items-center justify-start text-center bg-white overflow-hidden group hero-fold">
+      <div class="relative h-screen w-full flex flex-col banner-wrapper">
+        <img id="hero-banner-img" src="assets/mgmt.png" alt="About Us" class="w-full h-full" />
+        <div id="hero-text-box"
+          class="absolute bottom-1 left-0 right-0 md:bottom-auto md:left-8 md:w-[500px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 overflow-hidden banner-overlay">
+          <h1 id="hero-banner-title"
+            class="text-2xl md:text-5xl text-left font-bold uppercase tracking-normal leading-tight text-white">
+            About Us</span>
+          </h1>
+        </div>
       </div>
-      <!-- </div> -->
     </section>
+
+    <!-- Section: Our Story with Video -->
+    <section class="bg-white py-12 md:py-20">
+      <div class="mx-auto px-6 md:px-8">
+        <!-- Two Column Layout: Text Left, Video Right -->
+        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
+          <!-- Text Content - 50% on desktop, 100% on mobile -->
+          <div class="w-full md:w-1/2 flex flex-col justify-center order-2 md:order-1">
+            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight leading-tight mb-6">
+              Our<span class="text-[#c00d1e]"> Story</span>
+            </h2>
+            <div class="space-y-4 text-gray-600 text-base md:text-lg leading-relaxed">
+              <p>
+                Alaska Batteries may be a new name in Pakistan's battery market, but the people behind it have spent
+                years
+                living this industry, and in real customer conversations. We started Alaska because we felt the category
+                had become
+                repetitive, the same claims, the same approach, and not enough attention to what customers actually go
+                through when a
+                battery fails at the wrong time.
+              </p>
+              <p>
+                So we built a customer-first company with a simple belief: power should not be a worry. We focus on
+                understanding how people really use their vehicles and backup systems in Pakistan and then guide them to
+                the right solution, not just a product.
+              </p>
+              <p>
+                Whether it's choosing the correct battery, improving battery life through better usage and maintenance
+                advice, or standing behind our promise with support, Alaska exists to solve everyday power problems, so
+                our customers can drive, work, and live with confidence.
+              </p>
+            </div>
+          </div>
+
+          <!-- Video - 50% on desktop, 100% on mobile -->
+          <div
+            class="w-full md:w-1/2 h-64 md:h-96 md:min-h-[500px] rounded-xl overflow-hidden shadow-lg relative bg-gray-100 order-1 md:order-2">
+            <video id="storyVideo" class="w-full h-full object-cover cursor-pointer" controls playsinline
+              webkit-playsinline poster="assets/videos/about-thumbnail.png">
+              <source src="assets/videos/about.mp4" type="video/mp4" />
+              Your browser does not support HTML5 video.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Section 1: The Future is Sustainable -->
     <section
       class="relative w-full h-auto md:h-screen bg-cover bg-center border-b border-gray-200 flex items-center justify-center px-4 py-12 md:py-0"
@@ -58,15 +84,15 @@
 
       <div class="w-full max-w-5xl px-2 md:px-0">
         <div
-          class="bg-black/50 md:bg-white/10 md:backdrop-blur-md rounded-2xl p-6 md:p-10 shadow-2xl border border-white/20">
-          <div class="text-center">
+          class="bg-black/50 md:bg-white/10 md:backdrop-blur-md rounded-2xl p-8 md:p-12 shadow-2xl border border-white/20">
+          <div class="text-center mb-6">
             <h2 class="text-3xl md:text-6xl font-bold uppercase tracking-normal text-white md:text-white">
               The Future
               is
               <span class="text-[#c00d1e]">Sustainable</span>
             </h2>
           </div>
-          <div>
+          <div class="mb-8">
             <p class="text-white md:text-white leading-relaxed text-sm md:text-lg text-justify">
               To be Pakistan's most trusted power storage solutions brand, enabling uninterrupted mobility, work, and
               everyday life through dependable performance and responsible innovation. We're committed to building a
@@ -74,8 +100,17 @@
               reliable power is not just a service, but a responsibility we uphold with every battery we produce.
             </p>
           </div>
-          <div class="text-center mb-2">
-            <h2 class="text-3xl md:text-6xl font-bold uppercase tracking-normal text-white md:text-white pt-8">The
+          <!-- Separator -->
+          <div class="flex items-center justify-center my-8">
+            <div class="flex-1 border-t-2 border-white/30"></div>
+            <div class="px-4">
+              <i class="fas fa-bolt text-[#c00d1e] text-2xl"></i>
+            </div>
+            <div class="flex-1 border-t-2 border-white/30"></div>
+          </div>
+
+          <div class="text-center mb-6">
+            <h2 class="text-3xl md:text-6xl font-bold uppercase tracking-normal text-white md:text-white">The
               Path to <span class="text-[#c00d1e]">Future</span>
             </h2>
           </div>
@@ -138,7 +173,7 @@
               <div
                 class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
                 onclick="openImageModal('assets/gallery/certificates/ISO-9001-2015.jpeg', 'ISO 9001:2015 Quality Management')">
-                <div class="w-full h-56 md:h-48 bg-gray-300 overflow-hidden relative">
+                <div class="w-full h-56 md:h-96 bg-gray-300 overflow-hidden relative">
                   <img src="assets/gallery/certificates/ISO-9001-2015.jpeg" alt="ISO 9001:2015"
                     class="w-full h-full object-cover object-[10%_40%] group-hover:scale-105 transition-transform duration-300" />
                   <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
@@ -149,7 +184,7 @@
               <div
                 class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
                 onclick="openImageModal('assets/gallery/certificates/ISO-14001-2015.jpeg', 'Environmental Safety Certified')">
-                <div class="w-full h-56 md:h-48 bg-gray-300 overflow-hidden relative">
+                <div class="w-full h-56 md:h-96 bg-gray-300 overflow-hidden relative">
                   <img src="assets/gallery/certificates/ISO-14001-2015.jpeg" alt="Environmental Safety"
                     class="w-full h-full object-cover object-[10%_40%] group-hover:scale-105 transition-transform duration-300" />
                   <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
@@ -160,7 +195,7 @@
               <div
                 class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
                 onclick="openImageModal('assets/gallery/certificates/ISO-45001-2018.jpeg', 'Occupational Health and Safety Management')">
-                <div class="w-full h-56 md:h-48 bg-gray-300 overflow-hidden relative">
+                <div class="w-full h-56 md:h-96 bg-gray-300 overflow-hidden relative">
                   <img src="assets/gallery/certificates/ISO-45001-2018.jpeg" alt="Occupational Health and Safety"
                     class="w-full h-full object-cover object-[10%_40%] group-hover:scale-105 transition-transform duration-300" />
                   <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
@@ -170,7 +205,7 @@
               <div
                 class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
                 onclick="openImageModal('assets/gallery/certificates/Fire-Safety.jpeg', 'Fire Safety Certified')">
-                <div class="w-full h-56 md:h-48 bg-gray-300 overflow-hidden relative">
+                <div class="w-full h-56 md:h-96 bg-gray-300 overflow-hidden relative">
                   <img src="assets/gallery/certificates/Fire-Safety.jpeg" alt="Fire Safety"
                     class="w-full h-full object-cover object-[10%_10%] group-hover:scale-105 transition-transform duration-300" />
                   <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
@@ -185,71 +220,22 @@
     <!-- Image Modal (image-only with close) -->
     <div id="imageModal" class="fixed inset-0 bg-black/80 z-50 hidden items-center justify-center p-4"
       onclick="closeImageModal(event)">
-      <div class="bg-white rounded-2xl w-full max-w-full md:max-w-4xl max-h-[92vh] overflow-hidden relative"
+      <div class="bg-white rounded-2xl w-full max-w-[50vw] md:max-w-[40vw] max-h-[70vh] overflow-hidden relative"
         onclick="event.stopPropagation()">
         <!-- Close button (overlay) -->
         <button id="modalCloseBtn"
-          class="absolute top-3 right-3 z-20 bg-black/40 hover:bg-black/60 text-white rounded-full w-9 h-9 flex items-center justify-center">&times;</button>
-        <div class="flex items-center justify-center p-2 md:p-4 min-h-[60vh] md:min-h-[300px]">
-          <img id="modalImage" src="" alt="" class="max-w-full max-h-[86vh] object-contain rounded-lg" />
+          class="absolute top-3 right-3 z-10 bg-black/40 hover:bg-black/60 text-white rounded-full w-9 h-9 flex items-center justify-center">&times;</button>
+        <div class="flex items-center justify-center p-2 md:p-4 max-h-[70vh] w-full">
+          <img id="modalImage" src="" alt="" class="max-w-full max-h-[65vh] object-contain rounded-lg" />
         </div>
       </div>
     </div>
-
-    <section class="relative w-full h-96 md:h-full overflow-hidden pb-2">
-      <div class="bg-gray-100 shadow-lg rounded-xl border-t-4 border-t-[#c00d1e] pt-2">
-        <div class="text-center mb-2">
-          <h2 class="text-4xl md:text-5xl font-bold uppercase tracking-tight text-[#c00d1e] mb-4">Our Plant
-          </h2>
-          <p class="text-gray-600 text-base max-w-xl mx-auto mb-4">
-            Where Innovation Meets Excellence <br>A Glimpse into Our State-of-the-Art Manufacturing Facility.
-          </p>
-        </div>
-        <!-- Full-Fold Video with Controls, Thumbnail, and Play Button -->
-        <div class="relative w-full h-full">
-          <video id="heroVideo" class="w-full h-full object-cover cursor-pointer" controls playsinline
-            webkit-playsinline poster="assets/videos/about-thumbnail.png">
-            <source src="assets/videos/about.mp4" type="video/mp4" />
-            Your browser does not support HTML5 video.
-          </video>
-          <!-- Play Button Overlay -->
-          <div id="playButtonOverlay"
-            class="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors duration-300 cursor-pointer"
-            onclick="document.getElementById('heroVideo').play()">
-            <div
-              class="flex items-center justify-center w-16 h-16 md:w-24 md:h-24 bg-white/90 hover:bg-white rounded-full shadow-lg transition-all duration-300">
-              <i class="fas fa-play text-2xl md:text-4xl text-[#c00d1e] ml-1"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <div id="footer-placeholder"></div>
   <script src="js/components.js"></script>
   <script src="js/animations.js"></script>
   <script src="js/components.js"></script>
-
-  <script>
-    // Hide play button when video plays, show when paused
-    const heroVideo = document.getElementById('heroVideo');
-    const playButtonOverlay = document.getElementById('playButtonOverlay');
-
-    if (heroVideo && playButtonOverlay) {
-      heroVideo.addEventListener('play', function () {
-        playButtonOverlay.classList.add('hidden');
-      });
-
-      heroVideo.addEventListener('pause', function () {
-        playButtonOverlay.classList.remove('hidden');
-      });
-
-      heroVideo.addEventListener('ended', function () {
-        playButtonOverlay.classList.remove('hidden');
-      });
-    }
-  </script>
 
   <script>
     function openImageModal(imageSrc) {
