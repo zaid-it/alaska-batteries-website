@@ -102,7 +102,7 @@ window.updateStage = function (id, shouldScroll = false) {
   const detailsContent = document.getElementById("stage-details");
   if (detailsContent) {
     const detailsLines = [];
-    if (battery.boxSize) detailsLines.push(`<div><strong>Battery Box Size (JIS):</strong> ${battery.boxSize}</div>`);
+    if (battery.boxSize) detailsLines.push(`<div><strong>Battery Box Size (Japanese Industrial Standard):</strong> ${battery.boxSize}</div>`);
     if (battery.dimensions) {
       const unitRaw = battery.dimensions.unit || "";
       const isInches = ["in", "inch", "inches"].includes(String(unitRaw).toLowerCase());
@@ -646,12 +646,12 @@ window.executeComparison = function (secondId) {
 
   const specs = [
     { l: "Plates", k: "plates" },
-    { l: "JIS Battery Box Size", k: "boxSize" },
     { l: "Voltage", k: "p", s: "V" },
     { l: "Ampere", k: "ah", s: " AH" },
+    { l: "Warranty", k: "warranty" },
+    { l: "Battery Box Size (Japanese Industrial Standard)", k: "boxSize" },
     { l: "Dimensions (L×W×H)", v: formatDimensions },
     { l: "Weight", v: formatWeight },
-    { l: "Warranty", k: "warranty" },
     { l: "Uses", v: (b) => getUsesText(b.uses) },
   ];
 
@@ -683,15 +683,15 @@ window.executeComparison = function (secondId) {
         <!-- Specs Table -->
         <div style="border: 1px solid #e5e7eb; border-radius: 0.5rem; overflow: hidden;" class="battery-compare-specs">
           <!-- Header Row -->
-          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; background-color: white; border-bottom: 2px solid #e5e7eb;" class="specs-grid">
+          <div style="display: grid; grid-template-columns: 1fr 0.5fr 1fr; background-color: white; border-bottom: 2px solid #e5e7eb;" class="specs-grid">
             <div style="padding: 1rem; text-align: center; border-right: 1px solid #e5e7eb;">
-              <h4 class="text-lg font-black uppercase text-[#c00d1e]">${b1.model}</h4>
+              <h4 class="text-lg font-bold uppercase text-[#c00d1e]">${b1.model}</h4>
             </div>
             <div style="padding: 1rem; text-align: center; border-right: 1px solid #e5e7eb;">
-              <p class="text-xs font-bold uppercase text-gray-400">Specs</p>
+              <p class="text-lg font-bold uppercase text-[#c00d1e]">Specs</p>
             </div>
             <div style="padding: 1rem; text-align: center;">
-              <h4 class="text-lg font-black uppercase text-[#c00d1e]">${b2.model}</h4>
+              <h4 class="text-lg font-bold uppercase text-[#c00d1e]">${b2.model}</h4>
             </div>
           </div>
 
@@ -705,7 +705,7 @@ window.executeComparison = function (secondId) {
               const bgColor = i % 2 === 0 ? "white" : "#f3f4f6";
               const borderBottom = i < specs.length - 1 ? "1px solid #e5e7eb" : "none";
               return `
-              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; background-color: ${bgColor}; border-bottom: ${borderBottom};" class="specs-grid">
+              <div style="display: grid; grid-template-columns: 1fr 0.5fr 1fr; background-color: ${bgColor}; border-bottom: ${borderBottom};" class="specs-grid">
                 <div style="padding: 1rem; text-align: center; border-right: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center;">
                   <span class="text-sm font-semibold text-black">${displayVal1}</span>
                 </div>
@@ -728,7 +728,7 @@ window.executeComparison = function (secondId) {
               gap: 0.5rem !important;
             }
             .specs-grid {
-              grid-template-columns: 1fr 1fr 1fr !important;
+              grid-template-columns: 1fr 0.5fr 1fr !important;
             }
           }
         </style>

@@ -24,7 +24,7 @@ const galleryData = {
     { src: "assets/gallery/dealer/d-10.jpg" },
     { src: "assets/gallery/dealer/d-11.jpg" },
   ],
-  awards: [{ src: "assets/gallery/awards/award-1.png" }, { src: "assets/gallery/awards/award-2.jpg" }, { src: "assets/gallery/awards/award-3.jpg" }],
+  awards: [{ src: "assets/gallery/awards/award-2.jpg" }, { src: "assets/gallery/awards/award-3.jpg" }],
 };
 
 let currentCategoryImages = [];
