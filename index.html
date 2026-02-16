@@ -118,7 +118,7 @@
             <!-- Text Overlay -->
             <div class="absolute inset-0 bg-black/10 flex flex-col items-start justify-end p-6 md:p-8">
               <h3
-                class="text-[#c00d1e] font-bold text-2xl md:text-5xl uppercase text-left mb-4 md:mb-2 leading-tight drop-shadow-lg">
+                class="text-white font-bold text-2xl md:text-5xl uppercase text-left mb-4 md:mb-2 leading-tight drop-shadow-xl">
                 Experience the Power of Graphite Technology
               </h3>
 
@@ -182,21 +182,21 @@
       </div>
     </section>
 
-    <section class="bg-gray-100 rounded-xl p-6" style="height: calc(100vh - 80px)">
-      <div class="mx-auto px-4 sm:p-2 w-full h-full flex items-center cta-shell-map">
-        <div class="flex flex-col lg:flex-row w-full h-full items-center lg:items-stretch gap-4 sm:gap-6">
+    <section class="bg-gray-100 rounded-xl p-6 bubble-map-section">
+      <div class="mx-auto px-4 sm:p-2 w-full flex items-center bubble-map">
+        <div class="flex flex-col lg:flex-row w-full h-full items-center lg:items-center gap-4 sm:gap-56">
           <!-- Map: flexes to take remaining space - first on mobile, second on desktop -->
-          <div class="flex-1 h-[220px] sm:h-[280px] lg:h-full rounded-xl overflow-hidden order-1 lg:order-2">
+          <div class="flex-1 map-area h-[220px] sm:h-[280px] lg:h-full rounded-xl overflow-hidden order-1 lg:order-2">
             <div class="relative w-full h-full flex items-center justify-center overflow-hidden pb-4">
-              <img src="assets/dealer-map.png" alt="Alaska Dealer Map" class="w-full h-full object-cover" />
+              <img src="assets/dealer-map.png" alt="Alaska Dealer Map" class="w-full h-full object-contain" />
             </div>
           </div>
 
           <!-- Text + CTA block: auto width, no fixed split - second on mobile, first on desktop -->
-          <div class="flex flex-col gap-3 sm:gap-3 justify-center py-4 sm:py-0 order-2 lg:order-1">
+          <div class="flex flex-col presence-text gap-3 sm:gap-3 justify-center py-4 sm:py-0 order-2 lg:order-1">
             <div class="text-left">
               <h2
-                class="font-bold text-white text-5xl text-center md:text-left lg:text-6xl tracking-tight leading-tight pb-8">
+                class="font-bold text-white text-5xl text-center md:text-left lg:text-5xl tracking-tight leading-tight pb-8">
                 Our
                 <span class="text-[#c00d1e]"> Presence</span>
               </h2>
@@ -211,10 +211,10 @@
 
             <!-- CTA Buttons -->
             <div class="flex flex-row items-center gap-3 justify-center lg:justify-start pt-8">
-              <a href="dealers.html" class="btn-cta btn-compact w-1/2 sm:w-auto flex items-center justify-center">
+              <a href="dealers.html" class="btn-cta btn-compact flex items-center justify-center">
                 <i class="fa-solid fa-map-location-dot"></i> Find A Partner
               </a>
-              <a href="support.html" class="btn-cta-alt btn-compact w-1/2 sm:w-auto flex items-center justify-center">
+              <a href="support.html" class="btn-cta-alt btn-compact flex items-center justify-center">
                 <i class="fa-solid fa-headset"></i> Get Support
               </a>
             </div>
