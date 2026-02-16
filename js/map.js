@@ -53,7 +53,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (newTitle) dynamicTitle.textContent = newTitle;
         if (newAddress) dynamicAddress.textContent = newAddress;
-        if (newPhone) dynamicPhone.textContent = newPhone;
+        if (newPhone) {
+          // sanitize phone for tel: href (keep + and digits)
+          const telHref = newPhone.replace(/[^+\d]/g, "");
+          dynamicPhone.innerHTML = `<a href="tel:${telHref}" class="text-[#c00d1e] font-semibold hover:underline">${newPhone}</a>`;
+        }
         if (newMap) mapFrame.setAttribute("src", newMap);
 
         // 5. Content Transition: Fade In
