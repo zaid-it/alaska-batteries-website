@@ -219,6 +219,22 @@ img {
   width: 100%;
 }
 
+.cta-shell-map {
+  background: rgb(0, 0, 0) !important;
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+  padding-right: 1.5rem !important;
+  padding-left: 1.5rem !important;
+  border-radius: 0.75rem !important;
+  border: 1px solid #f3f4f6 !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 700px !important;
+}
+
 /* === RESPONSIVE BUTTON STYLES === */
 /* Mobile: Small buttons for tight spaces */
 @media (max-width: 640px) {
@@ -913,13 +929,13 @@ html {
 .partner-counter-label {
   font-size: 30px;
   font-weight: 600;
-  color: #000000;
+  color: #ffffff;
 }
 
 .partner-counter-value {
   font-size: 2.5rem; /* slightly larger for emphasis */
   font-weight: 800;
-  color: #000000;
+  color: #ffffff;
   line-height: 1;
   display: inline-block;
 }
