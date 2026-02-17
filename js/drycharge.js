@@ -67,8 +67,12 @@ function getBatterySearchText(battery) {
   const usesText = getUsesText(battery.uses);
   const dimensionsText = formatDimensions(battery.dimensions);
   const categoriesText = Array.isArray(battery.categories) ? battery.categories.join(" ") : "";
+  const boxSize = battery.boxSize || "";
+  const warranty = battery.warranty || "";
+  const weightKg = battery.weightKg || "";
+  const power = battery.p || "";
 
-  return `${battery.model} ${battery.tech} ${battery.ah} ${battery.plates} ${categoriesText} ${usesText} ${dimensionsText}`.toLowerCase();
+  return `${battery.model} ${battery.tech} ${battery.ah} ${battery.plates} ${boxSize} ${warranty} ${weightKg} ${power} ${categoriesText} ${usesText} ${dimensionsText}`.toLowerCase();
 }
 
 // Define updateStage globally so it's ready before DOMContentLoaded triggers
@@ -257,6 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (clearBtn) {
     clearBtn.addEventListener("click", (e) => {
       e.preventDefault();
+      e.stopPropagation();
       searchInput.value = "";
       clearBtn.classList.add("hidden");
       if (suggestionsBox) suggestionsBox.classList.add("hidden");
@@ -283,8 +288,35 @@ document.addEventListener("DOMContentLoaded", () => {
     const activeCat = document.querySelector(".filter-btn.active")?.getAttribute("data-cat") || "All";
 
     const filtered = batteryData.filter((b) => {
-      const searchStr = getBatterySearchText(b);
-      const matchesSearch = searchStr.includes(term);
+      let matchesSearch = true;
+
+      if (term) {
+        // Check if search is specifically for plates (e.g., "9 plates", "11 plate")
+        const platesMatch = term.match(/^(\d+)\s+plates?$/i);
+        if (platesMatch) {
+          // Search specifically for that exact number of plates when "plates" keyword is used
+          const plateNumber = parseInt(platesMatch[1]);
+          matchesSearch = b.plates === plateNumber;
+        } else if (/^\d{1,2}$/.test(term)) {
+          // If it's just a 1-2 digit number, check if it matches plates OR search generally
+          const num = parseInt(term);
+          // Common plate counts are odd numbers from 7 to 21
+          if (num >= 7 && num <= 25) {
+            // Check if it matches plates exactly OR appears in other attributes
+            const searchStr = getBatterySearchText(b);
+            matchesSearch = b.plates === num || searchStr.includes(term);
+          } else {
+            // For other numbers, just do general search
+            const searchStr = getBatterySearchText(b);
+            matchesSearch = searchStr.includes(term);
+          }
+        } else {
+          // General search across all battery properties
+          const searchStr = getBatterySearchText(b);
+          matchesSearch = searchStr.includes(term);
+        }
+      }
+
       const matchesCat = activeCat === "All" || b.categories.includes(activeCat);
       return matchesSearch && matchesCat;
     });
@@ -468,22 +500,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const contentMap = {
     All: {
       img: "assets/solutions/solutions-hero.png",
-      mobile_img: "assets/solutions/solutions-hero.png",
+      mobile_img: "assets/solutions/mobile/solutions-hero-mobile.png",
       title: 'Dry <span class="text-[#c00d1e]">Charge</span>',
     },
     Automotive: {
       img: "assets/solutions/automotive.png",
-      mobile_img: "assets/solutions/automotive.png",
+      mobile_img: "assets/solutions/mobile/automotive-mobile.png",
       title: "Automotive",
     },
     Solar: {
       img: "assets/solutions/solar.png",
-      mobile_img: "assets/solutions/solar.png",
+      mobile_img: "assets/solutions/mobile/solar-mobile.png",
       title: "Solar",
     },
     Industrial: {
       img: "assets/solutions/industrial.png",
-      mobile_img: "assets/solutions/industrial.png",
+      mobile_img: "assets/solutions/mobile/industrial-mobile.png",
       title: "Industrial",
     },
   };
@@ -498,6 +530,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateHero(cat) {
     const data = contentMap[cat];
+    // Update data attributes so updateBanners() in animations.js also has correct values
+    heroImg.setAttribute("data-desktop", data.img);
+    heroImg.setAttribute("data-mobile", data.mobile_img);
     // Choose image based on viewport width (640px breakpoint matches animations.js)
     const isMobile = window.innerWidth <= 640;
     const imageSrc = isMobile && data.mobile_img ? data.mobile_img : data.img;
@@ -562,43 +597,43 @@ window.openCompareSelection = function (firstId) {
 
     document.getElementById("compare-render-area").innerHTML = `
         <div class="max-w-5xl mx-auto">
-          <h3 class="text-xl md:text-2xl font-black uppercase mb-6 tracking-tight text-black">Compare Batteries</h3>
-          <div class="grid grid-cols-2 gap-6 mb-6">
-            <div class="bg-gray-50 border border-gray-200 rounded-md p-4">
-              <p class="text-[11px] font-black uppercase text-black mb-2">Compare With</p>
+          <h3 class="text-lg sm:text-xl md:text-2xl font-black uppercase mb-4 sm:mb-6 tracking-tight text-black">Compare Batteries</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6 mb-4 sm:mb-6">
+            <div class="bg-gray-50 border border-gray-200 rounded-md p-3 sm:p-4">
+              <p class="text-[10px] sm:text-xs md:text-sm font-black uppercase text-black mb-2">Compare With</p>
               <div class="relative">
                 <input type="text" id="modalSearchFirst" value="${firstBattery.model}" oninput="compareSelectingFirst = true; filterModalList();"
                   onfocus="compareSelectingFirst = true;" placeholder="Enter model name" autofocus
-                  class="w-full bg-white border border-gray-200 rounded-md py-3 pl-4 pr-10 font-bold text-sm uppercase text-black focus:ring-2 focus:ring-[#c00d1e] outline-none" />
+                  class="w-full bg-white border border-gray-200 rounded-md py-2 sm:py-3 px-3 sm:pl-4 pr-10 font-bold text-xs sm:text-sm uppercase text-black focus:ring-2 focus:ring-[#c00d1e] outline-none" />
                 <button type="button" onclick="clearCompareSearch('first')"
                   class="absolute right-3 top-1/2 -translate-y-1/2 text-black hover:text-[#c00d1e]">
                   <i class="fa-solid fa-xmark"></i>
                 </button>
               </div>
-              <p class="text-[10px] text-black italic mt-2">Edit to change selected model</p>
+              <p class="text-[9px] sm:text-[10px] text-black italic mt-2">Edit to change selected model</p>
             </div>
-            <div class="bg-gray-50 border border-gray-200 rounded-md p-4">
-              <p class="text-[11px] font-black uppercase text-black mb-2">Compare With</p>
+            <div class="bg-gray-50 border border-gray-200 rounded-md p-3 sm:p-4">
+              <p class="text-[10px] sm:text-xs md:text-sm font-black uppercase text-black mb-2">Compare With</p>
               <div class="relative">
                 <input type="text" id="modalSearchSecond" oninput="compareSelectingFirst = false; filterModalList();" onfocus="compareSelectingFirst = false;"
                   placeholder="Enter model name to compare"
-                  class="w-full bg-white border border-gray-200 rounded-md py-3 pl-4 pr-10 font-bold text-sm uppercase focus:ring-2 focus:ring-[#c00d1e] outline-none" />
+                  class="w-full bg-white border border-gray-200 rounded-md py-2 sm:py-3 px-3 sm:pl-4 pr-10 font-bold text-xs sm:text-sm uppercase focus:ring-2 focus:ring-[#c00d1e] outline-none" />
                 <button type="button" onclick="clearCompareSearch('second')"
                   class="absolute right-3 top-1/2 -translate-y-1/2 text-black hover:text-[#c00d1e]">
                   <i class="fa-solid fa-xmark"></i>
                 </button>
               </div>
-              <p class="text-[10px] text-black italic mt-2">Please enter model name to compare</p>
+              <p class="text-[9px] sm:text-[10px] text-black italic mt-2">Please enter model name to compare</p>
             </div>
           </div>
-          <div class="grid grid-cols-2 gap-6 mb-8">
-            <div class="bg-white border border-gray-200 rounded-md p-6 text-center">
-              <p class="text-sm font-black uppercase text-black mb-3">${firstBattery.model}</p>
-              <img src="${firstBattery.image}" class="h-40 md:h-52 mx-auto object-contain" alt="${firstBattery.model}">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6 mb-6 sm:mb-8">
+            <div class="bg-white border border-gray-200 rounded-md p-3 sm:p-6 text-center">
+              <p class="text-xs sm:text-sm md:text-base font-black uppercase text-black mb-2 sm:mb-3">${firstBattery.model}</p>
+              <img src="${firstBattery.image}" class="h-24 sm:h-40 md:h-52 mx-auto object-contain" alt="${firstBattery.model}">
             </div>
-            <div class="bg-white border border-gray-200 rounded-md p-6 text-center">
-              <p class="text-sm font-black uppercase text-black mb-3">Select to compare</p>
-              <div class="h-40 md:h-52 mx-auto border border-dashed border-gray-300 rounded-md flex items-center justify-center text-xs uppercase text-black">
+            <div class="bg-white border border-gray-200 rounded-md p-3 sm:p-6 text-center">
+              <p class="text-xs sm:text-sm md:text-base font-black uppercase text-black mb-2 sm:mb-3">Select to compare</p>
+              <div class="h-24 sm:h-40 md:h-52 mx-auto border border-dashed border-gray-300 rounded-md flex items-center justify-center text-[10px] sm:text-xs uppercase text-black">
                 Waiting for selection
               </div>
             </div>
@@ -623,15 +658,15 @@ window.filterModalList = function () {
   listArea.innerHTML = matches
     .map(
       (b) => `
-        <div onclick="${compareSelectingFirst ? `selectFirstForCompare('${b.id}')` : `executeComparison('${b.id}')`}" class="flex items-center justify-between p-3 bg-white border border-gray-100 rounded-md cursor-pointer hover:border-[#c00d1e] transition-all group">
-            <div class="flex items-center gap-3">
-                <img src="${b.image}" class="h-8 w-auto object-contain pointer-events-none">
+        <div onclick="${compareSelectingFirst ? `selectFirstForCompare('${b.id}')` : `executeComparison('${b.id}')`}" class="flex items-center justify-between p-2 sm:p-3 bg-white border border-gray-100 rounded-md cursor-pointer hover:border-[#c00d1e] transition-all group">
+            <div class="flex items-center gap-2 sm:gap-3">
+                <img src="${b.image}" class="h-6 sm:h-8 w-auto object-contain pointer-events-none">
                 <div>
-                    <p class="font-black text-[100%] uppercase leading-tight">${b.model}</p>
-              <p class="text-[80%] text-black font-bold uppercase">${b.plates} Plates</p>
+                    <p class="font-black text-xs sm:text-sm uppercase leading-tight">${b.model}</p>
+              <p class="text-[10px] sm:text-xs text-black font-bold uppercase">${b.plates} Plates</p>
                 </div>
             </div>
-          <span class="text-[100%] font-black text-black group-hover:text-[#c00d1e]">${b.ah} AH</span>
+          <span class="text-xs sm:text-sm font-black text-black group-hover:text-[#c00d1e]">${b.ah} AH</span>
         </div>
     `,
     )
@@ -686,24 +721,24 @@ window.executeComparison = function (secondId) {
 
   document.getElementById("compare-render-area").innerHTML = `
       <div class="max-w-6xl mx-auto">
-        <button onclick="openCompareSelection('${compareFirstId}')" class="mb-6 text-xs font-black uppercase text-black hover:text-[#c00d1e] flex items-center gap-2 transition-colors">
+        <button onclick="openCompareSelection('${compareFirstId}')" class="mb-4 sm:mb-6 text-xs sm:text-sm font-black uppercase text-black hover:text-[#c00d1e] flex items-center gap-2 transition-colors">
           <i class="fa-solid fa-arrow-left"></i> Change Selection
         </button>
         
-        <h3 class="text-2xl font-black uppercase mb-2 text-center">Battery Comparison</h3>
+        <h3 class="text-lg sm:text-2xl font-black uppercase mb-2 text-center">Battery Comparison</h3>
 
         <!-- Two Column Layout: Battery Images -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;" class="battery-compare-grid">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;" class="battery-compare-grid sm:gap-2 md:gap-8">
           <!-- Battery 1 -->
           <div style="text-align: center; background: white;">
-            <div style="display: flex; align-items: center; justify-content: center; height: 300px;">
+            <div style="display: flex; align-items: center; justify-content: center; height: 150px;" class="sm:h-60 md:h-80">
               <img src="${b1.image}" class="object-contain" style="max-height: 100%; max-width: 100%;" alt="${b1.model}">
             </div>
           </div>
 
           <!-- Battery 2 -->
           <div style="text-align: center; background: white;">
-            <div style="display: flex; align-items: center; justify-content: center; height: 300px;">
+            <div style="display: flex; align-items: center; justify-content: center; height: 150px;" class="sm:h-60 md:h-80">
               <img src="${b2.image}" class="object-contain" style="max-height: 100%; max-width: 100%;" alt="${b2.model}">
             </div>
           </div>
@@ -713,14 +748,14 @@ window.executeComparison = function (secondId) {
         <div style="border: 1px solid #e5e7eb; border-radius: 0.5rem; overflow: hidden; width:100%; margin:0;" class="battery-compare-specs">
           <!-- Header Row -->
           <div style="display: grid; grid-template-columns: 1fr 0.5fr 1fr; background-color: white; border-bottom: 2px solid #e5e7eb;" class="specs-grid specs-header">
-            <div style="padding: 0.75rem; display:flex; align-items:center; justify-content:center;">
-              <h4 class="text-lg font-bold uppercase text-[#c00d1e]">${b1.model}</h4>
+            <div style="padding: 0.5rem; display:flex; align-items:center; justify-content:center;" class="sm:padding: 0.75rem;">
+              <h4 class="text-xs sm:text-lg font-bold uppercase text-[#c00d1e]">${b1.model}</h4>
             </div>
-            <div style="padding: 0.75rem; display:flex; align-items:center; justify-content:center;">
-              <p class="text-lg font-bold uppercase text-[#c00d1e]">Specs</p>
+            <div style="padding: 0.5rem; display:flex; align-items:center; justify-content:center;" class="sm:padding: 0.75rem;">
+              <p class="text-xs sm:text-lg font-bold uppercase text-[#c00d1e]">Specs</p>
             </div>
-            <div style="padding: 0.75rem; display:flex; align-items:center; justify-content:center;">
-              <h4 class="text-lg font-bold uppercase text-[#c00d1e]">${b2.model}</h4>
+            <div style="padding: 0.5rem; display:flex; align-items:center; justify-content:center;" class="sm:padding: 0.75rem;">
+              <h4 class="text-xs sm:text-lg font-bold uppercase text-[#c00d1e]">${b2.model}</h4>
             </div>
           </div>
 
@@ -735,14 +770,14 @@ window.executeComparison = function (secondId) {
               const borderBottom = "1px solid #e5e7eb";
               return `
               <div style="display: grid; grid-template-columns: 1fr 0.5fr 1fr; background-color: ${bgColor}; border-bottom: ${borderBottom};" class="specs-grid">
-                <div style="padding: 0.75rem; display:flex; align-items:center; justify-content:center;">
-                  <span class="text-sm font-semibold text-black">${displayVal1}</span>
+                <div style="padding: 0.5rem; display:flex; align-items:center; justify-content:center;" class="sm:padding: 0.75rem;">
+                  <span class="text-xs sm:text-sm font-semibold text-black">${displayVal1}</span>
                 </div>
-                <div style="padding: 0.75rem; display:flex; align-items:center; justify-content:center;">
-                  <span class="text-xs font-bold uppercase text-[#c00d1e]">${s.l}</span>
+                <div style="padding: 0.5rem; display:flex; align-items:center; justify-content:center;" class="sm:padding: 0.75rem;">
+                  <span class="text-[10px] sm:text-xs font-bold uppercase text-[#c00d1e]">${s.l}</span>
                 </div>
-                <div style="padding: 0.75rem; display:flex; align-items:center; justify-content:center;">
-                  <span class="text-sm font-semibold text-black">${displayVal2}</span>
+                <div style="padding: 0.5rem; display:flex; align-items:center; justify-content:center;" class="sm:padding: 0.75rem;">
+                  <span class="text-xs sm:text-sm font-semibold text-black">${displayVal2}</span>
                 </div>
               </div>`;
             })
@@ -769,29 +804,35 @@ window.executeComparison = function (secondId) {
             white-space: normal;
             text-align: center;
             line-height: 1.2;
-            font-size: 0.95rem;
           }
 
-          /* Header slightly larger */
-          .battery-compare-specs .specs-grid h4 { font-size: 1.05rem; }
+          /* Mobile adjustments: reduce padding and font sizes on very small screens */
+          @media (max-width: 480px) {
+            .battery-compare-grid { grid-template-columns: 1fr 1fr !important; gap: 0.25rem !important; }
+            .specs-grid { grid-template-columns: 0.7fr 1.8fr 0.7fr !important; }
+            .battery-compare-specs .specs-grid > div { border-left: none !important; border-right: none !important; padding: 0.25rem !important; }
+            .battery-compare-specs .specs-grid > div:nth-child(2) { border-left: 1px solid #e5e7eb !important; border-right: 1px solid #e5e7eb !important; }
+            .battery-compare-specs { padding: 0.125rem; }
+            .battery-compare-specs .specs-grid span,
+            .battery-compare-specs .specs-grid p,
+            .battery-compare-specs .specs-grid h4 { font-size: 0.7rem !important; line-height: 1.1; }
+          }
 
-          /* Mobile adjustments: remove per-cell vertical borders and give middle column more space so specs wrap nicely */
-          @media (max-width: 768px) {
+          /* Tablet adjustments */
+          @media (min-width: 481px) and (max-width: 768px) {
             .battery-compare-grid { grid-template-columns: 1fr 1fr !important; gap: 0.5rem !important; }
-            /* Make middle column wider to allow long labels to wrap */
             .specs-grid { grid-template-columns: 0.8fr 1.6fr 0.8fr !important; }
             .battery-compare-specs .specs-grid > div { border-left: none !important; border-right: none !important; }
-            /* Draw single thin divider around the middle column */
             .battery-compare-specs .specs-grid > div:nth-child(2) { border-left: 1px solid #e5e7eb !important; border-right: 1px solid #e5e7eb !important; }
-            .battery-compare-specs .specs-grid { border-bottom: 1px solid #e5e7eb; }
             .battery-compare-specs { padding-left: 0.25rem; padding-right: 0.25rem; }
+          }
 
-            /* Reduce font size slightly on very narrow screens */
-            @media (max-width: 420px) {
-              .battery-compare-specs .specs-grid span,
-              .battery-compare-specs .specs-grid p,
-              .battery-compare-specs .specs-grid h4 { font-size: 0.85rem; }
-            }
+          /* Desktop: standard sizing */
+          @media (min-width: 769px) {
+            .battery-compare-specs .specs-grid span,
+            .battery-compare-specs .specs-grid p,
+            .battery-compare-specs .specs-grid h4 { font-size: 0.95rem; }
+            .battery-compare-specs .specs-grid h4 { font-size: 1.05rem; }
           }
         </style>
         </div>

@@ -21,7 +21,8 @@
     <section class="bg-white space-y-2 overflow-hidden group hero-fold">
       <div class="relative h-full md:h-full flex flex-col banner-wrapper">
         <img id="hero-banner-img" src="assets/solutions/solutions-hero.png"
-          data-mobile="assets/solutions/solutions-hero.png" alt="Alaska Dry Charge"
+          data-desktop="assets/solutions/solutions-hero.png"
+          data-mobile="assets/solutions/mobile/solutions-hero-mobile.png" alt="Alaska Dry Charge"
           class="w-full h-full transition-transform duration-1000" />
         <div id="hero-text-box"
           class="absolute top-20 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[500px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 overflow-hidden banner-overlay">
@@ -41,9 +42,9 @@
               class="w-full pl-10 pr-12 py-3 rounded-lg bg-gray-100 border-none focus:ring-2 focus:ring-[#c00d1e] outline-none text-[100%] tracking-normal"
               autocomplete="off" />
 
-            <button id="clearSearch"
-              class="hidden absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#c00d1e] transition-colors">
-              <i class="fa-solid fa-circle-xmark text-lg"></i>
+            <button id="clearSearch" type="button"
+              class="hidden absolute right-3 md:right-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center rounded-full text-gray-500 hover:text-[#c00d1e] transition-colors cursor-pointer">
+              <i class="fa-solid fa-circle-xmark text-lg pointer-events-none"></i>
             </button>
 
             <div id="search-suggestions"

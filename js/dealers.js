@@ -2875,9 +2875,17 @@ document.addEventListener("DOMContentLoaded", () => {
     mapIframe.src = `https://maps.google.com/maps?q=${encodedAddress}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
   }
 
-  // Scroll to search bar function
+  // Scroll to search bar on desktop, map on mobile
   function scrollToSearchBar() {
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    const mapIframe = document.getElementById("dealerMap");
     const searchSection = document.querySelector(".max-w-7xl");
+
+    if (isMobile && mapIframe) {
+      mapIframe.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+
     if (searchSection) {
       searchSection.scrollIntoView({ behavior: "smooth", block: "start" });
     }
