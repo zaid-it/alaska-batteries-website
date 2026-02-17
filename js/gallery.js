@@ -298,8 +298,7 @@ function updateMobileGallery() {
   const featureImg = document.getElementById("mobile-feature-img");
   const leftImg = document.getElementById("mobile-left-img");
   const rightImg = document.getElementById("mobile-right-img");
-  const counter = document.getElementById("mobile-gallery-counter");
-  const total = document.getElementById("mobile-gallery-total");
+  const dotsContainer = document.getElementById("mobile-gallery-dots");
 
   const images = currentCategoryImages;
   const totalCount = images.length;
@@ -332,9 +331,32 @@ function updateMobileGallery() {
     rightImg.onload = () => rightImg.classList.remove("is-fading");
   });
 
-  // Update counter
-  counter.innerText = currentMobileGalleryIndex + 1;
-  total.innerText = totalCount;
+  // Update dot indicators
+  updateGalleryDots();
+}
+
+function updateGalleryDots() {
+  const dotsContainer = document.getElementById("mobile-gallery-dots");
+  const totalCount = currentCategoryImages.length;
+
+  if (!dotsContainer) return;
+
+  // Generate dots if not already created or if count changed
+  if (dotsContainer.children.length !== totalCount) {
+    dotsContainer.innerHTML = "";
+    for (let i = 0; i < totalCount; i++) {
+      const dot = document.createElement("div");
+      dot.className = "w-2 h-2 rounded-full transition-all duration-300";
+      dot.style.backgroundColor = i === currentMobileGalleryIndex ? "#c00d1e" : "#d1d5db";
+      dotsContainer.appendChild(dot);
+    }
+  } else {
+    // Update existing dots
+    Array.from(dotsContainer.children).forEach((dot, i) => {
+      dot.style.backgroundColor = i === currentMobileGalleryIndex ? "#c00d1e" : "#d1d5db";
+      dot.style.transform = i === currentMobileGalleryIndex ? "scale(1.3)" : "scale(1)";
+    });
+  }
 }
 
 function mobileNextGallery() {
@@ -368,54 +390,79 @@ let lastSwipeTime = 0;
 
 function initMobileFeaturedImageSwipe() {
   const featureContainer = document.getElementById("mobile-feature-image");
+  const leftContainer = document.getElementById("mobile-left-image");
+  const rightContainer = document.getElementById("mobile-right-image");
+
   if (!featureContainer) return;
 
-  let touchStartX = 0;
-  let touchEndX = 0;
-  let isSwiping = false;
+  // Helper function to add swipe listeners
+  const addSwipeListeners = (container) => {
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let isSwiping = false;
 
-  featureContainer.addEventListener(
-    "touchstart",
-    (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-      isSwiping = false;
-    },
-    { passive: true },
-  );
+    container.addEventListener(
+      "touchstart",
+      (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        isSwiping = false;
+      },
+      { passive: true },
+    );
 
-  featureContainer.addEventListener(
-    "touchmove",
-    (e) => {
-      const touchCurrentX = e.changedTouches[0].screenX;
-      const delta = Math.abs(touchStartX - touchCurrentX);
+    container.addEventListener(
+      "touchmove",
+      (e) => {
+        const touchCurrentX = e.changedTouches[0].screenX;
+        const delta = Math.abs(touchStartX - touchCurrentX);
 
-      // If moved more than 10px, consider it a swipe
-      if (delta > 10) {
-        isSwiping = true;
+        // If moved more than 10px, consider it a swipe
+        if (delta > 10) {
+          isSwiping = true;
+        }
+      },
+      { passive: true },
+    );
+
+    container.addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const delta = touchStartX - touchEndX;
+
+      // If it was a swipe (moved > 50px)
+      if (isSwiping && Math.abs(delta) > 50) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        lastSwipeTime = Date.now();
+
+        if (delta > 0) {
+          // Swiped left - go to next image
+          mobileNextGallery();
+        } else {
+          // Swiped right - go to previous image
+          mobilePrevGallery();
+        }
       }
-    },
-    { passive: true },
-  );
+    });
+  };
 
-  featureContainer.addEventListener("touchend", (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    const delta = touchStartX - touchEndX;
+  // Add swipe to all three containers
+  addSwipeListeners(featureContainer);
+  if (leftContainer) addSwipeListeners(leftContainer);
+  if (rightContainer) addSwipeListeners(rightContainer);
+}
 
-    // If it was a swipe (moved > 50px)
-    if (isSwiping && Math.abs(delta) > 50) {
-      e.preventDefault();
-      e.stopPropagation();
+// Desktop gallery scroll function
+function scrollGallery(direction) {
+  const galleryRail = document.getElementById("gallery-rail");
+  if (!galleryRail) return;
 
-      lastSwipeTime = Date.now();
+  const scrollAmount = 320; // Approximate width of one gallery card + gap
+  const newScrollPosition = galleryRail.scrollLeft + direction * scrollAmount;
 
-      if (delta > 0) {
-        // Swiped left - go to next image
-        mobileNextGallery();
-      } else {
-        // Swiped right - go to previous image
-        mobilePrevGallery();
-      }
-    }
+  galleryRail.scrollTo({
+    left: newScrollPosition,
+    behavior: "smooth",
   });
 }
 

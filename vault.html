@@ -17,8 +17,8 @@
   <main class="bg-white">
     <section id="blogs"
       class="border-b border-gray-10 flex items-center justify-center text-center bg-white overflow-hidden group">
-      <div class="relative h-[180px] md:h-[400px] w-full flex flex-col banner-wrapper">
-        <img src="assets/vault/news.png" alt="News"
+      <div class="relative md:h-[400px] w-full flex flex-col banner-wrapper">
+        <img src="assets/vault/news.png" data-mobile="assets/vault/mobile/news-mobile.png" alt="News"
           class="w-full h-full object-cover object-[65%_10%] transition-transform duration-1000 group-hover:scale-105" />
         <div id="hero-text-box"
           class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 banner-overlay">
@@ -28,9 +28,9 @@
       </div>
     </section>
 
-    <section class="py-4 border-b border-gray-100 bg-white overflow-hidden">
-      <div class="container mx-auto px-2">
-        <div class="flex flex-col md:flex-row justify-start items-start md:items-start mb-4 gap-2">
+    <section class="py-4 md:py-8 border-b border-gray-100 bg-white overflow-hidden">
+      <div class="container mx-auto px-[2px] md:px-6">
+        <div class="flex flex-col md:flex-row justify-start items-start md:items-start mb-6 gap-2">
           <div class="text-left w-full">
             <div class="relative w-full lg:w-[calc((100%-40px)/3)] h-12">
               <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none z-30">
@@ -40,10 +40,10 @@
                 class="block w-full h-full pl-12 pr-4 bg-gray-50 border border-gray-100 rounded-xl text-sm outline-none focus:border-[#c00d1e] transition-all" />
             </div>
           </div>
-          <!-- scroll buttons moved below the blog list on mobile (see after #blog-scroll-container) -->
         </div>
 
-        <div id="blog-scroll-container" class="no-scrollbar">
+        <!-- Desktop Blog View - Horizontal Scroll -->
+        <div id="blog-scroll-container" class="hidden md:block no-scrollbar">
           <div class="blog-item original" onclick="openBlogModal('choosing-guide')">
             <img src="assets/vault/blogs/best-battery-blog-1.png" alt="Guide" loading="lazy" />
             <div class="wash-layer"></div>
@@ -95,22 +95,12 @@
             <div class="text-protection"></div>
             <div class="blog-content">
               <p class="category-tag">Eco-friendly</p>
-              <h4 class="blog-title">Battery Recycling: How Your Old Battery Can Power a Greener Future</h4>
+              <h4 class="blog-title">E-Bike Battery Lifespan: Recycling & Responsible Disposal</h4>
             </div>
           </div>
         </div>
-        <!-- Mobile: Show scroll buttons under the blog image/list -->
-        <div class="mt-4 md:hidden flex justify-center gap-4">
-          <button onclick="scrollBlogs(-1)"
-            class="h-12 w-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white transition-all">
-            <i class="fa-solid fa-arrow-left"></i>
-          </button>
-          <button onclick="scrollBlogs(1)"
-            class="h-12 w-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white transition-all">
-            <i class="fa-solid fa-arrow-right"></i>
-          </button>
-        </div>
-        <!-- Desktop arrows (visible on md+) placed under the blog list for consistent placement -->
+
+        <!-- Desktop scroll buttons -->
         <div class="hidden md:flex justify-center gap-4 mt-6">
           <button onclick="scrollBlogs(-1)"
             class="h-12 w-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white transition-all">
@@ -120,6 +110,53 @@
             class="h-12 w-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white transition-all">
             <i class="fa-solid fa-arrow-right"></i>
           </button>
+        </div>
+
+        <!-- Mobile Blog View - Carousel Style -->
+        <div id="mobile-blog-container" class="block md:hidden px-6">
+          <div class="relative h-[70svh]">
+            <div class="w-full relative overflow-hidden h-full">
+              <div id="mobile-left-blog"
+                class="absolute left-0 w-[18%] h-[70%] top-1/2 -translate-y-1/2 rounded-lg overflow-hidden cursor-pointer opacity-50"
+                onclick="handleMobileBlogClick(-1)">
+                <img id="mobile-left-blog-img" src="" alt="Previous" class="w-full h-full object-cover mobile-side-img">
+              </div>
+
+              <div id="mobile-feature-blog"
+                class="absolute left-1/2 -translate-x-1/2 w-[80%] h-full rounded-xl overflow-hidden cursor-pointer z-10 shadow-2xl"
+                onclick="handleMobileBlogClick(0)">
+                <img id="mobile-feature-blog-img" src="" alt="Featured"
+                  class="w-full h-full object-cover object-center mobile-feature-img">
+                <div class="absolute inset-0"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-2">
+                  <h4 id="mobile-feature-title" class="text-white font-semibold text-base leading-tight">Blog Title</h4>
+                </div>
+              </div>
+
+              <div id="mobile-right-blog"
+                class="absolute right-0 w-[18%] h-[70%] top-1/2 -translate-y-1/2 rounded-lg overflow-hidden cursor-pointer opacity-50"
+                onclick="handleMobileBlogClick(1)">
+                <img id="mobile-right-blog-img" src="" alt="Next" class="w-full h-full object-cover mobile-side-img">
+              </div>
+            </div>
+          </div>
+
+          <!-- Dot Pagination with Navigation -->
+          <div class="flex items-center justify-center gap-4 mt-2">
+            <button onclick="mobilePrevBlog()"
+              class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-all">
+              <i class="fa-solid fa-chevron-left text-xs text-gray-600"></i>
+            </button>
+
+            <div id="mobile-blog-dots" class="flex items-center gap-2">
+              <!-- Dots will be generated by JavaScript -->
+            </div>
+
+            <button onclick="mobileNextBlog()"
+              class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-all">
+              <i class="fa-solid fa-chevron-right text-xs text-gray-600"></i>
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -190,9 +227,9 @@
 
     <section id="faqs"
       class="border-b border-gray-10 flex items-center justify-start text-center bg-white overflow-hidden group">
-      <div class="relative h-[180px] md:h-[400px] w-full flex flex-col banner-wrapper">
+      <div class="relative md:h-[400px] w-full flex flex-col banner-wrapper">
         <img src="assets/vault/FAQs.png" data-mobile="assets/vault/mobile/FAQs-mobile.png" alt="FAQs"
-          class="w-full h-full object-cover object-[90%_10%] transition-transform duration-1000" />
+          class="w-full h-full" />
         <div id="hero-text-box"
           class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
           <h1 class="text-3xl md:text-5xl font-bold text-left tracking-normal leading-tight text-white">FAQs
@@ -478,8 +515,8 @@
     </section>
     <section id="gallery"
       class="flex items-center justify-center text-center bg-white overflow-hidden group border-t border-gray-100">
-      <div class="relative h-[180px] md:h-[400px] w-full flex flex-col banner-wrapper">
-        <img src="assets/vault/Gallery.png" data-mobile="assets/vault/mobile/Gallery-mobile.png" alt="Gallery"
+      <div class="relative md:h-[400px] w-full flex flex-col banner-wrapper">
+        <img src="assets/vault/Gallery.png" data-mobile="assets/vault/mobile/gallery-mobile.png" alt="Gallery"
           class="w-full h-full object-cover object-center transition-transform duration-1000" />
         <div id="hero-text-box"
           class="absolute bottom-1 left-0 right-0 md:bottom-auto md:top-20 md:left-8 md:w-[450px] bg-black/75 px-4 py-2 rounded-lg md:px-8 md:py-8 md:rounded-lg md:border md:border-white/20 md:bg-black/80 max-h-[150px] md:max-h-none overflow-hidden banner-overlay">
@@ -517,41 +554,52 @@
       <!-- Desktop Gallery View -->
       <div id="gallery-rail" class="gallery-scrollbar hidden md:flex"></div>
 
+      <!-- Desktop Gallery Scroll Chevrons -->
+      <div class="hidden md:flex justify-center gap-4 mt-6">
+        <button onclick="scrollGallery(-1)"
+          class="h-12 w-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white transition-all">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <button onclick="scrollGallery(1)"
+          class="h-12 w-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white transition-all">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+
       <!-- Mobile Gallery View -->
       <div class="md:hidden">
-        <div id="mobile-gallery-container" class="space-y-4">
-          <!-- Left/Center/Right Layout with side arrows -->
-          <div class="flex items-center">
+        <div id="mobile-gallery-container">
+          <div class="relative h-72 flex items-center justify-between overflow-visible">
+            <div id="mobile-left-image" class="w-[30%] h-40 rounded-lg overflow-hidden cursor-pointer"
+              onclick="handleMobileImageClick(-1)">
+              <img id="mobile-left-img" src="" alt="Left" class="w-full h-full object-cover mobile-side-img">
+            </div>
+            <div id="mobile-feature-image"
+              class="absolute left-1/2 -translate-x-1/2 w-[72%] h-72 rounded-lg overflow-hidden cursor-pointer z-10"
+              onclick="handleMobileImageClick(0)">
+              <img id="mobile-feature-img" src="" alt="Featured" class="w-full h-full object-cover mobile-feature-img">
+            </div>
+            <div id="mobile-right-image" class="w-[30%] h-40 rounded-lg overflow-hidden cursor-pointer"
+              onclick="handleMobileImageClick(1)">
+              <img id="mobile-right-img" src="" alt="Right" class="w-full h-full object-cover mobile-side-img">
+            </div>
+          </div>
+
+          <!-- Dot Pagination with Navigation -->
+          <div class="flex items-center justify-center gap-4 mt-2">
             <button onclick="mobilePrevGallery()"
-              class="w-10 h-10 rounded-full bg-white hover:bg-gray-100 transition-all flex items-center justify-center text-zinc-900">
-              <i class="fa-solid fa-chevron-left"></i>
+              class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-all">
+              <i class="fa-solid fa-chevron-left text-xs text-gray-600"></i>
             </button>
 
-            <div class="flex-1 relative h-72 flex items-center justify-between overflow-visible">
-              <div id="mobile-left-image" class="w-[30%] h-40 rounded-lg overflow-hidden cursor-pointer"
-                onclick="handleMobileImageClick(-1)">
-                <img id="mobile-left-img" src="" alt="Left" class="w-full h-full object-cover mobile-side-img">
-              </div>
-              <div id="mobile-feature-image"
-                class="absolute left-1/2 -translate-x-1/2 w-[72%] h-72 rounded-lg overflow-hidden cursor-pointer z-10"
-                onclick="handleMobileImageClick(0)">
-                <img id="mobile-feature-img" src="" alt="Featured"
-                  class="w-full h-full object-cover mobile-feature-img">
-              </div>
-              <div id="mobile-right-image" class="w-[30%] h-40 rounded-lg overflow-hidden cursor-pointer"
-                onclick="handleMobileImageClick(1)">
-                <img id="mobile-right-img" src="" alt="Right" class="w-full h-full object-cover mobile-side-img">
-              </div>
+            <div id="mobile-gallery-dots" class="flex items-center gap-2">
+              <!-- Dots will be generated by JavaScript -->
             </div>
 
             <button onclick="mobileNextGallery()"
-              class="w-10 h-10 rounded-full bg-white hover:bg-gray-100 transition-all flex items-center justify-center text-zinc-900">
-              <i class="fa-solid fa-chevron-right"></i>
+              class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-all">
+              <i class="fa-solid fa-chevron-right text-xs text-gray-600"></i>
             </button>
-          </div>
-
-          <div class="text-center text-sm text-gray-500">
-            <span id="mobile-gallery-counter">1</span>/<span id="mobile-gallery-total">8</span>
           </div>
         </div>
       </div>
@@ -840,6 +888,7 @@
   <script src="js/components.js"></script>
   <script src="js/main.js"></script>
   <script src="js/gallery.js"></script>
+  <script src="js/blog.js"></script>
   <script src="js/animations.js"></script>
 </body>
 

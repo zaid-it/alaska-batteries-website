@@ -164,7 +164,7 @@
               <img src="assets/vault/FAQs.png" alt="FAQs" class="w-full h-full object-cover object-[90%_45%]">
             </div>
             <div class="flex-1 bg-white p-2 flex flex-col justify-start">
-              <h3 class="text-xl md:text-2xl font-extrabold uppercase text-center text-[#c00d1e]">FAQs</h3>
+              <h3 class="text-xl md:text-2xl font-extrabold  text-center text-[#c00d1e]">FAQs</h3>
             </div>
           </a>
 
@@ -182,42 +182,39 @@
       </div>
     </section>
 
-    <section class="bg-gray-100 rounded-xl p-6 bubble-map-section">
-      <div class="mx-auto px-4 sm:p-2 w-full flex items-center bubble-map">
-        <div class="flex flex-col lg:flex-row w-full h-full items-center lg:items-center gap-4 sm:gap-56">
-          <!-- Map: flexes to take remaining space - first on mobile, second on desktop -->
-          <div class="flex-1 map-area h-[220px] sm:h-[280px] lg:h-full rounded-xl overflow-hidden order-1 lg:order-2">
-            <div class="relative w-full h-full flex items-center justify-center overflow-hidden pb-4">
-              <img src="assets/dealer-map.png" alt="Alaska Dealer Map" class="w-full h-full object-contain" />
-            </div>
+    <section class="relative overflow-hidden rounded-xl h-[75svh] md:h-[95svh] mx-6 my-2 md:px-6 bg-gray-100">
+      <div class="absolute inset-0">
+        <img src="assets/dealer-map.png" data-mobile="assets/dealer-map-mobile.png" alt="Alaska Dealer Map"
+          class="w-full h-full object-cover object-center" />
+        <div class="absolute inset-0"></div>
+      </div>
+
+      <div class="relative z-10 mx-auto px-4 md:px-6 py-2 md:py-16 h-full flex items-end md:items-center">
+        <div class="w-full max-w-[320px] md:max-w-xl mx-auto md:mx-0 text-left">
+          <div>
+            <h2 class="font-bold text-black text-2xl md:text-5xl tracking-tight leading-tight pb-2 md:pb-6">
+              Our <span class="text-[#c00d1e]">Presence</span>
+            </h2>
           </div>
 
-          <!-- Text + CTA block: auto width, no fixed split - second on mobile, first on desktop -->
-          <div class="flex flex-col presence-text gap-3 sm:gap-3 justify-center py-4 sm:py-0 order-2 lg:order-1">
-            <div class="text-left">
-              <h2
-                class="font-bold text-white text-5xl text-center md:text-left lg:text-5xl tracking-tight leading-tight pb-8">
-                Our
-                <span class="text-[#c00d1e]"> Presence</span>
-              </h2>
-            </div>
+          <!-- Counter -->
+          <div class="partner-counter" data-target="500" aria-live="polite">
+            <p class="partner-counter-value text-left pb-4 md:pb-0">
+              <span id="partner-count" class="text-left font-semibold text-lg md:text-4xl">0</span><span
+                class="text-left font-semibold text-lg md:text-4xl">+</span> <span
+                class="text-left font-bold text-lg md:text-4xl">Locations in All
+                Major Cities</span>
+            </p>
+          </div>
 
-            <!-- Counter -->
-            <div class="partner-counter" data-target="500" aria-live="polite">
-              <p class="partner-counter-value text-center lg:text-left"><span id="partner-count"
-                  class="odometer">0</span><span class="partner-plus">+</span> <span
-                  class="partner-counter-label">Locations in All Major Cities</span></p>
-            </div>
-
-            <!-- CTA Buttons -->
-            <div class="flex flex-row items-center gap-3 justify-center lg:justify-start pt-8">
-              <a href="dealers.html" class="btn-cta btn-compact flex items-center justify-center">
-                <i class="fa-solid fa-map-location-dot"></i> Find A Partner
-              </a>
-              <a href="support.html" class="btn-cta-alt btn-compact flex items-center justify-center">
-                <i class="fa-solid fa-headset"></i> Get Support
-              </a>
-            </div>
+          <!-- CTA Buttons -->
+          <div class="flex md:flex-row flex-col gap-2 md:gap-3 justify-start pb-16 md:pt-6">
+            <a href="dealers.html" class="btn-cta btn-compact flex items-center justify-center">
+              <i class="fa-solid fa-map-location-dot"></i> Find A Partner
+            </a>
+            <a href="support.html" class="btn-cta-alt btn-compact flex items-center justify-center">
+              <i class="fa-solid fa-headset"></i> Get Support
+            </a>
           </div>
         </div>
       </div>
