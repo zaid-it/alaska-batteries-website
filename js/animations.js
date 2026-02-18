@@ -1,4 +1,6 @@
 // ===== SCROLL ANIMATIONS =====
+// global breakpoint used by banner + video swap logic
+const MOBILE_BREAKPOINT = 640; // px — change if you prefer a different cutoff
 document.addEventListener("DOMContentLoaded", function () {
   const observerOptions = {
     threshold: 0.1,
@@ -105,6 +107,74 @@ function closeBatteryFinder() {
   }
 }
 
+// Update videos that include <source data-mobile="..."> for mobile-specific sources
+function updateVideos() {
+  document.querySelectorAll("video").forEach((video) => {
+    const srcEl = video.querySelector("source[data-mobile]");
+    if (!srcEl) return;
+
+    if (!srcEl.dataset.desktop) srcEl.dataset.desktop = srcEl.getAttribute("src") || "";
+    const mobileSrc = srcEl.dataset.mobile;
+    const desktopSrc = srcEl.dataset.desktop;
+    const useMobile = window.innerWidth <= MOBILE_BREAKPOINT;
+    const desired = useMobile ? mobileSrc : desktopSrc;
+    if (!desired) return;
+
+    const getFilename = (p) => {
+      try {
+        return p.split("/").pop();
+      } catch (e) {
+        return p || "";
+      }
+    };
+    const current = video.currentSrc || video.src || "";
+    if (getFilename(current) === getFilename(desired)) return; // already correct
+
+    // More robust approach: replace the entire <video> element with a fresh one
+    try {
+      console.debug("Swapping video to", desired);
+      const wasPlaying = !video.paused && !video.ended;
+
+      // Build new video element
+      const newVideo = document.createElement("video");
+      // copy attributes
+      for (let i = 0; i < video.attributes.length; i++) {
+        const a = video.attributes[i];
+        newVideo.setAttribute(a.name, a.value);
+      }
+      // ensure playsinline & muted for autoplay on mobile
+      newVideo.setAttribute("playsinline", "");
+      newVideo.setAttribute("webkit-playsinline", "");
+      if (!newVideo.hasAttribute("muted")) newVideo.setAttribute("muted", "");
+
+      // create source
+      const newSource = document.createElement("source");
+      newSource.setAttribute("src", desired);
+      newSource.setAttribute("type", srcEl.getAttribute("type") || "video/mp4");
+      newVideo.appendChild(newSource);
+
+      // preserve id/class for styling and scripts
+      if (video.id) newVideo.id = video.id;
+      newVideo.className = video.className;
+
+      // Replace in DOM
+      video.parentNode.replaceChild(newVideo, video);
+
+      // attempt to load/play
+      newVideo.load();
+      if (wasPlaying || newVideo.hasAttribute("autoplay")) {
+        const p = newVideo.play();
+        if (p && p.catch)
+          p.catch((err) => {
+            console.debug("Autoplay blocked", err);
+          });
+      }
+    } catch (e) {
+      console.warn("Video replace failed", e);
+    }
+  });
+}
+
 // ===== Responsive Banner Images (desktop/mobile) =====
 (function () {
   const MOBILE_BREAKPOINT = 640; // px — change if you prefer a different cutoff
@@ -134,12 +204,33 @@ function closeBatteryFinder() {
   }
 
   const debouncedUpdate = debounce(updateBanners, 120);
-  window.addEventListener("resize", debouncedUpdate);
-  window.addEventListener("orientationchange", debouncedUpdate);
+  // Compose a single debounced updater for banners + videos
+  const debouncedAll = debounce(function () {
+    updateBanners();
+    updateVideos();
+  }, 120);
+
+  window.addEventListener("resize", debouncedAll);
+  window.addEventListener("orientationchange", debouncedAll);
+  // Also listen to a media-query change so swaps occur exactly when breakpoint crosses
+  try {
+    const mq = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`);
+    if (mq.addEventListener) {
+      mq.addEventListener("change", debouncedAll);
+    } else if (mq.addListener) {
+      mq.addListener(debouncedAll);
+    }
+  } catch (e) {
+    // ignore when matchMedia not available
+  }
   // Run once after DOM ready
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", updateBanners);
+    document.addEventListener("DOMContentLoaded", function () {
+      updateBanners();
+      updateVideos();
+    });
   } else {
     updateBanners();
+    updateVideos();
   }
 })();
