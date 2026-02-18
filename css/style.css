@@ -883,6 +883,16 @@ img {
   padding: 0.5rem 1rem;
   background: rgba(0, 0, 0, 0.65);
 }
+@media (max-width: 600px) {
+  .banner-overlay {
+    top: 10rem !important;
+    height: 75px !important;
+    max-height: 75px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
 @media (min-width: 768px) {
   .banner-overlay {
     bottom: auto;
