@@ -76,8 +76,8 @@
 
     <!-- Video Section with Text and Player -->
     <section class="bg-white py-12 md:py-20">
-      <div class="container mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           <!-- Left: Text Content -->
           <div class="flex flex-col justify-center">
             <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">
@@ -106,57 +106,135 @@
     </section>
 
     <!-- Graphite Features Section -->
-    <section class="bg-gray-100 md:px-4 md:py-6">
-      <div class="container mx-auto px-6 md:px-4">
-        <div class="relative">
-          <div id="feature-cards"
-            class="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pb-4 text-center">
-            <!-- Cards injected by JS -->
+    <section class="bg-gray-100 md:px-4 py-4 md:py-6">
+      <div class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-10">
+        <!-- Feature Content: Image Left, Text Right -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-[600px_1fr] gap-8 md:gap-12 items-center p-2 md:pl-0 md:pb-8 rounded-lg mb-1">
+          <!-- Left: Vertical Image Tile (600px height) -->
+          <div class="flex justify-center">
+            <img id="featureImage" src="assets/technology/tech-1.png" alt="Feature Image"
+              class="h-[350px] md:h-[600px] w-auto object-fill md:object-contain rounded-lg shadow-2xl" />
           </div>
 
-          <!-- Desktop Chevron Navigation -->
-          <button type="button" onclick="scrollFeatureCards(-1)"
-            class="hidden md:flex absolute left-2 top-1/2 mt-[-24px] h-12 w-12 rounded-full bg-white border-2 border-gray-300 items-center justify-center hover:bg-[#c00d1e] hover:text-white hover:border-[#c00d1e] shadow-lg z-10 transition-colors duration-200 focus:outline-none">
-            <i class="fa-solid fa-chevron-left pointer-events-none"></i>
-          </button>
-          <button type="button" onclick="scrollFeatureCards(1)"
-            class="hidden md:flex absolute right-2 top-1/2 mt-[-24px] h-12 w-12 rounded-full bg-white border-2 border-gray-300 items-center justify-center hover:bg-[#c00d1e] hover:text-white hover:border-[#c00d1e] shadow-lg z-10 transition-colors duration-200 focus:outline-none">
-            <i class="fa-solid fa-chevron-right pointer-events-none"></i>
-          </button>
+          <!-- Right: Text Content -->
+          <div class="flex flex-col justify-center items-center md:items-start">
+            <h2 id="featureTitle" class="text-2xl md:text-4xl font-semibold uppercase mb-6 text-[#c00d1e]">
+              --
+            </h2>
+            <div id="featureDesc" class="text-base md:text-lg text-gray-600 mb-2 leading-relaxed">
+              --
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature Headings/Tabs - Responsive: horizontal bar on desktop, 2x3 grid on mobile -->
+        <div class="w-full mt-4">
+          <!-- Desktop: horizontal scrollable bar -->
+          <div id="tabsContainer"
+            class="hidden md:flex gap-6 min-w-max md:min-w-0 md:flex-nowrap text-center overflow-x-auto scrollbar-hide pb-4">
+            <!-- Tab 1 -->
+            <div class="feature-tab cursor-pointer border-t-4 border-gray-300 pt-4 transition-all w-2/3 md:flex-1"
+              data-index="0" onclick="selectFeatureTab(0)">
+              <h3 class="text-base md:text-lg font-black uppercase text-gray-400 break-words">COMPOSITION
+              </h3>
+            </div>
+
+            <!-- Tab 2 -->
+            <div class="feature-tab cursor-pointer border-t-4 border-gray-300 pt-4 transition-all w-2/3 md:flex-1"
+              data-index="1" onclick="selectFeatureTab(1)">
+              <h3 class="text-base md:text-lg font-black uppercase text-gray-400 break-words">EFFICIENCY
+              </h3>
+            </div>
+
+            <!-- Tab 3 -->
+            <div class="feature-tab cursor-pointer border-t-4 border-gray-300 pt-4 transition-all w-2/3 md:flex-1"
+              data-index="2" onclick="selectFeatureTab(2)">
+              <h3 class="text-base md:text-lg font-black uppercase text-gray-400 break-words">LONGEVITY
+              </h3>
+            </div>
+
+            <!-- Tab 4 -->
+            <div class="feature-tab cursor-pointer border-t-4 border-gray-300 pt-4 transition-all w-2/3 md:flex-1"
+              data-index="3" onclick="selectFeatureTab(3)">
+              <h3 class="text-base md:text-lg font-black uppercase text-gray-400 break-words">RECOVERY
+              </h3>
+            </div>
+
+            <!-- Tab 5 -->
+            <div class="feature-tab cursor-pointer border-t-4 border-gray-300 pt-4 transition-all w-2/3 md:flex-1"
+              data-index="4" onclick="selectFeatureTab(4)">
+              <h3 class="text-base md:text-lg font-black uppercase text-gray-400 break-words">APPLICATIONS
+              </h3>
+            </div>
+
+            <!-- Tab 6 -->
+            <div class="feature-tab cursor-pointer border-t-4 border-gray-300 pt-4 transition-all w-2/3 md:flex-1"
+              data-index="5" onclick="selectFeatureTab(5)">
+              <h3 class="text-base md:text-lg font-black uppercase text-gray-400 break-words">CHARGE
+              </h3>
+            </div>
+          </div>
+          <!-- Mobile: 2x3 grid, equal size, centered -->
+          <div id="tabsGrid" class="grid grid-cols-2 grid-rows-3 gap-3 w-[80vw] max-w-xs mx-auto md:hidden pb-4">
+            <div
+              class="feature-tab cursor-pointer border-t-4 border-gray-300 pt-4 transition-all flex items-center justify-center h-16"
+              data-index="0" onclick="selectFeatureTab(0)">
+              <h3 class="text-xs xs:text-sm sm:text-base font-black uppercase text-gray-400 break-words">COMPOSITION
+              </h3>
+            </div>
+            <div
+              class="feature-tab cursor-pointer border-t-4 border-gray-300 pt-4 transition-all flex items-center justify-center h-16"
+              data-index="1" onclick="selectFeatureTab(1)">
+              <h3 class="text-xs xs:text-sm sm:text-base font-black uppercase text-gray-400 break-words">EFFICIENCY</h3>
+            </div>
+            <div
+              class="feature-tab cursor-pointer border-t-4 border-gray-300 pt-4 transition-all flex items-center justify-center h-16"
+              data-index="2" onclick="selectFeatureTab(2)">
+              <h3 class="text-xs xs:text-sm sm:text-base font-black uppercase text-gray-400 break-words">LONGEVITY</h3>
+            </div>
+            <div
+              class="feature-tab cursor-pointer border-t-4 border-gray-300 pt-4 transition-all flex items-center justify-center h-16"
+              data-index="3" onclick="selectFeatureTab(3)">
+              <h3 class="text-xs xs:text-sm sm:text-base font-black uppercase text-gray-400 break-words">RECOVERY</h3>
+            </div>
+            <div
+              class="feature-tab cursor-pointer border-t-4 border-gray-300 pt-4 transition-all flex items-center justify-center h-16"
+              data-index="4" onclick="selectFeatureTab(4)">
+              <h3 class="text-xs xs:text-sm sm:text-base font-black uppercase text-gray-400 break-words">APPLICATIONS
+              </h3>
+            </div>
+            <div
+              class="feature-tab cursor-pointer border-t-4 border-gray-300 pt-4 transition-all flex items-center justify-center h-16"
+              data-index="5" onclick="selectFeatureTab(5)">
+              <h3 class="text-xs xs:text-sm sm:text-base font-black uppercase text-gray-400 break-words">CHARGE</h3>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-  </main>
-
-  <div id="footer-placeholder"></div>
-  <script src="js/components.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/animations.js"></script>
-
-
-  <script>
-    // Feature data - Only 3 items
-    const featureData = [
-      {
-        id: 0,
-        title: 'ADVANCED PLATE COMPOSITION',
-        desc: `<ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed text-left">
-                <li>Traditional batteries use <b>lead- antimony or lead - calcium grids</b > that degrade faster due
+    <script>
+      // Feature data - Only 3 items
+      const featureData = [
+        {
+          id: 0,
+          title: 'ADVANCED PLATE COMPOSITION',
+          desc: `<ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed">
+                <li>Traditional batteries use <b>lead - antimony or lead - calcium grids</b > that degrade faster due
                     to
                     sulfation.</li>
             <li><b>Graphite Lead-Acid</b> batteries incorporate <b>Graphite</b>, reducing sulfation and
               increasing
               efficiency.</li>
               <li>Longer battery life & improved energy flow.</li>
-                </ul >`
-        ,
-        image: 'assets/technology/tech-1.png'
-      },
-      {
-        id: 1,
-        title: 'ENERGY EFFICIENCY & HEAT',
-        desc: `<ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed text-left">
+                </ul >`,
+          image: 'assets/technology/tech-1.png'
+        },
+        {
+          id: 1,
+          title: 'ENERGY EFFICIENCY & HEAT',
+          desc: `<ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed">
                   <li>Traditional batteries generate <b>more heat and waste energy</b> due to high internal
                     resistance.
                   </li>
@@ -164,12 +242,12 @@
                     performance high.</li>
                     <li>Improved reliability and efficiency.</li>
                 </ul>`,
-        image: 'assets/technology/tech-2.png'
-      },
-      {
-        id: 2,
-        title: 'CYCLE LIFE & LONGEVITY',
-        desc: `<ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed text-left">
+          image: 'assets/technology/tech-2.png'
+        },
+        {
+          id: 2,
+          title: 'CYCLE LIFE & LONGEVITY',
+          desc: `<ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed">
                   <li>Standard batteries last <b>300-500 cycles</b>, while graphite-enhanced versions last
                     <b>600-1000+
                       cycles</b>.
@@ -177,99 +255,152 @@
                   <li>Graphite slows down sulfate buildup, preserving battery health.</li>
                   <li>Extended lifespan and lower costs.</li>
                 </ul>`,
-        image: 'assets/technology/tech-3.png'
-      },
-      {
-        id: 3,
-        title: 'DEEP DISCHARGE RECOVERY',
-        desc: `<ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed text-left">
+          image: 'assets/technology/tech-3.png'
+        },
+        {
+          id: 3,
+          title: 'DEEP DISCHARGE RECOVERY',
+          desc: `<ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed">
                   <li>Normal batteries <b>suffer permanent</b> damage from deep discharges.</li>
                   <li>Graphite Lead Acid batteries <b>recover better</b> from deep discharge cycles.</li>
                   <li>Durability in demanding conditions.</li>
                 </ul>`,
-        image: 'assets/technology/tech-4.png'
-      },
-      {
-        id: 4,
-        title: 'IDEAL FOR MODERN APPLICATIONS',
-        desc: `<ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed text-left">
+          image: 'assets/technology/tech-4.png'
+        },
+        {
+          id: 4,
+          title: 'IDEAL FOR MODERN APPLICATIONS',
+          desc: `<ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed">
                   <li>Traditional Lead-Acid batteries are best for <b>low-drain uses</b> like motorcycles.</li>
                   <li>Graphite batteries excel in: Stop-Start Vehicles, Solar Energy Storage, Hybrid System &
-                    Industrial Use.</li>
+                    Industrial
+                    Use.</li>
                     <li>Versatility for the future of storage.</li>
                 </ul>`,
-        image: 'assets/technology/tech-5.png'
-      },
-      {
-        id: 5,
-        title: 'CHARGE ACCEPTANCE & SPEED',
-        desc: `<ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed text-left">
+          image: 'assets/technology/tech-5.png'
+        },
+        {
+          id: 5,
+          title: 'CHARGE ACCEPTANCE & SPEED',
+          desc: `<ul class="space-y-2 list-disc pl-5 text-sm md:text-lg leading-relaxed">
                   <li>Normal Lead Acid batteries charge <b>slower</b> and struggle in <b>partial state-of-charge
                       (PSoC)
                       conditions</b>.</li>
                   <li>Graphite Lead Acid batteries <b>absorb current much faster</b>, ideal for <b>modern stop-start
                       vehicle systems</b>.</li>
-                      <li>Faster charging and increased efficiency.</li>
+                  <li>Faster charging and increased efficiency.</li>
                 </ul>`,
-        image: 'assets/technology/tech-6.png'
+          image: 'assets/technology/tech-6.png'
+        }
+      ];
+
+      function selectFeatureTab(index, scrollToSection = false) {
+        const feature = featureData[index];
+        const featureImage = document.getElementById('featureImage');
+        featureImage.classList.add('swiping');
+        setTimeout(() => {
+          featureImage.src = feature.image;
+          document.getElementById('featureTitle').textContent = feature.title;
+          document.getElementById('featureDesc').innerHTML = feature.desc;
+          featureImage.classList.remove('swiping');
+        }, 200);
+
+        // Desktop tabs (horizontal bar)
+        const desktopTabs = document.querySelectorAll('#tabsContainer .feature-tab');
+        desktopTabs.forEach((tab, i) => {
+          const h3 = tab.querySelector('h3');
+          if (i === index) {
+            tab.classList.remove('border-gray-300');
+            tab.classList.add('border-[#c00d1e]');
+            h3.classList.remove('text-gray-400');
+            h3.classList.add('text-black', 'font-extrabold');
+          } else {
+            tab.classList.remove('border-[#c00d1e]');
+            tab.classList.add('border-gray-300');
+            h3.classList.remove('text-black', 'font-extrabold');
+            h3.classList.add('text-gray-400', 'font-extrabold');
+          }
+        });
+        // Mobile grid tabs (2x3 grid)
+        const mobileTabs = document.querySelectorAll('#tabsGrid .feature-tab');
+        mobileTabs.forEach((tab, i) => {
+          const h3 = tab.querySelector('h3');
+          if (i === index) {
+            tab.classList.remove('border-gray-300');
+            tab.classList.add('border-t-4', 'border-[#c00d1e]');
+            h3.classList.remove('text-gray-400');
+            h3.classList.add('text-black', 'font-extrabold');
+          } else {
+            tab.classList.remove('border-t-4', 'border-[#c00d1e]');
+            tab.classList.add('border-gray-300');
+            h3.classList.remove('text-black', 'font-extrabold');
+            h3.classList.add('text-gray-400', 'font-extrabold');
+          }
+        });
+        // On mobile, scroll the whole section into view if requested
+        if (scrollToSection && window.innerWidth < 768) {
+          const section = document.querySelector('.bg-gray-100.md\\:px-4.md\\:py-6') || document.querySelector('.bg-gray-100');
+          if (section) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
       }
-    ];
 
-    function renderFeatureCards() {
-      const container = document.getElementById('feature-cards');
-      if (!container) return;
-
-      container.innerHTML = featureData.map((feature) => {
-        return `
-          <div class="flex-shrink-0 w-[280px] md:w-[445px] bg-white rounded-xl shadow-lg overflow-hidden snap-start">
-            <div class="h-[220px] md:h-[400px] bg-gray-100">
-              <img src="${feature.image}" alt="${feature.title}"
-                class="w-full h-full object-cover" />
-            </div>
-            <div class="p-4 md:p-5 flex flex-col gap-3">
-              <h3 class="text-md md:text-lg font-bold uppercase text-[#c00d1e] break-words">${feature.title}</h3>
-              <div class="text-sm md:text-base text-gray-600 leading-relaxed whitespace-normal break-words">${feature.desc}</div>
-            </div>
-          </div>
-        `;
-      }).join('');
-    }
-
-    // Scroll feature cards function - defined globally
-    window.scrollFeatureCards = function (direction) {
-      console.log('Scroll called with direction:', direction);
-      const container = document.getElementById('feature-cards');
-      if (!container) {
-        console.error('Container not found');
-        return;
-      }
-
-      const cards = container.querySelectorAll('div');
-      console.log('Cards found:', cards.length);
-
-      if (cards.length === 0) {
-        console.error('No cards rendered yet');
-        return;
-      }
-
-      const firstCard = cards[0];
-      const cardWidth = firstCard.offsetWidth;
-      const gap = 24; // gap-6 = 1.5rem = 24px
-      const scrollAmount = (cardWidth + gap) * direction;
-
-      console.log('Scrolling by:', scrollAmount, 'Card width:', cardWidth);
-
-      container.scrollBy({
-        left: scrollAmount,
-        behavior: 'smooth'
+      document.addEventListener('DOMContentLoaded', () => {
+        selectFeatureTab(0, false);
       });
-    };
 
-    // Initialize on page load
-    document.addEventListener('DOMContentLoaded', () => {
-      renderFeatureCards();
-    });
-  </script>
+      // Attach click handlers to mobile grid tabs to enable scroll
+      document.addEventListener('DOMContentLoaded', () => {
+        const mobileTabs = document.querySelectorAll('#tabsGrid .feature-tab');
+        mobileTabs.forEach((tab, i) => {
+          tab.onclick = function () { selectFeatureTab(i, true); };
+        });
+      });
+
+      function checkChevronVisibility() {
+        const container = document.getElementById('tabsContainer');
+        const leftBtn = document.getElementById('scrollLeftBtn');
+        const rightBtn = document.getElementById('scrollRightBtn');
+
+        // If content fits without scrolling, hide chevrons
+        if (container.scrollWidth <= container.clientWidth) {
+          leftBtn.style.display = 'none';
+          rightBtn.style.display = 'none';
+        } else {
+          // Show chevrons if scrolling is needed
+          leftBtn.style.display = 'flex';
+          rightBtn.style.display = 'flex';
+        }
+      }
+
+      // Re-check on window resize
+      window.addEventListener('resize', checkChevronVisibility);
+
+      // Scroll tabs functions
+      function scrollTabsLeft() {
+        const container = document.getElementById('tabsContainer');
+        container.scrollBy({
+          left: -300,
+          behavior: 'smooth'
+        });
+      }
+
+      function scrollTabsRight() {
+        const container = document.getElementById('tabsContainer');
+        container.scrollBy({
+          left: 300,
+          behavior: 'smooth'
+        });
+      }
+    </script>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+
 
   <script>
     const techmodal = document.getElementById("techmodal");

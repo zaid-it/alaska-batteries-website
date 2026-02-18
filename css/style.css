@@ -5,6 +5,27 @@
   --alaska-gray: #f3f4f6;
 }
 
+/* Hero: ensure background video covers the first viewport fold reliably */
+.hero-section {
+  position: relative;
+  width: 100%;
+  /* Reserve header height (80px) so hero fits the visible fold */
+  height: calc(100svh - 80px) !important;
+  min-height: 690px;
+  aspect-ratio: auto !important; /* override utility classes like aspect-video */
+  overflow: hidden;
+}
+
+.hero-section video,
+.hero-section #heroVideo {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
 body {
   font-family:
     Universal Sans,
@@ -398,6 +419,41 @@ img {
   }
 }
 
+/* Mobile: disable hover/transform/shadow effects on vault cards to avoid flicker */
+@media (max-width: 640px) {
+  .vault-card {
+    transition: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  .vault-card:hover,
+  .vault-card:active,
+  .vault-card:focus {
+    box-shadow: none !important;
+    transform: none !important;
+  }
+}
+
+/* Graphite Section: stack heading and CTA on mobile so button appears below text */
+@media (max-width: 640px) {
+  .graphite-cta-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.75rem !important;
+  }
+
+  .graphite-cta-row a {
+    margin-left: 0 !important;
+    align-self: flex-start !important;
+  }
+
+  .graphite-cta-row h3 {
+    font-size: 1.5rem !important;
+    line-height: 1.05 !important;
+  }
+}
+
 /* Utility: force mobile-only break for specific phrases */
 .mobile-break {
   display: inline;
@@ -476,8 +532,9 @@ img {
 /* Video hero tweaks */
 .hero-section {
   aspect-ratio: auto;
-  height: calc(100vh - 80px);
-  height: calc(100svh - 80px);
+  height: 100% !important;
+  /*height: calc(100vh - 80px);
+  height: calc(100svh - 80px);*/
   max-height: calc(100vh - 80px);
   max-height: calc(100svh - 80px);
   min-height: calc(100vh - 80px);
@@ -488,8 +545,7 @@ img {
 @media (max-width: 767px) {
   .hero-section {
     height: 250px;
-    max-height: 250px;
-    min-height: 250px;
+    max-height: 100%;
   }
 }
 
@@ -785,7 +841,7 @@ img {
   }
 
   .product-card > div:last-child {
-    padding: 1rem;
+    padding: 0.1rem;
   }
 
   .carousel-btn {
@@ -1108,6 +1164,7 @@ html {
 @media (max-width: 767px) {
   .partner-counter {
     display: block;
+    text-align: center;
   }
 
   .partner-counter-value {
@@ -1139,22 +1196,44 @@ html {
     white-space: nowrap; /* keep icon + text on one line */
   }
 
-  /* If markup applied Tailwind width utilities (w-1/2), override them on phones */
-  .btn-cta.w-1\/2,
-  .btn-cta-alt.w-1\/2,
-  a.btn-cta.w-1\/2,
-  a.btn-cta-alt.w-1\/2 {
-    width: auto !important;
-    min-width: 0 !important;
+  /* On mobile, show a shorter top-down gradient behind the heading */
+  .graphite-gradient {
+    display: block !important;
+    left: -10% !important;
+    right: -10% !important;
+    top: -15% !important;
+    bottom: auto !important;
+    height: 50% !important;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%) !important;
   }
+}
 
-  /* Slightly reduce CTA padding/font on very small screens to help fit */
-  .btn-cta.btn-compact,
-  .btn-cta-alt.btn-compact {
-    padding-left: 0.75rem !important;
-    padding-right: 0.75rem !important;
-    font-size: 0.85rem !important;
+/* Desktop: ensure the gradient covers the lower area (original style) */
+@media (min-width: 641px) {
+  .graphite-gradient {
+    left: -5% !important;
+    right: -5% !important;
+    top: 50% !important;
+    bottom: -10% !important;
+    height: auto !important;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%) !important;
   }
+}
+/* If markup applied Tailwind width utilities (w-1/2), override them on phones */
+.btn-cta.w-1\/2,
+.btn-cta-alt.w-1\/2,
+a.btn-cta.w-1\/2,
+a.btn-cta-alt.w-1\/2 {
+  width: auto !important;
+  min-width: 0 !important;
+}
+
+/* Slightly reduce CTA padding/font on very small screens to help fit */
+.btn-cta.btn-compact,
+.btn-cta-alt.btn-compact {
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+  font-size: 0.85rem !important;
 }
 
 /* Dealers page: make search controls match width on mobile */
