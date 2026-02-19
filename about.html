@@ -187,11 +187,11 @@
               <div
                 class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
                 onclick="openImageModal('assets/gallery/awards/award-1.png', 'Brand of the Year Award 2025')">
-                <div class="w-full h-72 bg-gray-300 overflow-hidden relative">
+                <div class="w-full h-72 md:h-96 bg-gray-300 overflow-hidden relative">
                   <picture>
                     <source media="(min-width: 641px)" srcset="assets/gallery/awards/award.png" />
                     <img src="assets/gallery/awards/award.png" alt="Emerging Brand of the Year Award 2025"
-                      class="w-full h-full object-cover object-[80%_10%]" />
+                      class="w-full h-full object-cover md:object-contain" />
                   </picture>
                   <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
                 </div>
@@ -212,7 +212,7 @@
               </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
               <!-- Certification 1 -->
               <div
                 class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
