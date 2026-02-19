@@ -185,6 +185,27 @@ document.addEventListener("DOMContentLoaded", () => {
     if (targetBtn) {
       document.querySelector(".filter-btn.active")?.classList.remove("active");
       targetBtn.classList.add("active");
+      // If arriving with a category hash (from homepage), make sure the hero reflects it
+      if (typeof updateHero === "function") {
+        // Defer to the next tick so DOM-initialized constants (like `heroImg`) exist
+        setTimeout(() => {
+          try {
+            updateHero(hash);
+          } catch (e) {
+            /* noop */
+          }
+        }, 0);
+      }
+      // Also apply filters so the grid reflects the chosen category
+      if (typeof applyFilters === "function") {
+        setTimeout(() => {
+          try {
+            applyFilters();
+          } catch (e) {
+            /* noop */
+          }
+        }, 0);
+      }
     }
   }
 
@@ -333,6 +354,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // Update the main stage with the first sorted battery
     if (sortedFiltered.length > 0) {
       window.updateStage(sortedFiltered[0].id, false);
+    }
+
+    // Ensure hero/banner matches the active category when filters are applied
+    // Defer hero/banner update so it doesn't run before banner elements are initialized
+    if (typeof updateHero === "function") {
+      setTimeout(() => {
+        try {
+          updateHero(activeCat);
+        } catch (e) {
+          /* ignore if updateHero is not available yet */
+        }
+      }, 0);
     }
 
     renderThumbnails(sortedFiltered);
