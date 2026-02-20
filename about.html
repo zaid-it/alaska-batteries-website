@@ -82,57 +82,6 @@
         </div>
       </div>
     </section>
-    <!--
-    <!-- Section: Our Story with Video --
-    <section class="bg-gray-50 py-2 md:py-32">
-      <div class="mx-auto px-6 md:px-8">
-        <!-- Two Column Layout: Text Left, Video Right --
-        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
-          <!-- Text Content - 50% on desktop, 100% on mobile --
-          <div class="w-full md:w-1/2 flex flex-col justify-center order-1 md:order-1 px-4 md:px-8 py-4 md:py-0">
-            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight leading-tight mb-4">
-              Our<span class="text-[#c00d1e]"> Story</span>
-            </h2>
-            <div class="space-y-4 text-black text-base md:text-lg leading-relaxed">
-              <p>
-                Alaska Batteries may be a new name in Pakistan’s energy sector, but it was not built from inexperience.
-                It was built
-                from observation, from years inside an industry that had grown comfortable with repetition. The same
-                claims. The same
-                promises. The same expectations.
-                We saw a category where inconsistency was tolerated and failure was normalized. Where reliability was
-                marketed more
-                often than it was engineered. That complacency became our starting point.
-              </p>
-              <p>
-                Alaska was established with a clear conviction: standards must rise. Reliability must be controlled.
-                Performance must be
-                proven.
-              </p>
-              <p>
-                We deliver greater value without compromise. We test beyond minimum standards, because that is how the
-                real world is. We
-                listen, we refine, and we improve. Alaska exists to solve everyday power problems, so you can drive,
-                work, and live with
-                confidence.
-                Our story is not about entering the energy space.
-                It is about redefining what it should expect.
-              </p>
-            </div>
-          </div>
-
-          <!-- Video - 50% on desktop, 100% on mobile --
-          <div
-            class="w-full md:w-1/2 h-96 md:h-96 md:min-h-[500px] rounded-xl overflow-hidden shadow-2xl relative bg-gray-100 order-2 md:order-2">
-            <video id="storyVideo" class="w-full h-full object-contain cursor-pointer rounded-xl shadow-2xl" controls
-              playsinline webkit-playsinline poster="assets/videos/about-thumbnail.png">
-              <source src="assets/videos/about.mp4" type="video/mp4" />
-              Your browser does not support HTML5 video.
-            </video>
-          </div>
-        </div>
-      </div>
-    </section> -->
     <!-- Section 1: The Future is Sustainable -->
     <section
       class="relative w-full h-auto md:h-screen bg-cover bg-center border-b border-gray-200 flex items-center justify-center px-4 py-12 md:py-0 future-sustainable">
@@ -231,7 +180,8 @@
                 onclick="openImageModal('assets/gallery/awards/award-1.png', 'Brand of the Year Award 2025')">
                 <div class="w-full h-72 md:h-96 bg-gray-300 overflow-hidden relative">
                   <picture>
-                    <source media="(min-width: 641px)" srcset="assets/gallery/awards/award.png" />
+                    <!-- show the coin thumbnail by default on desktop -->
+                    <source media="(min-width: 641px)" srcset="assets/gallery/awards/award2.jpeg" />
                     <img src="assets/gallery/awards/award.png" alt="Emerging Brand of the Year Award 2025"
                       class="w-full h-full object-cover md:object-contain" />
                   </picture>
@@ -254,47 +204,69 @@
               </p>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
-              <!-- Certification 1 -->
-              <div
-                class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
-                onclick="openImageModal('assets/gallery/certificates/ISO-9001-2015.jpeg', 'ISO 9001:2015 Quality Management')">
-                <div class="w-full h-56 md:h-36 bg-gray-300 overflow-hidden relative">
-                  <img src="assets/gallery/certificates/ISO-9001-2015.jpeg" alt="ISO 9001:2015"
-                    class="w-full h-full object-cover object-[10%_40%] group-hover:scale-105 transition-transform duration-300" />
-                  <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
+            <div class="relative">
+              <!-- Scroll Buttons (desktop only) -->
+              <button type="button" id="certScrollLeft" class="hidden md:flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-gray-200 hover:bg-gray-100 transition-all" aria-label="Scroll left">
+                <i class="fa fa-chevron-left text-2xl text-[#c00d1e]"></i>
+              </button>
+              <button type="button" id="certScrollRight" class="hidden md:flex items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-gray-200 hover:bg-gray-100 transition-all" aria-label="Scroll right">
+                <i class="fa fa-chevron-right text-2xl text-[#c00d1e]"></i>
+              </button>
+              <div id="certifications-carousel" class="flex gap-6 overflow-x-auto px-2 py-2 md:py-4 md:px-4 no-scrollbar snap-x snap-mandatory scroll-smooth">
+                <!-- Certification 1 -->
+                <div
+                  class="cert-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition-shadow duration-300 cursor-pointer group flex-shrink-0 w-[180px] md:w-[220px] snap-center"
+                  onclick="openImageModal('assets/gallery/certificates/ISO-9001-2015.jpeg', 'ISO 9001:2015 Quality Management')">
+                  <div class="w-full h-40 md:h-56 bg-gray-300 overflow-hidden relative flex items-center justify-center">
+                    <img src="assets/gallery/certificates/ISO-9001-2015.jpeg" alt="ISO 9001:2015"
+                      class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
+                  </div>
+                  <div class="p-4 bg-white text-center">
+                    <h4 class="text-sm font-extrabold uppercase text-[#c00d1e]">ISO 9001:2015</h4>
+                  </div>
                 </div>
-              </div>
 
-              <!-- Certification 2 -->
-              <div
-                class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
-                onclick="openImageModal('assets/gallery/certificates/ISO-14001-2015.jpeg', 'Environmental Safety Certified')">
-                <div class="w-full h-56 md:h-36 bg-gray-300 overflow-hidden relative">
-                  <img src="assets/gallery/certificates/ISO-14001-2015.jpeg" alt="Environmental Safety"
-                    class="w-full h-full object-cover object-[10%_40%] group-hover:scale-105 transition-transform duration-300" />
-                  <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
+                <!-- Certification 2 -->
+                <div
+                  class="cert-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition-shadow duration-300 cursor-pointer group flex-shrink-0 w-[140px] md:w-[180px] snap-center"
+                  onclick="openImageModal('assets/gallery/certificates/ISO-14001-2015.jpeg', 'Environmental Safety Certified')">
+                  <div class="w-full h-32 md:h-44 bg-gray-300 overflow-hidden relative flex items-center justify-center">
+                    <img src="assets/gallery/certificates/ISO-14001-2015.jpeg" alt="Environmental Safety"
+                      class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
+                  </div>
+                  <div class="p-3 bg-white text-center">
+                    <h4 class="text-xs font-extrabold uppercase text-[#c00d1e]">ISO 14001:2015</h4>
+                  </div>
                 </div>
-              </div>
 
-              <!-- Certification 3 -->
-              <div
-                class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
-                onclick="openImageModal('assets/gallery/certificates/ISO-45001-2018.jpeg', 'Occupational Health and Safety Management')">
-                <div class="w-full h-56 md:h-36 bg-gray-300 overflow-hidden relative">
-                  <img src="assets/gallery/certificates/ISO-45001-2018.jpeg" alt="Occupational Health and Safety"
-                    class="w-full h-full object-cover object-[10%_40%] group-hover:scale-105 transition-transform duration-300" />
-                  <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
+                <!-- Certification 3 -->
+                <div
+                  class="cert-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition-shadow duration-300 cursor-pointer group flex-shrink-0 w-[140px] md:w-[180px] snap-center"
+                  onclick="openImageModal('assets/gallery/certificates/ISO-45001-2018.jpeg', 'Occupational Health and Safety Management')">
+                  <div class="w-full h-32 md:h-44 bg-gray-300 overflow-hidden relative flex items-center justify-center">
+                    <img src="assets/gallery/certificates/ISO-45001-2018.jpeg" alt="ISO 45001:2018"
+                      class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
+                  </div>
+                  <div class="p-3 bg-white text-center">
+                    <h4 class="text-xs font-extrabold uppercase text-[#c00d1e]">ISO 45001:2018</h4>
+                  </div>
                 </div>
-              </div>
-              <!-- Certification 4 -->
-              <div
-                class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
-                onclick="openImageModal('assets/gallery/certificates/Fire-Safety.jpeg', 'Fire Safety Certified')">
-                <div class="w-full h-56 md:h-36 bg-gray-300 overflow-hidden relative">
-                  <img src="assets/gallery/certificates/Fire-Safety.jpeg" alt="Fire Safety"
-                    class="w-full h-full object-cover object-[10%_10%] group-hover:scale-105 transition-transform duration-300" />
-                  <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
+
+                <!-- Certification 4 -->
+                <div
+                  class="cert-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition-shadow duration-300 cursor-pointer group flex-shrink-0 w-[140px] md:w-[180px] snap-center"
+                  onclick="openImageModal('assets/gallery/certificates/Fire-Safety.jpeg', 'Fire Safety Certified')">
+                  <div class="w-full h-32 md:h-44 bg-gray-300 overflow-hidden relative flex items-center justify-center">
+                    <img src="assets/gallery/certificates/Fire-Safety.jpeg" alt="Fire Safety"
+                      class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
+                  </div>
+                  <div class="p-3 bg-white text-center">
+                    <h4 class="text-xs font-extrabold uppercase text-[#c00d1e]">Fire Safety</h4>
+                  </div>
                 </div>
               </div>
             </div>
@@ -401,6 +373,78 @@
         }, 300);
       });
     }
+
+    // Carousel logic for certifications
+    (function() {
+      const carousel = document.getElementById('certifications-carousel');
+      const cards = carousel ? Array.from(carousel.getElementsByClassName('cert-card')) : [];
+      const btnLeft = document.getElementById('certScrollLeft');
+      const btnRight = document.getElementById('certScrollRight');
+
+      function updateCenterCard() {
+        if (!carousel || cards.length === 0) return;
+        // Find the card closest to the center of the carousel viewport
+        const carouselRect = carousel.getBoundingClientRect();
+        let minDist = Infinity, centerIdx = 0;
+        cards.forEach((card, i) => {
+          const rect = card.getBoundingClientRect();
+          const cardCenter = rect.left + rect.width / 2;
+          const dist = Math.abs(cardCenter - (carouselRect.left + carouselRect.width / 2));
+          if (dist < minDist) {
+            minDist = dist;
+            centerIdx = i;
+          }
+        });
+        // Remove all scaling
+        cards.forEach((card, i) => {
+          card.style.transform = '';
+          card.style.zIndex = 1;
+          card.style.opacity = 0.7;
+          card.style.boxShadow = '';
+        });
+        // Highlight center card
+        const centerCard = cards[centerIdx];
+        if (centerCard) {
+          centerCard.style.transform = 'scale(1.15)';
+          centerCard.style.zIndex = 2;
+          centerCard.style.opacity = 1;
+          centerCard.style.boxShadow = '0 8px 32px 0 rgba(44,0,30,0.18)';
+        }
+      }
+
+      function scrollToCard(idx) {
+        if (!carousel || !cards[idx]) return;
+        const card = cards[idx];
+        const carouselRect = carousel.getBoundingClientRect();
+        const cardRect = card.getBoundingClientRect();
+        const scrollLeft = carousel.scrollLeft + (cardRect.left + cardRect.width/2) - (carouselRect.left + carouselRect.width/2);
+        carousel.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+      }
+
+      // Scroll buttons
+      if (btnLeft && btnRight && cards.length > 0) {
+        btnLeft.style.display = btnRight.style.display = window.innerWidth >= 768 ? 'flex' : 'none';
+        let centerIdx = 0;
+        btnLeft.onclick = function() {
+          centerIdx = Math.max(0, centerIdx - 1);
+          scrollToCard(centerIdx);
+        };
+        btnRight.onclick = function() {
+          centerIdx = Math.min(cards.length - 1, centerIdx + 1);
+          scrollToCard(centerIdx);
+        };
+        // Update center index on scroll
+        carousel.addEventListener('scroll', function() {
+          setTimeout(updateCenterCard, 80);
+        });
+        window.addEventListener('resize', function() {
+          btnLeft.style.display = btnRight.style.display = window.innerWidth >= 768 ? 'flex' : 'none';
+          setTimeout(updateCenterCard, 100);
+        });
+        // Initial highlight
+        setTimeout(updateCenterCard, 200);
+      }
+    })();
   </script>
 
 </html>
