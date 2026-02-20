@@ -1,5 +1,3 @@
-// js/components.js
-
 const brandRed = "#c00d1e";
 
 const headerHTML = /* HTML */ `

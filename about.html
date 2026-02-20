@@ -41,7 +41,7 @@
     </section>
 
     <!-- Video Section with Text and Player -->
-    <section class="bg-gray-50 py-6 md:py-44">
+    <section id="storyVideo" class="bg-gray-50 py-6 md:py-48">
       <div class="container mx-auto px-8 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-10">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           <!-- Left: Text Content -->
@@ -59,9 +59,11 @@
               marketed more
               often than it was engineered. That complacency became our starting point.
             </p>
-            <p class="text-base md:text-lg text-black mb-6 leading-relaxed text-justify">
+            <p class="text-base md:text-lg text-black mb-4 leading-relaxed text-justify">
               Alaska was established with a clear conviction: standards must rise. Reliability must be controlled.
               Performance must be proven.
+            </p>
+            <p class="text-base md:text-lg text-black mb-6 leading-relaxed text-justify">
               We deliver greater value without compromise. We test beyond minimum standards, because that is how the
               real world is. We
               listen, we refine, and we improve. Alaska exists to solve everyday power problems, so you can drive,
@@ -179,13 +181,18 @@
                 class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
                 onclick="openImageModal('assets/gallery/awards/award-1.png', 'Brand of the Year Award 2025')">
                 <div class="w-full h-72 md:h-96 bg-gray-300 overflow-hidden relative">
-                  <picture>
-                    <!-- show the coin thumbnail by default on desktop -->
-                    <source media="(min-width: 641px)" srcset="assets/gallery/awards/award2.jpeg" />
-                    <img src="assets/gallery/awards/award.png" alt="Emerging Brand of the Year Award 2025"
-                      class="w-full h-full object-cover md:object-contain" />
-                  </picture>
-                  <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
+                  <div class="group relative w-full h-full">
+                    <picture>
+                      <!-- show the coin thumbnail by default on desktop -->
+                      <source media="(min-width: 641px)" srcset="assets/gallery/awards/award2.jpeg" />
+                      <img src="assets/gallery/awards/award.png" alt="Emerging Brand of the Year Award 2025"
+                        class="w-full h-full object-cover md:object-contain transition-transform duration-300 group-hover:scale-105 group-hover:brightness-90" />
+                    </picture>
+                    <span class="absolute inset-0 pointer-events-none">
+                      <i class="fa-solid fa-magnifying-glass text-white text-xl md:text-3xl drop-shadow-lg bg-black/50 rounded-full p-2 md:p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                        style="position: absolute; right: 1.5rem; bottom: 1.5rem;"></i>
+                    </span>
+                  </div>
                 </div>
               </div>
 
@@ -204,70 +211,55 @@
               </p>
             </div>
 
-            <div class="relative">
-              <!-- Scroll Buttons (desktop only) -->
-              <button type="button" id="certScrollLeft" class="hidden md:flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-gray-200 hover:bg-gray-100 transition-all" aria-label="Scroll left">
-                <i class="fa fa-chevron-left text-2xl text-[#c00d1e]"></i>
-              </button>
-              <button type="button" id="certScrollRight" class="hidden md:flex items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-gray-200 hover:bg-gray-100 transition-all" aria-label="Scroll right">
-                <i class="fa fa-chevron-right text-2xl text-[#c00d1e]"></i>
-              </button>
-              <div id="certifications-carousel" class="flex gap-6 overflow-x-auto px-2 py-2 md:py-4 md:px-4 no-scrollbar snap-x snap-mandatory scroll-smooth">
-                <!-- Certification 1 -->
-                <div
-                  class="cert-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition-shadow duration-300 cursor-pointer group flex-shrink-0 w-[180px] md:w-[220px] snap-center"
-                  onclick="openImageModal('assets/gallery/certificates/ISO-9001-2015.jpeg', 'ISO 9001:2015 Quality Management')">
-                  <div class="w-full h-40 md:h-56 bg-gray-300 overflow-hidden relative flex items-center justify-center">
-                    <img src="assets/gallery/certificates/ISO-9001-2015.jpeg" alt="ISO 9001:2015"
-                      class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
-                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
-                  </div>
-                  <div class="p-4 bg-white text-center">
-                    <h4 class="text-sm font-extrabold uppercase text-[#c00d1e]">ISO 9001:2015</h4>
+            <!-- Carousel: center big, sides small (all screens) -->
+            <div>
+              <div class="relative h-[400px] flex items-center justify-between overflow-visible">
+                <div id="cert-left" class="w-[30%] h-40 rounded-lg overflow-hidden cursor-pointer opacity-60"
+                  onclick="scrollCertCarousel(-1)">
+                  <div class="group relative w-full h-full">
+                    <img id="cert-left-img" src="assets/gallery/certificates/ISO-9001-2015.jpeg" alt="Left"
+                      class="w-full h-full object-cover object-[80%_10%] transition-transform duration-300 group-hover:scale-105 group-hover:brightness-90" />
+                    <span class="absolute inset-0 pointer-events-none">
+                      <i class="fa-solid fa-magnifying-glass text-white text-xl drop-shadow-lg bg-black/50 rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                        style="position: absolute; right: 1rem; bottom: 1rem;"></i>
+                    </span>
                   </div>
                 </div>
-
-                <!-- Certification 2 -->
-                <div
-                  class="cert-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition-shadow duration-300 cursor-pointer group flex-shrink-0 w-[140px] md:w-[180px] snap-center"
-                  onclick="openImageModal('assets/gallery/certificates/ISO-14001-2015.jpeg', 'Environmental Safety Certified')">
-                  <div class="w-full h-32 md:h-44 bg-gray-300 overflow-hidden relative flex items-center justify-center">
-                    <img src="assets/gallery/certificates/ISO-14001-2015.jpeg" alt="Environmental Safety"
-                      class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
-                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
-                  </div>
-                  <div class="p-3 bg-white text-center">
-                    <h4 class="text-xs font-extrabold uppercase text-[#c00d1e]">ISO 14001:2015</h4>
+                <div id="cert-center"
+                  class="absolute left-1/2 -translate-x-1/2 w-[85%] md:w-[72%] h-[350px] rounded-lg overflow-hidden cursor-pointer z-10 shadow-2xl"
+                  onclick="openImageModal(certifications[certIndex].src, certifications[certIndex].title)">
+                  <div class="group relative w-full h-full">
+                    <img id="cert-center-img" src="assets/gallery/certificates/ISO-9001-2015.jpeg" alt="Center"
+                      class="w-full h-full object-cover object-[80%_5%] transition-transform duration-300 group-hover:scale-105 group-hover:brightness-90" />
+                    <span class="absolute inset-0 pointer-events-none">
+                      <i class="fa-solid fa-magnifying-glass text-white text-3xl drop-shadow-lg bg-black/50 rounded-full p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                        style="position: absolute; right: 1.5rem; bottom: 1.5rem;"></i>
+                    </span>
                   </div>
                 </div>
-
-                <!-- Certification 3 -->
-                <div
-                  class="cert-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition-shadow duration-300 cursor-pointer group flex-shrink-0 w-[140px] md:w-[180px] snap-center"
-                  onclick="openImageModal('assets/gallery/certificates/ISO-45001-2018.jpeg', 'Occupational Health and Safety Management')">
-                  <div class="w-full h-32 md:h-44 bg-gray-300 overflow-hidden relative flex items-center justify-center">
-                    <img src="assets/gallery/certificates/ISO-45001-2018.jpeg" alt="ISO 45001:2018"
-                      class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
-                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
-                  </div>
-                  <div class="p-3 bg-white text-center">
-                    <h4 class="text-xs font-extrabold uppercase text-[#c00d1e]">ISO 45001:2018</h4>
+                <div id="cert-right" class="w-[30%] h-40 rounded-lg overflow-hidden cursor-pointer opacity-60"
+                  onclick="scrollCertCarousel(1)">
+                  <div class="group relative w-full h-full">
+                    <img id="cert-right-img" src="assets/gallery/certificates/ISO-14001-2015.jpeg" alt="Right"
+                      class="w-full h-full object-cover object-[80%_10%] transition-transform duration-300 group-hover:scale-105 group-hover:brightness-90" />
+                    <span
+                      class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                      <i
+                        class="fa-solid fa-magnifying-glass text-white text-2xl drop-shadow-lg bg-black/50 rounded-full p-2"></i>
+                    </span>
                   </div>
                 </div>
-
-                <!-- Certification 4 -->
-                <div
-                  class="cert-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition-shadow duration-300 cursor-pointer group flex-shrink-0 w-[140px] md:w-[180px] snap-center"
-                  onclick="openImageModal('assets/gallery/certificates/Fire-Safety.jpeg', 'Fire Safety Certified')">
-                  <div class="w-full h-32 md:h-44 bg-gray-300 overflow-hidden relative flex items-center justify-center">
-                    <img src="assets/gallery/certificates/Fire-Safety.jpeg" alt="Fire Safety"
-                      class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
-                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
-                  </div>
-                  <div class="p-3 bg-white text-center">
-                    <h4 class="text-xs font-extrabold uppercase text-[#c00d1e]">Fire Safety</h4>
-                  </div>
-                </div>
+              </div>
+              <div class="flex items-center justify-center gap-4 mt-2">
+                <button onclick="scrollCertCarousel(-1)"
+                  class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-all">
+                  <i class="fa-solid fa-chevron-left text-xs text-gray-600"></i>
+                </button>
+                <div id="cert-dots" class="flex items-center gap-2"></div>
+                <button onclick="scrollCertCarousel(1)"
+                  class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-all">
+                  <i class="fa-solid fa-chevron-right text-xs text-gray-600"></i>
+                </button>
               </div>
             </div>
           </div>
@@ -278,25 +270,27 @@
     <!-- Image Modal (image-only with close) -->
     <div id="imageModal" class="fixed inset-0 bg-black/80 z-50 hidden items-center justify-center p-4"
       onclick="closeImageModal(event)">
-      <div class="bg-white rounded-2xl w-full max-w-[50vw] md:max-w-[40vw] max-h-[70vh] overflow-hidden relative"
-        onclick="event.stopPropagation()">
+      <div
+        class="bg-white rounded-2xl w-full max-w-[90vw] md:max-w-[60vw] max-h-[90vh] overflow-y-auto relative flex flex-col"
+        style="box-shadow: 0 8px 40px 0 rgba(0,0,0,0.25);" onclick="event.stopPropagation()">
         <!-- Close button (overlay) -->
         <button id="modalCloseBtn"
           class="absolute top-3 right-3 z-10 bg-black/40 hover:bg-black/60 text-white rounded-full w-9 h-9 flex items-center justify-center">&times;</button>
-        <div class="flex items-center justify-center p-2 md:p-4 max-h-[70vh] w-full">
-          <div class="w-full">
-            <img id="modalImage" src="" alt="" class="max-w-full max-h-[65vh] object-contain rounded-lg mx-auto" />
-            <div id="modalCaption" class="mt-3 text-center text-sm text-gray-700"></div>
-          </div>
+        <div class="flex-1 flex flex-col items-center justify-center p-2 md:p-4 w-full overflow-auto">
+          <img id="modalImage" src="" alt="" class="max-w-full max-h-[60vh] object-contain rounded-lg mx-auto" />
+        </div>
+        <div id="modalCaption" class="mb-6 text-center w-full">
+          <!-- Caption will be set by JS -->
         </div>
       </div>
     </div>
   </main>
 
   <div id="footer-placeholder"></div>
-  <script src="js/components.js"></script>
+
   <script src="js/animations.js"></script>
   <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
 
   <script>
     function openImageModal(imageSrc, title) {
@@ -306,10 +300,16 @@
       const modalCloseBtn = document.getElementById('modalCloseBtn');
 
       // Populate
+
       modalImage.src = imageSrc;
       if (modalCaption) {
-        modalCaption.textContent = title || '';
-        modalCaption.style.display = title ? 'block' : 'none';
+        if (title) {
+          modalCaption.innerHTML = `<span class="block text-xl md:text-2xl font-black uppercase tracking-tight text-[#c00d1e] nice-title">${title}</span>`;
+          modalCaption.style.display = 'block';
+        } else {
+          modalCaption.textContent = '';
+          modalCaption.style.display = 'none';
+        }
       }
 
       // Show modal
@@ -374,75 +374,60 @@
       });
     }
 
-    // Carousel logic for certifications
-    (function() {
+    // Carousel logic for certifications (3-card window)
+    (function () {
       const carousel = document.getElementById('certifications-carousel');
       const cards = carousel ? Array.from(carousel.getElementsByClassName('cert-card')) : [];
       const btnLeft = document.getElementById('certScrollLeft');
       const btnRight = document.getElementById('certScrollRight');
+      let centerIdx = 1; // Start with second card centered
 
-      function updateCenterCard() {
+      function updateVisibleCards() {
         if (!carousel || cards.length === 0) return;
-        // Find the card closest to the center of the carousel viewport
-        const carouselRect = carousel.getBoundingClientRect();
-        let minDist = Infinity, centerIdx = 0;
         cards.forEach((card, i) => {
-          const rect = card.getBoundingClientRect();
-          const cardCenter = rect.left + rect.width / 2;
-          const dist = Math.abs(cardCenter - (carouselRect.left + carouselRect.width / 2));
-          if (dist < minDist) {
-            minDist = dist;
-            centerIdx = i;
+          // Only show center and its two neighbors
+          if (i === centerIdx) {
+            card.style.display = '';
+            card.style.transform = 'scale(1.15)';
+            card.style.zIndex = 2;
+            card.style.opacity = 1;
+            card.style.boxShadow = '0 8px 32px 0 rgba(44,0,30,0.18)';
+          } else if (i === centerIdx - 1 || i === centerIdx + 1) {
+            card.style.display = '';
+            card.style.transform = 'scale(0.85)';
+            card.style.zIndex = 1;
+            card.style.opacity = 0.7;
+            card.style.boxShadow = '';
+          } else {
+            card.style.display = 'none';
           }
         });
-        // Remove all scaling
-        cards.forEach((card, i) => {
-          card.style.transform = '';
-          card.style.zIndex = 1;
-          card.style.opacity = 0.7;
-          card.style.boxShadow = '';
-        });
-        // Highlight center card
-        const centerCard = cards[centerIdx];
-        if (centerCard) {
-          centerCard.style.transform = 'scale(1.15)';
-          centerCard.style.zIndex = 2;
-          centerCard.style.opacity = 1;
-          centerCard.style.boxShadow = '0 8px 32px 0 rgba(44,0,30,0.18)';
-        }
       }
 
       function scrollToCard(idx) {
-        if (!carousel || !cards[idx]) return;
-        const card = cards[idx];
-        const carouselRect = carousel.getBoundingClientRect();
-        const cardRect = card.getBoundingClientRect();
-        const scrollLeft = carousel.scrollLeft + (cardRect.left + cardRect.width/2) - (carouselRect.left + carouselRect.width/2);
-        carousel.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+        centerIdx = idx;
+        updateVisibleCards();
       }
 
       // Scroll buttons
       if (btnLeft && btnRight && cards.length > 0) {
         btnLeft.style.display = btnRight.style.display = window.innerWidth >= 768 ? 'flex' : 'none';
-        let centerIdx = 0;
-        btnLeft.onclick = function() {
-          centerIdx = Math.max(0, centerIdx - 1);
+        btnLeft.onclick = function () {
+          centerIdx = Math.max(1, centerIdx - 1);
           scrollToCard(centerIdx);
         };
-        btnRight.onclick = function() {
-          centerIdx = Math.min(cards.length - 1, centerIdx + 1);
+        btnRight.onclick = function () {
+          centerIdx = Math.min(cards.length - 2, centerIdx + 1);
           scrollToCard(centerIdx);
         };
-        // Update center index on scroll
-        carousel.addEventListener('scroll', function() {
-          setTimeout(updateCenterCard, 80);
-        });
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function () {
           btnLeft.style.display = btnRight.style.display = window.innerWidth >= 768 ? 'flex' : 'none';
-          setTimeout(updateCenterCard, 100);
+          updateVisibleCards();
         });
         // Initial highlight
-        setTimeout(updateCenterCard, 200);
+        setTimeout(function () {
+          scrollToCard(centerIdx);
+        }, 200);
       }
     })();
   </script>
