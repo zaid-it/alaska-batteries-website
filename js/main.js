@@ -550,6 +550,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 300);
   }
 
+  // Expose modal functions to global scope for inline handlers
+  window.openBlogModal = openBlogModal;
+  window.closeBlogModal = closeBlogModal;
+
   // Close on click outside (Overlay) - already handled in DOMContentLoaded
 
   // Horizontal Scroll logic - improved

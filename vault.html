@@ -72,7 +72,7 @@
             </div>
           </div>
           <div class="blog-item original" onclick="openBlogModal('ebike-accessories')">
-            <img src="assets/vault/blogs/storing-blog-4.png" alt="E-Bike Guide" loading="lazy" />
+            <img src="assets/vault/blogs/summer-blog-6.png" alt="E-Bike Guide" loading="lazy" />
             <div class="wash-layer"></div>
             <div class="text-protection"></div>
             <div class="blog-content">
@@ -81,7 +81,7 @@
             </div>
           </div>
           <div class="blog-item original" onclick="openBlogModal('ebike-repairs')">
-            <img src="assets/vault/blogs/recycle-blog-5.png" alt="E-Bike Repair" loading="lazy" />
+            <img src="assets/vault/blogs/storing-blog-4.png" alt="E-Bike Repair" loading="lazy" />
             <div class="wash-layer"></div>
             <div class="text-protection"></div>
             <div class="blog-content">
@@ -90,12 +90,12 @@
             </div>
           </div>
           <div class="blog-item original" onclick="openBlogModal('ebike-charging')">
-            <img src="assets/vault/blogs/summer-blog-6.png" alt="E-Bike Tips" loading="lazy" />
+            <img src="assets/vault/blogs/recycle-blog-5.png" alt="E-Bike Tips" loading="lazy" />
             <div class="wash-layer"></div>
             <div class="text-protection"></div>
             <div class="blog-content">
               <p class="category-tag">Eco-friendly</p>
-              <h4 class="blog-title">E-Bike Battery Lifespan: Recycling & Responsible Disposal</h4>
+              <h4 class="blog-title">Battery Lifespan: Recycling & Responsible Disposal</h4>
             </div>
           </div>
         </div>
@@ -128,8 +128,9 @@
                 <img id="mobile-feature-blog-img" src="" alt="Featured"
                   class="w-full h-full object-cover object-center mobile-feature-img">
                 <div class="absolute inset-0"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-2">
-                  <h4 id="mobile-feature-title" class="text-white font-semibold text-base leading-tight">Blog Title</h4>
+                <div class="absolute top-4 left-0 right-0 p-2">
+                  <h3 id="mobile-feature-title" class="text-white text-center font-bold text-base leading-tight">
+                    Blog Title</h4>
                 </div>
               </div>
 
@@ -662,6 +663,19 @@
       transform: scale(1);
     }
 
+    /* Force outer modal panel to not be the scrolling container when active */
+    #blog-modal.active>div:nth-child(2) {
+      overflow-y: hidden !important;
+    }
+
+    /* Ensure the inner modal-body is the only scroll container and fits viewport */
+    #modal-body {
+      overflow-y: auto !important;
+      max-height: calc(100vh - 6rem) !important;
+      box-sizing: border-box;
+      -webkit-overflow-scrolling: touch;
+    }
+
     /* Enhanced Typography for Blog Content */
     .blog-content h1,
     .blog-content h2,
@@ -816,10 +830,17 @@
     #modal-body {
       overflow-x: hidden;
       overflow-y: auto;
+      box-sizing: border-box;
+      /* Keep the modal body within viewport minus modal padding */
+      max-height: calc(100vh - 4rem);
     }
 
+    /* Ensure the outer modal panel does not scroll; the inner #modal-body handles scrolling */
     #blog-modal>div:nth-child(2) {
       overflow-x: hidden;
+      overflow-y: visible;
+      box-sizing: border-box;
+      max-height: calc(100vh - 4rem);
     }
 
     /* Mobile Optimizations */
@@ -854,30 +875,28 @@
       }
     }
 
-    /* Smooth Scrolling */
-    #blog-modal>div:nth-child(2) {
+    /* Smooth Scrolling - applied to the inner scroll container */
+    #modal-body {
       scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
-      overflow-x: hidden;
-      overflow-y: auto;
     }
 
-    /* Custom Scrollbar for Blog Modal */
-    #blog-modal>div:nth-child(2)::-webkit-scrollbar {
+    /* Custom Scrollbar for Blog Modal (inside the white panel) */
+    #modal-body::-webkit-scrollbar {
       width: 8px;
     }
 
-    #blog-modal>div:nth-child(2)::-webkit-scrollbar-track {
+    #modal-body::-webkit-scrollbar-track {
       background: #f4f4f5;
       border-radius: 10px;
     }
 
-    #blog-modal>div:nth-child(2)::-webkit-scrollbar-thumb {
+    #modal-body::-webkit-scrollbar-thumb {
       background: #c00d1e;
       border-radius: 10px;
     }
 
-    #blog-modal>div:nth-child(2)::-webkit-scrollbar-thumb:hover {
+    #modal-body::-webkit-scrollbar-thumb:hover {
       background: #a00016;
     }
   </style>

@@ -1204,14 +1204,14 @@ html {
 
 /* Odometer + sign alignment and spacing fixes */
 .partner-counter .odometer {
-  font-size: 2rem;
+  font-size: 3rem;
   vertical-align: baseline !important;
 }
 
 .partner-counter .partner-plus {
   display: inline-block;
   font-weight: 800;
-  font-size: 1rem;
+  font-size: 3rem;
   line-height: 1.2;
   margin-left: 0.1rem; /* small positive gap */
   margin-right: 0.1rem;
@@ -1229,24 +1229,24 @@ html {
   }
 
   .partner-counter-value {
-    font-size: 1rem;
-    font-weight: 800;
+    font-size: 1rem !important;
+    font-weight: 800 !important;
   }
 
   .partner-counter .odometer {
-    font-size: 1.25rem;
-    vertical-align: baseline !important;
+    font-size: 2.5rem;
+    font-weight: 900 !important;
   }
 
   .partner-counter .partner-plus {
-    font-size: 1rem;
+    font-size: 2rem !important;
     margin-left: 0.1rem;
     margin-right: 0.1rem;
   }
 
   .partner-counter-label {
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 2rem !important;
+    font-weight: 900;
   }
 }
 
@@ -2384,6 +2384,51 @@ body.urdu-mode .header-ur {
   justify-content: flex-end;
 }
 
+@media (max-width: 1023px) {
+  /* Mobile featured blog card: ensure image is behind pseudo-gradient and title */
+  #mobile-feature-blog {
+    position: relative;
+  }
+
+  #mobile-feature-blog img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  /* Dark gradient overlay for the top portion of the featured mobile card */
+  #mobile-feature-blog::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 25%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+    z-index: 2;
+    pointer-events: none;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+  }
+
+  /* Title sits above the gradient */
+  #mobile-feature-title {
+    width: 100% !important;
+    position: absolute;
+    z-index: 3;
+    display: inline-block;
+    color: white !important;
+    font-size: larger !important;
+    font-weight: 900 !important;
+    text-align: center !important;
+    padding-left: 1rem !important;
+    padding-right: 2rem !important;
+  }
+}
+
 .blog-title {
   color: #ffffff !important; /* Forces white text */
   font-size: 1.875rem;
@@ -2391,6 +2436,65 @@ body.urdu-mode .header-ur {
   text-transform: uppercase;
   line-height: 0.95;
   margin: 0;
+}
+
+/* Improve blog content readability: left-align and normalize spacing */
+.blog-content,
+.blog-content .prose,
+.blog-content .blog-content {
+  text-align: left !important;
+  text-indent: 0 !important;
+}
+
+.blog-content p,
+.blog-content ul,
+.blog-content ol,
+.blog-content li,
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4 {
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.blog-content .prose p {
+  margin-bottom: 1rem;
+  line-height: 1.65;
+  color: #374151; /* neutral dark for readability */
+  font-size: 1rem;
+}
+
+.blog-content .prose ul,
+.blog-content .prose ol {
+  padding-left: 1.25rem !important;
+  margin-left: 0 !important;
+}
+
+.blog-content .prose li {
+  margin-bottom: 0.6rem;
+}
+
+/* Make modal/blog content more readable on small screens */
+@media (max-width: 767px) {
+  .blog-content .prose {
+    font-size: 0.98rem !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .blog-content {
+    padding: 1rem !important;
+  }
+
+  /* Reduce large headings' size on small screens */
+  .blog-content h1,
+  .blog-content h2,
+  .blog-content h3 {
+    font-size: 1.25rem !important;
+    line-height: 1.25 !important;
+  }
 }
 
 .category-tag {
