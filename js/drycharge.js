@@ -746,7 +746,7 @@ window.executeComparison = function (secondId) {
     { l: "Voltage", k: "p", s: "V" },
     { l: "Ampere", k: "ah", s: " AH" },
     { l: "Warranty", k: "warranty" },
-    { l: "Battery Box Size (Japanese Industrial Standard)", k: "boxSize" },
+    { l: "Battery Box Size (JIS)", k: "boxSize" },
     { l: "Dimensions (L×W×H)", v: formatDimensions },
     { l: "Weight", v: formatWeight },
     { l: "Uses", v: (b) => getUsesText(b.uses) },
@@ -761,17 +761,17 @@ window.executeComparison = function (secondId) {
         <h3 class="text-lg sm:text-2xl font-black uppercase mb-2 text-center">Battery Comparison</h3>
 
         <!-- Two Column Layout: Battery Images -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;" class="battery-compare-grid sm:gap-2 md:gap-8">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10em;" class="battery-compare-grid sm:gap-2 md:gap-8">
           <!-- Battery 1 -->
           <div style="text-align: center; background: white;">
-            <div style="display: flex; align-items: center; justify-content: center; height: 150px;" class="sm:h-60 md:h-80">
+            <div style="display: flex; align-items: center; justify-content: center; height: 250px;" class="sm:h-60 md:h-80">
               <img src="${b1.image}" class="object-contain" style="max-height: 100%; max-width: 100%;" alt="${b1.model}">
             </div>
           </div>
 
           <!-- Battery 2 -->
           <div style="text-align: center; background: white;">
-            <div style="display: flex; align-items: center; justify-content: center; height: 150px;" class="sm:h-60 md:h-80">
+            <div style="display: flex; align-items: center; justify-content: center; height: 250px;" class="sm:h-60 md:h-80">
               <img src="${b2.image}" class="object-contain" style="max-height: 100%; max-width: 100%;" alt="${b2.model}">
             </div>
           </div>
@@ -780,15 +780,15 @@ window.executeComparison = function (secondId) {
         <!-- Specs Table -->
         <div style="border: 1px solid #e5e7eb; border-radius: 0.5rem; overflow: hidden; width:100%; margin:0;" class="battery-compare-specs">
           <!-- Header Row -->
-          <div style="display: grid; grid-template-columns: 1fr 0.5fr 1fr; background-color: white; border-bottom: 2px solid #e5e7eb;" class="specs-grid specs-header">
+          <div style="display: grid; grid-template-columns: 1fr 0.5fr 1fr; background-color: #c00d1e; border-bottom: 2px solid #e5e7eb;" class="specs-grid specs-header">
             <div style="padding: 0.5rem; display:flex; align-items:center; justify-content:center;" class="sm:padding: 0.75rem;">
-              <h4 class="text-xs sm:text-lg font-bold uppercase text-[#c00d1e]">${b1.model}</h4>
+              <h4 class="text-xs sm:text-lg font-bold uppercase text-white">${b1.model}</h4>
             </div>
             <div style="padding: 0.5rem; display:flex; align-items:center; justify-content:center;" class="sm:padding: 0.75rem;">
-              <p class="text-xs sm:text-lg font-bold uppercase text-[#c00d1e]">Specs</p>
+              <p class="text-xs sm:text-lg font-bold uppercase text-white">Specs</p>
             </div>
             <div style="padding: 0.5rem; display:flex; align-items:center; justify-content:center;" class="sm:padding: 0.75rem;">
-              <h4 class="text-xs sm:text-lg font-bold uppercase text-[#c00d1e]">${b2.model}</h4>
+              <h4 class="text-xs sm:text-lg font-bold uppercase text-white">${b2.model}</h4>
             </div>
           </div>
 
@@ -804,13 +804,13 @@ window.executeComparison = function (secondId) {
               return `
               <div style="display: grid; grid-template-columns: 1fr 0.5fr 1fr; background-color: ${bgColor}; border-bottom: ${borderBottom};" class="specs-grid">
                 <div style="padding: 0.5rem; display:flex; align-items:center; justify-content:center;" class="sm:padding: 0.75rem;">
-                  <span class="text-xs sm:text-sm font-semibold text-black">${displayVal1}</span>
+                  <span class="text-xs sm:text-sm font-base">${displayVal1}</span>
                 </div>
                 <div style="padding: 0.5rem; display:flex; align-items:center; justify-content:center;" class="sm:padding: 0.75rem;">
-                  <span class="text-[10px] sm:text-xs font-bold uppercase text-[#c00d1e]">${s.l}</span>
+                  <span class="text-xs sm:text-xs font-semibold uppercase text-[#c00d1e]">${s.l}</span>
                 </div>
                 <div style="padding: 0.5rem; display:flex; align-items:center; justify-content:center;" class="sm:padding: 0.75rem;">
-                  <span class="text-xs sm:text-sm font-semibold text-black">${displayVal2}</span>
+                  <span class="text-xs sm:text-sm font-base">${displayVal2}</span>
                 </div>
               </div>`;
             })
@@ -842,7 +842,7 @@ window.executeComparison = function (secondId) {
           /* Mobile adjustments: reduce padding and font sizes on very small screens */
           @media (max-width: 480px) {
             .battery-compare-grid { grid-template-columns: 1fr 1fr !important; gap: 0.25rem !important; }
-            .specs-grid { grid-template-columns: 0.7fr 1.8fr 0.7fr !important; }
+            .specs-grid { grid-template-columns: 1fr 1fr 1fr !important; }
             .battery-compare-specs .specs-grid > div { border-left: none !important; border-right: none !important; padding: 0.25rem !important; }
             .battery-compare-specs .specs-grid > div:nth-child(2) { border-left: 1px solid #e5e7eb !important; border-right: 1px solid #e5e7eb !important; }
             .battery-compare-specs { padding: 0.125rem; }
@@ -854,7 +854,7 @@ window.executeComparison = function (secondId) {
           /* Tablet adjustments */
           @media (min-width: 481px) and (max-width: 768px) {
             .battery-compare-grid { grid-template-columns: 1fr 1fr !important; gap: 0.5rem !important; }
-            .specs-grid { grid-template-columns: 0.8fr 1.6fr 0.8fr !important; }
+            .specs-grid { grid-template-columns: 1fr 1fr 1fr !important; }
             .battery-compare-specs .specs-grid > div { border-left: none !important; border-right: none !important; }
             .battery-compare-specs .specs-grid > div:nth-child(2) { border-left: 1px solid #e5e7eb !important; border-right: 1px solid #e5e7eb !important; }
             .battery-compare-specs { padding-left: 0.25rem; padding-right: 0.25rem; }
