@@ -40,12 +40,55 @@
       </div>
     </section>
 
-    <!-- Section: Our Story with Video -->
+    <!-- Video Section with Text and Player -->
+    <section class="bg-gray-50 py-6 md:py-44">
+      <div class="container mx-auto px-8 sm:px-6 md:px-8 lg:px-8 xl:px-10 2xl:px-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <!-- Left: Text Content -->
+          <div class="flex flex-col justify-center">
+            <h2 class="text-3xl md:text-5xl font-black uppercase mb-6 leading-tight">
+              Our <span class="text-[#c00d1e]">Story</span>
+            </h2>
+            <p class="text-base md:text-lg text-black mb-4 leading-relaxed text-justify">
+              Alaska Batteries may be a new name in Pakistan’s energy sector, but it was not built from inexperience.
+              It was built
+              from observation, from years inside an industry that had grown comfortable with repetition. The same
+              claims. The same
+              promises. The same expectations.
+              We saw a category where inconsistency was tolerated and failure was normalized. Where reliability was
+              marketed more
+              often than it was engineered. That complacency became our starting point.
+            </p>
+            <p class="text-base md:text-lg text-black mb-6 leading-relaxed text-justify">
+              Alaska was established with a clear conviction: standards must rise. Reliability must be controlled.
+              Performance must be proven.
+              We deliver greater value without compromise. We test beyond minimum standards, because that is how the
+              real world is. We
+              listen, we refine, and we improve. Alaska exists to solve everyday power problems, so you can drive,
+              work, and live with
+              confidence.
+              Our story is not about entering the energy space.
+              It is about redefining what it should expect.
+            </p>
+          </div>
+
+          <!-- Right: Video Player -->
+          <div class="flex justify-center">
+            <video width="100%" height="auto" controls class="rounded-xl shadow-2xl bg-black">
+              <source src="assets/videos/about.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--
+    <!-- Section: Our Story with Video --
     <section class="bg-gray-50 py-2 md:py-32">
       <div class="mx-auto px-6 md:px-8">
-        <!-- Two Column Layout: Text Left, Video Right -->
+        <!-- Two Column Layout: Text Left, Video Right --
         <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
-          <!-- Text Content - 50% on desktop, 100% on mobile -->
+          <!-- Text Content - 50% on desktop, 100% on mobile --
           <div class="w-full md:w-1/2 flex flex-col justify-center order-1 md:order-1 px-4 md:px-8 py-4 md:py-0">
             <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight leading-tight mb-4">
               Our<span class="text-[#c00d1e]"> Story</span>
@@ -78,10 +121,10 @@
             </div>
           </div>
 
-          <!-- Video - 50% on desktop, 100% on mobile -->
+          <!-- Video - 50% on desktop, 100% on mobile --
           <div
             class="w-full md:w-1/2 h-96 md:h-96 md:min-h-[500px] rounded-xl overflow-hidden shadow-2xl relative bg-gray-100 order-2 md:order-2">
-            <video id="storyVideo" class="w-full h-full object-cover cursor-pointer rounded-xl shadow-2xl" controls
+            <video id="storyVideo" class="w-full h-full object-contain cursor-pointer rounded-xl shadow-2xl" controls
               playsinline webkit-playsinline poster="assets/videos/about-thumbnail.png">
               <source src="assets/videos/about.mp4" type="video/mp4" />
               Your browser does not support HTML5 video.
@@ -89,8 +132,7 @@
           </div>
         </div>
       </div>
-    </section>
-
+    </section> -->
     <!-- Section 1: The Future is Sustainable -->
     <section
       class="relative w-full h-auto md:h-screen bg-cover bg-center border-b border-gray-200 flex items-center justify-center px-4 py-12 md:py-0 future-sustainable">

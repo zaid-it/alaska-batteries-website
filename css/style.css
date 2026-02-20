@@ -1224,9 +1224,9 @@ html {
     left: -10% !important;
     right: -10% !important;
     top: -15% !important;
-    bottom: auto !important;
-    height: 50% !important;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%) !important;
+    bottom: 40% !important;
+    height: auto !important;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%) !important;
   }
 }
 
@@ -1235,10 +1235,10 @@ html {
   .graphite-gradient {
     left: -5% !important;
     right: -5% !important;
-    top: 50% !important;
-    bottom: -10% !important;
+    top: -10% !important;
+    bottom: 60% !important;
     height: auto !important;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%) !important;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%) !important;
   }
 }
 /* If markup applied Tailwind width utilities (w-1/2), override them on phones */
