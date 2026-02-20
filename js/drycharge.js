@@ -804,13 +804,13 @@ window.executeComparison = function (secondId) {
               return `
               <div style="display: grid; grid-template-columns: 1fr 0.5fr 1fr; background-color: ${bgColor}; border-bottom: ${borderBottom};" class="specs-grid">
                 <div style="padding: 0.5rem; display:flex; align-items:center; justify-content:center;" class="sm:padding: 0.75rem;">
-                  <span class="text-xs sm:text-sm font-base">${displayVal1}</span>
+                  <span class="text-xs sm:text-sm font-normal text-gray-500">${displayVal1}</span>
                 </div>
                 <div style="padding: 0.5rem; display:flex; align-items:center; justify-content:center;" class="sm:padding: 0.75rem;">
-                  <span class="text-xs sm:text-xs font-semibold uppercase text-[#c00d1e]">${s.l}</span>
+                  <span class="text-xs sm:text-xs font-semibold uppercase text-gray-600">${s.l}</span>
                 </div>
                 <div style="padding: 0.5rem; display:flex; align-items:center; justify-content:center;" class="sm:padding: 0.75rem;">
-                  <span class="text-xs sm:text-sm font-base">${displayVal2}</span>
+                  <span class="text-xs sm:text-sm font-normal text-gray-500">${displayVal2}</span>
                 </div>
               </div>`;
             })
