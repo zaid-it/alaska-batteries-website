@@ -160,15 +160,33 @@ function updateVideos() {
       // Replace in DOM
       video.parentNode.replaceChild(newVideo, video);
 
-      // attempt to load/play
+      // attempt to load/play with robust fallbacks for mobile autoplay
       newVideo.load();
-      if (wasPlaying || newVideo.hasAttribute("autoplay")) {
-        const p = newVideo.play();
-        if (p && p.catch)
-          p.catch((err) => {
-            console.debug("Autoplay blocked", err);
-          });
+      // ensure properties for autoplay on mobile
+      try {
+        newVideo.muted = true;
+        newVideo.playsInline = true;
+        newVideo.setAttribute("playsinline", "");
+        newVideo.setAttribute("webkit-playsinline", "");
+        if (!newVideo.hasAttribute("muted")) newVideo.setAttribute("muted", "");
+      } catch (e) {
+        /* ignore property set failures */
       }
+
+      const tryPlay = () => {
+        try {
+          const p = newVideo.play();
+          if (p && p.catch) p.catch((err) => console.debug("Autoplay blocked", err));
+        } catch (e) {
+          console.debug("Play attempt failed", e);
+        }
+      };
+
+      // Try to play once the video is ready
+      newVideo.addEventListener("canplay", tryPlay, { once: true });
+      newVideo.addEventListener("loadeddata", tryPlay, { once: true });
+      // Fallback: try shortly after replace
+      setTimeout(tryPlay, 500);
     } catch (e) {
       console.warn("Video replace failed", e);
     }
