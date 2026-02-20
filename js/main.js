@@ -90,7 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
       setFaqCategory(defaultBtn.getAttribute("data-category"));
     }
   }
-
   // Form submission handling
   document.querySelectorAll("form").forEach((form) => {
     form.addEventListener("submit", (e) => {
@@ -188,61 +187,62 @@ document.addEventListener("DOMContentLoaded", () => {
 
     obs.observe(wrap);
   })();
-});
 
-// ============================================
-// GLOBAL FUNCTIONS (defined outside DOMContentLoaded)
-// ============================================
+  window.scrollCertCarousel = scrollCertCarousel;
 
-// Function to show the success message
-function showSuccess() {
-  const modal = document.getElementById("successModal");
-  modal.classList.remove("hidden");
-  modal.classList.add("flex");
-  document.body.style.overflow = "hidden";
-}
+  // ============================================
+  // GLOBAL FUNCTIONS (defined outside DOMContentLoaded)
+  // ============================================
 
-// Function to close the modal
-function closeModal() {
-  const modal = document.getElementById("successModal");
-  modal.classList.add("hidden");
-  modal.classList.remove("flex");
-  document.body.style.overflow = "auto";
-}
+  // Function to show the success message
+  function showSuccess() {
+    const modal = document.getElementById("successModal");
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+    document.body.style.overflow = "hidden";
+  }
 
-// Code for Blog Modal
+  // Function to close the modal
+  function closeModal() {
+    const modal = document.getElementById("successModal");
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+    document.body.style.overflow = "auto";
+  }
 
-const blogData = {
-  "choosing-guide": {
-    title: "How to Choose the Best Battery for Your Vehicle or Solar System",
-    category: "Guide",
-    image: "",
-    content: `
-      <p class="text-base md:text-lg text-zinc-700 mb-6 leading-relaxed">
-        Summer in Pakistan is hard on batteries. High temperatures accelerate chemical reactions inside the cell, increasing corrosion and electrolyte evaporation which shortens battery life. Below are concise, actionable steps to protect your battery and keep your vehicle running through the hottest months.
-      </p>
+  // Code for Blog Modal
+
+  const blogData = {
+    "choosing-guide": {
+      title: "How to Choose the Best Battery for Your Vehicle or Solar System",
+      category: "Guide",
+      image: "",
+      content: `
+        <p class="text-base md:text-lg text-zinc-700 mb-6 leading-relaxed">
+          Summer in Pakistan is hard on batteries. High temperatures accelerate chemical reactions inside the cell, increasing corrosion and electrolyte evaporation which shortens battery life. Below are concise, actionable steps to protect your battery and keep your vehicle running through the hottest months.
+        </p>
 
  
-      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">Why Heat Damages Batteries</h3>
-      <p class="mb-4 text-zinc-600">Heat increases internal resistance and speeds up chemical breakdown. Over time this causes capacity loss, slower cranking, and a higher risk of sudden failure.</p>
+        <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">Why Heat Damages Batteries</h3>
+        <p class="mb-4 text-zinc-600">Heat increases internal resistance and speeds up chemical breakdown. Over time this causes capacity loss, slower cranking, and a higher risk of sudden failure.</p>
 
-      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">Top Summer Survival Tips</h3>
-      <ul class="space-y-4 mb-8">
-        <li class="p-4 bg-zinc-50 rounded-lg">
-          <strong class="block text-sm text-[#cc001b] uppercase tracking-widest mb-1">Park Smart</strong>
-          Whenever possible, park in shade or a covered area to limit direct sun exposure and reduce temperature-related stress.
-        </li>
-        <li class="p-4 bg-zinc-50 rounded-lg">
-          <strong class="block text-sm text-[#cc001b] uppercase tracking-widest mb-1">Keep Terminals Clean</strong>
-          Corrosion increases resistance and heat. Clean terminals and clamps monthly and use a corrosion inhibitor spray when needed.
-        </li>
-        <li class="p-4 bg-zinc-50 rounded-lg">
-          <strong class="block text-sm text-[#cc001b] uppercase tracking-widest mb-1">Avoid Deep Discharge</strong>
-          Repeated deep discharge shortens life. Use accessories sparingly when the engine is off and recharge promptly after heavy use.
-        </li>
-        <li class="p-4 bg-zinc-50 rounded-lg">
-          <strong class="block text-sm text-[#cc001b] uppercase tracking-widest mb-1">Check Charging System</strong>
-          Overcharging and voltage spikes also damage batteries. Have your alternator and regulator checked during service visits.
+        <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">Top Summer Survival Tips</h3>
+        <ul class="space-y-4 mb-8">
+          <li class="p-4 bg-zinc-50 rounded-lg">
+            <strong class="block text-sm text-[#cc001b] uppercase tracking-widest mb-1">Park Smart</strong>
+            Whenever possible, park in shade or a covered area to limit direct sun exposure and reduce temperature-related stress.
+          </li>
+          <li class="p-4 bg-zinc-50 rounded-lg">
+            <strong class="block text-sm text-[#cc001b] uppercase tracking-widest mb-1">Keep Terminals Clean</strong>
+            Corrosion increases resistance and heat. Clean terminals and clamps monthly and use a corrosion inhibitor spray when needed.
+          </li>
+          <li class="p-4 bg-zinc-50 rounded-lg">
+            <strong class="block text-sm text-[#cc001b] uppercase tracking-widest mb-1">Avoid Deep Discharge</strong>
+            Repeated deep discharge shortens life. Use accessories sparingly when the engine is off and recharge promptly after heavy use.
+          </li>
+          <li class="p-4 bg-zinc-50 rounded-lg">
+            <strong class="block text-sm text-[#cc001b] uppercase tracking-widest mb-1">Check Charging System</strong>
+            Overcharging and voltage spikes also damage batteries. Have your alternator and regulator checked during service visits.
  
       <h3 class="text-2xl font-black uppercase text-zinc-900 mb-6 italic border-l-4 border-[#c00d1e] pl-4">1) Identify Your Application</h3>
       <p class="mb-4 font-bold text-zinc-800">Start by clarifying the usage:</p>
@@ -298,12 +298,12 @@ const blogData = {
         </a>
       </div>
     `,
-  },
-  "eid-checklist": {
-    title: "Don't Let Eid Travel Leave You Stranded - Complete Battery Readiness Checklist",
-    category: "Travel",
-    image: "assets/vault/blogs/eid-blog-2.png",
-    content: `
+    },
+    "eid-checklist": {
+      title: "Don't Let Eid Travel Leave You Stranded - Complete Battery Readiness Checklist",
+      category: "Travel",
+      image: "assets/vault/blogs/eid-blog-2.png",
+      content: `
       <h3 class="text-2xl font-black uppercase text-zinc-900 mb-6 italic border-l-4 border-[#c00d1e] pl-4">Start your Eid journey with a few simple steps:</h3>
       
       <div class="bg-zinc-50 p-8 rounded-2xl mb-10 border-l-4 border-[#c00d1e]">
@@ -358,12 +358,12 @@ const blogData = {
         <span class="px-4 py-2 bg-zinc-100 rounded-full text-xs font-bold uppercase tracking-wider text-zinc-700">#EidTravel</span>
       </div>
     `,
-  },
-  "power-saving": {
-    title: "5 Power-Saving Secrets to Make Your Car Battery Last Longer",
-    category: "Maintenance",
-    image: "assets/vault/blogs/power-blog-3.png",
-    content: `
+    },
+    "power-saving": {
+      title: "5 Power-Saving Secrets to Make Your Car Battery Last Longer",
+      category: "Maintenance",
+      image: "assets/vault/blogs/power-blog-3.png",
+      content: `
       <p class="text-base md:text-lg text-zinc-700 mb-6 leading-relaxed">Tired of unexpected battery failures? Follow these expert-backed tips to extend your car battery life and ensure a smooth, worry-free drive every time. Your car battery is the unsung hero of your vehicle — a little care goes a long way.</p>
 
       <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">Keep Terminals Corrosion-Free</h3>
@@ -396,12 +396,12 @@ const blogData = {
         <a href="dry-charge.html" style="color:#ffffff;text-decoration:none;" class="inline-block bg-[#cc001b] text-white px-8 py-3 rounded-full font-black uppercase tracking-tighter hover:scale-105 transition-transform">Explore Battery Options</a>
       </div>
     `,
-  },
-  "ebike-accessories": {
-    title: "Beat the Heat | Battery Survival Guide for Pakistani Summer Season",
-    category: "Summer Guide",
-    image: "assets/vault/blogs/storing-blog-4.png",
-    content: `
+    },
+    "ebike-accessories": {
+      title: "Beat the Heat | Battery Survival Guide for Pakistani Summer Season",
+      category: "Summer Guide",
+      image: "assets/vault/blogs/storing-blog-4.png",
+      content: `
       <p class="text-base md:text-lg text-zinc-700 mb-6 leading-relaxed">Summer heat in Pakistan is one of the fastest ways to shorten a battery's life. High temperatures speed up internal chemical reactions and increase corrosion — but with a few practical steps you can protect your battery and avoid unexpected failures.</p>
 
       <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">Quick Heat-Proof Checklist</h3>
@@ -442,12 +442,12 @@ const blogData = {
         <a href="dry-charge.html" style="color:#ffffff;text-decoration:none;" class="inline-block bg-[#cc001b] text-white px-8 py-3 rounded-full font-black uppercase tracking-tighter hover:scale-105 transition-transform">Find Heat Ready Batteries</a>
       </div>
     `,
-  },
-  "ebike-repairs": {
-    title: "The Right Way to Charge & Store Your Battery for Maximum Lifespan",
-    category: "Battery Care",
-    image: "assets/vault/blogs/recycle-blog-5.png",
-    content: `
+    },
+    "ebike-repairs": {
+      title: "The Right Way to Charge & Store Your Battery for Maximum Lifespan",
+      category: "Battery Care",
+      image: "assets/vault/blogs/recycle-blog-5.png",
+      content: `
       <p class="text-base md:text-lg text-zinc-700 mb-6 leading-relaxed">Avoid battery degradation and early failures! Learn how to properly charge and store your battery to keep it in top condition for years.</p>
 
       <p class="mb-4 text-zinc-600">Whether you are storing a vintage car for months or keeping a spare battery for emergencies, proper charging and storage are the keys to longevity. Start with a full charge; batteries left partially charged risk sulfation, where lead sulfate crystals harden and cripple their ability to hold a charge.</p>
@@ -471,12 +471,12 @@ const blogData = {
         <a href="vault.html#faqs" style="color:#ffffff;text-decoration:none;" class="inline-block bg-[#cc001b] text-white px-8 py-3 rounded-full font-black uppercase tracking-tighter hover:scale-105 transition-transform">Read for Battery Care</a>
       </div>
     `,
-  },
-  "ebike-charging": {
-    title: "Battery Recycling: Turning Old Power into New Possibilities",
-    category: "E-Bike Tips",
-    image: "assets/vault/blogs/summer-blog-6.png",
-    content: `
+    },
+    "ebike-charging": {
+      title: "Battery Recycling: Turning Old Power into New Possibilities",
+      category: "E-Bike Tips",
+      image: "assets/vault/blogs/summer-blog-6.png",
+      content: `
       <p class="text-base md:text-lg text-zinc-700 mb-6 leading-relaxed">Did you know that old batteries can be repurposed? Discover the battery recycling process and why it is crucial for sustainability and a cleaner planet.</p>
 
       <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">How recycling starts</h3>
@@ -493,20 +493,20 @@ const blogData = {
         <p class="text-sm">Sustainability is built one returned battery at a time. Recycling recovers materials, reduces pollution, and lowers the energy footprint of future batteries.</p>
       </div>
     `,
-  },
-};
+    },
+  };
 
-// Open Modal with improved performance
-function openBlogModal(id) {
-  const modal = document.getElementById("blog-modal");
-  const body = document.getElementById("modal-body");
-  const data = blogData[id];
+  // Open Modal with improved performance
+  function openBlogModal(id) {
+    const modal = document.getElementById("blog-modal");
+    const body = document.getElementById("modal-body");
+    const data = blogData[id];
 
-  if (!data) return;
+    if (!data) return;
 
-  // Use requestAnimationFrame for smoother rendering
-  requestAnimationFrame(() => {
-    body.innerHTML = `
+    // Use requestAnimationFrame for smoother rendering
+    requestAnimationFrame(() => {
+      body.innerHTML = `
       <div class="space-y-6 overflow-x-hidden">
         <div class="space-y-3">
           <span class="inline-block category-badge text-zinc-900 font-bold uppercase tracking-widest text-xs px-3 py-1 bg-zinc-100 rounded-full">${data.category}</span>
@@ -518,209 +518,323 @@ function openBlogModal(id) {
       </div>
     `;
 
-    // Add click listener to all buttons and links inside the blog content
-    const buttons = body.querySelectorAll("button, a");
-    buttons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        closeBlogModal();
+      // Add click listener to all buttons and links inside the blog content
+      const buttons = body.querySelectorAll("button, a");
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          closeBlogModal();
+        });
       });
     });
-  });
 
-  modal.classList.remove("hidden");
-  // Smoother transition
-  requestAnimationFrame(() => {
+    modal.classList.remove("hidden");
+    // Smoother transition
     requestAnimationFrame(() => {
-      modal.classList.add("active");
+      requestAnimationFrame(() => {
+        modal.classList.add("active");
+      });
     });
-  });
-  document.body.style.overflow = "hidden";
-}
+    document.body.style.overflow = "hidden";
+  }
 
-// Close Modal with smooth transition
-function closeBlogModal() {
-  const modal = document.getElementById("blog-modal");
-  modal.classList.remove("active");
-  setTimeout(() => {
-    modal.classList.add("hidden");
-    document.body.style.overflow = "";
-    // Clear content after closing to reduce memory
-    const body = document.getElementById("modal-body");
-    if (body) body.innerHTML = "";
-  }, 300);
-}
+  // Close Modal with smooth transition
+  function closeBlogModal() {
+    const modal = document.getElementById("blog-modal");
+    modal.classList.remove("active");
+    setTimeout(() => {
+      modal.classList.add("hidden");
+      document.body.style.overflow = "";
+      // Clear content after closing to reduce memory
+      const body = document.getElementById("modal-body");
+      if (body) body.innerHTML = "";
+    }, 300);
+  }
 
-// Close on click outside (Overlay) - already handled in DOMContentLoaded
+  // Close on click outside (Overlay) - already handled in DOMContentLoaded
 
-// Horizontal Scroll logic - improved
-function scrollBlogs(distance) {
-  const container = document.getElementById("blog-scroll-container");
-  if (!container) return;
-  container.scrollBy({ left: distance, behavior: "smooth" });
-}
-
-// Blog Search with debouncing for better performance
-let searchTimeout;
-function filterBlogs() {
-  clearTimeout(searchTimeout);
-  searchTimeout = setTimeout(() => {
-    const input = document.getElementById("blog-search");
-    const filter = input.value.toLowerCase();
+  // Horizontal Scroll logic - improved
+  function scrollBlogs(distance) {
     const container = document.getElementById("blog-scroll-container");
     if (!container) return;
+    container.scrollBy({ left: distance, behavior: "smooth" });
+  }
 
-    const cards = container.getElementsByClassName("blog-item");
+  // Blog Search with debouncing for better performance
+  let searchTimeout;
+  function filterBlogs() {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+      const input = document.getElementById("blog-search");
+      const filter = input.value.toLowerCase();
+      const container = document.getElementById("blog-scroll-container");
+      if (!container) return;
 
-    // Disable loop snapping while searching
-    container.style.scrollSnapType = filter ? "none" : "x mandatory";
+      const cards = container.getElementsByClassName("blog-item");
 
-    for (let i = 0; i < cards.length; i++) {
-      const title = cards[i].querySelector("h4")?.innerText?.toLowerCase() || "";
-      const category = cards[i].querySelector("p")?.innerText?.toLowerCase() || "";
+      // Disable loop snapping while searching
+      container.style.scrollSnapType = filter ? "none" : "x mandatory";
 
-      if (title.includes(filter) || category.includes(filter)) {
-        cards[i].style.display = "block";
+      for (let i = 0; i < cards.length; i++) {
+        const title = cards[i].querySelector("h4")?.innerText?.toLowerCase() || "";
+        const category = cards[i].querySelector("p")?.innerText?.toLowerCase() || "";
+
+        if (title.includes(filter) || category.includes(filter)) {
+          cards[i].style.display = "block";
+        } else {
+          cards[i].style.display = "none";
+        }
+      }
+    }, 150); // Debounce by 150ms
+  }
+
+  const container = document.getElementById("blog-scroll-container");
+
+  function initBlogEngine() {
+    if (!container) return;
+
+    // Mobile Observer for image scale/fade
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (window.innerWidth >= 1024) return;
+        entries.forEach((entry) => {
+          const wash = entry.target.querySelector(".wash-layer");
+          const img = entry.target.querySelector("img");
+          if (entry.isIntersecting) {
+            if (wash) wash.style.opacity = "0";
+            if (img) img.style.transform = "";
+          } else {
+            if (wash) wash.style.opacity = "0.7";
+            if (img) img.style.transform = "";
+          }
+        });
+      },
+      { root: container, threshold: 0.8 },
+    );
+
+    document.querySelectorAll(".blog-item").forEach((item) => observer.observe(item));
+  }
+
+  function scrollBlogs(dir) {
+    if (!container) return;
+    const blogItem = container.querySelector(".blog-item");
+    if (!blogItem) return;
+
+    const itemWidth = blogItem.offsetWidth + 20;
+    const move = window.innerWidth > 1024 ? itemWidth * 3 : itemWidth;
+    container.scrollBy({ left: move * dir, behavior: "smooth" });
+  }
+
+  // Products Carousel Control
+  function initCarousel() {
+    const carousel = document.getElementById("productsCarousel");
+    const dotsContainer = document.getElementById("carouselDots");
+    const prevBtn = document.getElementById("carouselPrev");
+    const nextBtn = document.getElementById("carouselNext");
+    const cards = document.querySelectorAll(".product-card");
+    const cardCount = cards.length;
+
+    // Create pagination dots
+    for (let i = 0; i < cardCount; i++) {
+      const dot = document.createElement("button");
+      dot.className = `carousel-dot ${i === 0 ? "active" : ""}`;
+      dot.onclick = () => scrollToCard(i);
+      dotsContainer.appendChild(dot);
+    }
+
+    // Function to check if at end and update button visibility
+    function updateButtonVisibility() {
+      if (!carousel) return;
+      const scrollWidth = carousel.scrollWidth;
+      const scrollLeft = carousel.scrollLeft;
+      const clientWidth = carousel.clientWidth;
+
+      // Check if at start
+      if (scrollLeft <= 0) {
+        prevBtn.style.opacity = "0.4";
+        prevBtn.style.pointerEvents = "none";
+        prevBtn.style.display = "none";
       } else {
-        cards[i].style.display = "none";
+        prevBtn.style.opacity = "1";
+        prevBtn.style.pointerEvents = "auto";
+        prevBtn.style.display = "block";
+      }
+
+      // Check if at end (with small tolerance for rounding)
+      if (scrollLeft + clientWidth >= scrollWidth - 10) {
+        nextBtn.style.opacity = "0.4";
+        nextBtn.style.pointerEvents = "none";
+        nextBtn.style.display = "none";
+      } else {
+        nextBtn.style.opacity = "1";
+        nextBtn.style.pointerEvents = "auto";
+        nextBtn.style.display = "block";
       }
     }
-  }, 150); // Debounce by 150ms
+
+    // Scroll carousel by item count
+    window.scrollCarousel = function (direction) {
+      if (!carousel) return;
+      const cardWidth = cards[0].offsetWidth + parseInt(window.getComputedStyle(carousel).gap);
+      carousel.scrollBy({ left: cardWidth * direction, behavior: "smooth" });
+      setTimeout(updateButtonVisibility, 300);
+    };
+
+    // Update dots and buttons on carousel scroll
+    carousel.addEventListener("scroll", () => {
+      updateActiveDot();
+      updateButtonVisibility();
+    });
+
+    function updateActiveDot() {
+      const dots = document.querySelectorAll(".carousel-dot");
+      const scrollPos = carousel.scrollLeft;
+      const cardWidth = cards[0].offsetWidth + parseInt(window.getComputedStyle(carousel).gap);
+      const activeIndex = Math.round(scrollPos / cardWidth);
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === activeIndex);
+      });
+    }
+
+    function scrollToCard(index) {
+      if (!carousel) return;
+      const cardWidth = cards[0].offsetWidth + parseInt(window.getComputedStyle(carousel).gap);
+      carousel.scrollTo({ left: cardWidth * index, behavior: "smooth" });
+      setTimeout(updateButtonVisibility, 300);
+    }
+
+    // Initial button visibility check
+    updateButtonVisibility();
+  }
+
+  // Function to close the success modal
+  function closeSuccessModal() {
+    const modal = document.getElementById("successModal");
+    if (modal) {
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+  }
+
+  // Initialize carousel on page load
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCarousel);
+  } else {
+    initCarousel();
+  }
+
+  window.addEventListener("load", initBlogEngine);
+
+  // Certifications carousel (about.html, all screens)
+  const certifications = [
+    {
+      src: "assets/gallery/certificates/ISO-9001-2015.jpeg",
+      title: "ISO 9001:2015",
+      desc: "ISO 9001:2015 Quality Management",
+    },
+    {
+      src: "assets/gallery/certificates/ISO-14001-2015.jpeg",
+      title: "ISO 14001:2015",
+      desc: "Environmental Safety Certified",
+    },
+    {
+      src: "assets/gallery/certificates/ISO-45001-2018.jpeg",
+      title: "ISO 45001:2018",
+      desc: "Occupational Health and Safety Management",
+    },
+    {
+      src: "assets/gallery/certificates/Fire-Safety.jpeg",
+      title: "Fire Safety",
+      desc: "Fire Safety Certified",
+    },
+  ];
+  let certIndex = 0;
+
+  // CLOSE the main DOMContentLoaded block
+});
+
+// Certifications carousel (about.html, all screens) - GLOBAL SCOPE
+const certifications = [
+  {
+    src: "assets/gallery/certificates/ISO-9001-2015.jpeg",
+    title: "ISO 9001:2015 Quality Management",
+    desc: "ISO 9001:2015 Quality Management",
+  },
+  {
+    src: "assets/gallery/certificates/ISO-14001-2015.jpeg",
+    title: "ISO 14001:2015 Environmental Safety Certified",
+    desc: "Environmental Safety Certified",
+  },
+  {
+    src: "assets/gallery/certificates/ISO-45001-2018.jpeg",
+    title: "ISO 45001:2018 Occupational Health and Safety Management",
+    desc: "Occupational Health and Safety Management",
+  },
+  {
+    src: "assets/gallery/certificates/Fire-Safety.jpeg",
+    title: "Fire Safety Certified",
+    desc: "Fire Safety Certified",
+  },
+];
+let certIndex = 0;
+
+function updateCertCarousel() {
+  const left = document.getElementById("cert-left-img");
+  const center = document.getElementById("cert-center-img");
+  const right = document.getElementById("cert-right-img");
+  if (!left || !center || !right) return;
+  const n = certifications.length;
+  const leftIdx = (certIndex - 1 + n) % n;
+  const rightIdx = (certIndex + 1) % n;
+  left.src = certifications[leftIdx].src;
+  left.alt = certifications[leftIdx].title;
+  center.src = certifications[certIndex].src;
+  center.alt = certifications[certIndex].title;
+  right.src = certifications[rightIdx].src;
+  right.alt = certifications[rightIdx].title;
+  // Dots
+  const dots = document.getElementById("cert-dots");
+  if (dots) {
+    dots.innerHTML = certifications.map((_, i) => `<span class="inline-block w-2 h-2 rounded-full mx-1 ${i === certIndex ? "bg-[#c00d1e]" : "bg-gray-300"}"></span>`).join("");
+  }
 }
+function scrollCertCarousel(dir) {
+  certIndex = (certIndex + dir + certifications.length) % certifications.length;
+  updateCertCarousel();
+}
+function certCarouselInit() {
+  updateCertCarousel();
+  window.addEventListener("resize", updateCertCarousel);
 
-const container = document.getElementById("blog-scroll-container");
-
-function initBlogEngine() {
-  if (!container) return;
-
-  // Mobile Observer for image scale/fade
-  const observer = new IntersectionObserver(
-    (entries) => {
-      if (window.innerWidth >= 1024) return;
-      entries.forEach((entry) => {
-        const wash = entry.target.querySelector(".wash-layer");
-        const img = entry.target.querySelector("img");
-        if (entry.isIntersecting) {
-          if (wash) wash.style.opacity = "0";
-          if (img) img.style.transform = "";
-        } else {
-          if (wash) wash.style.opacity = "0.7";
-          if (img) img.style.transform = "";
+  // Touch scroll sync for mobile
+  const certScrollContainer = document.getElementById("cert-scroll-container");
+  if (certScrollContainer) {
+    certScrollContainer.addEventListener("scroll", function () {
+      // Find which image is most centered
+      const children = [document.getElementById("cert-left"), document.getElementById("cert-center"), document.getElementById("cert-right")];
+      let minDist = Infinity;
+      let activeIdx = 1; // default to center
+      const containerRect = certScrollContainer.getBoundingClientRect();
+      children.forEach((child, idx) => {
+        if (!child) return;
+        const rect = child.getBoundingClientRect();
+        // Distance from center of container
+        const dist = Math.abs((rect.left + rect.right) / 2 - (containerRect.left + containerRect.right) / 2);
+        if (dist < minDist) {
+          minDist = dist;
+          activeIdx = idx;
         }
       });
-    },
-    { root: container, threshold: 0.8 },
-  );
-
-  document.querySelectorAll(".blog-item").forEach((item) => observer.observe(item));
-}
-
-function scrollBlogs(dir) {
-  if (!container) return;
-  const blogItem = container.querySelector(".blog-item");
-  if (!blogItem) return;
-
-  const itemWidth = blogItem.offsetWidth + 20;
-  const move = window.innerWidth > 1024 ? itemWidth * 3 : itemWidth;
-  container.scrollBy({ left: move * dir, behavior: "smooth" });
-}
-
-// Products Carousel Control
-function initCarousel() {
-  const carousel = document.getElementById("productsCarousel");
-  const dotsContainer = document.getElementById("carouselDots");
-  const prevBtn = document.getElementById("carouselPrev");
-  const nextBtn = document.getElementById("carouselNext");
-  const cards = document.querySelectorAll(".product-card");
-  const cardCount = cards.length;
-
-  // Create pagination dots
-  for (let i = 0; i < cardCount; i++) {
-    const dot = document.createElement("button");
-    dot.className = `carousel-dot ${i === 0 ? "active" : ""}`;
-    dot.onclick = () => scrollToCard(i);
-    dotsContainer.appendChild(dot);
-  }
-
-  // Function to check if at end and update button visibility
-  function updateButtonVisibility() {
-    if (!carousel) return;
-    const scrollWidth = carousel.scrollWidth;
-    const scrollLeft = carousel.scrollLeft;
-    const clientWidth = carousel.clientWidth;
-
-    // Check if at start
-    if (scrollLeft <= 0) {
-      prevBtn.style.opacity = "0.4";
-      prevBtn.style.pointerEvents = "none";
-      prevBtn.style.display = "none";
-    } else {
-      prevBtn.style.opacity = "1";
-      prevBtn.style.pointerEvents = "auto";
-      prevBtn.style.display = "block";
-    }
-
-    // Check if at end (with small tolerance for rounding)
-    if (scrollLeft + clientWidth >= scrollWidth - 10) {
-      nextBtn.style.opacity = "0.4";
-      nextBtn.style.pointerEvents = "none";
-      nextBtn.style.display = "none";
-    } else {
-      nextBtn.style.opacity = "1";
-      nextBtn.style.pointerEvents = "auto";
-      nextBtn.style.display = "block";
-    }
-  }
-
-  // Scroll carousel by item count
-  window.scrollCarousel = function (direction) {
-    if (!carousel) return;
-    const cardWidth = cards[0].offsetWidth + parseInt(window.getComputedStyle(carousel).gap);
-    carousel.scrollBy({ left: cardWidth * direction, behavior: "smooth" });
-    setTimeout(updateButtonVisibility, 300);
-  };
-
-  // Update dots and buttons on carousel scroll
-  carousel.addEventListener("scroll", () => {
-    updateActiveDot();
-    updateButtonVisibility();
-  });
-
-  function updateActiveDot() {
-    const dots = document.querySelectorAll(".carousel-dot");
-    const scrollPos = carousel.scrollLeft;
-    const cardWidth = cards[0].offsetWidth + parseInt(window.getComputedStyle(carousel).gap);
-    const activeIndex = Math.round(scrollPos / cardWidth);
-
-    dots.forEach((dot, index) => {
-      dot.classList.toggle("active", index === activeIndex);
+      certIndex = (certIndex + activeIdx - 1 + certifications.length) % certifications.length;
+      updateCertCarousel();
     });
   }
-
-  function scrollToCard(index) {
-    if (!carousel) return;
-    const cardWidth = cards[0].offsetWidth + parseInt(window.getComputedStyle(carousel).gap);
-    carousel.scrollTo({ left: cardWidth * index, behavior: "smooth" });
-    setTimeout(updateButtonVisibility, 300);
-  }
-
-  // Initial button visibility check
-  updateButtonVisibility();
 }
-
-// Function to close the success modal
-function closeSuccessModal() {
-  const modal = document.getElementById("successModal");
-  if (modal) {
-    modal.classList.add("hidden");
-    modal.classList.remove("flex");
+if (document.getElementById("cert-center-img")) {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", certCarouselInit);
+  } else {
+    certCarouselInit();
   }
 }
-
-// Initialize carousel on page load
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initCarousel);
-} else {
-  initCarousel();
-}
-
-window.addEventListener("load", initBlogEngine);
+window.scrollCertCarousel = scrollCertCarousel;

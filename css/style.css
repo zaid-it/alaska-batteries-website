@@ -1,3 +1,42 @@
+.modal-caption {
+  width: 100%;
+  background: white;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 1.5em;
+  z-index: 2;
+}
+.nice-title {
+  display: block;
+  margin: 0 auto;
+  padding: 0.5em 0 0.2em 0;
+  color: #c00d1e;
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  word-break: break-word;
+  line-height: 1.2;
+}
+@media (min-width: 768px) {
+  .nice-title {
+    font-size: 2rem;
+  }
+}
+/* Nice modal title for certification modal */
+.nice-title {
+  display: block;
+  margin: 0 auto;
+  padding: 0.5em 0 0.2em 0;
+  color: #c00d1e;
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
 /* css/style.css */
 :root {
   --alaska-red: #c00d1e;
