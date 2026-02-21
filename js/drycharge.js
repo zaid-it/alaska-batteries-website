@@ -566,13 +566,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateHero(cat) {
     const data = contentMap[cat];
-    // Update data attributes so updateBanners() in animations.js also has correct values
+    // Update <picture> sources for responsive banner
+    const picture = heroImg.closest("picture");
+    if (picture) {
+      const sources = picture.querySelectorAll("source");
+      sources.forEach((source) => {
+        if (source.media.includes("max-width")) {
+          source.srcset = data.mobile_img;
+        } else {
+          source.srcset = data.img;
+        }
+      });
+      // Force browser to reload correct image
+      const isMobile = window.innerWidth <= 640;
+      heroImg.src = isMobile && data.mobile_img ? data.mobile_img : data.img;
+    } else {
+      // Fallback for old structure
+      const isMobile = window.innerWidth <= 640;
+      heroImg.src = isMobile && data.mobile_img ? data.mobile_img : data.img;
+    }
     heroImg.setAttribute("data-desktop", data.img);
     heroImg.setAttribute("data-mobile", data.mobile_img);
-    // Choose image based on viewport width (640px breakpoint matches animations.js)
-    const isMobile = window.innerWidth <= 640;
-    const imageSrc = isMobile && data.mobile_img ? data.mobile_img : data.img;
-    heroImg.src = imageSrc;
     document.getElementById("hero-title").innerHTML = data.title;
     if (subTitle && data.sub) {
       subTitle.innerText = data.sub;
