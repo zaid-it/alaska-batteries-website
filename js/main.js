@@ -217,228 +217,218 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "How to Choose the Best Battery for Your Vehicle or Solar System",
       category: "Guide",
       image: "",
-      content: `
-        <p class="text-base md:text-lg text-zinc-700 mb-6 leading-relaxed">
-          Summer in Pakistan is hard on batteries. High temperatures accelerate chemical reactions inside the cell, increasing corrosion and electrolyte evaporation which shortens battery life. Below are concise, actionable steps to protect your battery and keep your vehicle running through the hottest months.
-        </p>
+      content: ` 
+        <p>
+Summer in Pakistan is hard on batteries. High temperatures accelerate chemical reactions inside the cell, increasing corrosion and electrolyte evaporation, which shortens battery life. Below are concise, actionable steps to protect your battery and keep your vehicle running through the hottest months.
+</p>
 
- 
-        <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">Why Heat Damages Batteries</h3>
-        <p class="mb-4 text-zinc-600">Heat increases internal resistance and speeds up chemical breakdown. Over time this causes capacity loss, slower cranking, and a higher risk of sudden failure.</p>
+<h2>Why Heat Damages Batteries</h2>
 
-        <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">Top Summer Survival Tips</h3>
-        <ul class="space-y-4 mb-8">
-          <li class="p-4 bg-zinc-50 rounded-lg">
-            <strong class="block text-sm text-[#cc001b] uppercase tracking-widest mb-1">Park Smart</strong>
-            Whenever possible, park in shade or a covered area to limit direct sun exposure and reduce temperature-related stress.
-          </li>
-          <li class="p-4 bg-zinc-50 rounded-lg">
-            <strong class="block text-sm text-[#cc001b] uppercase tracking-widest mb-1">Keep Terminals Clean</strong>
-            Corrosion increases resistance and heat. Clean terminals and clamps monthly and use a corrosion inhibitor spray when needed.
-          </li>
-          <li class="p-4 bg-zinc-50 rounded-lg">
-            <strong class="block text-sm text-[#cc001b] uppercase tracking-widest mb-1">Avoid Deep Discharge</strong>
-            Repeated deep discharge shortens life. Use accessories sparingly when the engine is off and recharge promptly after heavy use.
-          </li>
-          <li class="p-4 bg-zinc-50 rounded-lg">
-            <strong class="block text-sm text-[#cc001b] uppercase tracking-widest mb-1">Check Charging System</strong>
-            Overcharging and voltage spikes also damage batteries. Have your alternator and regulator checked during service visits.
- 
-      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-6 italic border-l-4 border-[#c00d1e] pl-4">1) Identify Your Application</h3>
-      <p class="mb-4 font-bold text-zinc-800">Start by clarifying the usage:</p>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-        <div class="p-6 bg-zinc-50 rounded-xl">
-          <h4 class="font-bold text-[#c00d1e] uppercase mb-2 text-sm tracking-widest">Automotive (cars/bikes/SUVs)</h4>
-          <p class="text-xs leading-normal text-zinc-500">Requires reliable starting power, vibration resistance, correct size, and terminal layout.</p>
-        </div>
-        <div class="p-6 bg-zinc-50 rounded-xl">
-          <h4 class="font-bold text-[#c00d1e] uppercase mb-2 text-sm tracking-widest">Solar & Energy-Storage</h4>
-          <p class="text-xs leading-normal text-zinc-500">Needs deep-cycle capability, suitable capacity for your load, and backup duration.</p>
-        </div>
-        <div class="p-6 bg-zinc-50 rounded-xl">
-          <h4 class="font-bold text-[#c00d1e] uppercase mb-2 text-sm tracking-widest">Industrial/<br>Commercial</h4>
-          <p class="text-xs leading-normal text-zinc-500">Often demands high capacity, long life, robust construction, and maybe special configurations.</p>
-        </div>
-      </div>
-      <p class="mb-10 italic text-sm text-zinc-400">Alaska Batteries divides its catalog into precisely these three categories.</p>
+<p>
+Heat increases internal resistance and speeds up chemical breakdown. Over time, this causes capacity loss, slower cranking, and a higher risk of sudden failure.
+</p>
 
-      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-6 italic border-l-4 border-[#c00d1e] pl-4">2) Understand Battery Technologies & Types</h3>
-      <p class="mb-4">Different battery types suit different needs:</p>
-      <ul class="space-y-4 mb-10">
-        <li class="bg-zinc-100 text-zinc-800 p-6 rounded-2xl shadow-sm">
-          <strong class="text-[#c00d1e] uppercase block mb-1">Automotive batteries</strong>
-          in Alaska use advanced technology <strong>graphite lead acid</strong> batteries for longer life and higher heat tolerance.
-        </li>
-        <li class="border border-zinc-200 p-6 rounded-2xl">
-          <strong class="text-[#c00d1e] uppercase block mb-1">Deep-cycle batteries</strong> 
-          (for solar/storage) differ from standard starter batteries: they handle repeated discharges and recharges.
- 
-        </li>
-      </ul>
+<h2>Top Summer Survival Tips</h2>
 
- 
-      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">Monthly Maintenance Checklist</h3>
-      <ul class="list-inside list-disc mb-8 text-zinc-600">
-        <li>Measure open-circuit voltage (12.4V+ for healthy 12V lead-acid batteries).</li>
-        <li>Inspect for swelling, fluid leaks, or damaged casing.</li>
-        <li>Tighten terminal clamps and remove any white/green corrosion deposits.</li>
-        <li>Confirm manufacturing or charge date — older batteries may need replacement before summer peaks.</li>
-      </ul>
+<ul>
+<li><strong>Park Smart:</strong> Whenever possible, park in shade or a covered area to limit direct sun exposure and reduce temperature-related stress.</li>
+<li><strong>Keep Terminals Clean:</strong> Corrosion increases resistance and heat. Clean terminals and clamps monthly and use a corrosion inhibitor spray when needed.</li>
+<li><strong>Avoid Deep Discharge:</strong> Repeated deep discharge shortens battery life. Use accessories sparingly when the engine is off and recharge promptly after heavy use.</li>
+<li><strong>Check Charging System:</strong> Overcharging and voltage spikes also damage batteries. Have your alternator and voltage regulator checked during service visits.</li>
+</ul>
 
-      <div class="p-4 bg-zinc-50 text-zinc-700 rounded-2xl mb-8 shadow-sm border-t-4 border-[#cc001b]">
-        <h4 class="text-lg font-black uppercase mb-2">Pro Tip</h4>
-        <p class="text-sm">Choose batteries built for high-temperature environments. Alaska’s Graphite technology reduces internal heat and improves charge acceptance under heavy use.</p>
-      </div>
-      <p class="text-zinc-600 leading-relaxed mb-6">If you depend on your vehicle daily, a small preventive effort now will avoid breakdowns and costly replacements later. When in doubt, have an authorized dealer test your battery and charging system.</p>
+<h2>1) Identify Your Application</h2>
 
-      <div class="text-center">
-        <a href="dry-charge.html" style="color:#ffffff;text-decoration:none;" class="inline-block bg-[#cc001b] text-white px-8 py-3 rounded-full font-black uppercase tracking-tighter hover:scale-105 transition-transform">
-          View Summer Ready Batteries
-        </a>
-      </div>
+<p><strong>Start by clarifying how the battery will be used:</strong></p>
+
+<ul>
+<li><strong>Automotive (Cars, Bikes, SUVs):</strong> Requires reliable starting power, vibration resistance, correct size, and proper terminal layout.</li>
+<li><strong>Solar & Energy Storage:</strong> Needs deep-cycle capability, sufficient capacity for your load, and adequate backup duration.</li>
+<li><strong>Industrial / Commercial:</strong> Often demands high capacity, long service life, robust construction, and special configurations.</li>
+</ul>
+
+<p><em>Alaska Batteries categorizes its products based on these three applications.</em></p>
+
+<h2>2) Understand Battery Technologies & Types</h2>
+
+<p>
+Different battery technologies are designed for different requirements.
+</p>
+
+<ul>
+<li>
+<strong>Automotive batteries:</strong> Alaska uses advanced graphite lead-acid technology for improved heat tolerance, faster charging, and longer service life.
+</li>
+<li>
+<strong>Deep-cycle batteries:</strong> Designed for solar and storage applications, these batteries handle repeated discharge and recharge cycles better than standard starter batteries.
+</li>
+</ul>
+
+<h2>Monthly Maintenance Checklist</h2>
+
+<ul>
+<li>Measure open-circuit voltage (12.4V or higher for a healthy 12V battery).</li>
+<li>Inspect for swelling, leaks, or damage to the casing.</li>
+<li>Clean corrosion from terminals and ensure clamps are tight.</li>
+<li>Check the manufacturing or charge date—older batteries may fail faster in peak summer.</li>
+</ul>
+
+<h2>Pro Tip</h2>
+
+<p>
+Choose batteries designed for high-temperature environments. Graphite-based battery technology helps reduce internal heat buildup and improves charge acceptance during heavy use.
+</p>
+
+<p>
+If you rely on your vehicle daily, small preventive steps today can save you from breakdowns and unexpected replacement costs. When in doubt, have your battery and charging system tested by an authorized dealer.
+</p>
+
+<p>
+<div class="text-center">
+<a href="dry-charge.html" style="border-radius:12px;display:inline-block;padding:12px 28px;background:#cc001b;color:#ffffff;text-decoration:none;font-weight:bold;">
+View Summer Ready Batteries
+</a>
+</div>
+</p>
     `,
     },
     "eid-checklist": {
       title: "Don't Let Eid Travel Leave You Stranded - Complete Battery Readiness Checklist",
       category: "Travel",
       image: "assets/vault/blogs/eid-blog-2.png",
-      content: `
-      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-6 italic border-l-4 border-[#c00d1e] pl-4">Start your Eid journey with a few simple steps:</h3>
-      
-      <div class="bg-zinc-50 p-8 rounded-2xl mb-10 border-l-4 border-[#c00d1e]">
-        <p class="mb-4 text-lg font-bold text-zinc-900">Pre-Travel Battery Checklist:</p>
-        <ul class="space-y-3 text-base text-zinc-700">
-          <li class="flex items-start gap-3">
-            <span class="text-[#c00d1e] font-bold text-xl">1.</span>
-            <span><strong>Clean your battery terminals</strong> to ensure optimal power flow</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-[#c00d1e] font-bold text-xl">2.</span>
-            <span><strong>Check voltage</strong> (12.4V and above is ideal)</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-[#c00d1e] font-bold text-xl">3.</span>
-            <span><strong>Inspect for physical wear or damage</strong> like swelling, fluid leaks, or damaged casing</span>
-          </li>
-        </ul>
-      </div>
+      content: `<h2>Start Your Eid Journey With a Few Simple Steps</h2>
 
-      <h4 class="text-xl font-black uppercase text-[#c00d1e] mb-4">Here's where Alaska Graphite Batteries take the lead.</h4>
-      
-      <p class="text-base md:text-lg text-zinc-700 mb-8 leading-relaxed">
-        Built for high demand and long routes, they <strong class="text-[#c00d1e]">recharge 2x faster</strong> than conventional batteries, letting you regain lost charge quickly during short breaks at petrol pumps or rest stops. The added heat resistance and durability ensure you're ready for every kind of terrain — from scorching highways to high-altitude chill.
-      </p>
+<p><strong>Pre-Travel Battery Checklist:</strong></p>
 
-      <div class="bg-zinc-50 text-zinc-700 p-8 rounded-3xl mb-10 shadow-sm border-t-4 border-[#cc001b]">
-        <h4 class="text-xl font-black uppercase mb-4 italic">A reliable battery means no delays, no compromises,</h4>
-        <p class="text-base leading-relaxed mb-6">
-          and no ruining what should be a joyful experience. By the end of the day, it is the <strong class="text-[#c00d1e]">peace of mind</strong> you need for a stress-free Eid journey.
-        </p>
-        <p class="text-sm text-zinc-600">
-          Carry a jump starter kit and a power bank for extra security, especially if traveling with kids or elders.
-        </p>
-      </div>
+<ul>
+<li><strong>Clean your battery terminals</strong> to ensure smooth and reliable power flow.</li>
+<li><strong>Check battery voltage</strong> — 12.4V or higher indicates a healthy charge.</li>
+<li><strong>Inspect for physical wear or damage</strong>, such as swelling, fluid leaks, or a cracked casing.</li>
+</ul>
 
-      <div class="text-center mb-10">
-        <p class="text-xl md:text-2xl font-black uppercase text-zinc-900 mb-4">
-          This Eid, don't just prepare your car,<br>
-          <span class="text-[#c00d1e]">prepare your battery.</span>
-        </p>
-        <p class="text-lg font-bold text-zinc-600 mb-6">
-          Alaska Graphite Batteries<br>
-          <span class="text-sm italic">Built for beautiful and memorable journeys. Powered by Innovation.</span>
-        </p>
-      </div>
+<h3>Here’s Where Alaska Graphite Batteries Take the Lead</h3>
 
-      <div class="flex flex-wrap gap-2 justify-center">
-        <span class="px-4 py-2 bg-zinc-100 rounded-full text-xs font-bold uppercase tracking-wider text-zinc-700">#Durability</span>
-        <span class="px-4 py-2 bg-zinc-100 rounded-full text-xs font-bold uppercase tracking-wider text-zinc-700">#GraphiteBatteries</span>
-        <span class="px-4 py-2 bg-zinc-100 rounded-full text-xs font-bold uppercase tracking-wider text-zinc-700">#Power</span>
-        <span class="px-4 py-2 bg-zinc-100 rounded-full text-xs font-bold uppercase tracking-wider text-zinc-700">#EidTravel</span>
-      </div>
+<p>
+Built for high demand and long routes, Alaska Graphite Batteries recharge up to <strong>2x faster</strong> than conventional batteries. This allows you to regain lost charge quickly during short stops at petrol pumps or rest areas. Their superior heat resistance and durability ensure dependable performance across all terrains — from scorching highways to cooler, high-altitude routes.
+</p>
+
+<h3>A Reliable Battery Means No Delays, No Compromises</h3>
+
+<p>
+A dependable battery ensures your journey remains smooth and stress-free. It prevents unexpected breakdowns and protects what should be a joyful Eid experience. In the end, it’s the <strong>peace of mind</strong> that truly matters on long journeys.
+</p>
+
+<p>
+For added safety, especially when traveling with children or elders, carrying a jump starter kit and a power bank is always recommended.
+</p>
+
+<h2>This Eid, Don’t Just Prepare Your Car — Prepare Your Battery</h2>
+
+<p>
+<strong>Alaska Graphite Batteries</strong><br>
+<em>Built for beautiful and memorable journeys. Powered by Innovation.</em>
+</p>
+<p class="text-center text-sm font-semibold text-zinc-600">
+#Durability · #GraphiteBatteries · #Power · #EidTravel
+</p>
     `,
     },
     "power-saving": {
       title: "5 Power-Saving Secrets to Make Your Car Battery Last Longer",
       category: "Maintenance",
       image: "assets/vault/blogs/power-blog-3.png",
-      content: `
-      <p class="text-base md:text-lg text-zinc-700 mb-6 leading-relaxed">Tired of unexpected battery failures? Follow these expert-backed tips to extend your car battery life and ensure a smooth, worry-free drive every time. Your car battery is the unsung hero of your vehicle — a little care goes a long way.</p>
+      content: `<p>
+Tired of unexpected battery failures? Follow these expert-backed tips to extend your car battery life and ensure a smooth, worry-free drive every time. Your car battery is the unsung hero of your vehicle — a little care goes a long way.
+</p>
 
-      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">Keep Terminals Corrosion-Free</h3>
-      <p class="mb-4 text-zinc-600">A crusty buildup of white or green residue weakens connections and forces your battery to work harder. Mix a tablespoon of baking soda with warm water, scrub terminals gently with an old toothbrush, then rinse and dry. Apply a corrosion inhibitor to protect clamps.</p>
+<h2>Keep Terminals Corrosion-Free</h2>
 
-      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">Avoid Micro-Draining from Short Trips</h3>
-      <p class="mb-4 text-zinc-600">Short runs don't give the alternator enough time to fully recharge. Take a 20–30 minute highway drive weekly to top up the charge, and turn off non-essential accessories during short drives to reduce strain.</p>
+<p>
+A buildup of white or green residue weakens connections and forces your battery to work harder. Mix a tablespoon of baking soda with warm water, scrub the terminals gently with an old toothbrush, then rinse and dry thoroughly. Applying a corrosion inhibitor helps protect the clamps.
+</p>
 
-      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">Protect Against Extreme Weather</h3>
-      <p class="mb-4 text-zinc-600">Heat accelerates fluid evaporation and capacity loss; cold slows chemical reactions and makes starts sluggish. Park in shade, use sunshades, and consider a battery insulator in cold regions. Alaska batteries are engineered for these extremes, but extra precautions help.</p>
+<h2>Avoid Micro-Draining from Short Trips</h2>
 
-      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">Watch for Parasitic Power Drain</h3>
-      <p class="mb-4 text-zinc-600">Modern vehicles have electronics that draw power even when off. Make a habit of unplugging chargers, turning off dashcams when parked, and checking interior lights before locking the car.</p>
+<p>
+Short trips don’t give the alternator enough time to fully recharge the battery. Take a 20–30 minute drive once a week to restore charge, and turn off non-essential accessories during short drives to reduce strain.
+</p>
 
-      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">Routine Checkups Matter</h3>
-      <ul class="list-inside list-disc mb-8 text-zinc-600">
-        <li>Measure open-circuit voltage (12.4V+ for healthy 12V lead-acid batteries).</li>
-        <li>Inspect for swelling, leaks, or damaged casing.</li>
-        <li>Confirm terminals are tight and free from corrosion.</li>
-        <li>Have the alternator and voltage regulator tested to avoid over/under-charging.</li>
-      </ul>
+<h2>Protect Against Extreme Weather</h2>
 
-      <div class="p-4 bg-zinc-50 text-zinc-700 rounded-2xl mb-8 shadow-sm border-t-4 border-[#cc001b]">
-        <h4 class="text-lg font-black uppercase mb-2">Pro Tip</h4>
-        <p class="text-sm">Choose batteries built for temperature extremes. Alaska’s Graphite technology improves heat handling and charge acceptance under heavy use.</p>
-      </div>
+<p>
+High temperatures accelerate fluid evaporation and capacity loss, while cold weather slows chemical reactions and makes starting sluggish. Park in shaded areas, use sunshades, and consider a battery insulator in colder regions. While Alaska batteries are engineered for extremes, extra precautions always help.
+</p>
 
-      <p class="text-zinc-600 leading-relaxed mb-6">A small preventive effort today avoids roadside breakdowns and costly replacements tomorrow. When unsure, have an authorized dealer test your battery and charging system.</p>
-      <div class="text-center">
-        <a href="dry-charge.html" style="color:#ffffff;text-decoration:none;" class="inline-block bg-[#cc001b] text-white px-8 py-3 rounded-full font-black uppercase tracking-tighter hover:scale-105 transition-transform">Explore Battery Options</a>
-      </div>
+<h2>Watch for Parasitic Power Drain</h2>
+
+<p>
+Modern vehicles continue drawing power even when switched off. Unplug phone chargers, turn off dash cameras when parked, and double-check interior lights before locking the car to avoid unnecessary drain.
+</p>
+
+<h2>Routine Checkups Matter</h2>
+
+<ul>
+<li>Measure open-circuit voltage (12.4V or higher for a healthy 12V battery).</li>
+<li>Inspect the battery for swelling, leaks, or casing damage.</li>
+<li>Ensure terminals are tight and free from corrosion.</li>
+<li>Have the alternator and voltage regulator tested to prevent over- or under-charging.</li>
+</ul>
+
+<h3>Pro Tip</h3>
+
+<p>
+Choose batteries designed for temperature extremes. Graphite-based battery technology improves heat handling and charge acceptance under heavy use.
+</p>
+
+<p>
+A small preventive effort today can help you avoid roadside breakdowns and costly replacements tomorrow. When in doubt, have your battery and charging system tested by an authorized dealer.
+</p>
+
+<p>
+<div class="text-center">
+<a href="dry-charge.html" style="border-radius:12px;display:inline-block;padding:12px 28px;background:#cc001b;color:#ffffff;text-decoration:none;font-weight:bold;">
+Explore Battery Options
+</a>
+</div>
+</p>
     `,
     },
     "ebike-accessories": {
       title: "Beat the Heat | Battery Survival Guide for Pakistani Summer Season",
       category: "Summer Guide",
       image: "assets/vault/blogs/storing-blog-4.png",
-      content: `
-      <p class="text-base md:text-lg text-zinc-700 mb-6 leading-relaxed">Summer heat in Pakistan is one of the fastest ways to shorten a battery's life. High temperatures speed up internal chemical reactions and increase corrosion — but with a few practical steps you can protect your battery and avoid unexpected failures.</p>
+      content: `<p>
+Summer heat in Pakistan is one of the fastest ways to shorten a battery’s life. High temperatures speed up internal chemical reactions and increase corrosion. With a few practical steps, however, you can protect your battery and avoid unexpected failures.
+</p>
 
-      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">Quick Heat-Proof Checklist</h3>
-      <ul class="space-y-4 mb-8">
-        <li class="p-4 bg-zinc-50 rounded-lg">
-          <strong class="block text-sm text-[#cc001b] uppercase tracking-widest mb-1">Park in Shade</strong>
-          Direct sun dramatically raises under-hood temperatures. Whenever possible, park under shade or indoors.
-        </li>
-        <li class="p-4 bg-zinc-50 rounded-lg">
-          <strong class="block text-sm text-[#cc001b] uppercase tracking-widest mb-1">Keep It Charged</strong>
-          Heat increases self-discharge. Maintain a full charge, especially if vehicle sits for long periods, and avoid leaving electronics plugged in while parked.
-        </li>
-        <li class="p-4 bg-zinc-50 rounded-lg">
-          <strong class="block text-sm text-[#cc001b] uppercase tracking-widest mb-1">Inspect Regularly</strong>
-          Look for swelling, cracks, fluid leaks or loose terminals. Clean corrosion with baking soda solution and protect clamps with anti-corrosion spray.
-        </li>
-        <li class="p-4 bg-zinc-50 rounded-lg">
-          <strong class="block text-sm text-[#cc001b] uppercase tracking-widest mb-1">Check Charging System</strong>
-          Overheating alternators and voltage spikes damage batteries. Have your charging system tested if you notice unusual heat or slow cranking.
-        </li>
-      </ul>
+<h2>Quick Heat-Proof Checklist</h2>
 
-      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">Monthly Summer Maintenance</h3>
-      <ul class="list-inside list-disc mb-8 text-zinc-600">
-        <li>Measure resting voltage (12.4V+ indicates a healthy 12V lead-acid battery).</li>
-        <li>Ensure terminals are tight and free from white/green corrosion.</li>
-        <li>For serviceable batteries, check electrolyte levels and top with distilled water when needed.</li>
-        <li>Replace batteries older than 3–4 years or those showing repeated capacity loss.</li>
-      </ul>
+<ul>
+<li><strong>Park in shade:</strong> Direct sunlight significantly raises under-hood temperatures. Whenever possible, park under shade or in covered areas.</li>
+<li><strong>Keep the battery charged:</strong> Heat increases self-discharge. Maintain a healthy charge, especially if the vehicle remains unused for long periods, and avoid leaving electronics plugged in while parked.</li>
+<li><strong>Inspect regularly:</strong> Check for swelling, cracks, fluid leaks, or loose terminals. Clean corrosion using a baking soda solution and protect clamps with an anti-corrosion spray.</li>
+<li><strong>Check the charging system:</strong> Overheating alternators and voltage spikes can damage batteries. Have the system tested if you notice excessive heat or slow engine cranking.</li>
+</ul>
 
-      <div class="p-4 bg-zinc-50 text-zinc-700 rounded-2xl mb-8 shadow-sm border-t-4 border-[#cc001b]">
-        <h4 class="text-lg font-black uppercase mb-2">Pro Tip</h4>
-        <p class="text-sm">Choose batteries designed for high-temperature performance. Alaska Graphite batteries offer improved heat tolerance and faster charge acceptance under heavy use.</p>
-      </div>
+<h2>Monthly Summer Maintenance</h2>
 
-      <p class="text-zinc-600 leading-relaxed mb-6">Little preventive steps today will prevent roadside trouble and extend battery life through the peak summer months. When in doubt, have an authorized dealer run a load and charging test.</p>
-      <div class="text-center">
+<ul>
+<li>Measure resting voltage (12.4V or higher indicates a healthy 12V battery).</li>
+<li>Ensure terminals are tight and free from white or green corrosion.</li>
+<li>For serviceable batteries, check electrolyte levels and top up with distilled water when required.</li>
+<li>Consider replacing batteries older than 3–4 years or those showing repeated capacity loss.</li>
+</ul>
+
+<h3>Pro Tip</h3>
+
+<p>
+Choose batteries designed for high-temperature performance. Graphite-based battery technology offers improved heat tolerance and faster charge acceptance under heavy use.
+</p>
+
+<p>
+Small preventive steps taken today can prevent roadside trouble and extend battery life through peak summer months. When in doubt, have an authorized dealer perform a load and charging system test.
+</p>
+<div class="text-center">
         <a href="dry-charge.html" style="color:#ffffff;text-decoration:none;" class="inline-block bg-[#cc001b] text-white px-8 py-3 rounded-full font-black uppercase tracking-tighter hover:scale-105 transition-transform">Find Heat Ready Batteries</a>
       </div>
     `,
@@ -447,51 +437,82 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "The Right Way to Charge & Store Your Battery for Maximum Lifespan",
       category: "Battery Care",
       image: "assets/vault/blogs/recycle-blog-5.png",
-      content: `
-      <p class="text-base md:text-lg text-zinc-700 mb-6 leading-relaxed">Avoid battery degradation and early failures! Learn how to properly charge and store your battery to keep it in top condition for years.</p>
+      content: `<p>
+Avoid battery degradation and early failures. Learn how to properly charge and store your battery to keep it in top condition for years.
+</p>
 
-      <p class="mb-4 text-zinc-600">Whether you are storing a vintage car for months or keeping a spare battery for emergencies, proper charging and storage are the keys to longevity. Start with a full charge; batteries left partially charged risk sulfation, where lead sulfate crystals harden and cripple their ability to hold a charge.</p>
+<p>
+Whether you are storing a vintage car for several months or keeping a spare battery for emergencies, proper charging and storage are essential for long-term performance. Always begin storage with a full charge. Batteries left partially charged are prone to sulfation, where hardened lead sulfate crystals reduce the battery’s ability to hold power.
+</p>
 
-      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">Storage location is critical</h3>
-      <p class="mb-4 text-zinc-600">Heat speeds up chemical decay, and cold can freeze electrolytes in traditional lead-acid batteries. Choose a cool, dry spot like a garage shelf or climate-controlled room. Never store batteries directly on concrete; instead elevate them on a wooden pallet or rubber mat to avoid temperature swings.</p>
+<h2>Storage Location Is Critical</h2>
 
-      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">For vehicles in long-term storage, disconnect the battery entirely</h3>
-      <p class="mb-4 text-zinc-600">Modern cars have parasitic drains from clocks, alarms, and computers that sip power 24/7. A disconnected battery loses just 1–2% charge monthly, while a connected one can drain 5–10%.</p>
+<p>
+Heat accelerates chemical decay, while extreme cold can freeze electrolytes in traditional lead-acid batteries. Store batteries in a cool, dry place such as a garage shelf or climate-controlled room. Avoid placing batteries directly on concrete; instead, elevate them on a wooden pallet or rubber mat to reduce temperature fluctuations.
+</p>
 
-      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">Check stored batteries every 8–12 weeks</h3>
-      <p class="mb-4 text-zinc-600">Lead-acid batteries should stay above 12.4 volts; if they dip below, recharge immediately. When reusing a stored battery, test its voltage first — a reading below 12 volts means it needs a slow, steady recharge. Avoid rushing with a high-amp charger which can warp plates or cause leaks.</p>
+<h2>Disconnect Batteries for Long-Term Vehicle Storage</h2>
 
-      <div class="p-4 bg-zinc-50 text-zinc-700 rounded-2xl mb-8 shadow-sm border-t-4 border-[#cc001b]">
-        <h4 class="text-lg font-black uppercase mb-2">Pro Tip</h4>
-        <p class="text-sm">Choose batteries built for temperature stability. Alaska Batteries' products are designed for durability and reliable charge acceptance during storage and reuse.</p>
-      </div>
+<p>
+Modern vehicles draw power continuously through clocks, alarms, and onboard electronics. A disconnected battery typically loses only 1–2% charge per month, while a connected battery can lose 5–10% over the same period.
+</p>
 
-      <p class="text-zinc-600 leading-relaxed mb-6">With simple, scheduled checks and correct storage practices, your battery will remain ready when you need it. If unsure, have an authorized dealer test and maintain your battery to avoid premature failure.</p>
-      <div class="text-center">
-        <a href="vault.html#faqs" style="color:#ffffff;text-decoration:none;" class="inline-block bg-[#cc001b] text-white px-8 py-3 rounded-full font-black uppercase tracking-tighter hover:scale-105 transition-transform">Read for Battery Care</a>
-      </div>
+<h2>Check Stored Batteries Every 8–12 Weeks</h2>
+
+<p>
+Lead-acid batteries should remain above 12.4 volts during storage. If voltage drops below this level, recharge immediately. Before reusing a stored battery, test its voltage—readings below 12 volts indicate the need for a slow, steady recharge. Avoid high-amp chargers, which can warp plates and cause internal damage.
+</p>
+
+<h3>Pro Tip</h3>
+
+<p>
+Choose batteries designed for temperature stability and consistent charge acceptance. Batteries built for durability perform better during storage and are more reliable when put back into service.
+</p>
+
+<p>
+With simple, scheduled checks and proper storage practices, your battery will remain ready when you need it most. If you are unsure, have an authorized dealer inspect and maintain your battery to prevent premature failure.
+</p>
+
+<p>
+<div class="text-center">
+<a href="vault.html#faqs" style="border-radius:12px;display:inline-block;padding:12px 28px;background:#cc001b;color:#ffffff;text-decoration:none;font-weight:bold;">
+Read for Battery Care
+</a>
+</div>
+</p>
     `,
     },
     "ebike-charging": {
       title: "Battery Recycling: Turning Old Power into New Possibilities",
       category: "E-Bike Tips",
       image: "assets/vault/blogs/summer-blog-6.png",
-      content: `
-      <p class="text-base md:text-lg text-zinc-700 mb-6 leading-relaxed">Did you know that old batteries can be repurposed? Discover the battery recycling process and why it is crucial for sustainability and a cleaner planet.</p>
+      content: `<p>
+Did you know old batteries can be repurposed? Understanding the battery recycling process explains why it is essential for sustainability and a cleaner planet.
+</p>
 
-      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">How recycling starts</h3>
-      <p class="mb-4 text-zinc-600">The process starts at certified drop-off points, such as Alaska’s nationwide dealer network. Once collected, batteries are sorted by type. Lead-acid batteries are crushed and the lead plates are melted, purified, and molded into new grids. Plastic casings become pellets for new cases, and sulfuric acid is filtered or converted into useful industrial chemicals. Recycling one car battery can save enough energy to power a home for several hours.</p>
+<h2>How Recycling Starts</h2>
 
-      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">Why this matters</h3>
-      <p class="mb-4 text-zinc-600">Tossing batteries into landfills poisons ecosystems: lead can leach into groundwater and lithium-ion fires release toxic fumes. Recycling prevents environmental contamination and recovers valuable materials—improving the sustainability of battery production.</p>
+<p>
+The process begins at certified drop-off points, such as authorized dealer networks. Once collected, batteries are sorted by type. Lead-acid batteries are crushed, and the lead plates are melted, purified, and molded into new grids. Plastic casings are recycled into pellets for new battery cases, while sulfuric acid is filtered or converted into useful industrial chemicals. Recycling just one car battery can save enough energy to power a home for several hours.
+</p>
 
-      <h3 class="text-2xl font-black uppercase text-zinc-900 mb-4 italic border-l-4 border-[#cc001b] pl-4">What you can do</h3>
-      <p class="mb-4 text-zinc-600">Return used batteries to Alaska dealers or partner centers. Many programs offer incentives—like discounts on new purchases—for recycled units. By returning batteries for recycling you help close the loop and reduce the environmental cost of energy storage.</p>
+<h2>Why This Matters</h2>
 
-      <div class="p-4 bg-zinc-50 text-zinc-700 rounded-2xl mb-8 shadow-sm border-t-4 border-[#cc001b]">
-        <h4 class="text-lg font-black uppercase mb-2">Takeaway</h4>
-        <p class="text-sm">Sustainability is built one returned battery at a time. Recycling recovers materials, reduces pollution, and lowers the energy footprint of future batteries.</p>
-      </div>
+<p>
+Discarding batteries in landfills harms the environment. Lead can leach into groundwater, and lithium-ion battery fires release toxic fumes. Recycling prevents environmental contamination and allows valuable materials to be recovered, reducing the need for new raw resources and improving the sustainability of battery production.
+</p>
+
+<h2>What You Can Do</h2>
+
+<p>
+Return used batteries to authorized dealers or approved recycling centers. Many recycling programs offer incentives, such as discounts on new battery purchases. By returning batteries for recycling, you help close the loop and reduce the environmental impact of energy storage.
+</p>
+
+<h3>Takeaway</h3>
+
+<p>
+Sustainability is built one returned battery at a time. Recycling recovers valuable materials, reduces pollution, and lowers the overall energy footprint of future batteries.
+</p>
     `,
     },
   };

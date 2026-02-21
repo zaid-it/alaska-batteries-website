@@ -40,7 +40,7 @@ const blogs = [
     img: "assets/vault/blogs/summer-blog-6.png",
     mobileImg: "assets/vault/blogs/mobile/summer-blog-6-mobile.png",
     category: "Eco-friendly",
-    title: "E-Bike Battery Lifespan: Recycling & Responsible Disposal",
+    title: "Battery Lifespan: Recycling & Responsible Disposal",
   },
 ];
 

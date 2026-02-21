@@ -40,8 +40,8 @@
       <!-- Video Background -->
       <video id="heroVideo" class="absolute inset-0 w-full h-full md:h-full object-cover object-center z-0 hero-mobile"
         autoplay muted playsinline webkit-playsinline loop>
-        <source src="assets/videos/home.mp4" data-mobile="assets/videos/home-mobile.mp4" type="video/mp4"
-          class="w-full h-full" />
+        <source src="assets/videos/home-mobile.mp4" type="video/mp4" media="(max-width: 767px)" class="w-full h-full" />
+        <source src="assets/videos/home.mp4" type="video/mp4" media="(min-width: 768px)" class="w-full h-full" />
         Your browser does not support HTML5 video.
       </video>
     </section>
@@ -53,7 +53,11 @@
           <!-- Automotive (Application) -->
           <a href="dry-charge.html#Automotive"
             class="product-card group relative bg-white rounded-2xl overflow-hidden shadow-lg">
-            <img src="assets/automotive-home.png" data-mobile="assets/mobile/automotive-mob.png" alt="Automotive" />
+            <picture>
+              <source srcset="assets/mobile/automotive-mob.png" media="(max-width: 767px)">
+              <source srcset="assets/automotive-home.png" media="(min-width: 768px)">
+              <img src="assets/automotive-home.png" alt="Automotive">
+            </picture>
             <div class="product-card-content items-start text-left">
               <div class="product-card-title-wrap">
                 <h3 class="product-card-title">Automotive</h3>
@@ -69,7 +73,11 @@
           <!-- Solar (Application) -->
           <a href="dry-charge.html#Solar"
             class="product-card group relative bg-white rounded-2xl overflow-hidden shadow-lg">
-            <img src="assets/solar-home.png" data-mobile="assets/mobile/solar-mob.png" alt="Solar" />
+            <picture>
+              <source srcset="assets/mobile/solar-mob.png" media="(max-width: 767px)">
+              <source srcset="assets/solar-home.png" media="(min-width: 768px)">
+              <img src="assets/solar-home.png" alt="Solar">
+            </picture>
             <div class="product-card-content">
               <div class="product-card-title-wrap">
                 <h3 class="product-card-title">Solar</h3>
@@ -85,7 +93,11 @@
           <!-- Industrial (Application) -->
           <a href="dry-charge.html#Industrial"
             class="product-card group relative bg-white rounded-2xl overflow-hidden shadow-lg">
-            <img src="assets/industrial-home.png" data-mobile="assets/mobile/industrial-mob.png" alt="Industrial" />
+            <picture>
+              <source srcset="assets/mobile/industrial-mob.png" media="(max-width: 767px)">
+              <source srcset="assets/industrial-home.png" media="(min-width: 768px)">
+              <img src="assets/industrial-home.png" alt="Industrial">
+            </picture>
             <div class="product-card-content">
               <div class="product-card-title-wrap">
                 <h3 class="product-card-title">Industrial</h3>
