@@ -400,9 +400,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       // Wire the Get Directions button separately so it doesn't trigger the card click
-      const dirBtn = card.querySelector('.get-directions-btn');
+      const dirBtn = card.querySelector(".get-directions-btn");
       if (dirBtn) {
-        dirBtn.addEventListener('click', (e) => {
+        dirBtn.addEventListener("click", (e) => {
           e.stopPropagation();
           e.preventDefault();
           if (dealer.pin) {
@@ -535,7 +535,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const mapIframe = document.getElementById("dealerMap");
     if (!mapIframe) return;
     // If pinUrl already looks like an embed, use it directly; otherwise, set as query
-    if (pinUrl.includes('google.com/maps/embed')) {
+    if (pinUrl.includes("google.com/maps/embed")) {
       mapIframe.src = pinUrl;
     } else {
       const encoded = encodeURIComponent(pinUrl);
