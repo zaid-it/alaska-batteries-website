@@ -528,6 +528,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     modal.classList.remove("hidden");
+    // Scroll modal into view if not fully visible (mobile especially)
+    setTimeout(() => {
+      modal.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 10);
     // Smoother transition
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
