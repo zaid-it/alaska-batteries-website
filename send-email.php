@@ -29,16 +29,55 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // Get POST data
-$data = json_decode(file_get_contents('php://input'), true);
+// Accept JSON payload or regular form-data/post
+$raw = file_get_contents('php://input');
+$json = json_decode($raw, true);
+// Prefer JSON when provided, fall back to $_POST
+$data = is_array($json) ? $json : $_POST;
 
 // Validate required fields
-$required_fields = ['name', 'email', 'phone'];
-foreach ($required_fields as $field) {
-    if (empty($data[$field])) {
-        http_response_code(400);
-        echo json_encode(['success' => false, 'message' => ucfirst($field) . ' is required']);
-        exit();
+// Determine form type: support, careers, become-dealer (dealer)
+$form_type = strtolower(trim($data['form'] ?? $data['form_type'] ?? 'support'));
+
+// Map incoming keys to normalized names for consistency
+function get_value($data, $keys, $default = '') {
+    foreach ((array)$keys as $k) {
+        if (isset($data[$k]) && $data[$k] !== '') return $data[$k];
     }
+    return $default;
+}
+
+// Normalize fields
+$name = get_value($data, ['name', 'from_name', 'fullName', 'from_name', 'careers-fullName']);
+$email = get_value($data, ['email', 'user_email', 'userEmail']);
+$phone = get_value($data, ['phone', 'user_phone', 'userPhone']);
+$company = get_value($data, ['company', 'from_company', 'companyName']);
+$subject = get_value($data, ['subject'], 'No Subject');
+$message = get_value($data, ['message', 'careers-message'], '');
+
+// Check required fields according to form type
+$missing = [];
+if ($form_type === 'careers') {
+    if (!$name) $missing[] = 'Name';
+    if (!$email) $missing[] = 'Email';
+    if (!$phone) $missing[] = 'Phone';
+    $has_resume = !empty($_FILES['resume']['name']) || !empty($_FILES['careers-resume']['name']);
+    if (!$has_resume) $missing[] = 'Resume (file)';
+} elseif ($form_type === 'dealer') {
+    if (!$name) $missing[] = 'Name';
+    if (!$company) $missing[] = 'Company';
+    if (!$email) $missing[] = 'Email';
+    if (!$phone) $missing[] = 'Phone';
+} else {
+    if (!$name) $missing[] = 'Name';
+    if (!$email) $missing[] = 'Email';
+    if (!$phone) $missing[] = 'Phone';
+}
+
+if (!empty($missing)) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => 'Required fields missing: ' . implode(', ', $missing)]);
+    exit();
 }
 
 // Sanitize inputs
@@ -47,6 +86,23 @@ $email = filter_var(trim($data['email']), FILTER_SANITIZE_EMAIL);
 $phone = htmlspecialchars(strip_tags(trim($data['phone'])));
 $subject = htmlspecialchars(strip_tags(trim($data['subject'] ?? 'No Subject')));
 $message = htmlspecialchars(strip_tags(trim($data['message'] ?? '')));
+
+// Collect interests (may come as array from JSON or as checkbox POST 'interests[]')
+$interests = [];
+if (isset($data['interests'])) {
+    if (is_array($data['interests'])) {
+        $interests = $data['interests'];
+    } elseif (is_string($data['interests'])) {
+        $decoded = json_decode($data['interests'], true);
+        if (is_array($decoded)) $interests = $decoded;
+        else $interests = array_map('trim', explode(',', $data['interests']));
+    }
+} elseif (!empty($_POST['interests'])) {
+    if (is_array($_POST['interests'])) $interests = $_POST['interests'];
+    else $interests = array_map('trim', explode(',', $_POST['interests']));
+}
+// Normalize and sanitize interest values
+$interests = array_values(array_filter(array_map(function($i){ return htmlspecialchars(strip_tags(trim((string)$i))); }, (array)$interests)));
 
 // Validate email format
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -59,66 +115,73 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 // SMTP CONFIGURATION
 // Replace these with your actual Hostinger SMTP settings
 // ============================
-$smtp_host = 'smtp.hostinger.com';  // Your Hostinger SMTP host
-$smtp_port = 587;                    // Usually 587 for TLS or 465 for SSL
-$smtp_username = 'info@alaskabatteries.com';  // Your Hostinger email
-$smtp_password = 'YOUR_EMAIL_PASSWORD';        // Your email password
-$smtp_from = 'info@alaskabatteries.com';       // From email address
+// ============================
+// SMTP CONFIGURATION / RECIPIENTS
+// Update SMTP credentials if you plan to send via authenticated SMTP (PHPMailer recommended).
+// The script below will fall back to PHP mail() if no SMTP library is present. Hostinger typically
+// requires authenticated SMTP — for production use install PHPMailer and configure SMTP auth.
+// ============================
+$smtp_host = 'smtp.hostinger.com';
+$smtp_port = 587;
+$smtp_username = 'info@alaskabatteries.com';
+$smtp_password = 'YOUR_EMAIL_PASSWORD';
+$smtp_from = 'info@alaskabatteries.com';
 $smtp_from_name = 'Alaska Batteries Website';
-$smtp_to = 'info@alaskabatteries.com';         // Where to receive contact form submissions
+
+// Choose recipient based on form type
+switch ($form_type) {
+    case 'careers':
+        $smtp_to = 'careers@alaskabatteries.com';
+        $email_subject = "New Careers Application from $name";
+        break;
+    case 'dealer':
+        $smtp_to = 'info@alaskabatteries.com';
+        $email_subject = "New Dealer Enquiry from $name";
+        break;
+    default:
+        $smtp_to = 'info@alaskabatteries.com';
+        $email_subject = "New Contact Form Submission from $name";
+}
 
 // Email content for admin
 $email_subject = "New Contact Form Submission from $name";
-$email_body = "
-<!DOCTYPE html>
-<html>
-<head>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: #c00d1e; color: white; padding: 20px; text-align: center; }
-        .content { background: #f9f9f9; padding: 20px; border: 1px solid #ddd; }
-        .field { margin-bottom: 15px; }
-        .label { font-weight: bold; color: #c00d1e; }
-        .value { margin-top: 5px; padding: 10px; background: white; border-left: 3px solid #c00d1e; }
-        .footer { text-align: center; padding: 20px; font-size: 12px; color: #777; }
-    </style>
-</head>
-<body>
-    <div class='container'>
-        <div class='header'>
-            <h2>New Contact Form Submission</h2>
-        </div>
-        <div class='content'>
-            <div class='field'>
-                <div class='label'>Name:</div>
-                <div class='value'>$name</div>
-            </div>
-            <div class='field'>
-                <div class='label'>Email:</div>
-                <div class='value'>$email</div>
-            </div>
-            <div class='field'>
-                <div class='label'>Phone:</div>
-                <div class='value'>$phone</div>
-            </div>
-            <div class='field'>
-                <div class='label'>Subject:</div>
-                <div class='value'>$subject</div>
-            </div>
-            <div class='field'>
-                <div class='label'>Message:</div>
-                <div class='value'>" . nl2br($message) . "</div>
-            </div>
-        </div>
-        <div class='footer'>
-            <p>This email was sent automatically from your website contact form.</p>
-            <p>Received on " . date('F j, Y \a\t g:i A') . "</p>
-        </div>
-    </div>
-</body>
-</html>
-";
+// Build email body depending on form type
+$email_body = "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><style>body{font-family:Arial,Helvetica,sans-serif;color:#333} .container{max-width:700px;margin:0 auto;padding:20px} .header{background:#c00d1e;color:#fff;padding:16px;text-align:center} .content{background:#f9f9f9;padding:16px;border:1px solid #ddd} .field{margin-bottom:12px}.label{font-weight:700;color:#c00d1e}.value{margin-top:6px;padding:10px;background:#fff;border-left:3px solid #c00d1e}</style></head><body><div class=\"container\"><div class=\"header\"><h2>Website Submission</h2></div><div class=\"content\">";
+
+$email_body .= "<div class='field'><div class='label'>Name:</div><div class='value'>".htmlspecialchars($name)."</div></div>";
+$email_body .= "<div class='field'><div class='label'>Email:</div><div class='value'>".htmlspecialchars($email)."</div></div>";
+$email_body .= "<div class='field'><div class='label'>Phone:</div><div class='value'>".htmlspecialchars($phone)."</div></div>";
+if ($company) $email_body .= "<div class='field'><div class='label'>Company:</div><div class='value'>".htmlspecialchars($company)."</div></div>";
+$email_body .= "<div class='field'><div class='label'>Subject:</div><div class='value'>".htmlspecialchars($subject)."</div></div>";
+$email_body .= "<div class='field'><div class='label'>Message:</div><div class='value'>".nl2br(htmlspecialchars($message))."</div></div>";
+
+// Include primary interests for dealer form if provided
+if ($form_type === 'dealer' && !empty($interests)) {
+    $email_body .= "<div class='field'><div class='label'>Primary Interest(s):</div><div class='value'>".htmlspecialchars(implode(', ', $interests))."</div></div>";
+}
+
+// Handle resume upload if present (careers)
+$upload_link = '';
+if ($form_type === 'careers') {
+    $file_key = !empty($_FILES['resume']['name']) ? 'resume' : ( !empty($_FILES['careers-resume']['name']) ? 'careers-resume' : null );
+    if ($file_key && isset($_FILES[$file_key]) && $_FILES[$file_key]['error'] === UPLOAD_ERR_OK) {
+        $uploads_dir = __DIR__ . DIRECTORY_SEPARATOR . 'uploads';
+        if (!is_dir($uploads_dir)) mkdir($uploads_dir, 0755, true);
+        $tmp_name = $_FILES[$file_key]['tmp_name'];
+        $original_name = basename($_FILES[$file_key]['name']);
+        $safe_name = preg_replace('/[^A-Za-z0-9_\-\.]/', '_', $original_name);
+        $dest = $uploads_dir . DIRECTORY_SEPARATOR . time() . '_' . $safe_name;
+        if (move_uploaded_file($tmp_name, $dest)) {
+            $public_path = 'uploads/' . basename($dest);
+            $upload_link = $public_path;
+            $email_body .= "<div class='field'><div class='label'>Resume:</div><div class='value'><a href='$public_path' target='_blank'>Download Resume</a></div></div>";
+        } else {
+            $email_body .= "<div class='field'><div class='label'>Resume:</div><div class='value'>Upload failed on server</div></div>";
+        }
+    }
+}
+
+$email_body .= "</div><div style=\"text-align:center;color:#777;padding-top:12px;font-size:12px\">Received on " . date('F j, Y \a\t g:i A') . "</div></div></body></html>";
 
 // Auto-reply email content for user
 $reply_subject = "Thank you for contacting Alaska Batteries";
@@ -157,7 +220,7 @@ $reply_body = "
             Islamabad, Pakistan, 44010</p>
             <p>Phone: +92 51 874 0280<br>
             Email: info@alaskabatteries.com<br>
-            Website: <a href='https://zaid-it.github.io/alaska-batteries-website/'>alaskabatteries.com</a></p>
+            Website: <a href='https://www.alaskabatteries.com'>alaskabatteries.com</a></p>
         </div>
     </div>
 </body>
@@ -188,22 +251,72 @@ try {
     ini_set('SMTP', $smtp_host);
     ini_set('smtp_port', $smtp_port);
     ini_set('sendmail_from', $smtp_from);
+    // If PHPMailer is available (recommended), use it for authenticated SMTP
+    $admin_sent = false;
+    $user_sent = false;
+    if (file_exists(__DIR__ . '/vendor/autoload.php')) {
+        require_once __DIR__ . '/vendor/autoload.php';
+    }
 
-    // Send email to admin
-    $admin_sent = mail(
-        $smtp_to,
-        $email_subject,
-        $email_body,
-        implode("\r\n", $headers_admin)
-    );
+    if (class_exists('PHPMailer\PHPMailer\PHPMailer')) {
+        // Use PHPMailer for reliable SMTP
+        $mail = new PHPMailer\PHPMailer\PHPMailer(true);
+        try {
+            // Server settings
+            $mail->isSMTP();
+            $mail->Host = $smtp_host;
+            $mail->SMTPAuth = true;
+            $mail->Username = $smtp_username;
+            $mail->Password = $smtp_password;
+            $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port = $smtp_port;
 
-    // Send auto-reply to user
-    $user_sent = mail(
-        $email,
-        $reply_subject,
-        $reply_body,
-        implode("\r\n", $headers_user)
-    );
+            // Recipients & content for admin
+            $mail->setFrom($smtp_from, $smtp_from_name);
+            $mail->addAddress($smtp_to);
+            $mail->addReplyTo($email, $name);
+            $mail->isHTML(true);
+            $mail->Subject = $email_subject;
+            $mail->Body = $email_body;
+
+            // Attach resume if uploaded
+            if (!empty($dest) && file_exists($dest)) {
+                $mail->addAttachment($dest);
+            }
+
+            $admin_sent = $mail->send();
+
+            // Send auto-reply to user
+            $mail->clearAllRecipients();
+            $mail->setFrom($smtp_from, $smtp_from_name);
+            $mail->addAddress($email);
+            $mail->Subject = $reply_subject;
+            $mail->Body = $reply_body;
+            $user_sent = $mail->send();
+
+        } catch (Exception $e) {
+            error_log('PHPMailer exception: ' . $e->getMessage());
+            // fallback to mail()
+            $admin_sent = mail($smtp_to, $email_subject, $email_body, implode("\r\n", $headers_admin));
+            $user_sent = mail($email, $reply_subject, $reply_body, implode("\r\n", $headers_user));
+        }
+    } else {
+        // Send email to admin via PHP mail() fallback
+        $admin_sent = mail(
+            $smtp_to,
+            $email_subject,
+            $email_body,
+            implode("\r\n", $headers_admin)
+        );
+
+        // Send auto-reply to user
+        $user_sent = mail(
+            $email,
+            $reply_subject,
+            $reply_body,
+            implode("\r\n", $headers_user)
+        );
+    }
 
     if ($admin_sent) {
         // Log successful submission
