@@ -281,7 +281,7 @@
     </script>
     <script>
       // TODO: Replace with your actual Hostinger PHP script URL
-      const EMAIL_API_URL = 'https://yourdomain.com/send-email.php';
+      const EMAIL_API_URL = 'https://alaskabatteries.com/send-email.php';
 
       // Success modal element (check if it exists in components.js)
       function showSuccessModal() {
@@ -328,6 +328,7 @@
 
         // Collect form data
         const formData = {
+          form: 'support',
           name: fullName.value,
           email: userEmail.value,
           phone: userPhone.value,
@@ -365,6 +366,58 @@
           submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
         }
       });
+
+      // Careers form handler (handles file upload)
+      const careersForm = document.getElementById('careersForm');
+      if (careersForm) {
+        careersForm.addEventListener('submit', async function (event) {
+          event.preventDefault();
+          const btn = document.getElementById('careersSubmitBtn');
+          const originalText = btn.textContent;
+
+          const name = document.getElementById('careers-fullName').value.trim();
+          const email = document.getElementById('careers-email').value.trim();
+          const phone = document.getElementById('careers-phone').value.trim();
+          const resumeInput = document.getElementById('careers-resume');
+
+          if (!name || !email || !phone || !resumeInput.files.length) {
+            alert('Please complete all required fields and upload your resume.');
+            return;
+          }
+
+          btn.disabled = true;
+          btn.textContent = 'Sending...';
+
+          const payload = new FormData();
+          payload.append('form', 'careers');
+          payload.append('name', name);
+          payload.append('email', email);
+          payload.append('phone', phone);
+          payload.append('message', document.getElementById('careers-message').value || '');
+          payload.append('resume', resumeInput.files[0]);
+
+          try {
+            const response = await fetch(EMAIL_API_URL, {
+              method: 'POST',
+              body: payload
+            });
+            const result = await response.json();
+            if (response.ok && result.success) {
+              if (typeof showSuccessModal === 'function') showSuccessModal();
+              else alert('Application sent successfully.');
+              careersForm.reset();
+            } else {
+              alert(result.message || 'Failed to send application.');
+            }
+          } catch (err) {
+            console.error(err);
+            alert('Failed to send application. Try again later.');
+          } finally {
+            btn.disabled = false;
+            btn.textContent = originalText;
+          }
+        });
+      }
     </script>
 </body>
 
