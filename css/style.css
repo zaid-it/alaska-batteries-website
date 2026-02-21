@@ -992,6 +992,21 @@ img {
   padding: 0.5rem 1rem;
   background: rgba(0, 0, 0, 0.65);
 }
+
+.banner-overlay-support {
+  position: absolute;
+  top: 10rem !important;
+  z-index: 50;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: fit-content !important;
+  max-width: fit-content !important;
+  overflow: hidden;
+  border-radius: 0 10px 10px 0;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 0, 0, 0.65);
+}
 @media (max-width: 600px) {
   .banner-overlay {
     top: 10rem !important;
@@ -1002,6 +1017,14 @@ img {
     justify-content: center;
   }
   .banner-overlay-vault {
+    top: 1.5rem !important;
+    height: 75px !important;
+    max-height: 75px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .banner-overlay-support {
     top: 1.5rem !important;
     height: 75px !important;
     max-height: 75px !important;
