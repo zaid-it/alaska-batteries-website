@@ -405,6 +405,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const list = Array.isArray(data) ? data : lastFiltered.length ? lastFiltered : batteryData;
     renderGalleryGrid(list);
     modal.classList.add("active");
+    setTimeout(() => {
+      modal.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 10);
     document.body.style.overflow = "hidden";
   };
 
