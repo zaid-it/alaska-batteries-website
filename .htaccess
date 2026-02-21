@@ -1,0 +1,34 @@
+# Serve static index.html before index.php (prevents old WordPress index.php from taking precedence)
+DirectoryIndex index.html index.htm index.php
+
+# Disable directory listing
+Options -Indexes
+
+# Basic caching for static assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "no-referrer-when-downgrade"
+</IfModule>
+
+# Disable PHP execution in uploads folder for safety (adjust path if needed)
+<IfModule mod_php.c>
+  <Directory "${DOCUMENT_ROOT}/uploads">
+    php_flag engine off
+    Options -Indexes
+  </Directory>
+</IfModule>
+
+# End of .htaccess
