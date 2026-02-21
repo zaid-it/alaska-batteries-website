@@ -556,7 +556,7 @@ img {
 /* Compact CTA modifier: mobile-optimized smaller padding, normal on tablet+ */
 .btn-cta.btn-compact,
 .btn-cta-alt.btn-compact {
-  padding: 0.5rem 0.75rem !important;
+  padding: 0.75rem 0.75rem !important;
   font-size: 0.75rem !important;
 }
 
