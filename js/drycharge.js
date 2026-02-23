@@ -515,8 +515,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  // Initial Render
-  renderThumbnails(batteryData);
+  // Initial Render — ensure we render using the same filtered/sorted logic
+  applyFilters();
   // Find the battery with the lowest numeric model number to display first
   const firstBySort = [...batteryData].sort((a, b) => {
     const numA = parseInt(a.model.match(/\d+/)?.[0] || 0);
