@@ -359,3 +359,21 @@ if (document.readyState === "loading") {
 } else {
   init();
 }
+
+// Global modal helpers: ensure pages that don't include `main.js` can still
+// open/close the shared `successModal` injected by this component.
+window.showSuccessModal = function () {
+  const modal = document.getElementById("successModal");
+  if (!modal) return;
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+  document.body.style.overflow = "hidden";
+};
+
+window.closeModal = function () {
+  const modal = document.getElementById("successModal");
+  if (!modal) return;
+  modal.classList.add("hidden");
+  modal.classList.remove("flex");
+  document.body.style.overflow = "auto";
+};
