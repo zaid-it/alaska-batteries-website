@@ -397,3 +397,15 @@ function _attachSuccessModalClose() {
 
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", _attachSuccessModalClose);
 else _attachSuccessModalClose();
+
+// Fallback: delegate clicks for the close button so it always works
+document.addEventListener("click", function (e) {
+  try {
+    const target = e.target.closest && e.target.closest("#successModalCloseBtn");
+    if (target) {
+      window.closeModal();
+    }
+  } catch (err) {
+    // ignore
+  }
+});
