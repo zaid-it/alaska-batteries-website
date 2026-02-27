@@ -147,8 +147,16 @@
         });
         const result = await res.json();
         if (res.ok && result.success) {
-          if (typeof showSuccessModal === 'function') showSuccessModal();
-          else alert('Message sent successfully.');
+          const modal = document.getElementById('successModal');
+          if (modal) {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+          } else if (typeof showSuccessModal === 'function') {
+            showSuccessModal();
+          } else {
+            alert('Message sent successfully.');
+          }
           dealerForm.reset();
         } else {
           alert(result.message || 'Failed to send message.');
