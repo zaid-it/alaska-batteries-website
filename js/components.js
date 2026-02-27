@@ -171,7 +171,9 @@ const footerHTML = /* HTML */ `
           Our team will review your details and contact you within 48 business hours.
         </p>
 
-        <button onclick="closeModal()" class="w-full bg-black text-white font-black uppercase py-4 text-[10px] tracking-[0.3em] hover:bg-[#c00d1e] transition-all">Return to Site</button>
+        <button id="successModalCloseBtn" type="button" class="w-full bg-black text-white font-black uppercase py-4 text-[10px] tracking-[0.3em] hover:bg-[#c00d1e] transition-all">
+          Return to Site
+        </button>
       </div>
     </div>
   </footer>
@@ -377,3 +379,21 @@ window.closeModal = function () {
   modal.classList.remove("flex");
   document.body.style.overflow = "auto";
 };
+
+// Attach click handler to modal close button (works across pages)
+function _attachSuccessModalClose() {
+  try {
+    const btn = document.getElementById("successModalCloseBtn");
+    if (btn && !btn.dataset._attached) {
+      btn.addEventListener("click", function () {
+        window.closeModal();
+      });
+      btn.dataset._attached = "1";
+    }
+  } catch (e) {
+    console.error("Error attaching successModal close handler", e);
+  }
+}
+
+if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", _attachSuccessModalClose);
+else _attachSuccessModalClose();

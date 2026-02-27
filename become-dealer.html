@@ -128,16 +128,26 @@
 
       const selectedInterests = Array.from(document.querySelectorAll('input[name="interests[]"]:checked')).map(i => i.value);
 
+      const addressField = document.getElementById('Address');
+      const address = addressField ? (addressField.value || '').trim() : '';
+
       const payload = {
         form: 'dealer',
         name,
         company,
         email,
         phone,
-        subject: document.getElementById('Address') ? document.getElementById('Address').value : ''
+        subject: address
       };
 
       if (selectedInterests.length) payload.interests = selectedInterests;
+
+      // Build a simple message so auto-reply and admin email include useful details
+      const msgParts = [];
+      if (address) msgParts.push('Address: ' + address);
+      if (selectedInterests.length) msgParts.push('Primary Interest(s): ' + selectedInterests.join(', '));
+      if (company) msgParts.push('Company: ' + company);
+      payload.message = msgParts.join('\n') || 'No additional message provided.';
 
       try {
         const res = await fetch(EMAIL_API_URL, {
