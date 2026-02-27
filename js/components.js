@@ -171,7 +171,11 @@ const footerHTML = /* HTML */ `
           Our team will review your details and contact you within 48 business hours.
         </p>
 
-        <button id="successModalCloseBtn" type="button" class="w-full bg-black text-white font-black uppercase py-4 text-[10px] tracking-[0.3em] hover:bg-[#c00d1e] transition-all">
+        <button
+          id="successModalCloseBtn"
+          type="button"
+          onclick="(window.closeModal||function(){})()"
+          class="w-full bg-black text-white font-black uppercase py-4 text-[10px] tracking-[0.3em] hover:bg-[#c00d1e] transition-all">
           Return to Site
         </button>
       </div>
@@ -379,6 +383,17 @@ window.closeModal = function () {
   modal.classList.remove("flex");
   document.body.style.overflow = "auto";
 };
+
+// Provide a global function name `closeModal` so inline onclick="closeModal()"
+// does not throw a ReferenceError if older markup or cached scripts call it.
+function closeModal() {
+  try {
+    // prefer the namespaced window implementation
+    if (typeof window.closeModal === "function") return window.closeModal();
+  } catch (e) {
+    // swallow errors
+  }
+}
 
 // Attach click handler to modal close button (works across pages)
 function _attachSuccessModalClose() {
