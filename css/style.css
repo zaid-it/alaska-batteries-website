@@ -1023,6 +1023,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    left: -5px !important;
   }
   .banner-overlay-support {
     top: 1.5rem !important;
@@ -2903,6 +2904,10 @@ body.urdu-mode .header-ur {
 
   .hero-fold .banner-wrapper {
     height: 92vh;
+    width: 100%;
+  }
+  .hero-fold .banner-wrapper2 {
+    height: 90vh;
     width: 100%;
   }
 

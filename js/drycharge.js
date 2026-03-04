@@ -535,23 +535,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const contentMap = {
     All: {
-      img: "assets/solutions/solutions-hero.png",
-      mobile_img: "assets/solutions/mobile/solutions-hero-mobile.png",
+      img: "assets/solutions/solutions-hero.webp",
+      mobile_img: "assets/solutions/mobile/solutions-hero-mobile.webp",
       title: 'Dry <span class="text-[#c00d1e]">Charge</span>',
     },
     Automotive: {
-      img: "assets/solutions/automotive.png",
-      mobile_img: "assets/solutions/mobile/automotive-mobile.png",
+      img: "assets/solutions/automotive.webp",
+      mobile_img: "assets/solutions/mobile/automotive-mobile.webp",
       title: "Automotive",
     },
     Solar: {
-      img: "assets/solutions/solar.png",
-      mobile_img: "assets/solutions/mobile/solar-mobile.png",
+      img: "assets/solutions/solar.webp",
+      mobile_img: "assets/solutions/mobile/solar-mobile.webp",
       title: "Solar",
     },
     Industrial: {
-      img: "assets/solutions/industrial.png",
-      mobile_img: "assets/solutions/mobile/industrial-mobile.png",
+      img: "assets/solutions/industrial.webp",
+      mobile_img: "assets/solutions/mobile/industrial-mobile.webp",
       title: "Industrial",
     },
   };

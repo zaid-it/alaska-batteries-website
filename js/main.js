@@ -295,7 +295,7 @@ View Summer Ready Batteries
     "eid-checklist": {
       title: "Don't Let Eid Travel Leave You Stranded - Complete Battery Readiness Checklist",
       category: "Travel",
-      image: "assets/vault/blogs/eid-blog-2.png",
+      image: "assets/vault/blogs/eid-blog-2.webp",
       content: `<h2>Start Your Eid Journey With a Few Simple Steps</h2>
 
 <p><strong>Pre-Travel Battery Checklist:</strong></p>
@@ -336,7 +336,7 @@ For added safety, especially when traveling with children or elders, carrying a 
     "power-saving": {
       title: "5 Power-Saving Secrets to Make Your Car Battery Last Longer",
       category: "Maintenance",
-      image: "assets/vault/blogs/power-blog-3.png",
+      image: "assets/vault/blogs/power-blog-3.webp",
       content: `<p>
 Tired of unexpected battery failures? Follow these expert-backed tips to extend your car battery life and ensure a smooth, worry-free drive every time. Your car battery is the unsung hero of your vehicle — a little care goes a long way.
 </p>
@@ -396,7 +396,7 @@ Explore Battery Options
     "ebike-accessories": {
       title: "Beat the Heat | Battery Survival Guide for Pakistani Summer Season",
       category: "Summer Guide",
-      image: "assets/vault/blogs/storing-blog-4.png",
+      image: "assets/vault/blogs/summer-blog-6.webp",
       content: `<p>
 Summer heat in Pakistan is one of the fastest ways to shorten a battery’s life. High temperatures speed up internal chemical reactions and increase corrosion. With a few practical steps, however, you can protect your battery and avoid unexpected failures.
 </p>
@@ -436,7 +436,7 @@ Small preventive steps taken today can prevent roadside trouble and extend batte
     "ebike-repairs": {
       title: "The Right Way to Charge & Store Your Battery for Maximum Lifespan",
       category: "Battery Care",
-      image: "assets/vault/blogs/recycle-blog-5.png",
+      image: "assets/vault/blogs/storing-blog-4.webp",
       content: `<p>
 Avoid battery degradation and early failures. Learn how to properly charge and store your battery to keep it in top condition for years.
 </p>
@@ -485,7 +485,7 @@ Read for Battery Care
     "ebike-charging": {
       title: "Battery Recycling: Turning Old Power into New Possibilities",
       category: "E-Bike Tips",
-      image: "assets/vault/blogs/summer-blog-6.png",
+      image: "assets/vault/blogs/recycle-blog-5.webp",
       content: `<p>
 Did you know old batteries can be repurposed? Understanding the battery recycling process explains why it is essential for sustainability and a cleaner planet.
 </p>
