@@ -1,5 +1,37 @@
 // Wait for DOM to be ready before running any code
 document.addEventListener("DOMContentLoaded", () => {
+  // Enable native lazy-loading and provide a lightweight fallback.
+  // For best results, add `data-src`/`data-srcset` to images you want deferred
+  // (keeps `src` empty or points to a tiny placeholder). This script will
+  // set `loading="lazy"` on all <img> elements and, for browsers that
+  // don't support the native attribute, use an IntersectionObserver to copy
+  // `data-src`/`data-srcset` into `src`/`srcset` when the image is near the viewport.
+  (function enableLazyImages() {
+    const imgs = document.querySelectorAll("img");
+    imgs.forEach((img) => {
+      if (!img.hasAttribute("loading")) img.setAttribute("loading", "lazy");
+    });
+
+    if (!("loading" in HTMLImageElement.prototype)) {
+      const lazy = document.querySelectorAll('img[loading="lazy"]');
+      if (lazy.length === 0) return;
+
+      const io = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            if (el.dataset && el.dataset.src) el.src = el.dataset.src;
+            if (el.dataset && el.dataset.srcset) el.srcset = el.dataset.srcset;
+            observer.unobserve(el);
+          });
+        },
+        { rootMargin: "200px 0px" },
+      );
+
+      lazy.forEach((img) => io.observe(img));
+    }
+  })();
   // Smooth Scroll Logic for # links
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
