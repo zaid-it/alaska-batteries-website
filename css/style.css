@@ -2865,6 +2865,11 @@ body.urdu-mode .header-ur {
       transition: filter 0.3s ease;
     }
 
+    #hero-banner-img2 {
+      height: 92vh !important; /* Fixed height for mobile */
+      transition: filter 0.3s ease;
+    }
+
     /* Adjust the Text Box for Mobile Stack */
     #hero-text-box {
       position: absolute !important;
@@ -2907,7 +2912,7 @@ body.urdu-mode .header-ur {
     width: 100%;
   }
   .hero-fold .banner-wrapper2 {
-    height: 90vh;
+    height: 92vh;
     width: 100%;
   }
 
